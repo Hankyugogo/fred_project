@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026-05-02 US Daily Macro & Markets</title>
+    <meta name="description" content="미국 경제 수치와 주요 뉴스 기반 데일리 마켓 브리핑" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap");
+
+      :root {
+        --paper: #f7f8f5;
+        --ink: #111614;
+        --muted: #66706b;
+        --line: #d9dfd8;
+        --panel: #ffffff;
+        --panel-soft: #eef2ed;
+        --accent: #17463a;
+        --accent-2: #a66b2a;
+        --up: #0f7b56;
+        --down: #b23b35;
+        --flat: #606b66;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      }
+
+      a { color: inherit; }
+
+      .report {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 34px 22px 56px;
+      }
+
+      .masthead {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 24px;
+      }
+
+      .kicker {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        margin-bottom: 16px;
+        max-width: 820px;
+        font-family: "Source Serif 4", "Noto Sans KR", serif;
+        font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        overflow-wrap: anywhere;
+        word-break: keep-all;
+      }
+
+      .deck {
+        max-width: 860px;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.75;
+      }
+
+      .meta-row, .tag-row, .summary-grid, .index-grid, .theme-grid, .note-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .meta-row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .meta-cell, .index-cell, .summary-cell, .theme-block, .note-item {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: 14px;
+      }
+
+      .meta-cell span, .index-cell span, .summary-cell span, .theme-block span, .section-title span {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .meta-cell strong, .index-cell strong, .summary-cell strong {
+        display: block;
+        font-size: 1.05rem;
+        line-height: 1.35;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .tag-row span {
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+        padding: 7px 10px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .report-section {
+        padding: 30px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-title {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 20px;
+        align-items: baseline;
+        margin-bottom: 18px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 1.65rem;
+        line-height: 1.25;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1.25fr 0.75fr;
+      }
+
+      .summary-cell p, .body-copy, .note-item p, .theme-block p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .index-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .index-cell strong {
+        font-size: 1.6rem;
+      }
+
+      .index-cell em {
+        font-style: normal;
+        font-weight: 800;
+      }
+
+      .up { color: var(--up); }
+      .down { color: var(--down); }
+      .flat { color: var(--flat); }
+
+      .theme-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 16px;
+      }
+
+      .headline-list {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .headline-list li {
+        display: grid;
+        gap: 4px;
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+
+      .headline-list a {
+        color: var(--ink);
+        text-decoration: none;
+        line-height: 1.5;
+        font-weight: 650;
+      }
+
+      .headline-list span, .freshness-list span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .metric-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .metric-table th, .metric-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .metric-table th {
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .num {
+        text-align: right !important;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .freshness {
+        display: inline-block;
+        padding: 4px 7px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .freshness.stale {
+        color: var(--down);
+        border-color: rgba(178, 59, 53, 0.35);
+      }
+
+      .freshness.delayed {
+        color: var(--accent-2);
+        border-color: rgba(166, 107, 42, 0.35);
+      }
+
+      .freshness-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .freshness-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-top: 1px solid var(--line);
+        padding-top: 8px;
+      }
+
+      .footer-note {
+        padding-top: 24px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 820px) {
+        .report {
+          padding: 28px 18px 46px;
+        }
+
+        h1 {
+          font-size: clamp(1.85rem, 8.4vw, 2.45rem);
+          line-height: 1.12;
+        }
+
+        .meta-row, .summary-grid, .index-grid, .theme-grid, .section-title {
+          grid-template-columns: 1fr;
+        }
+
+        .metric-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+
+      @media print {
+        body { background: #fff; }
+        .report { max-width: none; padding: 18mm; }
+        .report-section { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="report">
+      <header class="masthead">
+        <p class="kicker">US Daily Macro & Markets</p>
+        <h1>나스닥 주도 강세, 변동성 안정</h1>
+        <p class="deck">미국 증시는 강세를 보였습니다. S&amp;P500 +0.29%, 나스닥 +0.89%, 다우 -0.31%로 성장주 주도 흐름이 나타났습니다. 주식시장 강세와 안정적인 변동성이 동시에 나타나며 투자심리가 개선된 모습입니다. 10년물 4.40%는 주식과 공존할 수는 있지만 멀티플 확장을 무조건 허용하는 수준은 아닙니다. 10년물은 유효 연방기금금리보다 +0.76%p 높아 장기 할인율 부담이 남아 있습니다. 기준일이 가장 늦은 항목은 달러/원 환율(2026-04-24, 오래됨 5영업일)입니다. 해당 지표는 오늘 장 실시간 해석보다 배경 변수로 제한해 보는 편이 좋습니다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.</p>
+        <div class="meta-row">
+          <div class="meta-cell"><span>Report Date</span><strong>2026-05-02</strong></div>
+          <div class="meta-cell"><span>Generated</span><strong>2026년 5월 2일 토 오후 11:36</strong></div>
+          <div class="meta-cell"><span>자료 상태</span><strong>보조지표 확인 필요</strong></div>
+          <div class="meta-cell"><span>보고서 상태</span><strong>일부 지표 지연 반영</strong></div>
+        </div>
+        <div class="tag-row"><span>FRED</span><span>데이터기반</span><span>미국증시</span><span>금리</span><span>보조지표 확인 필요</span><span>일부 지표 지연 반영</span><span>투자심리개선</span></div>
+      </header>
+
+      <section class="report-section">
+        <div class="section-title">
+          <span>Executive Summary</span>
+          <h2>핵심 판단</h2>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-cell">
+            <span>종합 판단</span>
+            <p>미국 증시는 강세를 보였습니다. S&amp;P500 +0.29%, 나스닥 +0.89%, 다우 -0.31%로 성장주 주도 흐름이 나타났습니다. 주식시장 강세와 안정적인 변동성이 동시에 나타나며 투자심리가 개선된 모습입니다. 10년물 4.40%는 주식과 공존할 수는 있지만 멀티플 확장을 무조건 허용하는 수준은 아닙니다. 10년물은 유효 연방기금금리보다 +0.76%p 높아 장기 할인율 부담이 남아 있습니다. 기준일이 가장 늦은 항목은 달러/원 환율(2026-04-24, 오래됨 5영업일)입니다. 해당 지표는 오늘 장 실시간 해석보다 배경 변수로 제한해 보는 편이 좋습니다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.</p>
+          </div>
+          <div class="summary-cell">
+            <span>점검 지표</span>
+            <strong>10Y 4.40% · Curve 0.52% · VIX 16.89</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title">
+          <span>시장 지표</span>
+          <h2>주요 지수와 가격 반응</h2>
+        </div>
+        <div class="index-grid">
+      <div class="index-cell">
+        <span>S&amp;P 500</span>
+        <strong>7,230.12</strong>
+        <em class="up">+0.29%</em>
+      </div>
+    
+      <div class="index-cell">
+        <span>나스닥</span>
+        <strong>25,114.44</strong>
+        <em class="up">+0.89%</em>
+      </div>
+    
+      <div class="index-cell">
+        <span>Dow</span>
+        <strong>49,499.27</strong>
+        <em class="down">-0.31%</em>
+      </div>
+    </div>
+      </section>
+
+      
+    <section class="report-section">
+      <div class="section-title">
+        <span>주요 뉴스</span>
+        <h2>주요 뉴스와 이벤트</h2>
+      </div>
+      <p class="body-copy">오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.</p>
+      <div class="theme-grid">
+    <article class="theme-block">
+      <span>정책/연준</span>
+      <p>정책/연준 흐름에서는 'Agencies issue host state loan-to-deposit ratios'가 가장 높은 우선순위로 잡혔습니다. 관련 출처는 Federal Reserve, Fed Speeches, Wealth Professional Canada입니다.</p>
+    </article>
+  
+    <article class="theme-block">
+      <span>매크로 지표</span>
+      <p>매크로 지표 흐름에서는 'Economy picked up in early 2026, but inflation jumped, too'가 가장 높은 우선순위로 잡혔습니다. 관련 출처는 The Washington Post, WBFF, SSBCrack입니다.</p>
+    </article>
+  
+    <article class="theme-block">
+      <span>시장 반응</span>
+      <p>시장 반응 흐름에서는 'Japan just put a ‘Band-Aid’ on the yen. Why high oil prices could soon rip it off.'가 가장 높은 우선순위로 잡혔습니다. 관련 출처는 MarketWatch Top Stories, The Economic Times, 富途牛牛입니다.</p>
+    </article>
+  
+    <article class="theme-block">
+      <span>리스크 이벤트</span>
+      <p>리스크 이벤트 흐름에서는 'Meet the unsinkable U.S. economy — oil prices are surging, Iran tensions are rising, but it won’t crack'가 가장 높은 우선순위로 잡혔습니다. 관련 출처는 MarketWatch Top Stories, Investopedia입니다.</p>
+    </article>
+  </div>
+      <ol class="headline-list">
+    <li>
+      <a href="https://www.marketwatch.com/story/japan-just-put-a-band-aid-on-the-yen-why-high-oil-prices-could-soon-rip-it-off-21374282?mod=mw_rss_topstories" target="_blank" rel="noreferrer">Japan just put a ‘Band-Aid’ on the yen. Why high oil prices could soon rip it off.</a>
+      <span>MarketWatch Top Stories · 시장 반응 · 중요도 38</span>
+    </li>
+  
+    <li>
+      <a href="https://www.marketwatch.com/story/meet-the-unsinkable-u-s-economy-oil-prices-are-surging-iran-tensions-are-rising-but-it-wont-crack-ee27477f?mod=mw_rss_topstories" target="_blank" rel="noreferrer">Meet the unsinkable U.S. economy — oil prices are surging, Iran tensions are rising, but it won’t crack</a>
+      <span>MarketWatch Top Stories · 리스크 이벤트 · 중요도 37</span>
+    </li>
+  
+    <li>
+      <a href="https://www.marketwatch.com/story/americas-biggest-oil-companies-are-making-less-money-than-before-the-iran-war-bff3b455?mod=mw_rss_topstories" target="_blank" rel="noreferrer">America’s biggest oil companies are making less money than before the Iran war</a>
+      <span>MarketWatch Top Stories · 리스크 이벤트 · 중요도 37</span>
+    </li>
+  
+    <li>
+      <a href="https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260501a.htm" target="_blank" rel="noreferrer">Agencies issue host state loan-to-deposit ratios</a>
+      <span>Federal Reserve · 정책/연준 · 중요도 35</span>
+    </li>
+  
+    <li>
+      <a href="https://www.marketwatch.com/story/google-is-now-a-glorified-venture-capital-fund-thanks-to-its-spacex-and-anthropic-stakes-b13f3d56?mod=mw_rss_topstories" target="_blank" rel="noreferrer">Google is now a glorified venture-capital fund thanks to its SpaceX and Anthropic stakes</a>
+      <span>MarketWatch Top Stories · 시장 반응 · 중요도 34</span>
+    </li>
+  
+    <li>
+      <a href="https://www.federalreserve.gov/newsevents/speech/bowman20260501a.htm" target="_blank" rel="noreferrer">Bowman, Artificial Intelligence in the Financial System</a>
+      <span>Fed Speeches · 정책/연준 · 중요도 34</span>
+    </li>
+  
+    <li>
+      <a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbWdCamg5SlUtSzVQY0EyeTd2UDlFNkdnTGRuZkpLLWNaaDlReVQySHpMN2hndG4xeG05Y0d1SXd3S25YLTQ1QTRUc1Q3eHloUUVsUGVVYTNTOTZNOXkzUG5GRS01eFZQTXZGUkk4eDg2bUJpZ0FjdC15a2x6MWlUcnNtMUZHMFBlUXBZdmpmNXBva3RCNTlHdHRueHQ5cG9yeUItdWV6QTJVamRsRkh6TldYRXFka3huaVZTY19CM3R6WjhNTGYzMEwzdmJFeFUtaTVFZkhn0gHWAUFVX3lxTFBtZ0JqaDlKVS1LNVBjQTJ5N3ZQOUU2R2dMZG5mSkstY1poOVF5VDJIekw3aGd0bjF4bTljR3VJd3dLblgtNDVBNFRzVDd4eWhRRWxQZVVhM1M5Nk05eTNQbkZFLTV4VlBNdkZSSTh4ODZtQmlnQWN0LXlrbHoxaVRyc20xRkcwUGVRcFl2amY1cG9rdEI1OUd0dG54dDlwb3J5Qi11ZXpBMlVqZGxGSHpOV1hFcWRreG5pVlNjX0IzdHpaOE1MZjMwTDN2YkV4VS1pNUVmSGc?oc=5" target="_blank" rel="noreferrer">Gold turns positive as oil eases on hopes for Iran talks</a>
+      <span>The Economic Times · 시장 반응 · 중요도 33</span>
+    </li>
+  
+    <li>
+      <a href="https://www.marketwatch.com/story/ev-drivers-are-taking-a-victory-lap-right-past-the-gas-stations-selling-4-a-gallon-fuel-6931f634?mod=mw_rss_topstories" target="_blank" rel="noreferrer">EV drivers are taking a victory lap — right past the gas stations selling $4-a-gallon fuel</a>
+      <span>MarketWatch Top Stories · 리스크 이벤트 · 중요도 32</span>
+    </li>
+  </ol>
+    </section>
+  
+      
+      <section class="report-section">
+        <div class="section-title">
+          <span>Market Narrative</span>
+          <h2>Market Narrative</h2>
+        </div>
+        <div class="note-grid">
+      <div class="note-item">
+        <strong>시장 레짐</strong>
+        <p>주식시장 강세와 안정적인 변동성이 동시에 나타나며 투자심리가 개선된 모습입니다.</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>성장주 주도</strong>
+        <p>나스닥 +0.89%로 대형 성장주가 상대 강세를 보였습니다.</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>뉴스 플로우</strong>
+        <p>정책/연준 흐름에서는 'Agencies issue host state loan-to-deposit ratios'가 가장 높은 우선순위로 잡혔습니다. 관련 출처는 Federal Reserve, Fed Speeches, Wealth Professional Canada입니다.</p>
+      </div>
+    </div>
+      </section>
+    
+      <section class="report-section">
+        <div class="section-title">
+          <span>Cross Asset Reaction</span>
+          <h2>Cross Asset Reaction</h2>
+        </div>
+        <div class="note-grid">
+      <div class="note-item">
+        <strong>금리와 곡선</strong>
+        <p>10년물 4.40%, 2년물 3.88%, 10Y-2Y +0.52%p로 정상 플러스 구간입니다. 10년물 4.40%는 주식과 공존할 수는 있지만 멀티플 확장을 무조건 허용하는 수준은 아닙니다.</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>변동성, 달러, 원자재</strong>
+        <p>VIX 16.89 기준으로는 통제된 긴장 구간이고, 환율은 보수적으로 봐야 하고, 원자재는 보수적으로 봐야 합니다. 달러/원화 계열의 기준일이 오래돼 한국장 수급 해석에는 보조 참고치로만 쓰는 편이 안전합니다. WTI 기준일이 오래돼 인플레 압력과 지정학 리스크 판단에는 보조 참고치로 두는 편이 낫습니다.</p>
+      </div>
+    </div>
+      </section>
+    
+      <section class="report-section">
+        <div class="section-title">
+          <span>Watch List</span>
+          <h2>Watch List</h2>
+        </div>
+        <div class="note-grid">
+      <div class="note-item">
+        <strong>지금 확인할 변수</strong>
+        <p>나스닥종합지수의 상대 강도가 다음 세션에도 유지되는지 확인 / 장기금리 정체 흐름이 이어지는지 체크 / 달러/원 환율의 최신값 갱신 전까지는 해당 자산군 해석을 보조 참고로 제한</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>자료 상태</strong>
+        <p>기준일이 가장 늦은 항목은 달러/원 환율(2026-04-24, 오래됨 5영업일)입니다. 해당 지표는 오늘 장 실시간 해석보다 배경 변수로 제한해 보는 편이 좋습니다.</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>뉴스 출처 상태</strong>
+        <p>수집 성공 7개, 실패 0개입니다. 실패 출처는 리포트 하단에서 따로 확인합니다.</p>
+      </div>
+    </div>
+      </section>
+    
+      <section class="report-section">
+        <div class="section-title">
+          <span>Positioning Lens</span>
+          <h2>Positioning Lens</h2>
+        </div>
+        <div class="note-grid">
+      <div class="note-item">
+        <strong>한국장 시사점</strong>
+        <p>원화와 달러 관련 기준일이 늦어 한국장 수급 해석은 보수적으로 접근하는 편이 안전합니다. 미국 주식과 금리 방향을 우선축으로 두고, 장중 달러/원 현물을 따로 확인하는 쪽이 좋습니다.</p>
+      </div>
+    
+      <div class="note-item">
+        <strong>실행 메모</strong>
+        <p>방향이 엇갈릴 때는 한 지표에 과하게 반응하기보다 지수, 금리, 변동성의 정렬 여부를 재확인하는 편이 좋습니다.</p>
+      </div>
+    </div>
+      </section>
+    
+
+      <section class="report-section">
+        <div class="section-title">
+          <span>지표 표</span>
+          <h2>원시 지표 스냅샷</h2>
+        </div>
+        <table class="metric-table">
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Series</th>
+              <th class="num">Latest</th>
+              <th class="num">Change</th>
+              <th>Date</th>
+              <th>Freshness</th>
+            </tr>
+          </thead>
+          <tbody>
+      <tr>
+        <td>주요 지수</td>
+        <td>S&amp;P 500</td>
+        <td class="num">7,230.12</td>
+        <td class="num up">+21.11 / +0.29%</td>
+        <td>2026-05-01</td>
+        <td><span class="freshness fresh">당일 기준</span></td>
+      </tr>
+    
+      <tr>
+        <td>주요 지수</td>
+        <td>나스닥종합지수</td>
+        <td class="num">25,114.44</td>
+        <td class="num up">+222.13 / +0.89%</td>
+        <td>2026-05-01</td>
+        <td><span class="freshness fresh">당일 기준</span></td>
+      </tr>
+    
+      <tr>
+        <td>주요 지수</td>
+        <td>다우지수</td>
+        <td class="num">49,499.27</td>
+        <td class="num down">-152.87 / -0.31%</td>
+        <td>2026-05-01</td>
+        <td><span class="freshness fresh">당일 기준</span></td>
+      </tr>
+    
+      <tr>
+        <td>금리</td>
+        <td>미 국채 2년물</td>
+        <td class="num">3.88%</td>
+        <td class="num down">-0.04%p / -1.02%</td>
+        <td>2026-04-30</td>
+        <td><span class="freshness fresh">허용 범위 1영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>금리</td>
+        <td>미 국채 10년물</td>
+        <td class="num">4.40%</td>
+        <td class="num down">-0.02%p / -0.45%</td>
+        <td>2026-04-30</td>
+        <td><span class="freshness fresh">허용 범위 1영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>금리</td>
+        <td>실효 연방기금금리</td>
+        <td class="num">3.64%</td>
+        <td class="num flat">0.00%p / 0.00%</td>
+        <td>2026-04-30</td>
+        <td><span class="freshness fresh">허용 범위 1영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>금리</td>
+        <td>10Y-2Y Curve Spread</td>
+        <td class="num">0.52%</td>
+        <td class="num up">+0.02%p / +4.00%</td>
+        <td>2026-04-30</td>
+        <td><span class="freshness fresh">허용 범위 1영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>변동성</td>
+        <td>VIX</td>
+        <td class="num">16.89</td>
+        <td class="num down">-1.92 / -10.21%</td>
+        <td>2026-04-30</td>
+        <td><span class="freshness fresh">허용 범위 1영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>환율</td>
+        <td>달러/원 환율</td>
+        <td class="num">1,476.47 KRW</td>
+        <td class="num down">-2.72 / -0.18%</td>
+        <td>2026-04-24</td>
+        <td><span class="freshness stale">오래됨 5영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>환율</td>
+        <td>광의 달러지수</td>
+        <td class="num">118.7294</td>
+        <td class="num up">+0.0139 / +0.01%</td>
+        <td>2026-04-24</td>
+        <td><span class="freshness stale">오래됨 5영업일</span></td>
+      </tr>
+    
+      <tr>
+        <td>원자재</td>
+        <td>WTI 유가</td>
+        <td class="num">$99.89</td>
+        <td class="num up">+1.47 / +1.49%</td>
+        <td>2026-04-27</td>
+        <td><span class="freshness delayed">지연 4영업일</span></td>
+      </tr>
+    </tbody>
+        </table>
+      </section>
+
+      <section class="report-section">
+        <div class="section-title">
+          <span>자료 기준일</span>
+          <h2>기준일과 발행 안정성</h2>
+        </div>
+        
+    <ul class="freshness-list">
+      
+        <li>
+          <strong>달러/원 환율</strong>
+          <span>2026-04-24 · 오래됨 5영업일</span>
+        </li>
+      
+        <li>
+          <strong>광의 달러지수</strong>
+          <span>2026-04-24 · 오래됨 5영업일</span>
+        </li>
+      
+        <li>
+          <strong>WTI 유가</strong>
+          <span>2026-04-27 · 지연 4영업일</span>
+        </li>
+      
+    </ul>
+  
+      </section>
+
+      <p class="footer-note">
+        본 보고서는 FRED 시계열과 공개 RSS/뉴스 검색 헤드라인을 바탕으로 자동 생성되었습니다.
+        뉴스 본문 전문을 복제하지 않고 제목, 출처, 링크, 시점만 사용합니다. 투자 판단 전 원문과 실시간 가격을 함께 확인해야 합니다.
+      </p>
+    </article>
+  </body>
+</html>

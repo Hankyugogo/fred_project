@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRED Market Briefing Starter</title>
+    <meta
+      name="description"
+      content="FRED 기반 지수, 금리, 변동성, 환율, 원자재 스냅샷 스타터"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">FRED MARKET BRIEFING STARTER</p>
+        <div class="hero-row">
+          <div>
+            <h1 id="headline">데이터를 불러오는 중...</h1>
+            <p id="subheadline" class="subheadline">
+              FRED 스냅샷을 기준으로 시장 브리핑의 뼈대를 만드는 중입니다.
+            </p>
+          </div>
+          <div class="hero-meta">
+            <span id="generated-at">생성 시각 확인 중</span>
+            <span id="mode-badge">MODE</span>
+            <span id="data-health">데이터 상태 확인 중</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="card emphasis">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Live Snapshot</p>
+              <h2>라이브 3줄</h2>
+            </div>
+          </div>
+          <ol id="highlights" class="highlight-list">
+            <li>스냅샷을 준비하는 중입니다.</li>
+          </ol>
+        </section>
+
+        <section id="status-card" class="card status-card" hidden>
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Freshness</p>
+              <h2>기준일 경고</h2>
+            </div>
+            <span id="status-pill" class="status-pill">정상</span>
+          </div>
+          <p id="status-copy" class="status-copy">기준일 상태를 점검하는 중입니다.</p>
+          <ul id="status-list" class="status-list"></ul>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Live Dashboard</p>
+              <h2>라이브 핵심 지표</h2>
+            </div>
+          </div>
+          <div id="groups" class="group-stack"></div>
+        </section>
+
+        <section class="card archive-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Archive</p>
+              <h2>날짜별 브리핑</h2>
+            </div>
+          </div>
+          <div class="briefing-layout">
+            <div class="briefing-feature">
+              <div class="briefing-head">
+                <div>
+                  <p id="briefing-date" class="briefing-date">날짜를 불러오는 중입니다.</p>
+                  <h3 id="briefing-title">브리핑을 준비하는 중입니다.</h3>
+                </div>
+                <div id="briefing-tags" class="tag-row"></div>
+              </div>
+              <div id="briefing-indices" class="index-strip"></div>
+              <div id="briefing-quality" class="quality-strip"></div>
+              <div id="briefing-lead" class="briefing-lead">
+                <p>요약을 불러오는 중입니다.</p>
+              </div>
+              <div id="briefing-news" class="briefing-news"></div>
+              <div id="archive-freshness" class="archive-freshness"></div>
+            </div>
+
+            <aside class="archive-panel">
+              <p class="archive-label">지난 브리핑</p>
+              <ul id="briefing-list" class="briefing-list">
+                <li class="empty-line">브리핑 목록을 불러오는 중입니다.</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Selected Briefing</p>
+              <h2>선택한 브리핑 인사이트</h2>
+            </div>
+          </div>
+          <div id="briefing-insights" class="archive-insight-grid">
+            <p class="empty-line">인사이트를 불러오는 중입니다.</p>
+          </div>
+        </section>
+
+        <section class="card viewer-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Markdown View</p>
+              <h2>브리핑 본문</h2>
+            </div>
+          </div>
+          <div id="post-view" class="post-viewer">본문을 불러오는 중입니다.</div>
+        </section>
+
+        <section class="card notes-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Method</p>
+              <h2>이 구조를 어떻게 쓰면 좋은지</h2>
+            </div>
+          </div>
+          <ul id="notes" class="note-list">
+            <li>노트를 불러오는 중입니다.</li>
+          </ul>
+          <p class="doc-link">
+            공식 API 문서:
+            <a
+              id="api-doc-link"
+              href="https://fred.stlouisfed.org/docs/api/fred/series_observations.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              fred/series/observations
+            </a>
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

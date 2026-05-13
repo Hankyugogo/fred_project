@@ -1,0 +1,36 @@
+name: Daily Economy Report
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 06:10 KST. GitHub Actions uses UTC.
+    - cron: "10 21 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  build-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate report
+        run: npm run publish:full
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Commit generated report
+        run: |
+          git config user.name "daily-report-bot"
+          git config user.email "daily-report-bot@example.com"
+          git add data posts reports report.html
+          git diff --cached --quiet || git commit -m "Update daily economy report"
+          git push

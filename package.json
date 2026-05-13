@@ -1,0 +1,23 @@
+{
+  "name": "fred-market-briefing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:data": "node --env-file-if-exists=.env scripts/build-briefing.mjs",
+    "build:demo": "node --env-file-if-exists=.env scripts/build-briefing.mjs --demo",
+    "fetch:news": "node --env-file-if-exists=.env scripts/fetch-news.mjs",
+    "fetch:yahoo": "node --env-file-if-exists=.env scripts/fetch-yahoo.mjs",
+    "summarize:news": "node --env-file-if-exists=.env scripts/summarize-news.mjs",
+    "enrich:stale": "node --env-file-if-exists=.env scripts/enrich-stale.mjs",
+    "enrich:context": "node --env-file-if-exists=.env scripts/enrich-context.mjs",
+    "rewrite:llm": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs",
+    "publish:data": "npm run build:data && node --env-file-if-exists=.env scripts/publish-briefing.mjs",
+    "publish:demo": "npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo",
+    "publish:full": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:data && npm run enrich:stale && npm run enrich:context && node --env-file-if-exists=.env scripts/publish-briefing.mjs && npm run rewrite:llm && node --env-file-if-exists=.env scripts/render-report.mjs",
+    "publish:full-demo": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo && npm run rewrite:llm && node --env-file-if-exists=.env scripts/render-report.mjs",
+    "report:html": "node --env-file-if-exists=.env scripts/render-report.mjs",
+    "check:copy": "node --env-file-if-exists=.env scripts/check-editorial-copy.mjs",
+    "seed:demo-archive": "node --env-file-if-exists=.env scripts/seed-demo-archive.mjs",
+    "serve": "python3 -m http.server 8080"
+  }
+}

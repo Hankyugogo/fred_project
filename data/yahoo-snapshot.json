@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-05-06T00:49:48.724Z",
+  "source": "Yahoo Finance v8 chart API",
+  "items": [
+    {
+      "id": "KOSPI",
+      "label": "코스피",
+      "group": "korea",
+      "yahoo": "^KS11",
+      "format": "index",
+      "decimals": 2,
+      "sourceUrl": "https://finance.yahoo.com/quote/%5EKS11",
+      "error": "HTTP 429"
+    },
+    {
+      "id": "KOSDAQ",
+      "label": "코스닥",
+      "group": "korea",
+      "yahoo": "^KQ11",
+      "format": "index",
+      "decimals": 2,
+      "sourceUrl": "https://finance.yahoo.com/quote/%5EKQ11",
+      "error": "HTTP 429"
+    }
+  ]
+}

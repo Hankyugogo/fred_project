@@ -1,0 +1,65 @@
+{
+  "defaults": {
+    "reportTimeZone": "Asia/Seoul",
+    "maxItemsPerSource": 12,
+    "maxAgeHours": 96
+  },
+  "feeds": [
+    {
+      "id": "fed-press",
+      "label": "Federal Reserve",
+      "type": "official",
+      "category": "policy",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "weight": 16
+    },
+    {
+      "id": "fed-speeches",
+      "label": "Fed Speeches",
+      "type": "official",
+      "category": "policy",
+      "url": "https://www.federalreserve.gov/feeds/speeches.xml",
+      "weight": 14
+    },
+    {
+      "id": "marketwatch-top",
+      "label": "MarketWatch Top Stories",
+      "type": "market-news",
+      "category": "markets",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+      "weight": 9
+    },
+    {
+      "id": "marketwatch-marketpulse",
+      "label": "MarketWatch MarketPulse",
+      "type": "market-news",
+      "category": "markets",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+      "weight": 8
+    },
+    {
+      "id": "marketwatch-realtime",
+      "label": "MarketWatch Realtime",
+      "type": "market-news",
+      "category": "markets",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines",
+      "weight": 7
+    },
+    {
+      "id": "google-us-macro",
+      "label": "Google News: US Macro",
+      "type": "news-search",
+      "category": "macro",
+      "url": "https://news.google.com/rss/search?q=US%20economy%20Federal%20Reserve%20inflation%20jobs%20GDP%20when:2d&hl=en-US&gl=US&ceid=US:en",
+      "weight": 6
+    },
+    {
+      "id": "google-us-markets",
+      "label": "Google News: US Markets",
+      "type": "news-search",
+      "category": "markets",
+      "url": "https://news.google.com/rss/search?q=US%20stocks%20Treasury%20yields%20dollar%20oil%20earnings%20when:2d&hl=en-US&gl=US&ceid=US:en",
+      "weight": 6
+    }
+  ]
+}
