@@ -138,7 +138,7 @@ function buildSystemInstruction(style) {
     "■ 매크로 인과(causalAnalysis) 의무",
     "- 모든 인과 카드는 표면 → 1단계 원인 → 2단계 원인 → 시장 함의 사슬을 갖춰야 한다.",
     "  나쁜 예: '나스닥이 강세를 보였다. 기술주가 상승했기 때문이다.' (1단계만)",
-    "  좋은 예: '나스닥 종합지수의 0.89% 상승은 인공지능(AI) 자본지출 확대 기조와 연결된다. 1분기 국내총생산(GDP) 성장의 상당 부분이 AI 인프라 투자에서 비롯됐다는 분석이 성장주 우위 흐름을 뒷받침했다. 시장은 이를 빅테크 실적의 구조적 모멘텀으로 해석해 멀티플 확장을 일부 허용했다.'",
+    "  좋은 예: '나스닥 종합지수의 0.89% 상승은 인공지능(AI) 자본지출 확대 기조와 연결된다. 1분기 국내총생산(GDP) 성장의 상당 부분이 AI 인프라 투자에서 비롯됐다는 분석이 성장주 우위 흐름을 뒷받침했다. 시장은 이를 빅테크 실적의 구조적 모멘텀으로 해석해 주가 밸류에이션 확장을 일부 허용했다.'",
     "- 입력 데이터에서 직접 확인되지 않는 인과는 추정임을 명시한다('관측된다', '분석된다', '추정된다').",
     "",
     "■ 전망(forwardOutlook) 의무",
@@ -151,6 +151,15 @@ function buildSystemInstruction(style) {
     "- '한국 성장주 변동성 확대' 같은 일반론 금지. 다음 섹터 매핑을 활용해 종목·섹터 단위로 영향을 풀이한다: " + sectorBreakdown,
     "- 임계치는 반드시 숫자로 표기한다. 예: '미 10년물 4.50% 상향 돌파 시', '원달러 1,400선 돌파 시', '코스피 외국인 선물 누적 -2조원 돌파 시'.",
     "",
+    "■ 상위 시간축 인사이트(timeframeInsights) 의무",
+    "- 기존 데일리 리포트의 흐름은 유지하되, 오늘의 움직임을 주간·월간·분기·연간 흐름 안에서 해석한다.",
+    "- weekly/monthly/quarterly/yearly 4개 카드를 모두 채운다.",
+    "- 각 카드는 title, coreView, whyItMatters, koreaImpact, watchLevels를 포함한다.",
+    "- coreView는 리서치센터식으로 짧고 단정적인 핵심 판단 1문장이다.",
+    "- whyItMatters는 매크로 인과를 2단계 이상 설명하는 2문장이다.",
+    "- koreaImpact는 한국 8개 기본 섹터(반도체·자동차·2차전지·금융·조선·방산·바이오·인터넷/플랫폼) 중 해당 축을 골라 투자자 노트식으로 연결한다.",
+    "- watchLevels는 숫자 임계치 또는 확인 가능한 시장 변수 2~4개다.",
+    "",
     "■ 크로스애셋·테크니컬 시그널 활용",
     "가능한 경우 다음 신호를 본문 인과·전망에 녹인다: " + crossAssetSignals + ".",
     "",
@@ -160,7 +169,7 @@ function buildSystemInstruction(style) {
     "- triggers는 즉시 확인 가능한 지표·임계치로 2~3개. executionHint는 분할 진입·헤지 비율·축소 비율 같은 구체적 행동 옵션.",
     "",
     "■ 출력 형식",
-    "위 모든 구조화 필드(topThreeLines, keyIssues, marketSnapshot, koreanCheckpoints, causalAnalysis, forwardOutlook, positioning, commentary, insightSections)를 빠짐없이 채우는 데 집중한다. 마크다운 조립은 후처리에서 자동으로 한다.",
+    "위 모든 구조화 필드(topThreeLines, keyIssues, marketSnapshot, timeframeInsights, koreanCheckpoints, causalAnalysis, forwardOutlook, positioning, commentary, insightSections)를 빠짐없이 채우는 데 집중한다. 마크다운 조립은 후처리에서 자동으로 한다.",
     "",
     "overnightLead는 3~4문장. 첫 문장: 지수 마감 핵심 수치 + 시장 톤. 둘째 문장: 가장 강한 보조축(금리·정책·지정학·실적 중 1축). 셋째 문장: 시장 반응 패턴(섹터 차별화 등). 넷째(선택): 오늘 흐름을 한 줄로 압축한 매크로 해석.",
     "",
@@ -173,6 +182,18 @@ const SECTION_ITEM_SCHEMA = {
   type: "OBJECT",
   properties: { title: { type: "STRING" }, desc: { type: "STRING" } },
   required: ["title", "desc"]
+};
+
+const TIMEFRAME_CARD_SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    title: { type: "STRING" },
+    coreView: { type: "STRING" },
+    whyItMatters: { type: "STRING" },
+    koreaImpact: { type: "STRING" },
+    watchLevels: { type: "ARRAY", items: { type: "STRING" } }
+  },
+  required: ["title", "coreView", "whyItMatters", "koreaImpact", "watchLevels"]
 };
 
 const KEY_ISSUE_SCHEMA = {
@@ -230,6 +251,17 @@ const REWRITE_RESPONSE_SCHEMA = {
       description: "향후 변수와 전망 카드 2~4개. 이벤트명·날짜·컨센서스·시나리오 분기 명시.",
       items: SECTION_ITEM_SCHEMA
     },
+    timeframeInsights: {
+      type: "OBJECT",
+      description: "데일리 움직임을 상위 시간축 안에서 해석하는 주간·월간·분기·연간 카드.",
+      properties: {
+        weekly: TIMEFRAME_CARD_SCHEMA,
+        monthly: TIMEFRAME_CARD_SCHEMA,
+        quarterly: TIMEFRAME_CARD_SCHEMA,
+        yearly: TIMEFRAME_CARD_SCHEMA
+      },
+      required: ["weekly", "monthly", "quarterly", "yearly"]
+    },
     positioning: {
       type: "OBJECT",
       description: "투자 포지션 참고. 투자자문이 아닌 가능성 화법.",
@@ -285,6 +317,7 @@ const REWRITE_RESPONSE_SCHEMA = {
     "koreanCheckpoints",
     "causalAnalysis",
     "forwardOutlook",
+    "timeframeInsights",
     "positioning",
     "commentary",
     "insightSections",
@@ -349,6 +382,11 @@ function buildPrompt(market, news, draft, freshness) {
   sections.push("◇ 분석·전망");
   sections.push("- causalAnalysis: 2~4개 카드. {title, desc(2~3문장)}. 매크로 인과 사슬 2~3단계 의무.");
   sections.push("- forwardOutlook: 2~4개 카드. {title(이벤트명), desc(2~3문장)}. (이벤트명)+(날짜)+(컨센서스)+(상회/하회 시 시장 반응 가설) 4요소 의무.");
+  sections.push("- timeframeInsights: weekly/monthly/quarterly/yearly 4개 카드. 각 카드에 {title, coreView, whyItMatters, koreaImpact, watchLevels[]}를 채운다.");
+  sections.push("  · coreView는 리서치센터식 핵심 판단 1문장.");
+  sections.push("  · whyItMatters는 주간·월간·분기·연간 시간축에서 오늘 움직임이 왜 중요한지 2문장.");
+  sections.push("  · koreaImpact는 반도체·자동차·2차전지·금융·조선·방산·바이오·인터넷/플랫폼 중 관련 섹터를 골라 한국장 적용을 2문장으로 쓴다.");
+  sections.push("  · watchLevels는 숫자 임계치나 확인 가능한 변수 2~4개.");
   sections.push("- positioning.mainScenario: 6필드(view, reasoning, pros, cons, triggers[], executionHint). triggers는 임계치 포함 2~3개.");
   sections.push("- positioning.altScenario: 2필드(condition, view). 보조 시나리오 발동 조건 + 그 시 흐름.");
   sections.push("");
@@ -404,6 +442,23 @@ function assembleStructuredBody(payload) {
       if (issue.whatHappened) blocks.push(`- 무슨 일이 있었는지: ${issue.whatHappened}`);
       if (issue.whyMarketReacted) blocks.push(`- 시장이 왜 반응했는지: ${issue.whyMarketReacted}`);
       if (issue.whatToWatch) blocks.push(`- 무엇을 보면 되는지: ${issue.whatToWatch}`);
+      blocks.push("");
+    });
+  }
+
+  if (payload.timeframeInsights) {
+    const order = ["weekly", "monthly", "quarterly", "yearly"];
+    blocks.push("## 상위 시간축 인사이트");
+    order.forEach((key) => {
+      const card = payload.timeframeInsights[key];
+      if (!card) return;
+      blocks.push(`### ${card.title || key}`);
+      if (card.coreView) blocks.push(`- 핵심 판단: ${card.coreView}`);
+      if (card.whyItMatters) blocks.push(`- 왜 중요한가: ${card.whyItMatters}`);
+      if (card.koreaImpact) blocks.push(`- 한국시장 연결: ${card.koreaImpact}`);
+      if (Array.isArray(card.watchLevels) && card.watchLevels.length) {
+        blocks.push(`- 확인할 임계치: ${card.watchLevels.join(" / ")}`);
+      }
       blocks.push("");
     });
   }
@@ -601,7 +656,14 @@ async function main() {
   });
 
   // Editorial lint
-  const combined = [json.title, json.headline, json.overnightLead, json.markdownBody, ...(json.highlights || [])].join("\n");
+  const combined = [
+    json.title,
+    json.headline,
+    json.overnightLead,
+    json.markdownBody,
+    ...(json.highlights || []),
+    JSON.stringify(json.timeframeInsights || {})
+  ].join("\n");
   const hits = lintForbiddenEndings(combined, style);
   if (hits.length > 0) {
     console.warn(`⚠️ 금지 종결어미 ${hits.length}건 검출 (자동 수정 권장).`);
@@ -628,6 +690,7 @@ async function main() {
     current.koreanCheckpoints = json.koreanCheckpoints || [];
     current.causalAnalysis = json.causalAnalysis || [];
     current.forwardOutlook = json.forwardOutlook || [];
+    current.timeframeInsights = json.timeframeInsights || null;
     current.positioning = json.positioning || null;
     current.commentary = json.commentary || [];
     current.insightSections = json.insightSections;

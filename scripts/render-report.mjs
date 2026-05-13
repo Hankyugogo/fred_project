@@ -346,6 +346,18 @@ h1.hero em{font-style:normal;color:var(--accent)}
 .checkpoint .marker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:700;width:80px;padding-top:3px}
 .checkpoint p{margin:0;line-height:1.7;color:var(--ink-2)}
 
+/* timeframe */
+.timeframes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
+.tf-card{padding:22px 22px 20px;border-right:1px solid var(--rule-soft);display:grid;gap:14px;align-content:start}
+.tf-card:last-child{border-right:none}
+.tf-card .top{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tf-card h3{margin:0;font-family:"Source Serif 4",serif;font-size:1.28rem;font-weight:800;line-height:1.25;letter-spacing:-.01em;word-break:keep-all}
+.tf-card dl{margin:0;display:grid;gap:10px}
+.tf-card dt{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tf-card dd{margin:3px 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.7}
+.tf-card .watch{margin:0;padding:10px 12px;border-top:1px dotted var(--rule-soft);background:rgba(15,94,62,.05);display:flex;flex-wrap:wrap;gap:6px}
+.tf-card .watch span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--accent);border:1px solid rgba(15,94,62,.24);background:var(--panel);padding:3px 6px}
+
 /* positioning */
 .pos-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
 .pos-card{background:var(--panel);border:1px solid var(--rule);padding:24px 26px}
@@ -386,14 +398,17 @@ h1.hero em{font-style:normal;color:var(--accent)}
   .matrix .cell:nth-child(1),.matrix .cell:nth-child(2){border-bottom:1px solid var(--rule-soft)}
   .data-grid,.pos-grid{grid-template-columns:1fr}
   .essay{columns:1}
-  .verdicts,.lede3,.fresh-grid{grid-template-columns:repeat(2,1fr)}
+  .verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:repeat(2,1fr)}
+  .tf-card:nth-child(2){border-right:none}
+  .tf-card:nth-child(1),.tf-card:nth-child(2){border-bottom:1px solid var(--rule-soft)}
   .section-head{grid-template-columns:1fr}
   .issue{grid-template-columns:60px 1fr;gap:18px}
   .issue .idx{font-size:2.4rem}
 }
 @media (max-width:680px){
-  .matrix,.verdicts,.lede3,.fresh-grid{grid-template-columns:1fr}
+  .matrix,.verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:1fr}
   .matrix .cell{border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .tf-card{border-right:none;border-bottom:1px solid var(--rule-soft)}
   .tape .ticks{display:none}
   .shell{padding:0 18px}
 }
@@ -816,7 +831,103 @@ function renderIssues(briefing) {
   </div></section>`;
 }
 
-/* ─────────────────────── §05 SECTOR HEATMAP ─────────────────────── */
+/* ─────────────────────── §05 HIGHER TIMEFRAME INSIGHTS ─────────────────────── */
+
+function fallbackTimeframeInsights(snapshot, briefing) {
+  const sp = findMetric(snapshot, "SP500");
+  const ten = findMetric(snapshot, "DGS10");
+  const krw = findMetric(snapshot, "DEXKOUS");
+  const vix = findMetric(snapshot, "VIXCLS");
+  const soxx = snapshot?.contextEnrichment?.sectorEtfs?.items?.find((item) => item.ticker === "SOXX");
+  const firstEvent = snapshot?.contextEnrichment?.eventCalendar?.events?.find((item) => item.importance === "high");
+  const firstCheckpoint = briefing?.koreanCheckpoints?.[0] || "반도체·자동차·2차전지·금융·조선·방산·바이오·인터넷/플랫폼의 상대 강도를 함께 확인한다.";
+  const baseScenario = briefing?.positioning?.mainScenario?.view || "지수 방향보다 금리와 달러의 동시 움직임이 시장 지속성을 가르는 구간이다.";
+
+  return {
+    weekly: {
+      title: "주간 관점",
+      coreView: `이번 주 핵심은 S&P500 ${sp ? signed(sp.percentChange, 2) + "%" : "방향"} 흐름이 미 10년물 ${ten ? formatValue(ten) : "상단"} 부담을 흡수하는지다.`,
+      whyItMatters: "주가와 장기금리가 함께 오르면 시장은 유동성보다 기업 이익 기대에 더 의존한다. 이 경우 지수는 버티더라도 상승 업종이 좁아지고 변동성 관리 수요가 커질 수 있다.",
+      koreaImpact: "한국시장에서는 반도체가 미국 기술주와 SOXX 흐름을 따라갈 가능성이 크다. 2차전지와 바이오는 금리 부담이 먼저 반영될 수 있어 장기금리 상단 확인이 필요하다.",
+      watchLevels: ["미 10년물 4.50%", "달러/원 1,450원", soxx ? `SOXX ${signed(soxx.percentChange, 2)}%` : "SOXX 전일 대비 방향"]
+    },
+    monthly: {
+      title: "월간 관점",
+      coreView: "이달 시장은 금리 상단과 달러 방향이 위험자산 선호를 얼마나 제한하는지가 관건이다.",
+      whyItMatters: "월간 기준으로 달러와 금리가 동시에 강해지면 신흥국 통화와 외국인 매매에 부담이 커진다. 주가가 반등해도 환율이 안정되지 않으면 한국 증시의 상승 지속성은 약해진다.",
+      koreaImpact: `달러/원 환율은 ${krw ? formatValue(krw) : "주요 저항선"} 부근에서 한국 수출주와 외국인 매매를 가르는 변수다. 자동차·조선은 환율 방어력이 있지만 인터넷/플랫폼과 바이오는 금리·환율 동반 상승에 취약하다.`,
+      watchLevels: ["달러/원 1,450원", "달러/원 1,480원", vix ? `VIX ${fmtNum(vix.latestValue, 2)}` : "VIX 20선", "코스피 외국인 순매수"]
+    },
+    quarterly: {
+      title: "분기 관점",
+      coreView: "이번 분기는 실적 모멘텀과 연준 정책 경로의 충돌을 검증하는 구간이다.",
+      whyItMatters: `${baseScenario} 실적 전망 상향 폭이 금리 부담을 넘어서지 못하면 성장주와 가치주의 우위가 빠르게 바뀔 수 있다.`,
+      koreaImpact: "반도체는 AI 투자와 메모리 업황 개선이 이어지면 분기 주도 업종으로 남을 수 있다. 금융은 장기금리와 장단기 금리차, 조선·방산은 달러와 지정학 리스크에 따라 상대 강도가 결정된다.",
+      watchLevels: ["미 10년물 4.50%", "장단기 금리차 0bp", "분기 실적 가이던스", firstEvent?.name || "다음 FOMC 경로"]
+    },
+    yearly: {
+      title: "연간 관점",
+      coreView: "연간 핵심 테마는 AI 투자 사이클과 고금리 레짐의 공존이다.",
+      whyItMatters: "AI 투자 확대는 반도체와 전력 인프라 수요를 지지하지만 고금리는 장기 성장주의 현재가치 평가를 압박한다. 연간 수익률은 테마의 힘보다 금리와 달러가 어느 수준에서 안정되는지에 좌우될 가능성이 크다.",
+      koreaImpact: firstCheckpoint,
+      watchLevels: ["연준 금리 인하 횟수", "미 10년물 4.00~4.50%", "달러지수(DXY) 방향", "AI 설비투자 전망"]
+    }
+  };
+}
+
+function normalizeTimeframeInsights(snapshot, briefing) {
+  const insights = briefing?.timeframeInsights || fallbackTimeframeInsights(snapshot, briefing);
+  const order = [
+    ["weekly", "주간 관점"],
+    ["monthly", "월간 관점"],
+    ["quarterly", "분기 관점"],
+    ["yearly", "연간 관점"]
+  ];
+
+  return order
+    .map(([key, label]) => {
+      const card = insights?.[key];
+      if (!card) return null;
+      return {
+        key,
+        title: card.title || label,
+        coreView: card.coreView || "",
+        whyItMatters: card.whyItMatters || "",
+        koreaImpact: card.koreaImpact || "",
+        watchLevels: Array.isArray(card.watchLevels) ? card.watchLevels : []
+      };
+    })
+    .filter(Boolean);
+}
+
+function renderTimeframeInsights(snapshot, briefing) {
+  const cards = normalizeTimeframeInsights(snapshot, briefing);
+  if (!cards.length) return "";
+
+  return `<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 05</div>
+      <div>
+        <h2>상위 시간축 인사이트</h2>
+        <p class="lede">오늘의 마감 신호를 주간·월간·분기·연간 흐름 안에서 다시 해석합니다. 판단은 짧게, 한국시장 연결은 섹터와 확인 지표 중심으로 정리합니다.</p>
+      </div>
+    </div>
+    <div class="timeframes">
+      ${cards.map((card) => `<article class="tf-card">
+        <div class="top">${escapeHtml(card.key.toUpperCase())}</div>
+        <h3>${escapeHtml(card.title)}</h3>
+        <dl>
+          <div><dt>판단</dt><dd>${escapeHtml(card.coreView)}</dd></div>
+          <div><dt>의미</dt><dd>${escapeHtml(card.whyItMatters)}</dd></div>
+          <div><dt>한국시장</dt><dd>${escapeHtml(card.koreaImpact)}</dd></div>
+        </dl>
+        ${card.watchLevels.length ? `<p class="watch">${card.watchLevels.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</p>` : ""}
+      </article>`).join("")}
+    </div>
+  </div></section>`;
+}
+
+/* ─────────────────────── §06 SECTOR HEATMAP ─────────────────────── */
 
 const SECTOR_KO = {
   XLK: "기술", XLF: "금융", XLE: "에너지", XLV: "헬스케어", XLY: "임의소비재",
@@ -835,7 +946,7 @@ function renderSectors(snapshot) {
 
   return `<section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 05</div>
+      <div class="num"><span class="bar"></span>§ 06</div>
       <div>
         <h2>섹터 히트맵</h2>
         <p class="lede">SPDR 섹터 ETF의 일간 변동폭. 같은 날에도 어떤 업종이 시장 전체를 앞섰고 어떤 업종이 뒤처졌는지 한눈에 보여줍니다.</p>
@@ -862,7 +973,7 @@ function renderBars(items) {
   }).join("")}</div>`;
 }
 
-/* ─────────────────────── §06 TIMELINE + CHECKPOINTS ─────────────────────── */
+/* ─────────────────────── §07 TIMELINE + CHECKPOINTS ─────────────────────── */
 function renderTimeline(snapshot, briefing) {
   const cal = snapshot?.contextEnrichment?.eventCalendar?.events || [];
   const checks = (briefing?.koreanCheckpoints || []).slice(0, 5);
@@ -872,7 +983,7 @@ function renderTimeline(snapshot, briefing) {
 
   return `<section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 06</div>
+      <div class="num"><span class="bar"></span>§ 07</div>
       <div>
         <h2>다가오는 일정 · 한국 시장 체크포인트</h2>
         <p class="lede">앞으로 시장을 흔들 수 있는 미국 경제 일정과, 한국 시장 관점에서 봐야 할 임계 수준을 묶어 적습니다.</p>
@@ -909,7 +1020,7 @@ function renderTimeline(snapshot, briefing) {
   </div></section>`;
 }
 
-/* ─────────────────────── §07 POSITIONING ─────────────────────── */
+/* ─────────────────────── §08 POSITIONING ─────────────────────── */
 function renderPositioning(briefing) {
   const main = briefing?.positioning?.mainScenario;
   const alt = briefing?.positioning?.altScenario;
@@ -934,7 +1045,7 @@ function renderPositioning(briefing) {
 
   return `<section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 07</div>
+      <div class="num"><span class="bar"></span>§ 08</div>
       <div>
         <h2>참고 포지셔닝 · 시나리오</h2>
         <p class="lede">위 4축 신호와 일정을 종합해 가상의 멀티에셋 포트폴리오가 취할 만한 자세를 적습니다. 실제 매매 권유가 아니라 사고의 출발점입니다.</p>
@@ -948,7 +1059,7 @@ function renderPositioning(briefing) {
   </div></section>`;
 }
 
-/* ─────────────────────── §08 COMMENTARY ESSAY ─────────────────────── */
+/* ─────────────────────── §09 COMMENTARY ESSAY ─────────────────────── */
 function renderEssay(briefing) {
   // briefing.commentary is array of paragraphs
   const paragraphs = Array.isArray(briefing?.commentary) ? briefing.commentary : [];
@@ -956,7 +1067,7 @@ function renderEssay(briefing) {
   const html = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
   return `<section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 08</div>
+      <div class="num"><span class="bar"></span>§ 09</div>
       <div>
         <h2>오늘의 시장 해설</h2>
         <p class="lede">데이터를 잇는 흐름과 맥락을 풀어 적습니다.</p>
@@ -966,7 +1077,7 @@ function renderEssay(briefing) {
   </div></section>`;
 }
 
-/* ─────────────────────── §09 DATA UPDATE STATUS ─────────────────────── */
+/* ─────────────────────── §10 DATA UPDATE STATUS ─────────────────────── */
 function renderFreshness(snapshot) {
   const summary = snapshot?.freshnessSummary;
   const items = summary?.items || [];
@@ -982,7 +1093,7 @@ function renderFreshness(snapshot) {
 
   return `<section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 09</div>
+      <div class="num"><span class="bar"></span>§ 10</div>
       <div>
         <h2>데이터 업데이트 현황</h2>
         <p class="lede">각 지표가 언제 마감된 데이터를 사용했는지 표시합니다. <span class="chip fresh">최신</span>은 당일, <span class="chip delayed">지연</span>은 1영업일, <span class="chip stale">오래됨</span>은 그 이상입니다.</p>
@@ -1053,6 +1164,7 @@ ${renderIndexMatrix(snapshot, briefing)}
 ${renderVerdicts(snapshot)}
 ${renderDataAndCurve(snapshot)}
 ${renderIssues(briefing)}
+${renderTimeframeInsights(snapshot, briefing)}
 ${renderSectors(snapshot)}
 ${renderTimeline(snapshot, briefing)}
 ${renderPositioning(briefing)}

@@ -246,7 +246,7 @@ function classifyTenYear(tenYear, fedFunds) {
     return {
       label: "장기금리 높음",
       direction,
-      desc: `미 국채 10년물 금리는 ${formatValue(tenYear)}로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 할인율 부담이 한층 커질 가능성이 있다.`,
+      desc: `미 국채 10년물 금리는 ${formatValue(tenYear)}로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다.`,
       policyGap
     };
   }
@@ -735,6 +735,47 @@ function buildInsightSections(snapshot, analysis, newsBrief) {
   };
 }
 
+function buildTimeframeInsights(snapshot, analysis) {
+  const tenYearText = formatValue(analysis.tenYear);
+  const tenYearWatch = analysis.tenYear?.latestValue >= 4.4 ? "미 10년물 4.50%" : "미 10년물 4.30%";
+  const usdKrwText = formatValue(analysis.usdKrw);
+  const soxx = snapshot.contextEnrichment?.sectorEtfs?.items?.find((item) => item.ticker === "SOXX");
+  const soxxWatch = soxx ? `SOXX ${signed(soxx.percentChange, 2)}% 흐름 유지` : "SOXX 전일 대비 방향";
+  const event = snapshot.contextEnrichment?.eventCalendar?.events?.find((item) => item.importance === "high");
+  const eventWatch = event?.name ? `${event.date} ${event.name}` : "다음 고용·물가 이벤트";
+
+  return {
+    weekly: {
+      title: "주간 관점",
+      coreView: `이번 주 핵심은 미국 증시 강세가 ${tenYearText} 장기금리 부담을 흡수하는지다.`,
+      whyItMatters: "주가와 금리가 함께 오르면 시장은 유동성보다 기업 이익 모멘텀에 더 의존한다. 이 경우 지수는 버티더라도 상승 종목 수가 줄어들며 섹터별 차별화가 커질 수 있다.",
+      koreaImpact: "한국시장에서는 반도체가 미국 기술주와 SOXX 흐름을 따라갈 가능성이 크다. 반대로 2차전지와 바이오는 금리 부담이 먼저 반영될 수 있어 장기금리 상단 확인이 필요하다.",
+      watchLevels: [tenYearWatch, "달러/원 1,450원", soxxWatch, eventWatch]
+    },
+    monthly: {
+      title: "월간 관점",
+      coreView: "이달 흐름은 금리 상단과 달러 방향이 위험자산 선호를 얼마나 제한하는지가 관건이다.",
+      whyItMatters: "월간 기준으로 달러와 금리가 동시에 강해지면 신흥국 통화와 외국인 매매에 부담이 커진다. 주가가 반등해도 환율이 안정되지 않으면 한국 증시의 상승 지속성은 약해진다.",
+      koreaImpact: `달러/원 환율은 ${usdKrwText} 부근에서 한국 수출주와 외국인 매매를 가르는 핵심 변수다. 자동차·조선은 환율 방어력이 있지만, 인터넷/플랫폼과 바이오는 금리·환율 동반 상승에 취약하다.`,
+      watchLevels: ["달러/원 1,450원", "달러/원 1,480원", "VIX 20선", "코스피 외국인 순매수 전환"]
+    },
+    quarterly: {
+      title: "분기 관점",
+      coreView: "이번 분기는 실적 모멘텀과 연준 정책 경로의 충돌을 검증하는 구간이다.",
+      whyItMatters: "기업 실적이 개선돼도 금리 인하 기대가 후퇴하면 주가 밸류에이션 확장은 제한된다. 분기 흐름은 실적 전망 상향 폭이 금리 부담을 넘어서는지에 따라 성장주와 가치주의 우위가 갈린다.",
+      koreaImpact: "반도체는 AI 투자와 메모리 업황 개선이 이어지면 분기 주도 업종으로 남을 수 있다. 금융은 장기금리와 장단기 금리차, 조선·방산은 달러와 지정학 리스크에 따라 상대 강도가 결정된다.",
+      watchLevels: ["미 10년물 4.50%", "장단기 금리차 0bp", "SOXX 월간 상대강도", "분기 실적 가이던스"]
+    },
+    yearly: {
+      title: "연간 관점",
+      coreView: "연간 핵심 테마는 AI 투자 사이클과 고금리 레짐의 공존이다.",
+      whyItMatters: "AI 투자 확대는 반도체와 전력 인프라 수요를 지지하지만 고금리는 장기 성장주의 현재가치 평가를 압박한다. 연간 수익률은 테마의 힘보다 금리와 달러가 어느 수준에서 안정되는지에 좌우될 가능성이 크다.",
+      koreaImpact: "한국시장에서는 반도체·전력기기·조선·방산이 구조적 테마와 연결된다. 2차전지·바이오·인터넷/플랫폼은 금리 하락과 실적 회복 신호가 함께 나와야 연간 상대 성과가 개선될 여지가 있다.",
+      watchLevels: ["연준 금리 인하 횟수", "미 10년물 4.00~4.50%", "달러지수(DXY) 방향", "AI 설비투자 전망"]
+    }
+  };
+}
+
 function buildTags(snapshot, analysis, newsBrief) {
   const quality = buildQualitySignal(snapshot);
   const qualityTag = quality.confidence === "high"
@@ -800,6 +841,7 @@ function buildBriefingRecord(snapshot, reportDate, analysis, newsBrief) {
     },
     overnightLead: buildOvernightLead(snapshot, analysis, newsBrief),
     insightSections: buildInsightSections(snapshot, analysis, newsBrief),
+    timeframeInsights: buildTimeframeInsights(snapshot, analysis),
     freshnessSummary: snapshot.freshnessSummary,
     quality,
     newsBrief
@@ -844,6 +886,17 @@ function buildMarkdown(snapshot, reportDate, record, analysis) {
   lines.push(`- ${analysis.koreaAngle}`);
   lines.push(`- ${analysis.executionNote}`);
   lines.push("");
+  lines.push("## 상위 시간축 인사이트");
+  Object.values(record.timeframeInsights || {}).forEach((card) => {
+    lines.push(`### ${card.title}`);
+    lines.push(`- 핵심 판단: ${card.coreView}`);
+    lines.push(`- 왜 중요한가: ${card.whyItMatters}`);
+    lines.push(`- 한국시장 연결: ${card.koreaImpact}`);
+    if (Array.isArray(card.watchLevels) && card.watchLevels.length) {
+      lines.push(`- 확인할 임계치: ${card.watchLevels.join(" / ")}`);
+    }
+    lines.push("");
+  });
   lines.push("## 오늘 확인할 변수");
   analysis.watchList.forEach((item, index) => {
     lines.push(`${index + 1}. ${item}`);
