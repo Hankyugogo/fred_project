@@ -39,6 +39,7 @@ This project belongs to the `personal-economy` Area. It was moved into Knowledge
 - Project guide: `README.md`
 - Package scripts: `package.json`
 - Main integrated report page: `index.html`
+- Options page: `settings.html`
 - Latest report output: `report.html`
 - Daily Markdown posts: `posts/`
 - Static HTML reports: `reports/`
@@ -76,6 +77,7 @@ This project belongs to the `personal-economy` Area. It was moved into Knowledge
 ## Next Actions
 
 - Update any local scheduler entry that assumes the old directory.
+- Use `settings.html` for watchlist add/edit/delete instead of direct vibe-coding changes.
 - Standardize the public concept as a Korean daily macro briefing and static report system.
 - Pass `npm run check:copy` by removing remaining editorial avoid terms from generated outputs and generation scripts.
 - Decide whether the remaining `/Users/parkhankyu/Downloads/경제 리포트` reference copy should be archived or deleted.

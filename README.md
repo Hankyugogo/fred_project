@@ -13,6 +13,7 @@
 - `data/market-snapshot.json`: FRED 기반 지표 스냅샷
 - `data/news-digest.json`: 공개 뉴스/RSS 수집 결과
 - `data/stock-watchlist.json`: 관심종목 매크로·기술 분석 데이터
+- `settings.html`: 관심종목과 분석 메모를 관리하는 옵션 페이지
 
 ## 로컬 실행
 
@@ -26,6 +27,7 @@ npm run serve
 
 - `http://127.0.0.1:8080/`
 - `http://127.0.0.1:8080/report.html`
+- `http://127.0.0.1:8080/settings.html`
 - `http://127.0.0.1:8080/reports/YYYY-MM-DD.html`
 
 ## 주요 명령
@@ -41,6 +43,10 @@ npm run serve
 - `npm run report:html`: 최신 브리핑을 금융 리포트형 HTML로 렌더링
 - `npm run publish:full`: 전체 자동 생성 파이프라인 실행
 - `npm run check:copy`: 공개 산출물의 금칙/치환 대상 표현 점검
+
+## 관심종목 옵션
+
+`settings.html`에서 `config/watchlist-stocks.json`을 불러와 관심종목을 추가·복제·삭제하고 분석 메모를 수정할 수 있습니다. Chrome 계열 브라우저에서는 JSON 파일을 직접 열어 저장할 수 있고, 그 외 환경에서는 `watchlist-stocks.json`으로 내보낸 뒤 `config/`에 반영합니다. 반영 후 `npm run build:stocks:full`을 실행하면 `data/stock-watchlist.json`이 새 목록 기준으로 갱신됩니다.
 
 ## 데이터 소스
 
@@ -74,7 +80,7 @@ FRED 시리즈:
 
 1. 매일 08:15 KST에 `npm run publish:full` 실행
 2. `data`, `posts`, `reports`, `report.html` 생성물 커밋·푸시
-3. `index.html`, `app.js`, `styles.css`, `report.html`, `data`, `posts`, `reports`를 GitHub Pages artifact로 업로드
+3. `index.html`, `settings.html`, `app.js`, `settings.js`, `styles.css`, `report.html`, `config`, `data`, `posts`, `reports`를 GitHub Pages artifact로 업로드
 4. GitHub Pages로 배포
 5. Secrets가 있으면 이메일과 텔레그램 알림 전송
 

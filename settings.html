@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRED Market Briefing Options</title>
+    <meta
+      name="description"
+      content="FRED Market Briefing 관심종목과 운영 설정을 관리하는 옵션 페이지"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell settings-shell">
+      <header class="hero settings-hero">
+        <p class="eyebrow">OPERATIONS</p>
+        <div class="hero-row">
+          <div>
+            <h1>옵션 관리</h1>
+            <p class="subheadline">관심종목 목록과 분석 메모를 코드 수정 없이 관리합니다.</p>
+            <nav class="hero-links" aria-label="페이지 이동">
+              <a href="./index.html">대시보드</a>
+              <a href="./report.html">최신 리포트</a>
+            </nav>
+          </div>
+          <div class="hero-meta">
+            <span id="source-status">설정 대기</span>
+            <span id="stock-count">종목 0개</span>
+            <span id="analysis-status">분석 데이터 확인 중</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content settings-content">
+        <section class="card settings-actions-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Watchlist Config</p>
+              <h2>설정 파일</h2>
+            </div>
+          </div>
+          <div class="settings-actions">
+            <button id="load-default" class="action-button" type="button">현재 설정 불러오기</button>
+            <button id="open-file" class="action-button" type="button">JSON 파일 열기</button>
+            <button id="save-browser" class="action-button" type="button">브라우저 저장</button>
+            <button id="save-file" class="action-button primary" type="button">config 저장</button>
+            <button id="download-json" class="action-button" type="button">JSON 내보내기</button>
+            <button id="copy-json" class="action-button" type="button">JSON 복사</button>
+          </div>
+          <input id="file-input" type="file" accept="application/json,.json" hidden />
+          <div id="validation-panel" class="validation-panel">검증 대기</div>
+        </section>
+
+        <section class="card settings-global-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Global</p>
+              <h2>전체 설정</h2>
+            </div>
+          </div>
+          <div class="settings-form-grid global-settings-grid">
+            <label>
+              <span>제목</span>
+              <input id="config-title" type="text" />
+            </label>
+            <label>
+              <span>설명</span>
+              <input id="config-description" type="text" />
+            </label>
+            <label class="full-field">
+              <span>고지 문구</span>
+              <textarea id="config-disclaimer" rows="2"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="card settings-workspace-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Watchlist</p>
+              <h2>관심종목 편집</h2>
+            </div>
+            <div class="settings-mini-actions">
+              <button id="add-stock" class="action-button primary" type="button">종목 추가</button>
+              <button id="duplicate-stock" class="action-button" type="button">복제</button>
+              <button id="delete-stock" class="action-button danger" type="button">삭제</button>
+            </div>
+          </div>
+
+          <div class="settings-layout">
+            <aside class="settings-list-panel">
+              <div id="settings-stock-list" class="settings-stock-list"></div>
+            </aside>
+
+            <form id="stock-form" class="settings-form">
+              <div class="settings-form-grid">
+                <label>
+                  <span>티커</span>
+                  <input id="field-ticker" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>이름</span>
+                  <input id="field-name" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>시장</span>
+                  <select id="field-market">
+                    <option value="한국">한국</option>
+                    <option value="미국">미국</option>
+                    <option value="글로벌">글로벌</option>
+                    <option value="기타">기타</option>
+                  </select>
+                </label>
+                <label>
+                  <span>자산 유형</span>
+                  <input id="field-assetClass" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>섹터 ID</span>
+                  <input id="field-sector" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>섹터 표시명</span>
+                  <input id="field-sectorLabel" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>통화</span>
+                  <input id="field-currency" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>Yahoo 심볼</span>
+                  <input id="field-chartSymbol" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>Naver 심볼</span>
+                  <input id="field-naverSymbol" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>섹터 ETF</span>
+                  <input id="field-sectorEtf" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>벤치마크 티커</span>
+                  <input id="field-benchmarkTicker" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>벤치마크명</span>
+                  <input id="field-benchmarkMetric" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>인버스 대상</span>
+                  <input id="field-inverseOf" type="text" autocomplete="off" />
+                </label>
+                <label>
+                  <span>인버스 배율</span>
+                  <input id="field-inverseMultiplier" type="number" step="0.1" />
+                </label>
+                <label class="full-field">
+                  <span>포지션 메모</span>
+                  <textarea id="field-positionNote" rows="2"></textarea>
+                </label>
+                <label class="full-field">
+                  <span>투자 가설</span>
+                  <textarea id="field-thesis" rows="3"></textarea>
+                </label>
+                <label>
+                  <span>긍정 변수</span>
+                  <textarea id="field-positive" rows="5"></textarea>
+                </label>
+                <label>
+                  <span>부정 변수</span>
+                  <textarea id="field-negative" rows="5"></textarea>
+                </label>
+                <label>
+                  <span>수요</span>
+                  <textarea id="field-demand" rows="3"></textarea>
+                </label>
+                <label>
+                  <span>이익률</span>
+                  <textarea id="field-margin" rows="3"></textarea>
+                </label>
+                <label>
+                  <span>재무</span>
+                  <textarea id="field-balanceSheet" rows="3"></textarea>
+                </label>
+                <label>
+                  <span>주가 평가</span>
+                  <textarea id="field-valuation" rows="3"></textarea>
+                </label>
+                <label class="full-field">
+                  <span>마이크로 점수</span>
+                  <textarea id="field-microFactors" rows="5"></textarea>
+                </label>
+                <label>
+                  <span>확인 임계치</span>
+                  <textarea id="field-watchLevels" rows="5"></textarea>
+                </label>
+                <label>
+                  <span>다음 점검</span>
+                  <textarea id="field-nextChecks" rows="5"></textarea>
+                </label>
+                <label class="full-field">
+                  <span>위험 표시</span>
+                  <textarea id="field-risks" rows="4"></textarea>
+                </label>
+              </div>
+              <div class="settings-form-actions">
+                <button id="apply-stock" class="action-button primary" type="submit">종목 반영</button>
+                <button id="reset-form" class="action-button" type="button">되돌리기</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="card settings-preview-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Preview</p>
+              <h2>JSON 미리보기</h2>
+            </div>
+          </div>
+          <pre id="json-preview" class="json-preview">{}</pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="settings.js"></script>
+  </body>
+</html>
