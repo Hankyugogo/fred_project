@@ -6,6 +6,8 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { applyPreferredTermsDeep, loadPreferredReplacements } from "./editorial-copy.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
@@ -201,36 +203,46 @@ function findMetric(snapshot, id) {
   return flattenMetrics(snapshot).find((item) => item.id === id || item.label === id);
 }
 
+function metricLatestValue(item) {
+  if (Number.isFinite(item?.latestValue)) return item.latestValue;
+  if (Number.isFinite(item?.latest)) return item.latest;
+  return null;
+}
+
 function buildMacroBackdrop(snapshot, latestBriefing) {
   const spx = findMetric(snapshot, "SP500");
   const ust10 = findMetric(snapshot, "DGS10");
   const vix = findMetric(snapshot, "VIXCLS");
   const krw = findMetric(snapshot, "DEXKOUS");
+  const spxValue = metricLatestValue(spx);
+  const ust10Value = metricLatestValue(ust10);
+  const vixValue = metricLatestValue(vix);
+  const krwValue = metricLatestValue(krw);
   const signals = [
     spx && {
       label: "S&P 500",
-      value: Number.isFinite(spx.latest) ? `${round(spx.latest, 2)}` : "N/A",
+      value: Number.isFinite(spxValue) ? `${round(spxValue, 2)}` : "N/A",
       change: Number.isFinite(spx.percentChange) ? `${spx.percentChange > 0 ? "+" : ""}${round(spx.percentChange, 2)}%` : "N/A",
       tone: spx.percentChange > 0 ? "up" : spx.percentChange < 0 ? "down" : "flat",
       note: "미국 위험자산 선호의 기준 지표입니다."
     },
     ust10 && {
       label: "미 국채 10년물",
-      value: Number.isFinite(ust10.latest) ? `${round(ust10.latest, 2)}%` : "N/A",
+      value: Number.isFinite(ust10Value) ? `${round(ust10Value, 2)}%` : "N/A",
       change: Number.isFinite(ust10.absoluteChange) ? `${ust10.absoluteChange > 0 ? "+" : ""}${Math.round(ust10.absoluteChange * 100)}bp` : "N/A",
       tone: ust10.absoluteChange > 0 ? "down" : ust10.absoluteChange < 0 ? "up" : "flat",
       note: "성장주와 한국 증시 할인율을 좌우합니다."
     },
     vix && {
       label: "VIX",
-      value: Number.isFinite(vix.latest) ? `${round(vix.latest, 2)}` : "N/A",
+      value: Number.isFinite(vixValue) ? `${round(vixValue, 2)}` : "N/A",
       change: Number.isFinite(vix.percentChange) ? `${vix.percentChange > 0 ? "+" : ""}${round(vix.percentChange, 2)}%` : "N/A",
       tone: vix.percentChange > 0 ? "down" : vix.percentChange < 0 ? "up" : "flat",
       note: "변동성 확대 여부를 보여줍니다."
     },
     krw && {
       label: "달러/원",
-      value: Number.isFinite(krw.latest) ? `${round(krw.latest, 2)}원` : "N/A",
+      value: Number.isFinite(krwValue) ? `${round(krwValue, 2)}원` : "N/A",
       change: Number.isFinite(krw.percentChange) ? `${krw.percentChange > 0 ? "+" : ""}${round(krw.percentChange, 2)}%` : "N/A",
       tone: krw.percentChange > 0 ? "down" : krw.percentChange < 0 ? "up" : "flat",
       note: "외국인 매매와 환율 민감 업종의 핵심 변수입니다."
@@ -419,8 +431,11 @@ async function main() {
     disclaimer: config.disclaimer || "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아닙니다."
   };
 
+  const replacements = await loadPreferredReplacements(ROOT);
+  const publicOutput = applyPreferredTermsDeep(output, replacements);
+
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2), "utf8");
+  await writeFile(OUTPUT_PATH, JSON.stringify(publicOutput, null, 2), "utf8");
   console.log(`[build-stock-watchlist] wrote ${OUTPUT_PATH} (${stocks.length} stocks)`);
 }
 

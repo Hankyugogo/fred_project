@@ -7,6 +7,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { applyPreferredTermsDeep, applyPreferredTermsToText, loadPreferredReplacements } from "./editorial-copy.mjs";
+
 import { callGeminiJson } from "./lib/gemini-client.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -778,7 +780,7 @@ async function main() {
   const freshness = snapshot.freshnessSummary;
 
   console.log(`Gemini 본문 리라이트 시작 (${reportDate}, 모델: ${REWRITE_MODEL})...`);
-  const { json } = await callGeminiJson({
+  const { json: rawJson } = await callGeminiJson({
     prompt: buildPrompt(market, news, korea, draft, freshness),
     systemInstruction: buildSystemInstruction(style),
     model: REWRITE_MODEL,
@@ -787,6 +789,9 @@ async function main() {
     thinkingBudget: 2048,
     responseSchema: REWRITE_RESPONSE_SCHEMA
   });
+
+  const replacements = await loadPreferredReplacements(ROOT);
+  const json = applyPreferredTermsDeep(rawJson, replacements);
 
   // Editorial lint + numeric sanity check
   const combined = [
@@ -811,7 +816,7 @@ async function main() {
   }
 
   // Save markdown
-  const finalMarkdown = buildFinalMarkdown(reportDate, json, snapshot, news);
+  const finalMarkdown = applyPreferredTermsToText(buildFinalMarkdown(reportDate, json, snapshot, news), replacements);
   const markdownPath = path.join(POSTS_DIR, `${reportDate}.md`);
   await writeFile(markdownPath, finalMarkdown, "utf8");
   console.log(`Markdown 본문 저장: ${markdownPath}`);

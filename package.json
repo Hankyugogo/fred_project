@@ -25,6 +25,8 @@
     "check:copy": "node --env-file-if-exists=.env scripts/check-editorial-copy.mjs",
     "seed:demo-archive": "node --env-file-if-exists=.env scripts/seed-demo-archive.mjs",
     "serve": "python3 -m http.server 8080",
-    "fetch:macro": "node --env-file-if-exists=.env scripts/fetch-macro-history.mjs"
+    "fetch:macro": "node --env-file-if-exists=.env scripts/fetch-macro-history.mjs",
+    "fix:copy": "node --env-file-if-exists=.env scripts/apply-editorial-copy.mjs",
+    "admin": "node --env-file-if-exists=.env scripts/admin-server.mjs"
   }
 }

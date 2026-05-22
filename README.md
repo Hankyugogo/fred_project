@@ -21,6 +21,8 @@
 # 저장소 루트에서 실행
 npm run publish:full
 npm run serve
+# 관심종목을 파일에 직접 저장하고 재생성까지 하려면 별도 터미널에서 실행
+npm run admin
 ```
 
 브라우저 확인:
@@ -28,6 +30,7 @@ npm run serve
 - `http://127.0.0.1:8080/`
 - `http://127.0.0.1:8080/report.html`
 - `http://127.0.0.1:8080/settings.html`
+- `http://127.0.0.1:8081/settings.html` (`npm run admin` 실행 시 프로젝트 저장/분석 재생성 가능)
 - `http://127.0.0.1:8080/reports/YYYY-MM-DD.html`
 
 ## 주요 명령
@@ -43,10 +46,12 @@ npm run serve
 - `npm run report:html`: 최신 브리핑을 금융 리포트형 HTML로 렌더링
 - `npm run publish:full`: 전체 자동 생성 파이프라인 실행
 - `npm run check:copy`: 공개 산출물의 금칙/치환 대상 표현 점검
+- `npm run fix:copy`: 공개 산출물에 문구 치환 규칙 일괄 적용
+- `npm run admin`: 로컬 관리자 서버 실행. 옵션 페이지에서 `config/watchlist-stocks.json` 저장과 관심종목 분석 재생성 수행
 
 ## 관심종목 옵션
 
-`settings.html`에서 `config/watchlist-stocks.json`을 불러와 관심종목을 추가·복제·삭제하고 분석 메모를 수정할 수 있습니다. Chrome 계열 브라우저에서는 JSON 파일을 직접 열어 저장할 수 있고, 그 외 환경에서는 `watchlist-stocks.json`으로 내보낸 뒤 `config/`에 반영합니다. 반영 후 `npm run build:stocks:full`을 실행하면 `data/stock-watchlist.json`이 새 목록 기준으로 갱신됩니다.
+`settings.html`에서 `config/watchlist-stocks.json`을 불러와 관심종목을 추가·복제·삭제하고 분석 메모를 수정할 수 있습니다. 일반 정적 서버에서는 브라우저 저장, JSON 복사, 파일 저장/내보내기를 사용할 수 있습니다. `npm run admin`으로 `http://127.0.0.1:8081/settings.html`을 열면 옵션 페이지에서 프로젝트 설정을 바로 저장하고 `npm run build:stocks:full` 재생성까지 실행할 수 있습니다.
 
 ## 데이터 소스
 

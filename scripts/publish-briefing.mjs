@@ -2,6 +2,8 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { applyPreferredTermsDeep, applyPreferredTermsToText, loadPreferredReplacements } from "./editorial-copy.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
@@ -987,8 +989,9 @@ async function main() {
   const reportDate = snapshot.reportDate;
   const newsBrief = buildNewsBrief(await readNewsDigest(reportDate));
   const analysis = buildAnalysis(snapshot);
-  const record = buildBriefingRecord(snapshot, reportDate, analysis, newsBrief);
-  const markdown = buildMarkdown(snapshot, reportDate, record, analysis);
+  const replacements = await loadPreferredReplacements(ROOT);
+  const record = applyPreferredTermsDeep(buildBriefingRecord(snapshot, reportDate, analysis, newsBrief), replacements);
+  const markdown = applyPreferredTermsToText(buildMarkdown(snapshot, reportDate, record, analysis), replacements);
   const markdownPath = path.join(POSTS_DIR, `${reportDate}.md`);
 
   await mkdir(POSTS_DIR, { recursive: true });

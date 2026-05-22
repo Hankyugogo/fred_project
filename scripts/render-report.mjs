@@ -20,6 +20,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { applyPreferredTermsToText, loadPreferredReplacements } from "./editorial-copy.mjs";
 import { reportStyles } from "./render-report/styles.mjs";
 import {
   renderTape, renderMasthead, renderIndexMatrix, renderVerdicts,
@@ -120,7 +121,8 @@ async function main() {
     console.warn("[render-report] data/stock-watchlist.json 없음 — §09 워치리스트 섹션은 비활성화됩니다. 해결: npm run build:stocks");
   }
 
-  const html = buildHtml({ snapshot, briefing, macroHistory, stockWatchlist });
+  const replacements = await loadPreferredReplacements(ROOT);
+  const html = applyPreferredTermsToText(buildHtml({ snapshot, briefing, macroHistory, stockWatchlist }), replacements);
   const reportPath = path.join(REPORTS_DIR, `${briefing.date}.html`);
   await mkdir(REPORTS_DIR, { recursive: true });
   await writeFile(reportPath, html, "utf8");

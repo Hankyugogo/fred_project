@@ -28,6 +28,7 @@
             <span id="source-status">설정 대기</span>
             <span id="stock-count">종목 0개</span>
             <span id="analysis-status">분석 데이터 확인 중</span>
+            <span id="admin-status">로컬 API 확인 중</span>
           </div>
         </div>
       </header>
@@ -44,12 +45,15 @@
             <button id="load-default" class="action-button" type="button">현재 설정 불러오기</button>
             <button id="open-file" class="action-button" type="button">JSON 파일 열기</button>
             <button id="save-browser" class="action-button" type="button">브라우저 저장</button>
-            <button id="save-file" class="action-button primary" type="button">config 저장</button>
+            <button id="save-file" class="action-button" type="button">파일 저장</button>
+            <button id="save-admin" class="action-button primary" type="button" disabled>프로젝트 저장</button>
+            <button id="rebuild-watchlist" class="action-button primary" type="button" disabled>분석 재생성</button>
             <button id="download-json" class="action-button" type="button">JSON 내보내기</button>
             <button id="copy-json" class="action-button" type="button">JSON 복사</button>
           </div>
           <input id="file-input" type="file" accept="application/json,.json" hidden />
           <div id="validation-panel" class="validation-panel">검증 대기</div>
+          <pre id="job-log" class="job-log" hidden></pre>
         </section>
 
         <section class="card settings-global-card">

@@ -63,8 +63,12 @@ This project belongs to the `personal-economy` Area. It was moved into Knowledge
 - `npm run publish:full`: full production-style pipeline
 - `npm run publish:full-demo`: demo pipeline
 - `npm run build:stocks`: build watchlist data
+- `npm run build:stocks:full`: fetch watchlist prices and rebuild watchlist analysis
 - `npm run report:html`: render latest report
+- `npm run check:copy`: check public editorial copy gate
+- `npm run fix:copy`: apply editorial copy replacements to public outputs
 - `npm run serve`: local static server on port 8080
+- `npm run admin`: local admin server on port 8081 for options save and watchlist rebuild
 
 ## Do Not
 
@@ -74,11 +78,15 @@ This project belongs to the `personal-economy` Area. It was moved into Knowledge
 - Do not overwrite editorial configuration without checking `config/editorial-style.json`.
 - Do not reintroduce the nested `경제 리포트/` duplicate into this repository.
 
+## Current Automation Direction
+
+- Use `settings.html` for watchlist add/edit/delete instead of direct vibe-coding changes.
+- Use `npm run admin` when settings must be saved back to `config/watchlist-stocks.json` and followed by watchlist regeneration.
+- Keep `npm run check:copy` green by running public outputs through `scripts/editorial-copy.mjs` before publication.
+
 ## Next Actions
 
 - Update any local scheduler entry that assumes the old directory.
-- Use `settings.html` for watchlist add/edit/delete instead of direct vibe-coding changes.
 - Standardize the public concept as a Korean daily macro briefing and static report system.
-- Pass `npm run check:copy` by removing remaining editorial avoid terms from generated outputs and generation scripts.
 - Decide whether the remaining `/Users/parkhankyu/Downloads/경제 리포트` reference copy should be archived or deleted.
 - Preserve `.env` without printing its contents if the whole repository is moved.

@@ -10,7 +10,8 @@ const state = {
   config: structuredClone(DEFAULT_CONFIG),
   selectedIndex: 0,
   fileHandle: null,
-  dirty: false
+  dirty: false,
+  admin: { available: false, currentJobId: null, polling: false }
 };
 
 const fields = {
@@ -56,6 +57,22 @@ function escapeHtml(value) {
 
 function setStatus(message) {
   $("source-status").textContent = message;
+}
+
+function setAdminStatus(message) {
+  $("admin-status").textContent = message;
+}
+
+function renderAdminControls() {
+  const enabled = state.admin.available;
+  $("save-admin").disabled = !enabled;
+  $("rebuild-watchlist").disabled = !enabled || state.admin.polling;
+}
+
+function setJobLog(text, show = true) {
+  const log = $("job-log");
+  log.hidden = !show;
+  log.textContent = text || "";
 }
 
 function toLines(value) {
@@ -339,9 +356,10 @@ function loadConfig(config, label) {
 }
 
 async function loadDefaultConfig() {
-  const response = await fetch("./config/watchlist-stocks.json?v=" + Date.now(), { cache: "no-store" });
+  const source = state.admin.available ? "./api/watchlist-config" : "./config/watchlist-stocks.json?v=" + Date.now();
+  const response = await fetch(source, { cache: "no-store" });
   if (!response.ok) throw new Error("config_load_failed");
-  loadConfig(await response.json(), "현재 설정");
+  loadConfig(await response.json(), state.admin.available ? "프로젝트 설정" : "현재 설정");
 }
 
 function loadBrowserConfig() {
@@ -406,6 +424,85 @@ function saveBrowserConfig() {
   setStatus("브라우저 저장 완료");
 }
 
+async function detectAdminApi() {
+  try {
+    const response = await fetch("./api/admin-status", { cache: "no-store" });
+    if (!response.ok) throw new Error("admin_unavailable");
+    const data = await response.json();
+    state.admin.available = Boolean(data.admin);
+    state.admin.currentJobId = data.currentJobId || null;
+    setAdminStatus(state.admin.available ? "로컬 API 연결" : "로컬 API 없음");
+  } catch {
+    state.admin.available = false;
+    setAdminStatus("로컬 API 없음");
+  }
+  renderAdminControls();
+}
+
+async function saveProjectConfig() {
+  if (!state.admin.available) return;
+  applyCurrentStock(false);
+  const config = cleanConfig(state.config);
+  const findings = validateConfig(config);
+  if (findings.length) {
+    setStatus("검증 필요");
+    renderValidation();
+    return;
+  }
+  const response = await fetch("./api/watchlist-config", {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(config)
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    setStatus(data.findings?.join(" / ") || "프로젝트 저장 실패");
+    return;
+  }
+  state.dirty = false;
+  localStorage.removeItem(STORAGE_KEY);
+  setStatus("프로젝트 저장 완료");
+}
+
+function renderJob(job) {
+  const statusLabel = job.status === "running" ? "재생성 중" : job.status === "success" ? "재생성 완료" : "재생성 실패";
+  setStatus(statusLabel);
+  setJobLog((job.output || "").trim() || statusLabel);
+}
+
+async function pollJob(jobId) {
+  state.admin.polling = true;
+  renderAdminControls();
+  try {
+    const response = await fetch("./api/jobs/" + encodeURIComponent(jobId), { cache: "no-store" });
+    const data = await response.json();
+    if (!response.ok || !data.job) throw new Error("job_missing");
+    renderJob(data.job);
+    if (data.job.status === "running") {
+      setTimeout(() => pollJob(jobId), 1500);
+      return;
+    }
+    await loadAnalysisStatus();
+  } catch {
+    setStatus("작업 상태 확인 실패");
+  }
+  state.admin.polling = false;
+  renderAdminControls();
+}
+
+async function rebuildWatchlist() {
+  if (!state.admin.available) return;
+  const response = await fetch("./api/rebuild-watchlist", { method: "POST" });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || !data.job) {
+    setStatus("분석 재생성 시작 실패");
+    return;
+  }
+  state.admin.currentJobId = data.job.id;
+  renderJob(data.job);
+  pollJob(data.job.id);
+}
+
 function addStock() {
   applyCurrentStock(false);
   state.config.stocks.push(createEmptyStock());
@@ -453,6 +550,8 @@ function bindEvents() {
   $("open-file").addEventListener("click", () => openConfigFile().catch(() => setStatus("파일 열기 실패")));
   $("save-browser").addEventListener("click", saveBrowserConfig);
   $("save-file").addEventListener("click", () => saveConfigFile().catch(() => setStatus("파일 저장 실패")));
+  $("save-admin").addEventListener("click", () => saveProjectConfig().catch(() => setStatus("프로젝트 저장 실패")));
+  $("rebuild-watchlist").addEventListener("click", () => rebuildWatchlist().catch(() => setStatus("분석 재생성 실패")));
   $("download-json").addEventListener("click", downloadJson);
   $("copy-json").addEventListener("click", () => copyJson().catch(() => setStatus("복사 실패")));
   $("add-stock").addEventListener("click", addStock);
@@ -490,8 +589,10 @@ function bindEvents() {
 
 async function init() {
   bindEvents();
+  renderAdminControls();
+  await detectAdminApi();
   await loadAnalysisStatus();
-  if (loadBrowserConfig()) return;
+  if (!state.admin.available && loadBrowserConfig()) return;
   try {
     await loadDefaultConfig();
   } catch {

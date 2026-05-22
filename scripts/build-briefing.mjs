@@ -2,6 +2,8 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { applyPreferredTermsDeep, loadPreferredReplacements } from "./editorial-copy.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
@@ -509,15 +511,15 @@ function buildRateSignal(byId, curve) {
 
   if (up10 && up2) {
     label = "금리 상방 재가격";
-    description = "장단기 금리가 함께 올라 할인율 부담이 커졌습니다.";
+    description = "장단기 금리가 함께 올라 금리 부담이 커졌습니다.";
     direction = "up";
   } else if (down10 && down2) {
     label = "금리 하향 안정";
     description = "장단기 금리가 함께 내려 밸류에이션 부담이 완화됐습니다.";
     direction = "down";
   } else if (tenYear.absoluteChange > 0 && twoYear.absoluteChange <= 0) {
-    label = "커브 스티프닝";
-    description = "장기물 금리가 상대적으로 높아져 장기 할인율 부담이 다시 부각됐습니다.";
+    label = "장단기 금리차 확대";
+    description = "장기물 금리가 상대적으로 높아져 장기 금리 부담이 다시 부각됐습니다.";
     direction = "mixed";
   } else if (tenYear.absoluteChange < 0 && twoYear.absoluteChange >= 0) {
     label = "장기금리 완화";
@@ -560,7 +562,7 @@ function buildVolatilitySignal(byId, equitySignal) {
     confirmation = "risk-off";
   } else if (vix.absoluteChange <= -0.5 && equitySignal.averageMove < 0) {
     label = "변동성 둔화";
-    description = "지수는 약했지만 VIX가 내려 단기 패닉으로 볼 정도는 아니었습니다.";
+    description = "지수는 약했지만 VIX가 내려 단기 공포 심리로 볼 정도는 아니었습니다.";
     conflicted = true;
     confirmation = "conflicted";
   }
@@ -661,7 +663,7 @@ function buildPositioningSignals(equitySignal, rateSignal, volatilitySignal, dat
 
   if (equitySignal.positive > equitySignal.negative && rateSignal?.direction === "down" && volatilitySignal?.confirmation === "supportive") {
     items.push({
-      title: "멀티플 확장 우호",
+      title: "주가 밸류에이션 확장 우호",
       desc: "주가 강세에 금리 하락과 VIX 하락이 동반돼 성장주·듀레이션 자산 해석에 우호적입니다."
     });
   } else if (equitySignal.positive > equitySignal.negative && rateSignal?.direction === "up") {
@@ -918,7 +920,8 @@ async function main() {
   const series = rawSeries.map((item) => annotateFreshness(item, reportDate, defaultThreshold));
   const derived = buildDerived(series).map((item) => annotateFreshness(item, reportDate, defaultThreshold));
   const yahooExtras = await loadYahooExtras(reportDate, defaultThreshold);
-  const payload = buildPayload(config, [...series, ...yahooExtras], derived, generatedAt, reportDate);
+  const replacements = await loadPreferredReplacements(ROOT);
+  const payload = applyPreferredTermsDeep(buildPayload(config, [...series, ...yahooExtras], derived, generatedAt, reportDate), replacements);
 
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
   await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
