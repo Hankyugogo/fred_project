@@ -104,6 +104,33 @@ h1 {
   font-size: 0.92rem;
 }
 
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.hero-links a:hover {
+  border-color: rgba(20, 122, 86, 0.26);
+  background: rgba(236, 247, 241, 0.9);
+  color: var(--up);
+}
+
 .health-badge.healthy {
   background: rgba(20, 122, 86, 0.12);
   color: var(--up);
@@ -794,6 +821,467 @@ h1 {
   color: var(--accent);
 }
 
+.stock-section-meta {
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stock-section-meta span {
+  min-height: 40px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.stock-macro-title {
+  margin-top: 18px;
+  font-size: 1.6rem;
+}
+
+.stock-lede {
+  margin: 0;
+  max-width: 960px;
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+.stock-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stock-signal,
+.stock-list-item,
+.stock-detail,
+.stock-quote-strip article,
+.driver-grid article,
+.micro-card,
+.scenario-grid article,
+.chart-panel,
+.technical-card,
+.forecast-summary,
+.forecast-grid article,
+.micro-factor {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.stock-signal {
+  min-height: 150px;
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.stock-signal span,
+.stock-quote-strip span,
+.driver-grid span,
+.micro-card span,
+.scenario-grid span,
+.technical-card span,
+.forecast-summary span,
+.forecast-grid span,
+.micro-factor span {
+  display: block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stock-signal strong {
+  display: block;
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.stock-signal em {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.stock-signal p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.stock-signal.up,
+.stock-score.up {
+  border-color: rgba(20, 122, 86, 0.26);
+  background: rgba(20, 122, 86, 0.08);
+}
+
+.stock-signal.down,
+.stock-score.down {
+  border-color: rgba(178, 68, 45, 0.28);
+  background: rgba(178, 68, 45, 0.09);
+}
+
+.stock-layout {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.stock-list-panel {
+  min-width: 0;
+}
+
+.stock-list {
+  display: grid;
+  gap: 10px;
+}
+
+.stock-list-item {
+  width: 100%;
+  display: grid;
+  gap: 6px;
+  text-align: left;
+  border-radius: 18px;
+  padding: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.stock-list-item:hover,
+.stock-list-item.active {
+  border-color: rgba(20, 122, 86, 0.28);
+  background:
+    linear-gradient(180deg, rgba(231, 247, 239, 0.82), rgba(255, 255, 255, 0.9)),
+    rgba(255, 255, 255, 0.68);
+}
+
+.stock-list-item span,
+.stock-list-item em {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-style: normal;
+}
+
+.stock-list-item b {
+  font-weight: 700;
+}
+
+.stock-list-item b.up,
+.stock-score.up span,
+.stock-score.up strong {
+  color: var(--up);
+}
+
+.stock-list-item b.down,
+.stock-score.down span,
+.stock-score.down strong {
+  color: var(--down);
+}
+
+.stock-list-item b.flat,
+.stock-score.flat span,
+.stock-score.flat strong {
+  color: var(--flat);
+}
+
+.stock-detail {
+  border-radius: 22px;
+  padding: 18px;
+}
+
+.stock-detail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.stock-detail-head h3 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+.stock-ticker {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+}
+
+.stock-score {
+  min-width: 104px;
+  min-height: 104px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.stock-score span {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.stock-score strong {
+  display: block;
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.stock-quote-strip,
+.driver-grid,
+.micro-grid,
+.scenario-grid,
+.technical-grid,
+.forecast-grid,
+.micro-factor-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stock-quote-strip {
+  grid-template-columns: 1fr 1fr 1.4fr;
+}
+
+.driver-grid,
+.scenario-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.scenario-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.micro-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.technical-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.forecast-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.micro-factor-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.stock-quote-strip article,
+.driver-grid article,
+.micro-card,
+.scenario-grid article,
+.chart-panel,
+.technical-card,
+.forecast-summary,
+.forecast-grid article,
+.micro-factor {
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.stock-quote-strip strong {
+  display: block;
+  line-height: 1.35;
+}
+
+.stock-quote-strip em {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.stock-detail-section {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.stock-detail-section h4 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.stock-detail-section p,
+.micro-card p,
+.scenario-grid p,
+.forecast-grid p,
+.micro-factor p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.chart-panel {
+  margin-top: 14px;
+  padding: 16px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.chart-head strong {
+  color: var(--ink);
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  font-size: 1.2rem;
+}
+
+.stock-chart {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+}
+
+.stock-chart line {
+  stroke: rgba(25, 31, 38, 0.12);
+  stroke-width: 1;
+}
+
+.chart-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-line.close {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.chart-line.ma20 {
+  stroke: var(--up);
+  stroke-width: 1.8;
+}
+
+.chart-line.ma60 {
+  stroke: var(--down);
+  stroke-width: 1.8;
+  stroke-dasharray: 5 5;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend i {
+  width: 18px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--ink);
+}
+
+.chart-legend i.ma20 {
+  background: var(--up);
+}
+
+.chart-legend i.ma60 {
+  background: var(--down);
+}
+
+.chart-empty {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.technical-card strong,
+.forecast-grid strong,
+.micro-factor strong {
+  display: block;
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  font-size: 1.32rem;
+  line-height: 1.15;
+}
+
+.technical-card em,
+.forecast-summary em,
+.forecast-grid em {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.forecast-summary {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.forecast-summary div {
+  min-height: 96px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.forecast-summary strong {
+  display: block;
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.forecast-summary.up {
+  border-color: rgba(20, 122, 86, 0.26);
+  background: rgba(20, 122, 86, 0.08);
+}
+
+.forecast-summary.down {
+  border-color: rgba(178, 68, 45, 0.28);
+  background: rgba(178, 68, 45, 0.09);
+}
+
+.micro-factor div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.driver-grid ul,
+.stock-watch-section ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stock-watch-section {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
 @media (max-width: 920px) {
   .hero-row,
   .group-block {
@@ -811,11 +1299,33 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .stock-section-meta {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
   .metric-grid,
   .index-strip,
   .news-theme-grid,
-  .quality-strip {
+  .quality-strip,
+  .stock-signal-grid,
+  .micro-grid,
+  .technical-grid,
+  .micro-factor-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stock-layout,
+  .stock-quote-strip,
+  .driver-grid,
+  .scenario-grid,
+  .forecast-grid,
+  .stock-watch-section {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-summary {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -835,7 +1345,11 @@ h1 {
   .index-strip,
   .news-theme-grid,
   .quality-strip,
-  .tag-row {
+  .tag-row,
+  .stock-signal-grid,
+  .micro-grid,
+  .technical-grid,
+  .micro-factor-grid {
     grid-template-columns: 1fr;
   }
 
@@ -844,7 +1358,8 @@ h1 {
   }
 
   .briefing-head,
-  .archive-insight-head {
+  .archive-insight-head,
+  .stock-detail-head {
     display: grid;
   }
 }

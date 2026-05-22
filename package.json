@@ -7,17 +7,24 @@
     "build:demo": "node --env-file-if-exists=.env scripts/build-briefing.mjs --demo",
     "fetch:news": "node --env-file-if-exists=.env scripts/fetch-news.mjs",
     "fetch:yahoo": "node --env-file-if-exists=.env scripts/fetch-yahoo.mjs",
+    "fetch:watchlist": "node --env-file-if-exists=.env scripts/fetch-watchlist-prices.mjs",
     "summarize:news": "node --env-file-if-exists=.env scripts/summarize-news.mjs",
     "enrich:stale": "node --env-file-if-exists=.env scripts/enrich-stale.mjs",
     "enrich:context": "node --env-file-if-exists=.env scripts/enrich-context.mjs",
+    "build:stocks": "node --env-file-if-exists=.env scripts/build-stock-watchlist.mjs",
+    "build:stocks:full": "npm run fetch:watchlist && npm run build:stocks",
     "rewrite:llm": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs",
+    "fill:fallback": "node --env-file-if-exists=.env scripts/fill-briefing-fallback.mjs",
+    "rewrite:llm:optional": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs || node --env-file-if-exists=.env scripts/fill-briefing-fallback.mjs",
     "publish:data": "npm run build:data && node --env-file-if-exists=.env scripts/publish-briefing.mjs",
     "publish:demo": "npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo",
-    "publish:full": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:data && npm run enrich:stale && npm run enrich:context && node --env-file-if-exists=.env scripts/publish-briefing.mjs && npm run rewrite:llm && node --env-file-if-exists=.env scripts/render-report.mjs",
-    "publish:full-demo": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo && npm run rewrite:llm && node --env-file-if-exists=.env scripts/render-report.mjs",
+    "publish:full": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:data && node --env-file-if-exists=.env scripts/publish-briefing.mjs && npm run fetch:watchlist && npm run build:stocks && npm run fetch:macro && npm run rewrite:llm:optional && node --env-file-if-exists=.env scripts/render-report.mjs",
+    "publish:full-rich": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:data && npm run enrich:stale && npm run enrich:context && node --env-file-if-exists=.env scripts/publish-briefing.mjs && npm run fetch:watchlist && npm run build:stocks && npm run fetch:macro && npm run rewrite:llm:optional && node --env-file-if-exists=.env scripts/render-report.mjs",
+    "publish:full-demo": "npm run fetch:news && npm run fetch:yahoo && npm run summarize:news && npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo && npm run fetch:watchlist && npm run build:stocks && npm run fetch:macro && npm run rewrite:llm:optional && node --env-file-if-exists=.env scripts/render-report.mjs",
     "report:html": "node --env-file-if-exists=.env scripts/render-report.mjs",
     "check:copy": "node --env-file-if-exists=.env scripts/check-editorial-copy.mjs",
     "seed:demo-archive": "node --env-file-if-exists=.env scripts/seed-demo-archive.mjs",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "fetch:macro": "node --env-file-if-exists=.env scripts/fetch-macro-history.mjs"
   }
 }

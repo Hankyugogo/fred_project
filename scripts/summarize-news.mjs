@@ -6,7 +6,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { callGeminiJson, callGemini } from "./lib/gemini-client.mjs";
+import { callGeminiJson } from "./lib/gemini-client.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +15,7 @@ const DIGEST_PATH = path.join(ROOT, "data", "news-digest.json");
 const STYLE_PATH = path.join(ROOT, "config", "editorial-style.json");
 
 const SUMMARIZE_MODEL = process.env.GEMINI_SUMMARIZE_MODEL || "gemini-2.5-flash";
+const SUMMARY_ITEM_LIMIT = Number(process.env.GEMINI_SUMMARY_ITEM_LIMIT || 8);
 
 const SOURCE_KOREAN_MAP = {
   "Federal Reserve": "연방준비제도",
@@ -184,8 +185,10 @@ function chunkArray(items, size) {
 }
 
 async function summarizeItems(items, systemInstruction) {
-  // Batch up to ~6 items per call to keep responses well within token budget.
-  const chunks = chunkArray(items, 6);
+  // Keep the daily pipeline to one Gemini call by default. The report writer can still use
+  // raw English titles for lower-priority items, and this preserves quota for final rewrite.
+  const selected = items.slice(0, Math.max(0, SUMMARY_ITEM_LIMIT));
+  const chunks = selected.length ? [selected] : [];
   const merged = new Map();
   for (let i = 0; i < chunks.length; i += 1) {
     const chunk = chunks[i];
@@ -293,7 +296,7 @@ async function main() {
 
   // Sequential execution so partial progress is preserved even if a later step fails.
   const summaryMap = await summarizeItems(items, systemInstruction);
-  const themeResult = await summarizeThemes(digest.themes || [], systemInstruction);
+  const themeResult = { themeMap: new Map(), editorialSummary: null };
 
   applySummaries(digest, summaryMap, themeResult.themeMap, themeResult.editorialSummary);
 
@@ -304,9 +307,11 @@ async function main() {
   if (themeResult.editorialSummary) {
     console.log(`- 데스크 한 줄: ${themeResult.editorialSummary}`);
   }
-  if (summaryMap.size === 0 && themeResult.themeMap.size === 0) {
-    console.warn("⚠️ 모든 요약이 실패했습니다. Gemini 응답·토큰 한도를 확인하세요.");
-    process.exitCode = 1;
+  if (items.length > SUMMARY_ITEM_LIMIT) {
+    console.warn(`⚠️ Gemini 호출 절감을 위해 상위 ${SUMMARY_ITEM_LIMIT}건만 한국어 요약했습니다. 나머지는 원문 제목을 유지합니다.`);
+  }
+  if (summaryMap.size === 0) {
+    console.warn("⚠️ 뉴스 요약이 실패했습니다. 원문 제목을 유지하고 파이프라인은 계속 진행합니다.");
   }
 }
 

@@ -1,0 +1,21 @@
+{
+  "title": "매크로 지표 다기간 비교",
+  "description": "render-report.mjs가 1주/1개월/1년 변동 계산에 쓰는 Yahoo Finance 1y 일봉 시계열. fetch:macro 스크립트가 이 설정을 읽어 data/macro-history.json을 만든다.",
+  "indicators": [
+    { "id": "SP500", "fredId": "SP500", "yahooSymbol": "^GSPC", "label": "S&P 500", "kind": "index" },
+    { "id": "NASDAQCOM", "fredId": "NASDAQCOM", "yahooSymbol": "^IXIC", "label": "나스닥종합", "kind": "index" },
+    { "id": "DJIA", "fredId": "DJIA", "yahooSymbol": "^DJI", "label": "다우지수", "kind": "index" },
+    { "id": "RUSSELL2000", "fredId": null, "yahooSymbol": "^RUT", "label": "러셀 2000", "kind": "index" },
+    { "id": "VIXCLS", "fredId": "VIXCLS", "yahooSymbol": "^VIX", "label": "VIX", "kind": "index" },
+    { "id": "DGS10", "fredId": "DGS10", "yahooSymbol": "^TNX", "label": "미 국채 10년물", "kind": "rate", "scale": 0.1, "note": "^TNX는 10년물 금리×10으로 호가되어 0.1 스케일 적용" },
+    { "id": "DGS2", "fredId": "DGS2", "yahooSymbol": "^IRX", "label": "미 국채 단기 (^IRX, 13W T-Bill)", "kind": "rate", "scale": 1, "note": "정확한 2년물 시계열은 Yahoo에서 직접 제공하지 않음. 단기 금리 추세 대용." },
+    { "id": "DEXKOUS", "fredId": "DEXKOUS", "yahooSymbol": "KRW=X", "label": "USD/KRW", "kind": "fx" },
+    { "id": "DTWEXBGS", "fredId": "DTWEXBGS", "yahooSymbol": "DX-Y.NYB", "label": "달러지수 (DXY)", "kind": "fx" },
+    { "id": "DEXJPUS", "fredId": "DEXJPUS", "yahooSymbol": "JPY=X", "label": "USD/JPY", "kind": "fx" },
+    { "id": "DCOILWTICO", "fredId": "DCOILWTICO", "yahooSymbol": "CL=F", "label": "WTI 유가", "kind": "commodity" },
+    { "id": "DCOILBRENTEU", "fredId": "DCOILBRENTEU", "yahooSymbol": "BZ=F", "label": "브렌트유", "kind": "commodity" },
+    { "id": "GOLD", "fredId": null, "yahooSymbol": "GC=F", "label": "금 (Gold Spot)", "kind": "commodity" },
+    { "id": "COPPER", "fredId": null, "yahooSymbol": "HG=F", "label": "구리", "kind": "commodity" },
+    { "id": "BTC", "fredId": null, "yahooSymbol": "BTC-USD", "label": "비트코인", "kind": "crypto" }
+  ]
+}

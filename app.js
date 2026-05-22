@@ -571,6 +571,335 @@ function renderArchiveError() {
   document.getElementById("post-view").textContent = "브리핑 본문이 없습니다.";
 }
 
+function formatStockPercent(value) {
+  if (!Number.isFinite(value)) return "N/A";
+  return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
+}
+
+function formatStockNumber(value, decimals = 2) {
+  if (!Number.isFinite(value)) return "N/A";
+  return new Intl.NumberFormat("ko-KR", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  }).format(value);
+}
+
+function formatStockPrice(value) {
+  if (!Number.isFinite(value)) return "N/A";
+  const decimals = Math.abs(value) >= 1000 ? 0 : Math.abs(value) >= 100 ? 1 : 2;
+  return formatStockNumber(value, decimals);
+}
+
+function stockToneClass(value) {
+  if (value === "positive" || value === "up") return "up";
+  if (value === "negative" || value === "down") return "down";
+  return "flat";
+}
+
+function renderWatchlistMacro(data) {
+  const macro = data.macroBackdrop || {};
+  document.getElementById("stock-headline").textContent = data.title || "관심종목 정량 분석";
+  document.getElementById("stock-subheadline").textContent =
+    "차트, 기술적 지표, 매크로·마이크로 점수를 결합해 관심종목의 추세를 점검합니다.";
+  document.getElementById("stock-generated-at").textContent = `생성 시각 ${formatDate(data.generatedAt)}`;
+  document.getElementById("stock-report-date").textContent = macro.reportDate
+    ? `브리핑 ${macro.reportDate}`
+    : "브리핑 기준일 없음";
+  document.getElementById("stock-count").textContent = `종목 ${data.stocks?.length || 0}개`;
+  document.getElementById("macro-title").textContent = macro.title || "매크로 배경 확인 필요";
+  document.getElementById("macro-summary").textContent = macro.summary || "시장 요약이 없습니다.";
+  document.getElementById("stock-disclaimer").textContent =
+    data.disclaimer || "관심종목 분석은 정보 제공용 정량 시나리오이며 투자자문이 아닙니다.";
+
+  const signals = Array.isArray(macro.signals) ? macro.signals : [];
+  document.getElementById("macro-signals").innerHTML = signals
+    .map((signal) => `
+      <article class="stock-signal ${stockToneClass(signal.tone)}">
+        <span>${escapeHtml(signal.label)}</span>
+        <strong>${escapeHtml(signal.value)}</strong>
+        <em>${escapeHtml(signal.change)}</em>
+        <p>${escapeHtml(signal.note)}</p>
+      </article>
+    `)
+    .join("");
+}
+
+function renderWatchlistItems(stocks, selectedTicker, onSelect) {
+  const list = document.getElementById("stock-list");
+  list.innerHTML = stocks
+    .map((stock) => {
+      const active = stock.ticker === selectedTicker ? "active" : "";
+      return `
+        <button class="stock-list-item ${active}" type="button" data-ticker="${escapeHtml(stock.ticker)}">
+          <span>${escapeHtml(stock.market || "시장")}</span>
+          <strong>${escapeHtml(stock.name || stock.ticker)}</strong>
+          <em>${escapeHtml(stock.ticker)} · ${escapeHtml(stock.sectorLabel || stock.sector || "섹터")}</em>
+          <b class="${stockToneClass(stock.macroToneClass)}">${escapeHtml(stock.macroTone || "중립")} · ${escapeHtml(stock.macroScore ?? "N/A")}</b>
+        </button>
+      `;
+    })
+    .join("");
+
+  list.querySelectorAll(".stock-list-item").forEach((button) => {
+    button.addEventListener("click", () => {
+      const next = stocks.find((stock) => stock.ticker === button.dataset.ticker);
+      if (next) onSelect(next);
+    });
+  });
+}
+
+function stockListItems(items = []) {
+  if (!items.length) return '<li class="empty-line">확인 항목 없음</li>';
+  return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+}
+
+function stockMicroCards(micro = {}) {
+  const rows = [
+    ["수요", micro.demand],
+    ["이익률", micro.margin],
+    ["재무", micro.balanceSheet],
+    ["주가 평가", micro.valuation]
+  ];
+  return rows
+    .map(([label, text]) => `
+      <article class="micro-card">
+        <span>${label}</span>
+        <p>${escapeHtml(text || "메모 없음")}</p>
+      </article>
+    `)
+    .join("");
+}
+
+function renderStockTrendChart(chart = {}) {
+  const points = Array.isArray(chart.points) ? chart.points.filter((point) => Number.isFinite(point.close)) : [];
+  if (points.length < 2) {
+    return '<div class="chart-empty">차트 데이터 없음</div>';
+  }
+
+  const width = 720;
+  const height = 260;
+  const padding = 24;
+  const values = points.flatMap((point) => [point.close, point.ma20, point.ma60]).filter(Number.isFinite);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min || Math.max(max * 0.02, 1);
+  const xStep = (width - (padding * 2)) / (points.length - 1);
+  const x = (index) => padding + (index * xStep);
+  const y = (value) => height - padding - (((value - min) / span) * (height - (padding * 2)));
+  const pathFor = (key) => {
+    let started = false;
+    return points.map((point, index) => {
+      const value = point[key];
+      if (!Number.isFinite(value)) return "";
+      const command = started ? "L" : "M";
+      started = true;
+      return `${command}${x(index).toFixed(1)},${y(value).toFixed(1)}`;
+    }).filter(Boolean).join(" ");
+  };
+  const last = points.at(-1);
+
+  return `
+    <div class="chart-head">
+      <span>${escapeHtml(points[0].date)} - ${escapeHtml(last.date)}</span>
+      <strong>${formatStockPrice(last.close)}</strong>
+    </div>
+    <svg class="stock-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="가격 추세 차트">
+      <line x1="${padding}" y1="${padding}" x2="${padding}" y2="${height - padding}" />
+      <line x1="${padding}" y1="${height - padding}" x2="${width - padding}" y2="${height - padding}" />
+      <path class="chart-line close" d="${pathFor("close")}" />
+      <path class="chart-line ma20" d="${pathFor("ma20")}" />
+      <path class="chart-line ma60" d="${pathFor("ma60")}" />
+    </svg>
+    <div class="chart-legend">
+      <span><i class="close"></i>종가</span>
+      <span><i class="ma20"></i>20일선</span>
+      <span><i class="ma60"></i>60일선</span>
+    </div>
+  `;
+}
+
+function stockTechnicalCards(technical = {}) {
+  const indicators = technical.indicators || {};
+  const rows = [
+    ["기술 점수", Number.isFinite(technical.score) ? `${technical.score}` : "N/A", technical.tone || "확인 필요"],
+    ["1일/5일", `${formatStockPercent(indicators.return1d)} / ${formatStockPercent(indicators.return5d)}`, "단기 탄력"],
+    ["20일/60일", `${formatStockPercent(indicators.return20d)} / ${formatStockPercent(indicators.return60d)}`, "중기 수익률"],
+    ["이동평균", `${formatStockPrice(indicators.ma20)} / ${formatStockPrice(indicators.ma60)}`, "20일·60일"],
+    ["RSI", formatStockNumber(indicators.rsi14, 1), "14일 상대강도"],
+    ["MACD", formatStockNumber(indicators.macdHistogram, 2), "히스토그램"],
+    ["변동성", formatStockPercent(indicators.dailyVolatility20d), "20일 일간"],
+    ["지지/저항", `${formatStockPrice(indicators.support20d)} / ${formatStockPrice(indicators.resistance20d)}`, "20일 범위"]
+  ];
+
+  return rows
+    .map(([label, value, note]) => `
+      <article class="technical-card">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value)}</strong>
+        <em>${escapeHtml(note)}</em>
+      </article>
+    `)
+    .join("");
+}
+
+function stockMicroFactorCards(microAnalysis = {}) {
+  const factors = Array.isArray(microAnalysis.factors) ? microAnalysis.factors : [];
+  if (!factors.length) return '<p class="empty-line">마이크로 점수 없음</p>';
+  return factors
+    .map((factor) => `
+      <article class="micro-factor">
+        <div><span>${escapeHtml(factor.label)}</span><strong>${escapeHtml(factor.score)}</strong></div>
+        <p>${escapeHtml(factor.note || "")}</p>
+      </article>
+    `)
+    .join("");
+}
+
+function stockForecastPanel(forecast = {}) {
+  const horizons = Array.isArray(forecast.horizons) ? forecast.horizons : [];
+  return `
+    <div class="forecast-summary ${stockToneClass(forecast.toneClass)}">
+      <div>
+        <span>전망 점수</span>
+        <strong>${escapeHtml(forecast.score ?? "N/A")}</strong>
+      </div>
+      <p>${escapeHtml(forecast.summary || "정량 전망 없음")}</p>
+      <em>신뢰도 ${escapeHtml(forecast.confidence || "확인 필요")} · ${escapeHtml(forecast.confidenceNote || "")}</em>
+    </div>
+    <div class="forecast-grid">
+      ${horizons.map((horizon) => `
+        <article>
+          <span>${escapeHtml(horizon.label)}</span>
+          <strong>${formatStockPercent(horizon.expectedReturnPct)}</strong>
+          <em>상승확률 ${escapeHtml(horizon.upProbabilityPct ?? "N/A")}%</em>
+          <p>예상 범위 ${formatStockPercent(horizon.rangeLowPct)} ~ ${formatStockPercent(horizon.rangeHighPct)}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderWatchlistDetail(stock) {
+  const detail = document.getElementById("stock-detail");
+  const quote = stock.quote || {};
+  const quoteText = Number.isFinite(quote.price)
+    ? `${escapeHtml(quote.currency || "")} ${escapeHtml(quote.price)}`
+    : "수동 시세 미입력";
+  const quoteChange = Number.isFinite(quote.changePercent) ? formatStockPercent(quote.changePercent) : "변동률 없음";
+  const sectorSignal = stock.sectorSignal
+    ? `${stock.sectorSignal.ticker} ${formatStockPercent(stock.sectorSignal.percentChange)}`
+    : "참조 자료 없음";
+
+  detail.innerHTML = `
+    <div class="stock-detail-head">
+      <div>
+        <p class="briefing-date">${escapeHtml(stock.market || "시장")} · ${escapeHtml(stock.sectorLabel || stock.sector || "섹터")}</p>
+        <h3>${escapeHtml(stock.name || stock.ticker)}</h3>
+        <p class="stock-ticker">${escapeHtml(stock.ticker)}</p>
+      </div>
+      <div class="stock-score ${stockToneClass(stock.macroToneClass)}">
+        <span>${escapeHtml(stock.macroTone || "중립")}</span>
+        <strong>${escapeHtml(stock.macroScore ?? "N/A")}</strong>
+      </div>
+    </div>
+
+    <div class="stock-quote-strip">
+      <article><span>시세</span><strong>${quoteText}</strong><em>${quoteChange}</em></article>
+      <article><span>참조 신호</span><strong>${escapeHtml(sectorSignal)}</strong><em>${escapeHtml(stock.sectorSignal?.observationDate || "날짜 없음")}</em></article>
+      <article><span>포지션 메모</span><strong>${escapeHtml(stock.positionNote || "메모 없음")}</strong></article>
+    </div>
+
+    <section class="stock-detail-section">
+      <h4>차트·기술적 분석</h4>
+      <p>${escapeHtml(stock.technical?.summary || "기술적 분석이 없습니다.")}</p>
+      <div class="chart-panel">${renderStockTrendChart(stock.technical?.chart)}</div>
+      <div class="technical-grid">${stockTechnicalCards(stock.technical)}</div>
+    </section>
+
+    <section class="stock-detail-section">
+      <h4>정량 추세 전망</h4>
+      ${stockForecastPanel(stock.forecast)}
+    </section>
+
+    <section class="stock-detail-section">
+      <h4>매크로 연결</h4>
+      <p>${escapeHtml(stock.macroSummary || "매크로 요약이 없습니다.")}</p>
+      <div class="driver-grid">
+        <article>
+          <span>긍정 변수</span>
+          <ul>${stockListItems(stock.macroDrivers?.positive || [])}</ul>
+        </article>
+        <article>
+          <span>부정 변수</span>
+          <ul>${stockListItems(stock.macroDrivers?.negative || [])}</ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="stock-detail-section">
+      <h4>마이크로 체크</h4>
+      <div class="micro-grid">${stockMicroCards(stock.micro)}</div>
+      <div class="micro-factor-grid">${stockMicroFactorCards(stock.microAnalysis)}</div>
+    </section>
+
+    <section class="stock-detail-section">
+      <h4>시나리오</h4>
+      <div class="scenario-grid">
+        <article><span>기본</span><p>${escapeHtml(stock.scenario?.base || "기본 시나리오 없음")}</p></article>
+        <article><span>상승</span><p>${escapeHtml(stock.scenario?.upside || "상승 시나리오 없음")}</p></article>
+        <article><span>하락</span><p>${escapeHtml(stock.scenario?.downside || "하락 시나리오 없음")}</p></article>
+      </div>
+    </section>
+
+    <section class="stock-detail-section stock-watch-section">
+      <div>
+        <h4>확인할 임계치</h4>
+        <ul>${stockListItems(stock.watchLevels || [])}</ul>
+      </div>
+      <div>
+        <h4>다음 점검</h4>
+        <ul>${stockListItems(stock.nextChecks || [])}</ul>
+      </div>
+      <div>
+        <h4>위험 표시</h4>
+        <ul>${stockListItems(stock.riskFlags || [])}</ul>
+      </div>
+    </section>
+  `;
+}
+
+async function loadWatchlist() {
+  const response = await fetch("./data/stock-watchlist.json", { cache: "no-store" });
+  if (!response.ok) throw new Error("stock_watchlist_load_failed");
+
+  const data = await response.json();
+  const stocks = Array.isArray(data.stocks) ? data.stocks : [];
+  renderWatchlistMacro(data);
+
+  if (!stocks.length) {
+    document.getElementById("stock-list").innerHTML = '<p class="empty-line">등록된 종목이 없습니다.</p>';
+    document.getElementById("stock-detail").innerHTML = '<p class="empty-line">표시할 종목 분석이 없습니다.</p>';
+    return;
+  }
+
+  const select = (stock) => {
+    renderWatchlistItems(stocks, stock.ticker, select);
+    renderWatchlistDetail(stock);
+  };
+
+  select(stocks[0]);
+}
+
+function renderWatchlistError() {
+  document.getElementById("stock-headline").textContent = "관심종목 데이터를 불러오지 못했습니다.";
+  document.getElementById("stock-subheadline").textContent =
+    "npm run build:stocks:full 실행 후 다시 확인하세요.";
+  document.getElementById("macro-title").textContent = "종목 분석 데이터 없음";
+  document.getElementById("macro-summary").textContent = "관심종목 정량 분석 파일을 확인해야 합니다.";
+  document.getElementById("stock-list").innerHTML = '<p class="empty-line">등록된 종목이 없습니다.</p>';
+  document.getElementById("stock-detail").innerHTML = '<p class="empty-line">표시할 종목 분석이 없습니다.</p>';
+}
+
 async function main() {
   const response = await fetch("./data/market-snapshot.json", { cache: "no-store" });
   if (!response.ok) {
@@ -579,6 +908,12 @@ async function main() {
 
   const snapshot = await response.json();
   renderLiveSnapshot(snapshot);
+
+  try {
+    await loadWatchlist();
+  } catch {
+    renderWatchlistError();
+  }
 
   try {
     await loadArchive();

@@ -16,6 +16,8 @@ const SNAPSHOT_PATH = path.join(ROOT, "data", "market-snapshot.json");
 const DIGEST_PATH = path.join(ROOT, "data", "news-digest.json");
 const STYLE_PATH = path.join(ROOT, "config", "editorial-style.json");
 const BRIEFINGS_PATH = path.join(ROOT, "data", "briefings.json");
+const STOCK_WATCHLIST_PATH = path.join(ROOT, "data", "stock-watchlist.json");
+const WATCHLIST_PRICES_PATH = path.join(ROOT, "data", "watchlist-prices.json");
 const POSTS_DIR = path.join(ROOT, "posts");
 
 // gemini-2.5-flash by default — free tier 1500 req/day, 60 RPM.
@@ -104,6 +106,68 @@ function extractNewsForLLM(digest) {
   };
 }
 
+// Extract Korea market context (KOSPI, KOSDAQ, USD/KRW, key Korean stocks)
+// from data/stock-watchlist.json. This grounds the LLM so it doesn't
+// hallucinate stale KOSPI levels in the alt-scenario or commentary.
+function extractKoreaMarketContext(stockWatchlist) {
+  if (!stockWatchlist) return null;
+  const backdrop = stockWatchlist.macroBackdrop || null;
+  const koreanSignals = backdrop?.signals
+    ? backdrop.signals.filter((s) => /코스피|코스닥|달러\/원|원달러/.test(s.label || ""))
+    : [];
+
+  let kospiSummary = null;
+  let usdkrwSummary = null;
+  const stocks = Array.isArray(stockWatchlist.stocks) ? stockWatchlist.stocks : [];
+  for (const s of stocks) {
+    if (s.ticker === "^KS11" && s.quote && Number.isFinite(s.quote.price)) {
+      kospiSummary = {
+        ticker: s.ticker,
+        name: s.name,
+        latestValue: s.quote.price,
+        changePercent: s.quote.changePercent,
+        currency: s.quote.currency,
+        technicalTone: s.technical?.tone || null,
+        technicalSummary: s.technical?.summary || null,
+        ma20: s.technical?.indicators?.ma20 ?? null,
+        ma60: s.technical?.indicators?.ma60 ?? null,
+        support20d: s.technical?.indicators?.support20d ?? null,
+        resistance20d: s.technical?.indicators?.resistance20d ?? null,
+        return20d: s.technical?.indicators?.return20d ?? null,
+        return60d: s.technical?.indicators?.return60d ?? null
+      };
+    }
+  }
+
+  const usdkrwSig = koreanSignals.find((s) => /달러\/원|원달러/.test(s.label));
+  if (usdkrwSig) {
+    usdkrwSummary = {
+      label: usdkrwSig.label,
+      value: usdkrwSig.value,
+      change: usdkrwSig.change,
+      tone: usdkrwSig.tone
+    };
+  }
+
+  return {
+    sourceFile: "data/stock-watchlist.json",
+    generatedAt: stockWatchlist.generatedAt,
+    macroBackdropTitle: backdrop?.title || null,
+    macroBackdropSummary: backdrop?.summary || null,
+    macroBackdropReportDate: backdrop?.reportDate || null,
+    koreanSignals,
+    kospi: kospiSummary,
+    usdkrw: usdkrwSummary,
+    watchlistTickers: stocks.map((s) => ({
+      ticker: s.ticker,
+      name: s.name,
+      market: s.market,
+      price: s.quote?.price ?? null,
+      changePercent: s.quote?.changePercent ?? null
+    }))
+  };
+}
+
 function buildSystemInstruction(style) {
   const forbiddenList = [
     ...(style?.forbiddenEndings || []),
@@ -116,6 +180,13 @@ function buildSystemInstruction(style) {
     "너는 한국 경제일간지 조선비즈의 데일리 마감시황 + 글로벌 매크로 데스크의 시니어 에디터다.",
     "참조 결과물(Agent Hong Daily Intelligence)의 골격을 채택하되, 매크로 인과 깊이·한국 섹터 분해·향후 이벤트 구체성에서 명확히 능가해야 한다.",
     "단순 현황 보고에 그치면 실패다. 모든 분석은 (1) 사실, (2) 사실의 1단계 원인, (3) 1단계 원인의 2단계 매크로 배경, (4) 시장 함의·한국 적용까지 사슬 형태로 풀어쓴다.",
+    "",
+    "■ 숫자 그라운딩 절대 규칙 (환각 방지)",
+    "1) 지수·금리·환율·임계치 등 모든 숫자는 입력 JSON(시장 데이터, 한국 시장 컨텍스트, 컨텍스트 보강)에서 검증되는 값만 사용한다.",
+    "2) 코스피·코스닥 수준을 언급할 경우 반드시 '한국 시장 컨텍스트' 블록의 kospi.latestValue(또는 macroBackdrop signals의 코스피 값)를 그대로 인용한다. 입력에 없으면 '코스피 현재 수준', '주요 저항·지지선' 같은 일반 표현으로 대체하고 임의 수치를 만들지 않는다.",
+    "3) 동일 원칙이 코스피200, 코스닥, 삼성전자·SK하이닉스 등 한국 종목 가격과 미국·한국 채권 금리에도 적용된다.",
+    "4) 보조 시나리오(altScenario)에서 코스피 임계치를 언급할 때는 현재값 ±20% 이내 합리적 범위에서만 만든다. 학습 시점 기억에 의존한 옛 코스피 레인지(2,500~2,800 등) 절대 금지.",
+    "5) 본문 어딘가에서 코스피·코스닥·달러원·미 국채 금리 수치를 본인이 생성한다면, 직전 단계에서 입력 데이터의 어느 필드에서 가져왔는지 머릿속으로 한 번 더 검증한다.",
     "",
     "■ 언어·표기 절대 규칙",
     "1) 영문 단어 본문 노출 금지. 'S&P 500'→'S&P500지수', 'Nasdaq'→'나스닥 종합지수', 'Dow'→'다우존스30 산업평균지수', 'KOSPI'→'코스피지수', 'KOSDAQ'→'코스닥지수', 'Treasury yield'→'미 국채 금리', 'Fed'→'연방준비제도(연준)', 'FOMC'→'연방공개시장위원회(FOMC)', 'CPI'→'소비자물가지수(CPI)', 'PCE'→'개인소비지출 물가지수(PCE)', 'GDP'→'국내총생산(GDP)', 'WTI'→'서부텍사스산원유(WTI)', 'Brent'→'브렌트유', 'VIX'→'변동성지수(VIX)', 'BOJ'→'일본은행', 'BoE'→'영란은행', 'BoC'→'캐나다은행', 'EFFR'→'유효 연방기금금리', 'TIPS'→'물가연동국채(TIPS)', 'DXY'→'달러지수(DXY)', 'MOVE'→'채권 변동성지수(MOVE)'.",
@@ -325,7 +396,7 @@ const REWRITE_RESPONSE_SCHEMA = {
   ]
 };
 
-function buildPrompt(market, news, draft, freshness) {
+function buildPrompt(market, news, korea, draft, freshness) {
   const sections = [];
   sections.push("아래 입력만으로 오늘자 미국 시장 마감 브리핑을 조선비즈 마감시황 톤의 한국어로 작성한다.");
   sections.push("");
@@ -334,6 +405,15 @@ function buildPrompt(market, news, draft, freshness) {
   sections.push(JSON.stringify(market, null, 2));
   sections.push("```");
   sections.push("");
+  if (korea) {
+    sections.push("【한국 시장 컨텍스트 (KOSPI / 달러원 / 워치리스트)】");
+    sections.push("- 본 블록의 kospi.latestValue, macroBackdrop signals의 코스피·달러원 값은 한국 시장 언급의 유일한 그라운딩 데이터다.");
+    sections.push("- 보조 시나리오·해설에서 코스피 임계치를 만들 때는 현재값 ±20% 이내에서만 생성한다. 절대 학습 기억의 옛 레인지를 쓰지 않는다.");
+    sections.push("```json");
+    sections.push(JSON.stringify(korea, null, 2));
+    sections.push("```");
+    sections.push("");
+  }
   if (market.contextEnrichment) {
     sections.push("【크로스애셋 컨텍스트 (Gemini 그라운딩)】");
     sections.push("- 섹터 ETF 등락, DXY/금/구리/MOVE/실질금리, 향후 14일 매크로·실적 캘린더가 포함된다.");
@@ -413,6 +493,55 @@ function lintForbiddenEndings(text, style) {
     }
   });
   return hits;
+}
+
+// Sanity check: catch obvious numeric hallucinations the LLM might produce
+// despite the grounding rule. Currently scans for KOSPI levels and flags
+// any that fall outside ±25% of the actual current value.
+function validateNumericGrounding(payload, korea) {
+  const issues = [];
+  const realKospi = korea?.kospi?.latestValue;
+  if (!Number.isFinite(realKospi)) return issues;
+  const lo = realKospi * 0.75;
+  const hi = realKospi * 1.25;
+
+  function scan(text, field) {
+    if (typeof text !== "string") return;
+    // Match patterns like "코스피 2,800선", "코스피 지수 7,500", "코스피지수 2800"
+    const re = /코스피(?:200|\s*지수)?[^\d\n]{0,8}([0-9]{1,3}(?:,[0-9]{3}|[0-9]{2,3}))/g;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      const num = Number(m[1].replace(/,/g, ""));
+      if (!Number.isFinite(num)) continue;
+      if (num < lo || num > hi) {
+        issues.push({
+          field,
+          value: num,
+          realValue: realKospi,
+          message: `"${m[0]}" — 실제 코스피 ${realKospi.toFixed(0)}와 25% 이상 차이 (입력 그라운딩 검증 필요)`
+        });
+      }
+    }
+  }
+
+  function walk(node, path) {
+    if (typeof node === "string") {
+      scan(node, path);
+      return;
+    }
+    if (Array.isArray(node)) {
+      node.forEach((item, i) => walk(item, `${path}[${i}]`));
+      return;
+    }
+    if (node && typeof node === "object") {
+      for (const [k, v] of Object.entries(node)) {
+        walk(v, `${path}.${k}`);
+      }
+    }
+  }
+
+  walk(payload, "json");
+  return issues;
 }
 
 async function readJson(file, fallback = null) {
@@ -631,43 +760,54 @@ async function main() {
   }
   const reportDate = snapshot.reportDate;
 
-  const [digest, style, briefings, draft] = await Promise.all([
+  const [digest, style, briefings, draft, stockWatchlist] = await Promise.all([
     readJson(DIGEST_PATH),
     readJson(STYLE_PATH, {}),
     readJson(BRIEFINGS_PATH, []),
-    readDraftMarkdown(reportDate)
+    readDraftMarkdown(reportDate),
+    readJson(STOCK_WATCHLIST_PATH)
   ]);
 
   const market = extractMarketData(snapshot);
   const news = extractNewsForLLM(digest);
+  const korea = extractKoreaMarketContext(stockWatchlist);
+  if (!korea) {
+    console.warn("⚠️ data/stock-watchlist.json 없음 — LLM이 한국 시장 컨텍스트 없이 작성합니다. 보조 시나리오에서 코스피 환각 위험이 있습니다.");
+    console.warn("   해결: rewrite:llm 이전에 npm run build:stocks:full를 먼저 실행하도록 publish:full 순서를 조정하세요.");
+  }
   const freshness = snapshot.freshnessSummary;
 
   console.log(`Gemini 본문 리라이트 시작 (${reportDate}, 모델: ${REWRITE_MODEL})...`);
   const { json } = await callGeminiJson({
-    prompt: buildPrompt(market, news, draft, freshness),
+    prompt: buildPrompt(market, news, korea, draft, freshness),
     systemInstruction: buildSystemInstruction(style),
     model: REWRITE_MODEL,
     temperature: 0.4,
-    // Korean briefing has 15+ structured fields with markdownBody as a multi-thousand-char body.
-    // Need a generous budget; thinking allowed but capped to leave room for output.
     maxOutputTokens: 16384,
     thinkingBudget: 2048,
     responseSchema: REWRITE_RESPONSE_SCHEMA
   });
 
-  // Editorial lint
+  // Editorial lint + numeric sanity check
   const combined = [
     json.title,
     json.headline,
     json.overnightLead,
     json.markdownBody,
     ...(json.highlights || []),
-    JSON.stringify(json.timeframeInsights || {})
+    JSON.stringify(json.timeframeInsights || {}),
+    JSON.stringify(json.positioning || {}),
+    ...(json.commentary || [])
   ].join("\n");
   const hits = lintForbiddenEndings(combined, style);
   if (hits.length > 0) {
     console.warn(`⚠️ 금지 종결어미 ${hits.length}건 검출 (자동 수정 권장).`);
     hits.slice(0, 5).forEach((hit) => console.warn(`   · '${hit.pattern}'`));
+  }
+  const numericIssues = validateNumericGrounding(json, korea);
+  if (numericIssues.length > 0) {
+    console.warn(`⚠️ 숫자 그라운딩 의심 ${numericIssues.length}건 검출:`);
+    numericIssues.forEach((issue) => console.warn(`   · ${issue.field}: ${issue.message}`));
   }
 
   // Save markdown

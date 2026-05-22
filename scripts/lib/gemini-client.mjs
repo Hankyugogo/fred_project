@@ -70,6 +70,17 @@ function extractRetryDelaySeconds(rawBody) {
   return null;
 }
 
+function isResourceExhaustedQuota(rawBody) {
+  try {
+    const parsed = JSON.parse(rawBody);
+    const status = parsed?.error?.status;
+    const message = String(parsed?.error?.message || "");
+    return status === "RESOURCE_EXHAUSTED" && /quota|free_tier_requests|billing/i.test(message);
+  } catch (_) {
+    return /RESOURCE_EXHAUSTED|free_tier_requests|current quota|billing details/i.test(String(rawBody || ""));
+  }
+}
+
 function extractGroundingSources(response) {
   const candidates = response?.candidates ?? [];
   const meta = candidates[0]?.groundingMetadata;
@@ -195,6 +206,10 @@ export async function callGemini(options) {
         const errBody = await res.text().catch(() => "");
         const error = new Error(`Gemini HTTP ${res.status}: ${errBody.slice(0, 600)}`);
         error.status = res.status;
+        error.quotaExceeded = res.status === 429 && isResourceExhaustedQuota(errBody);
+        if (error.quotaExceeded) {
+          throw error;
+        }
         if (RETRYABLE_STATUS.has(res.status) && attempt < maxRetries) {
           let waitMs;
           if (res.status === 429) {
@@ -269,6 +284,9 @@ export async function callGemini(options) {
       lastError = error;
       const isAbort = error?.name === "AbortError";
       const status = error?.status;
+      if (error?.quotaExceeded) {
+        throw error;
+      }
       const retryable = isAbort || (typeof status === "number" && RETRYABLE_STATUS.has(status));
       if (retryable && attempt < maxRetries) {
         await sleep(500 * 2 ** (attempt - 1));

@@ -21,6 +21,10 @@
             <p id="subheadline" class="subheadline">
               FRED 스냅샷을 기준으로 시장 브리핑의 뼈대를 만드는 중입니다.
             </p>
+            <nav class="hero-links" aria-label="페이지 이동">
+              <a href="./report.html">최신 리포트</a>
+              <a href="#watchlist">관심종목 분석</a>
+            </nav>
           </div>
           <div class="hero-meta">
             <span id="generated-at">생성 시각 확인 중</span>
@@ -63,6 +67,43 @@
             </div>
           </div>
           <div id="groups" class="group-stack"></div>
+        </section>
+
+        <section id="watchlist" class="card stock-macro-card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Watchlist Intelligence</p>
+              <h2 id="stock-headline">관심종목 정량 분석</h2>
+            </div>
+            <div class="hero-meta stock-section-meta">
+              <span id="stock-generated-at">생성 시각 확인 중</span>
+              <span id="stock-report-date">브리핑 기준일 확인 중</span>
+              <span id="stock-count">종목 수 확인 중</span>
+            </div>
+          </div>
+          <p id="stock-subheadline" class="stock-lede">
+            차트, 기술적 지표, 매크로·마이크로 점수를 결합해 관심종목의 추세를 점검합니다.
+          </p>
+          <h3 id="macro-title" class="stock-macro-title">매크로 배경을 불러오는 중입니다.</h3>
+          <p id="macro-summary" class="stock-lede">시장 요약을 준비하는 중입니다.</p>
+          <div id="macro-signals" class="stock-signal-grid"></div>
+        </section>
+
+        <section class="card stock-workspace">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Selected Watchlist</p>
+              <h2>관심종목별 보고</h2>
+            </div>
+          </div>
+          <div class="stock-layout">
+            <aside class="stock-list-panel">
+              <div id="stock-list" class="stock-list"></div>
+            </aside>
+            <section id="stock-detail" class="stock-detail">
+              <p class="empty-line">종목 분석을 불러오는 중입니다.</p>
+            </section>
+          </div>
         </section>
 
         <section class="card archive-card">
@@ -141,6 +182,9 @@
             >
               fred/series/observations
             </a>
+          </p>
+          <p id="stock-disclaimer" class="doc-link">
+            관심종목 분석은 정보 제공용 정량 시나리오이며 투자자문이 아닙니다.
           </p>
         </section>
       </main>

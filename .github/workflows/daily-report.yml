@@ -3,15 +3,31 @@ name: Daily Economy Report
 on:
   workflow_dispatch:
   schedule:
-    # 06:10 KST. GitHub Actions uses UTC.
-    - cron: "10 21 * * *"
+    # 08:15 KST. GitHub Actions uses UTC.
+    - cron: "15 23 * * *"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-economy-report
+  cancel-in-progress: false
 
 jobs:
   build-report:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      PAGES_BASE_URL: https://hankyugogo.github.io/fred_project
+      EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+      EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+      EMAIL_TO: ${{ secrets.EMAIL_TO }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -27,6 +43,12 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Build notification payload
+        id: payload
+        run: node scripts/notify-build-payload.mjs
+        env:
+          PAGES_BASE_URL: ${{ env.PAGES_BASE_URL }}
+
       - name: Commit generated report
         run: |
           git config user.name "daily-report-bot"
@@ -34,3 +56,56 @@ jobs:
           git add data posts reports report.html
           git diff --cached --quiet || git commit -m "Update daily economy report"
           git push
+
+      - name: Build Pages artifact
+        run: |
+          mkdir -p public
+          cp index.html app.js styles.css favicon.svg report.html public/
+          cp -R data posts reports public/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Send email notification
+        if: ${{ env.EMAIL_USERNAME != '' && env.EMAIL_APP_PASSWORD != '' && env.EMAIL_TO != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ env.EMAIL_USERNAME }}
+          password: ${{ env.EMAIL_APP_PASSWORD }}
+          subject: ${{ steps.payload.outputs.subject }}
+          to: ${{ env.EMAIL_TO }}
+          from: FRED Daily Report <${{ env.EMAIL_USERNAME }}>
+          body: |
+            ${{ steps.payload.outputs.summary_text }}
+
+            전체 리포트:
+            ${{ steps.payload.outputs.report_url }}
+          attachments: report.html
+
+      - name: Send Telegram notification
+        if: ${{ env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != '' }}
+        env:
+          SUMMARY_MD: ${{ steps.payload.outputs.summary_md }}
+          REPORT_DATE: ${{ steps.payload.outputs.report_date }}
+        run: |
+          curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d parse_mode="MarkdownV2" \
+            --data-urlencode text="${SUMMARY_MD}"
+
+          curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+            -F chat_id="${TELEGRAM_CHAT_ID}" \
+            -F document=@report.html \
+            -F caption="FRED Market Briefing ${REPORT_DATE}"
