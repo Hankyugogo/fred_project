@@ -76,7 +76,127 @@ function extractMarketData(snapshot) {
     generatedAt: snapshot.generatedAt,
     items,
     freshnessSummary: snapshot.freshnessSummary,
+    dataQuality: snapshot.analysis?.dataQuality || null,
     contextEnrichment: snapshot.contextEnrichment || null
+  };
+}
+
+const TRUSTED_NEWS_SOURCES = new Set([
+  "Associated Press",
+  "AP",
+  "Bloomberg",
+  "CNBC",
+  "Federal Reserve",
+  "Fed Speeches",
+  "Financial Times",
+  "Investing.com",
+  "MarketWatch",
+  "Reuters",
+  "The Wall Street Journal",
+  "Wall Street Journal",
+  "WSJ",
+  "Yahoo Finance",
+  "연방준비제도",
+  "연준 연설",
+  "마켓워치",
+  "로이터",
+  "블룸버그",
+  "월스트리트저널"
+]);
+const LOW_SIGNAL_NEWS_SOURCES = new Set([
+  "Bitget",
+  "Coinpedia",
+  "CryptoRank",
+  "Invezz",
+  "MEXC",
+  "MEXC Exchange",
+  "The Daily Hodl",
+  "U.Today",
+  "Whalesbook"
+]);
+const CRYPTO_NEWS_PATTERNS = [
+  /\bbitcoin\b/i,
+  /\bcrypto(?:currency)?\b/i,
+  /\bbtc\b/i,
+  /비트코인/u,
+  /가상자산/u
+];
+const SENSITIVE_NEWS_PATTERNS = [
+  /\bwarsh-led fed\b/i,
+  /\b(?:warsh|powell replacement|fed chair|fed chairman|fomc chair).{0,90}\b(?:appoint|appointed|appointment|nominate|nominated|nomination|name|named|elect|elected|select|selected|lead|led)\b/i,
+  /\b(?:appoint|appointed|appointment|nominate|nominated|nomination|name|named|elect|elected|select|selected).{0,90}\b(?:fed chair|fed chairman|fomc chair|federal reserve chair)\b/i,
+  /\bwarsh.{0,140}(?:federal reserve|fomc|federal open market committee|board of governors).{0,140}(?:chair|chairman)\b/i,
+  /\bwarsh.{0,140}(?:takes oath|selected|selects|chairman)\b/i,
+  /(케빈\s*워시|워시).{0,60}(연준|연방준비제도|FOMC).{0,60}(의장|임명|선출|지명)/u,
+  /(연준|연방준비제도).{0,30}의장.{0,30}(임명|선출|지명)/u
+];
+
+function newsItemText(item) {
+  return [
+    item?.title,
+    item?.koreanTitle,
+    item?.description,
+    item?.summary,
+    item?.koreanSummary
+  ].filter(Boolean).join(" ");
+}
+
+function inferNewsCredibility(item) {
+  if (item?.credibility) return item.credibility;
+  if (item?.sourceType === "official") return "official";
+  const source = item?.sourceKorean || item?.source || "";
+  if (TRUSTED_NEWS_SOURCES.has(source)) return "established";
+  if (LOW_SIGNAL_NEWS_SOURCES.has(source)) return "low";
+  return "standard";
+}
+
+function assessNewsUse(item) {
+  const text = newsItemText(item);
+  const credibility = inferNewsCredibility(item);
+  const source = item?.sourceKorean || item?.source || "";
+  const trusted = credibility === "official" || credibility === "established" || TRUSTED_NEWS_SOURCES.has(source);
+  const hasSensitiveClaim = SENSITIVE_NEWS_PATTERNS.some((pattern) => pattern.test(text));
+  const cryptoCentric = CRYPTO_NEWS_PATTERNS.some((pattern) => pattern.test(text));
+
+  if ((item?.usePolicy === "withhold_from_llm" || item?.claimRisk === "high" || hasSensitiveClaim) && !trusted) {
+    return {
+      usePolicy: "withhold_from_llm",
+      claimRisk: "high",
+      credibility,
+      reason: hasSensitiveClaim ? "unsupported_sensitive_claim" : "source_policy"
+    };
+  }
+
+  if (item?.usePolicy === "context_only" || (cryptoCentric && credibility === "low")) {
+    return {
+      usePolicy: "context_only",
+      claimRisk: item?.claimRisk || "medium",
+      credibility,
+      reason: "context_only_low_signal"
+    };
+  }
+
+  return {
+    usePolicy: "allow",
+    claimRisk: item?.claimRisk || "low",
+    credibility,
+    reason: null
+  };
+}
+
+function compactNewsItem(item) {
+  const policy = assessNewsUse(item);
+  return {
+    koreanTitle: item.koreanTitle || item.title,
+    koreanSummary: item.koreanSummary || "",
+    sourceKorean: item.sourceKorean || item.source,
+    source: item.source,
+    sourceType: item.sourceType || null,
+    credibility: policy.credibility,
+    claimRisk: policy.claimRisk,
+    usePolicy: policy.usePolicy,
+    publishedAt: item.publishedAt,
+    link: item.link
   };
 }
 
@@ -86,24 +206,34 @@ function extractNewsForLLM(digest) {
     category: theme.category,
     label: theme.label,
     koreanSummary: theme.koreanSummary || theme.summary || "",
-    items: (theme.items || []).slice(0, 4).map((item) => ({
-      koreanTitle: item.koreanTitle || item.title,
-      koreanSummary: item.koreanSummary || "",
-      sourceKorean: item.sourceKorean || item.source,
-      publishedAt: item.publishedAt,
-      link: item.link
-    }))
-  }));
-  const topItems = (digest.topItems || []).slice(0, 8).map((item) => ({
-    koreanTitle: item.koreanTitle || item.title,
-    koreanSummary: item.koreanSummary || "",
-    sourceKorean: item.sourceKorean || item.source,
-    publishedAt: item.publishedAt
-  }));
+    items: (theme.items || [])
+      .filter((item) => assessNewsUse(item).usePolicy !== "withhold_from_llm")
+      .slice(0, 4)
+      .map(compactNewsItem)
+  })).filter((theme) => theme.items.length > 0);
+  const topItems = (digest.topItems || [])
+    .filter((item) => assessNewsUse(item).usePolicy === "allow")
+    .slice(0, 8)
+    .map(compactNewsItem);
+  const withheldItems = (digest.items || digest.topItems || [])
+    .map((item) => ({ item, policy: assessNewsUse(item) }))
+    .filter(({ policy }) => policy.usePolicy === "withhold_from_llm")
+    .slice(0, 12)
+    .map(({ item, policy }) => ({
+      source: item.sourceKorean || item.source,
+      reason: policy.reason,
+      claimRisk: policy.claimRisk,
+      credibility: policy.credibility
+    }));
   return {
     koreanEditorialSummary: digest.koreanEditorialSummary || digest.editorialSummary || "",
     themes,
     topItems,
+    guardrails: {
+      withheldCount: withheldItems.length,
+      withheldItems,
+      rule: "withheld items are not valid support for titles, highlights, key issues, or causal claims"
+    },
     sourceHealth: digest.sourceHealth || null
   };
 }
@@ -189,6 +319,13 @@ function buildSystemInstruction(style) {
     "3) 동일 원칙이 코스피200, 코스닥, 삼성전자·SK하이닉스 등 한국 종목 가격과 미국·한국 채권 금리에도 적용된다.",
     "4) 보조 시나리오(altScenario)에서 코스피 임계치를 언급할 때는 현재값 ±20% 이내 합리적 범위에서만 만든다. 학습 시점 기억에 의존한 옛 코스피 레인지(2,500~2,800 등) 절대 금지.",
     "5) 본문 어딘가에서 코스피·코스닥·달러원·미 국채 금리 수치를 본인이 생성한다면, 직전 단계에서 입력 데이터의 어느 필드에서 가져왔는지 머릿속으로 한 번 더 검증한다.",
+    "",
+    "■ 뉴스 신뢰도·사실 검증 절대 규칙",
+    "1) 뉴스 요약의 credibility, claimRisk, usePolicy를 반드시 따른다. usePolicy가 allow가 아닌 항목은 title, highlights, keyIssues, overnightLead, causalAnalysis의 핵심 근거로 쓰지 않는다.",
+    "2) 연방준비제도(연준) 의장·위원 임명, 정책 결정, 공식 경제지표 확정치, 전쟁·제재 같은 고위험 사안은 공식기관·주요 통신·주요 경제지 출처가 있을 때만 확정 사실로 쓴다.",
+    "3) 단일 저신뢰 출처나 크립토 중심 출처가 전한 정책·연준 인사 관련 주장은 본문에서 제외한다. 불가피하게 언급해야 하면 '확인되지 않은 시장 추측성 보도'로 낮춰 쓰고 시장 핵심 원인으로 삼지 않는다.",
+    "4) guardrails.withheldCount가 1 이상이면, 제외된 뉴스가 있었다는 사실을 근거로 시장 방향을 설명하지 않는다. 제외 항목은 작성 재료가 아니다.",
+    "5) 기사 제목의 추측형 표현을 확정형 사건으로 바꾸지 않는다. 예: 'Warsh-led Fed'류 표현을 '케빈 워시 연준 의장 임명'으로 단정하면 실패다.",
     "",
     "■ 언어·표기 절대 규칙",
     "1) 영문 단어 본문 노출 금지. 'S&P 500'→'S&P500지수', 'Nasdaq'→'나스닥 종합지수', 'Dow'→'다우존스30 산업평균지수', 'KOSPI'→'코스피지수', 'KOSDAQ'→'코스닥지수', 'Treasury yield'→'미 국채 금리', 'Fed'→'연방준비제도(연준)', 'FOMC'→'연방공개시장위원회(FOMC)', 'CPI'→'소비자물가지수(CPI)', 'PCE'→'개인소비지출 물가지수(PCE)', 'GDP'→'국내총생산(GDP)', 'WTI'→'서부텍사스산원유(WTI)', 'Brent'→'브렌트유', 'VIX'→'변동성지수(VIX)', 'BOJ'→'일본은행', 'BoE'→'영란은행', 'BoC'→'캐나다은행', 'EFFR'→'유효 연방기금금리', 'TIPS'→'물가연동국채(TIPS)', 'DXY'→'달러지수(DXY)', 'MOVE'→'채권 변동성지수(MOVE)'.",
@@ -430,8 +567,18 @@ function buildPrompt(market, news, korea, draft, freshness) {
   sections.push(JSON.stringify(freshness, null, 2));
   sections.push("```");
   sections.push("");
+  if (market.dataQuality) {
+    sections.push("【출판 품질 게이트】");
+    sections.push("- publicationStatus가 caution이면 보조 지표 해석 강도를 낮추고, blockedNarrativeLabels는 핵심 인과 근거로 쓰지 않는다.");
+    sections.push("- publicationStatus가 hold이면 단정적 투자 판단과 강한 방향성 제목을 피하고 추가 확인 필요를 명시한다.");
+    sections.push("```json");
+    sections.push(JSON.stringify(market.dataQuality, null, 2));
+    sections.push("```");
+    sections.push("");
+  }
   sections.push("【뉴스 요약 (한국어)】");
   if (news) {
+    sections.push("- 각 항목의 credibility, claimRisk, usePolicy를 따른다. guardrails.withheldCount는 제외된 뉴스 수이며, 제외 항목은 근거로 사용하지 않는다.");
     sections.push("```json");
     sections.push(JSON.stringify(news, null, 2));
     sections.push("```");
@@ -497,52 +644,151 @@ function lintForbiddenEndings(text, style) {
   return hits;
 }
 
-// Sanity check: catch obvious numeric hallucinations the LLM might produce
-// despite the grounding rule. Currently scans for KOSPI levels and flags
-// any that fall outside ±25% of the actual current value.
-function validateNumericGrounding(payload, korea) {
-  const issues = [];
-  const realKospi = korea?.kospi?.latestValue;
-  if (!Number.isFinite(realKospi)) return issues;
-  const lo = realKospi * 0.75;
-  const hi = realKospi * 1.25;
+function collectPayloadTextNodes(node, pathName = "json", out = []) {
+  if (typeof node === "string") {
+    out.push({ path: pathName, text: node });
+    return out;
+  }
+  if (Array.isArray(node)) {
+    node.forEach((item, i) => collectPayloadTextNodes(item, `${pathName}[${i}]`, out));
+    return out;
+  }
+  if (node && typeof node === "object") {
+    for (const [key, value] of Object.entries(node)) {
+      collectPayloadTextNodes(value, `${pathName}.${key}`, out);
+    }
+  }
+  return out;
+}
 
-  function scan(text, field) {
-    if (typeof text !== "string") return;
-    // Match patterns like "코스피 2,800선", "코스피 지수 7,500", "코스피지수 2800"
-    const re = /코스피(?:200|\s*지수)?[^\d\n]{0,8}([0-9]{1,3}(?:,[0-9]{3}|[0-9]{2,3}))/g;
-    let m;
-    while ((m = re.exec(text)) !== null) {
-      const num = Number(m[1].replace(/,/g, ""));
-      if (!Number.isFinite(num)) continue;
-      if (num < lo || num > hi) {
+function parseNumericToken(value) {
+  const parsed = Number(String(value || "").replace(/,/g, ""));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function marketValue(market, id) {
+  const item = (market?.items || []).find((entry) => entry.id === id);
+  return Number.isFinite(item?.latestValue) ? item.latestValue : null;
+}
+
+function validateNumericGrounding(payload, korea, market) {
+  const issues = [];
+  const nodes = collectPayloadTextNodes(payload);
+  const realKospi = korea?.kospi?.latestValue;
+
+  const rules = [
+    Number.isFinite(realKospi) ? {
+      id: "KOSPI",
+      label: "코스피",
+      actual: realKospi,
+      relTolerance: 0.25,
+      minValue: 1000,
+      pattern: /코스피(?:200|\s*지수)?[^\d\n]{0,12}([0-9]{1,3}(?:,[0-9]{3}|[0-9]{2,3})(?:\.\d+)?)/g
+    } : null,
+    { id: "SP500", label: "S&P500지수", actual: marketValue(market, "SP500"), relTolerance: 0.25, minValue: 1000, pattern: /S&P\s*500(?:지수)?[^\d\n]{0,18}([0-9]{1,3}(?:,[0-9]{3})+(?:\.\d+)?|[0-9]{4,}(?:\.\d+)?)/gi },
+    { id: "NASDAQCOM", label: "나스닥 종합지수", actual: marketValue(market, "NASDAQCOM"), relTolerance: 0.25, minValue: 1000, pattern: /나스닥(?:\s*종합지수)?[^\d\n]{0,18}([0-9]{1,3}(?:,[0-9]{3})+(?:\.\d+)?|[0-9]{4,}(?:\.\d+)?)/g },
+    { id: "DJIA", label: "다우존스30 산업평균지수", actual: marketValue(market, "DJIA"), relTolerance: 0.25, minValue: 1000, pattern: /다우(?:존스30\s*산업평균지수|지수)?[^\d\n]{0,18}([0-9]{1,3}(?:,[0-9]{3})+(?:\.\d+)?|[0-9]{4,}(?:\.\d+)?)/g },
+    { id: "DGS10", label: "미 국채 10년물", actual: marketValue(market, "DGS10"), absTolerance: 2.0, minValue: 0.5, maxValue: 15, pattern: /(?:10년물|미\s*국채\s*10년)[^\d\n]{0,18}([0-9]+(?:\.\d+)?)%/g },
+    { id: "DGS2", label: "미 국채 2년물", actual: marketValue(market, "DGS2"), absTolerance: 2.0, minValue: 0.5, maxValue: 15, pattern: /(?:2년물|미\s*국채\s*2년)[^\d\n]{0,18}([0-9]+(?:\.\d+)?)%/g },
+    { id: "VIXCLS", label: "변동성지수(VIX)", actual: marketValue(market, "VIXCLS"), relTolerance: 0.8, minValue: 5, maxValue: 100, pattern: /(?:변동성지수\(VIX\)|VIX)[^\d\n]{0,18}([0-9]+(?:\.\d+)?)/g },
+    { id: "DEXKOUS", label: "달러/원 환율", actual: marketValue(market, "DEXKOUS"), relTolerance: 0.25, minValue: 500, pattern: /(?:달러\/원|원달러)[^\d\n]{0,18}([0-9]{1,3}(?:,[0-9]{3})+(?:\.\d+)?|[0-9]{3,}(?:\.\d+)?)원?/g },
+    { id: "DCOILWTICO", label: "서부텍사스산원유(WTI)", actual: marketValue(market, "DCOILWTICO"), relTolerance: 0.4, minValue: 10, pattern: /(?:서부텍사스산원유\(WTI\)|WTI\s*유가|WTI)[^\d\n]{0,18}([0-9]+(?:\.\d+)?)달러?/g },
+    { id: "DCOILBRENTEU", label: "브렌트유", actual: marketValue(market, "DCOILBRENTEU"), relTolerance: 0.4, minValue: 10, pattern: /브렌트유[^\d\n]{0,18}([0-9]+(?:\.\d+)?)달러?/g }
+  ].filter((rule) => rule && Number.isFinite(rule.actual));
+
+  for (const { path: field, text } of nodes) {
+    rules.forEach((rule) => {
+      rule.pattern.lastIndex = 0;
+      let match;
+      while ((match = rule.pattern.exec(text)) !== null) {
+        const value = parseNumericToken(match[1]);
+        if (!Number.isFinite(value)) continue;
+        if (Number.isFinite(rule.minValue) && value < rule.minValue) continue;
+        if (Number.isFinite(rule.maxValue) && value > rule.maxValue) continue;
+
+        const diff = Math.abs(value - rule.actual);
+        const allowed = Number.isFinite(rule.absTolerance)
+          ? rule.absTolerance
+          : Math.abs(rule.actual) * rule.relTolerance;
+        if (diff > allowed) {
+          issues.push({
+            field,
+            metric: rule.id,
+            value,
+            realValue: rule.actual,
+            message: `"${match[0]}" — 입력 ${rule.label} ${rule.actual}와 허용 범위 이상 차이`
+          });
+        }
+      }
+    });
+  }
+
+  return issues;
+}
+
+function hasTrustedSensitiveSupport(news) {
+  const items = [
+    ...(news?.topItems || []),
+    ...(news?.themes || []).flatMap((theme) => theme.items || [])
+  ];
+  return items.some((item) => {
+    const credibility = inferNewsCredibility(item);
+    if (credibility !== "official" && credibility !== "established") return false;
+    return SENSITIVE_NEWS_PATTERNS.some((pattern) => pattern.test(newsItemText(item)));
+  });
+}
+
+function validateSensitiveClaims(payload, news) {
+  if (hasTrustedSensitiveSupport(news)) return [];
+  const outputPatterns = [
+    /(케빈\s*워시|워시).{0,80}(연준|연방준비제도|FOMC).{0,80}(의장|임명|선출|지명)/u,
+    /(연준|연방준비제도).{0,30}의장.{0,30}(임명|선출|지명)/u
+  ];
+  return collectPayloadTextNodes(payload)
+    .flatMap(({ path: field, text }) => outputPatterns
+      .filter((pattern) => pattern.test(text))
+      .map(() => ({
+        field,
+        message: "공식·주요 출처로 지지되지 않은 연준 인사/의장 관련 확정 표현"
+      })));
+}
+
+function buildBlockedNarrativeTerms(market) {
+  const ids = market?.dataQuality?.blockedNarrativeIds || [];
+  const labels = market?.dataQuality?.blockedNarrativeLabels || [];
+  const termsById = {
+    DEXKOUS: ["달러/원", "원달러"],
+    DTWEXBGS: ["달러지수", "DXY", "광의 달러지수"],
+    DEXJPUS: ["달러/엔", "달러엔"],
+    DCOILWTICO: ["WTI", "서부텍사스산원유"],
+    DCOILBRENTEU: ["브렌트유"]
+  };
+  const terms = new Set(labels);
+  ids.forEach((id) => (termsById[id] || []).forEach((term) => terms.add(term)));
+  return Array.from(terms).filter(Boolean);
+}
+
+function validateStaleNarrativeUse(payload, market) {
+  const terms = buildBlockedNarrativeTerms(market);
+  if (terms.length === 0) return [];
+  const caveatPattern = /기준일|늦|오래|제외|제한|보충|확인|지연/u;
+  const issues = [];
+
+  collectPayloadTextNodes(payload).forEach(({ path: field, text }) => {
+    terms.forEach((term) => {
+      const index = text.indexOf(term);
+      if (index < 0) return;
+      const context = text.slice(Math.max(0, index - 70), index + term.length + 70);
+      if (!caveatPattern.test(context)) {
         issues.push({
           field,
-          value: num,
-          realValue: realKospi,
-          message: `"${m[0]}" — 실제 코스피 ${realKospi.toFixed(0)}와 25% 이상 차이 (입력 그라운딩 검증 필요)`
+          term,
+          message: `"${term}"은 오래된 보조 지표라 기준일·제한 문구 없이 핵심 인과로 쓰면 안 됩니다.`
         });
       }
-    }
-  }
+    });
+  });
 
-  function walk(node, path) {
-    if (typeof node === "string") {
-      scan(node, path);
-      return;
-    }
-    if (Array.isArray(node)) {
-      node.forEach((item, i) => walk(item, `${path}[${i}]`));
-      return;
-    }
-    if (node && typeof node === "object") {
-      for (const [k, v] of Object.entries(node)) {
-        walk(v, `${path}.${k}`);
-      }
-    }
-  }
-
-  walk(payload, "json");
   return issues;
 }
 
@@ -809,10 +1055,24 @@ async function main() {
     console.warn(`⚠️ 금지 종결어미 ${hits.length}건 검출 (자동 수정 권장).`);
     hits.slice(0, 5).forEach((hit) => console.warn(`   · '${hit.pattern}'`));
   }
-  const numericIssues = validateNumericGrounding(json, korea);
+  const numericIssues = validateNumericGrounding(json, korea, market);
   if (numericIssues.length > 0) {
     console.warn(`⚠️ 숫자 그라운딩 의심 ${numericIssues.length}건 검출:`);
     numericIssues.forEach((issue) => console.warn(`   · ${issue.field}: ${issue.message}`));
+  }
+  const sensitiveIssues = validateSensitiveClaims(json, news);
+  if (sensitiveIssues.length > 0) {
+    console.warn(`⚠️ 민감 뉴스 확정 표현 ${sensitiveIssues.length}건 검출:`);
+    sensitiveIssues.forEach((issue) => console.warn(`   · ${issue.field}: ${issue.message}`));
+  }
+  const staleNarrativeIssues = validateStaleNarrativeUse(json, market);
+  if (staleNarrativeIssues.length > 0) {
+    console.warn(`⚠️ 오래된 보조 지표 서술 ${staleNarrativeIssues.length}건 검출:`);
+    staleNarrativeIssues.slice(0, 8).forEach((issue) => console.warn(`   · ${issue.field}: ${issue.message}`));
+  }
+  const blockingIssues = [...numericIssues, ...sensitiveIssues, ...staleNarrativeIssues];
+  if ((process.env.STRICT_REWRITE_VALIDATION === "1" || process.env.STRICT_REWRITE_VALIDATION === "true") && blockingIssues.length > 0) {
+    throw new Error(`리라이트 검증 실패: ${blockingIssues.length}건`);
   }
 
   // Save markdown
@@ -844,7 +1104,11 @@ async function main() {
     current.editorialPass = {
       model: REWRITE_MODEL,
       generatedAt: new Date().toISOString(),
-      forbiddenHits: hits.length
+      forbiddenHits: hits.length,
+      numericGroundingIssues: numericIssues.length,
+      sensitiveClaimIssues: sensitiveIssues.length,
+      staleNarrativeIssues: staleNarrativeIssues.length,
+      validationMode: process.env.STRICT_REWRITE_VALIDATION ? "strict" : "warn"
     };
     briefings[recordIndex] = current;
     await writeFile(BRIEFINGS_PATH, `${JSON.stringify(briefings, null, 2)}\n`, "utf8");

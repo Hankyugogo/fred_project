@@ -27,6 +27,7 @@
     "serve": "python3 -m http.server 8080",
     "fetch:macro": "node --env-file-if-exists=.env scripts/fetch-macro-history.mjs",
     "fix:copy": "node --env-file-if-exists=.env scripts/apply-editorial-copy.mjs",
+    "check:quality": "node --env-file-if-exists=.env scripts/check-report-quality.mjs",
     "admin": "node --env-file-if-exists=.env scripts/admin-server.mjs"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T22:09:14.409Z",
+  "generatedAt": "2026-05-25T10:39:15.302Z",
   "reportDate": "2026-05-25",
   "mode": "fred-api",
   "source": {
@@ -142,7 +142,7 @@
   "freshnessSummary": {
     "reportDate": "2026-05-25",
     "status": "attention",
-    "freshCount": 7,
+    "freshCount": 9,
     "delayedCount": 0,
     "staleCount": 5,
     "items": [
@@ -280,6 +280,50 @@
       "description": "코스피·코스닥 종가와 원-엔 환율 등 한국 투자자 직접 점검 항목",
       "items": [
         {
+          "id": "KOSPI",
+          "label": "코스피",
+          "group": "korea",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 7847.71,
+          "previousValue": 7815.59,
+          "absoluteChange": 32.12,
+          "percentChange": 0.41,
+          "observationDate": "2026-05-22",
+          "previousObservationDate": "2026-05-21",
+          "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI",
+          "mode": "yahoo-finance",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-05-25"
+          }
+        },
+        {
+          "id": "KOSDAQ",
+          "label": "코스닥",
+          "group": "korea",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 1161.13,
+          "previousValue": 1105.97,
+          "absoluteChange": 55.16,
+          "percentChange": 4.99,
+          "observationDate": "2026-05-22",
+          "previousObservationDate": "2026-05-21",
+          "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ",
+          "mode": "yahoo-finance",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-05-25"
+          }
+        },
+        {
           "id": "JPYKRW",
           "label": "원-엔 환율(100엔당)",
           "group": "korea",
@@ -311,7 +355,7 @@
     {
       "id": "rates",
       "label": "금리",
-      "description": "주가 밸류에이션과 할인율 부담을 함께 보여주는 금리 구간",
+      "description": "주가 밸류에이션과 금리 부담을 함께 보여주는 금리 구간",
       "items": [
         {
           "id": "DGS2",
@@ -458,38 +502,6 @@
             "businessDaysOld": 6,
             "label": "오래됨 6영업일",
             "referenceDate": "2026-05-25"
-          },
-          "supplementary": {
-            "value": 1520.35,
-            "observationDate": "2026-05-25",
-            "sourceName": "Investing.com",
-            "confidence": "high",
-            "sourceUrl": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGm3_4xqeP0BWaWund5V4n_xlU7tVjEm7bmqCG2tQk_7Mlp5lhQExQ3fkmRLpbVkogzCidKV-2cV5C2KyC4wL-YdgdC-BAvQJ5qDnh5WC1JGuIcDNBZSc0Rm21Slp-wPSfJwmrN1yxV",
-            "groundedText": "The most recent USD to KRW spot exchange rate is 1,520.35 Korean won per one US dollar. This quote was updated \"21 hours ago\" from May 25, 2026, according to Investing.com.\n\nOther recent quotes include:\n*   1,520.10 KRW per 1 USD as of May 22, 2026, 21:59 BST, from the Financial Times.\n*   1,520.3474 KRW per 1 USD as of May 23, 9:40:00 AM UTC, from Google Finance.\n*   1,519.9 KRW per 1 USD as of May 24, 2026, from Wise.",
-            "groundingSources": [
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGm3_4xqeP0BWaWund5V4n_xlU7tVjEm7bmqCG2tQk_7Mlp5lhQExQ3fkmRLpbVkogzCidKV-2cV5C2KyC4wL-YdgdC-BAvQJ5qDnh5WC1JGuIcDNBZSc0Rm21Slp-wPSfJwmrN1yxV",
-                "title": "investing.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4mNDwBaj9nyi-X_fYxr7yZ0xwOOz3FgODuVdNvuj0Mop9ESeS8OWHsle-Pog40M7f-Ge1b7o0jGo8DEelTNTBcsB3zaGnZ5EsUuCWWsJlMr6QajTeJ5EVpZgELNIZzjS2Z1i0MQy34ZcUgoRJBza8nELUH53x0PcnxYn5",
-                "title": "ft.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuvi1pIOLE-OBF-rbraGF85Xq8oMu6AAgfENXzY4wMk-fyiAYHZLYNesSVEnjtcK6cxGVKjOfLOiq2dJExglOoSFNTQkg_yH8DeA-X8zoPgyfBIX43SgvHXA3Kr-6E4UIDAWK-zN4ytIoHYKM=",
-                "title": "google.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnYxen7w2COi6uuFSe8zUoKI7rPBmT5-qt-o_iGe1NhonYhe8nXR6eB_2mYNw63Sgl2GIYAq8dv-NSbGYLxsJjLBxNGmx04Lg0gvM03NbSadi4dI3-TJFgi5miJygh0Uj2L7U0MtFal-wijNtmBNNH_WGnxqT0XxR5",
-                "title": "wise.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHk0mv2IJhfDZ8puFyK0fo-HGUxAj-PuFZm1y-X5lAVVYDKkZp7w2pwSO_CUCHLc9lR72xbVLTAduIOSRYeyiokCXMeBkgUFvedVT6FolKrjrMv0ireFNs47qSag-MGEEF9QIh6DwBU9iHb9iFilIwwMQ==",
-                "title": "wise.com"
-              }
-            ],
-            "fetchedAt": "2026-05-24T22:10:10.648Z",
-            "fetcher": "gemini-grounding:gemini-2.5-flash"
           }
         },
         {
@@ -512,22 +524,6 @@
             "businessDaysOld": 6,
             "label": "오래됨 6영업일",
             "referenceDate": "2026-05-25"
-          },
-          "supplementary": {
-            "value": 99.319,
-            "observationDate": "2026-05-22",
-            "sourceName": "GuruFocus",
-            "confidence": "high",
-            "sourceUrl": "https://www.gurufocus.com/economic_indicators/235/us-dollar-index-dxy",
-            "groundedText": "The most recent value of the US Dollar Index (DXY) is 99.319 as of May 22, 2026.\n\nSource: GuruFocus.\nURL: https://www.gurufocus.com/economic_indicators/235/us-dollar-index-dxy",
-            "groundingSources": [
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoyXZg7TU_uQpwgmqjQixx20nk4LRDdMywyLrXHHx-3FXwjLyK3U_IWISeQ6ysrsPlvqnEdNoANCXzAFBNS-LiDG0hOFFhQpn5Lh-UydL09JGbcON40IjjWW8flKyeYsEH9L35UQEA1fZvC11ZeM1OMNRf1TKgQRCDhL_1sWDgE1c=",
-                "title": "gurufocus.com"
-              }
-            ],
-            "fetchedAt": "2026-05-24T22:10:34.261Z",
-            "fetcher": "gemini-grounding:gemini-2.5-flash"
           }
         },
         {
@@ -579,34 +575,6 @@
             "businessDaysOld": 5,
             "label": "오래됨 5영업일",
             "referenceDate": "2026-05-25"
-          },
-          "supplementary": {
-            "value": 96.6,
-            "observationDate": "2026-05-24",
-            "sourceName": "Investing.com",
-            "confidence": "high",
-            "sourceUrl": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXGJnIKhLm6sJ7Sqqwf8MSa9yX2Vrv9L8v0GUObHgZLheI_C26SpIzzdu91yj82btTum94UsLePgQzMkdq_EK5JOt4xVyoD8ukUrSK76owqWWGzggIdJzWiB_SdFQPUGOkz4dXj-tfqzAu",
-            "groundedText": "The most recent spot price of West Texas Intermediate (WTI) crude oil is **$96.60 per barrel**.\n\nThis price was updated on **May 24, 2026**.\n\nA reliable source for this information is **Investing.com**, which provides live NYMEX futures prices for WTI crude oil. Another source, Energy Politics, also reported this price on May 24, 2026.",
-            "groundingSources": [
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXGJnIKhLm6sJ7Sqqwf8MSa9yX2Vrv9L8v0GUObHgZLheI_C26SpIzzdu91yj82btTum94UsLePgQzMkdq_EK5JOt4xVyoD8ukUrSK76owqWWGzggIdJzWiB_SdFQPUGOkz4dXj-tfqzAu",
-                "title": "investing.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMBP6g2ogPkQddMhvlHCIi6Qe6ReaV1vw0z5evtoMgZ3wKlZeBkKw9k2BgHRY_QrK0hshEKWV-hWHNTiO21xvQLnSFPIYRDU_5_XZ7IXVlaz7V_W8BevymdgC0Wv0NPxg980o5iHsyl7i2L0hWEjY=",
-                "title": "oilpriceapi.com"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGFBNY8xwfc9vEPrzeZjISytuDInNHUymktqWKdcZHGcpbVo9tfM37kcynTq3QlbyMOFCI1hCZBaPwN4I-0NKp5JCC-Jws12zbXJk5M0YAhoHpDf1yl88drB9vE7zwOexkneuBoSyf3gY6Mf51ueuRtwkXAMRlOPGemXRT-Q==",
-                "title": "macrotrends.net"
-              },
-              {
-                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfTi3dsJWKbYZhD-kunQJM0aSK6sn3Vtwl708l9_CBnlhjqbv3UKLSkQYa-MQLILpHKpV4dun73nFUZTWEDG8ZiiDKKofaz50hwgOC5aFHdrtY0pB2rB8eePEVxJndyV_kGVgjk62CghIfJUeEqUGYgOJV2PfU7O3iLfHGKw==",
-                "title": "substack.com"
-              }
-            ],
-            "fetchedAt": "2026-05-24T22:10:58.970Z",
-            "fetcher": "gemini-grounding:gemini-2.5-flash"
           }
         },
         {
@@ -633,350 +601,5 @@
         }
       ]
     }
-  ],
-  "enrichmentMeta": {
-    "generatedAt": "2026-05-24T22:10:58.971Z",
-    "model": "gemini-2.5-flash",
-    "requested": 3,
-    "successful": 3
-  },
-  "contextEnrichment": {
-    "generatedAt": "2026-05-24T22:10:59.093Z",
-    "today": "2026-05-25",
-    "model": "gemini-2.5-flash",
-    "sectorEtfs": {
-      "items": [
-        {
-          "ticker": "XLF",
-          "percentChange": 0.41,
-          "label": "미국 금융 ETF",
-          "close": 51.94,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLK",
-          "percentChange": -0.64,
-          "label": "미국 기술 ETF",
-          "close": 173.24,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLE",
-          "percentChange": 0.61,
-          "label": "미국 에너지 ETF",
-          "close": 59.49,
-          "observationDate": "2026-05-23"
-        },
-        {
-          "ticker": "SOXX",
-          "percentChange": 2.41,
-          "label": "미국 반도체 ETF",
-          "close": 537.33,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLV",
-          "percentChange": 1.17,
-          "label": "미국 헬스케어 ETF",
-          "close": 149.89,
-          "observationDate": "2026-05-23"
-        },
-        {
-          "ticker": "XLP",
-          "percentChange": 0.17,
-          "label": "미국 필수소비재 ETF",
-          "close": 84.8,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLY",
-          "percentChange": 0.4,
-          "label": "미국 임의소비재 ETF",
-          "close": 119.18,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLI",
-          "percentChange": 0.73,
-          "label": "미국 산업재 ETF",
-          "close": 171.77,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLU",
-          "percentChange": 0.78,
-          "label": "미국 유틸리티 ETF",
-          "close": 45.35,
-          "observationDate": "2026-05-22"
-        },
-        {
-          "ticker": "XLRE",
-          "percentChange": 0.13,
-          "label": "미국 부동산 ETF",
-          "close": 44.56,
-          "observationDate": "2026-05-22"
-        }
-      ],
-      "groundingSources": [
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-12LG2vSC1kKzDgW2AbrjisxTADhbHWGiKv4MVpSGSTPCPoj88yw6lGY5UHUtJOymbR7B4nVmnq0_6CKTe-z_RS47AlabNkxVkhE7GgHwesPkpVgCzYKPNh-ck2PbEJ4RG7-ITw==",
-          "title": "barchart.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5QUTs6b4y0xnzLuy9mRW3UQGohEJv7zOaVTDEiwAeygp2GYkocurS7Ey1t8m8A9nOOtm8FDhBHch0qQeuTZLgCu4ZUhmiU3pO0KsN4OWTaa5Xo5phNsilfmCheZ7JJ5t-Sj2xRQ==",
-          "title": "barchart.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTTvOlCcck6EvdB_n2qzgOAaZWYPWvsGjr0yM5lRlwQfBfCrp9UMWk3ffJ0lnqPDYYvOObLltJ_O9FMKEJSqSLXOANRn_JrvjMuXvwlLTMmjjyAwdxLi2NA1IeN4GLYDJfaMmFIlN6CJWmEGO0qOPpKwlQtrk=",
-          "title": "barchart.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6LJGbi9Ttzu9TtBWJ2bSMHC1szYjCAk6RYbW_BHUAt4cJBrkzHiLkgBC1YdiMI48kSoAbOxcOyfQEOBIo9k34qgaef7k176e1VnEfkQLidFJA0U9-zfaIeJUCHkQP0WpNw7VR7A==",
-          "title": "stockanalysis.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH82ZaFOqc5adgFyDfXJHxtfWJo705WyGksyhRyrN6XCUUrBJczXZwPgKDtbb2ZxOcLVvTyufs4CHML_RqYvs9hkNsfPvCBwXOlKGQa5tNj6GWlBV2JX-ld3oPyzdfdONyYTKV_7A==",
-          "title": "barchart.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUdY8l1MfCtg1IpOYZCA8bi_4Ro13pG3TIMSLE0s4i_g92Kl2_QAuxifvKlk7IMTKPcLEdfRsWI1sGqBS_mtpKDl6q6p7cmlCuGZ51fSGTy8Ct1sytGWhwhenBeOUAlXzwvET1sRyR6fwnza9oWsocFHxltbp9zYo=",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwLADEAQ4P9g1FrnsxUtKU0LPoBr1HLJrrbYvDPZ7_7NOf-u-W-FyrkuUJgIA6FoC3E_q9_H_Fa-KhYwHLPQrSv8hPLmnTLIy9bUH853p-EHL3wuMN3OzMNs8=",
-          "title": "finviz.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDHE8_w3ii5hv4FCLhR52iZYAhm7w1A-FafDxcgFHgxnNauCZCH8SgSmsEdYE7MPblCrhMQrAqMNglQOVwDV8cPTdnpA0aS0V3SZeuPXelKQHQb9DwpWJXtY2xBFWspHDNM02Cq0dHUxp-Nx8q5hJoz3LWKP31Nog=",
-          "title": "investing.com"
-        }
-      ],
-      "fetchedAt": "2026-05-24T22:11:22.950Z"
-    },
-    "crossAssetSignals": {
-      "signals": {
-        "dxy": {
-          "value": 99.19,
-          "percentChange": -0.03,
-          "observationDate": "2026-05-22",
-          "sourceName": "Investing.com"
-        },
-        "gold": {
-          "value": 4509.38,
-          "percentChange": -0.79,
-          "observationDate": "2026-05-24",
-          "sourceName": "BullionVault, Investing.com"
-        },
-        "copper": {
-          "value": 6.35,
-          "percentChange": 1.41,
-          "observationDate": "2026-05-22",
-          "sourceName": "Trading Economics"
-        },
-        "moveIndex": {
-          "value": 78.43,
-          "observationDate": "2026-05-22",
-          "sourceName": "Investing.com, FT.com"
-        },
-        "realYield10y": {
-          "value": 2.18,
-          "observationDate": "2026-05-22",
-          "sourceName": "StreetStats, Trading Economics, MacroMicro"
-        },
-        "termPremium10y": {
-          "value": 0.79,
-          "observationDate": "2026-05-21",
-          "sourceName": "Federal Reserve Bank of New York via MacroMicro"
-        }
-      },
-      "groundingSources": [
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRjsJhUWI8kscg_9AinUDAV70_E5M0jOka4_YioB_TnawwCEUR0DCJFvMLRxNJEwd8dLyJfExmjl_dSMjx30oQlu2JmZRlDBFf8fY1AzpGmUUhRQbWjU37lewTdVpbuCtKIO4CfPSBsnANf18Zkw==",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPNaBthk4oY2RD56WND8iLsEFqFHkcyp2CUd4dmCBfuPBZntVisxZu6EkWu3uhV7AA1mVeARz7PynCiP0iMCs50OPYVUJZ8-RMDgR832L5Fnt4dIOCS8ReJKMEPP3Sg3CTy_0QOuI=",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJKhxFXWlwgK4DKlVU79Z7x-XD-HpFqNMueY2-KChOR65-GOoP2JhyYNDuhgsQiHdpsmengBdnk-BcJzFNX9QKgK6jJ1WXUSOwoz_HUC3ijS2Xt17d5jHZkbuE4E6g9fCl6LNXXM6nMagE",
-          "title": "bullionvault.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmld04YUMTt8PW9h3CxKkgF927QZTvaAjoAIuLBQRC_CRQZRPYsdsaVsy7FZSeDYr85fiM_3feX3y1Uj_QhxqsqDAqok_KmZYjfxxfmmYyA8yZBO-Uucj19v8chqMsqwT8b7lYn4uGGVEAvBRnxYlN37jb0jMm",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGPuexWYLBEletz67qcmE2f0mPnfk1pnkX__jFyhhNi6ua_bRdbuyWAHN5p2bsvNWe_tj--bU-szb98XfkMUSBGeaeADjRHivhsVv9Zw1jU2MNJbeR7QB6IQFBcaqMOUMvMlzpzoYYH",
-          "title": "tradingeconomics.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEz0RdeEew7BK3TUZ78kuxVplP90Ozc2CZ7yTjOx2w9hMLh4d8ZngQar7TnsdFdNoXa5iya4RLKOF7h0fkZ9s_jyf1agUAOQLHIi9yHo90KKfJdlcgCDRMu1ybpDTdxoZQju67aS8raiNAQDQ==",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPsKI8_KfQVQeiDrTW51atnb5x3aurLEWWD9Y9BQGzGhpRasfzoYikmqvWnNY31IncPtTaxbzolhBlrfKWCCV87fKz5F0vyxFhtS3YCGEAGnbeJ-4ng-nATtPQOncFZnrrWNpc-3i67eDgZlj_Qr6D8Fx0LWYyY8DjJGg=",
-          "title": "investing.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQERH6TIsz-j18ive6FliF6vZt5kTxBAbdHflgk5YDYvcIIMgrMy2GfqdHNS-7eQcXqlP7yNCzHtsYN0AouLQZoUMQBP7VOFiyVosmJ0u8tsK9tUIkoHbB55JqWTSYhOB4-Ezee6aVQqUQQuEBZ_M-ykYrfTTxbqcZ7wNQ==",
-          "title": "ft.com"
-        }
-      ],
-      "fetchedAt": "2026-05-24T22:12:16.999Z"
-    },
-    "eventCalendar": {
-      "events": [
-        {
-          "date": "2026-05-26",
-          "category": "economic-data",
-          "name": "FHFA 주택가격지수 (FHFA Home Price Index)",
-          "importance": "medium",
-          "whyItMatters": "이 데이터는 미국 주택 시장의 건전성에 대한 통찰력을 제공하며, 이는 광범위한 경제의 핵심 구성 요소입니다."
-        },
-        {
-          "date": "2026-05-26",
-          "category": "auction",
-          "name": "6-Week, 13-Week, 26-Week Bill Auctions",
-          "importance": "low",
-          "whyItMatters": "이 경매는 재무부의 정기적인 차입 일정의 일부입니다."
-        },
-        {
-          "date": "2026-05-27",
-          "category": "economic-data",
-          "name": "리치몬드 연은 제조업 지수 (Richmond Fed Index)",
-          "importance": "medium",
-          "whyItMatters": "이 지역 제조업 지수는 제조업 활동 및 경제 상황에 대한 조기 정보를 제공합니다."
-        },
-        {
-          "date": "2026-05-27",
-          "category": "auction",
-          "name": "17-Week Bill, 2-Year FRN, 5-Year Note Auctions",
-          "importance": "low",
-          "whyItMatters": "이 경매는 재무부의 정기적인 차입 일정의 일부입니다."
-        },
-        {
-          "date": "2026-05-28",
-          "category": "economic-data",
-          "name": "GDP (2차 잠정치) (GDP Second Preliminary)",
-          "importance": "high",
-          "whyItMatters": "GDP의 두 번째 추정치는 이전 분기의 경제 성장에 대한 보다 정교한 그림을 제공합니다."
-        },
-        {
-          "date": "2026-05-28",
-          "category": "economic-data",
-          "name": "개인소득 (Personal Income)",
-          "importance": "medium",
-          "whyItMatters": "이 보고서는 개인 소득의 변화를 나타내며, 이는 소비자 지출의 동인입니다."
-        },
-        {
-          "date": "2026-05-28",
-          "category": "auction",
-          "name": "4-Week, 8-Week Bill, 7-Year Note Auctions",
-          "importance": "low",
-          "whyItMatters": "이 경매는 재무부의 정기적인 차입 일정의 일부입니다."
-        },
-        {
-          "date": "2026-05-28",
-          "category": "korean-macro",
-          "name": "한국은행 금융통화위원회 본회의 (Bank of Korea Monetary Policy Board Meeting)",
-          "consensus": "기준금리 2.50% 동결 예상",
-          "importance": "high",
-          "whyItMatters": "이 결정은 한국의 통화 정책과 경제 안정에 중요합니다."
-        },
-        {
-          "date": "2026-06-01",
-          "category": "auction",
-          "name": "13-Week, 26-Week Bill Auctions",
-          "importance": "low",
-          "whyItMatters": "이 경매는 재무부의 정기적인 차입 일정의 일부입니다."
-        },
-        {
-          "date": "2026-06-02",
-          "category": "korean-macro",
-          "name": "소비자물가지수 (Consumer Price Index)",
-          "importance": "high",
-          "whyItMatters": "이 보고서는 한국의 인플레이션에 대한 업데이트를 제공할 것입니다."
-        },
-        {
-          "date": "2026-06-05",
-          "category": "economic-data",
-          "name": "비농업 고용지수 (Nonfarm Payrolls)",
-          "importance": "high",
-          "whyItMatters": "매우 기대되는 보고서인 비농업 고용지수는 생성된 새로운 일자리의 수를 나타내며 노동 시장의 강도를 반영합니다."
-        },
-        {
-          "date": "2026-06-05",
-          "category": "economic-data",
-          "name": "실업률 (Unemployment Rate)",
-          "importance": "high",
-          "whyItMatters": "이 면밀히 주시되는 수치는 실업 상태인 노동력의 비율을 보여주며, 노동 시장 건강의 또 다른 핵심 지표입니다."
-        },
-        {
-          "date": "2026-06-05",
-          "category": "economic-data",
-          "name": "평균 시간당 임금 (Average Hourly Earnings)",
-          "importance": "high",
-          "whyItMatters": "임금 성장은 인플레이션과 소비자 구매력에 중요한 요소입니다."
-        },
-        {
-          "date": "2026-06-05",
-          "category": "economic-data",
-          "name": "ISM 서비스업 PMI (ISM Services PMI)",
-          "importance": "high",
-          "whyItMatters": "이 지수는 미국 경제의 가장 큰 부분을 차지하는 서비스 부문의 건전성을 측정합니다."
-        },
-        {
-          "date": "2026-06-05",
-          "category": "economic-data",
-          "name": "JOLTS (구인·이직 보고서) (JOLTS Job Openings)",
-          "importance": "medium",
-          "whyItMatters": "구인 및 이직 보고서는 노동 수요 및 이직률에 대한 통찰력을 제공합니다."
-        },
-        {
-          "date": "2026-06-07",
-          "category": "geopolitical",
-          "name": "OPEC+ 회의 (OPEC+ meetings)",
-          "consensus": "일일 188,000배럴의 추가 원유 생산량 증가 승인 예상",
-          "importance": "high",
-          "whyItMatters": "이 회의는 글로벌 원유 공급 및 가격 책정에 중요합니다."
-        }
-      ],
-      "groundingSources": [
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUuNVTP_xHNlKbcPiJQaZDPV2ADaQATa8UcMuUocxo3qtp3cqNw7eeM75YgBHJk593ecRTf_ab_kBvAykJqbPQH-RUCxnRDG4QzP9NU7a3grDjVX-cGsQGStCS0OqEPbjvnMBb3wEdJQmxCsd3WUq5rbM4W7h5a7Klqqg=",
-          "title": "thomsoninvestmentgroup.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqLKqv6Z28tLGH5mC5CYAVp_RxCaefGP2BjmDEW2yRVuahv8iniLSgsD7_HDN5PiGM_7QbsnV9ByrCBvK9mC_WUodVcuB_aRPnmd-dgPn5eWef98ap1tNSe-GR0ehqoH7mNiWp2xf8M8nKxzZdFoVP6gpj19kgDA==",
-          "title": "equalsmoney.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQERbn_djYWsZh3pp7RCxo-dyrV7M_tq10DXs6nSzR97ieMjWIUCv3C0532tYGF9FemiKT3cKv0VaKBTSPG9Zidu9KXuUDwN_nXSbnvUcF7xqoqYI0EYPS9J7lIOnMc3ChwCMZe4AeWiuIB1THsUQDglqNDxRmRihpWVScuUDjBbEdgfPjA=",
-          "title": "zforex.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHV5mFvYwRr02A1icBVKKScs0MLiN87KclJYGbpOjxOxtb5ixckcnTRUw_W16gFeD0Svxqg5BWGoN3guwCaUZ5-mh7SeHdXqT4-OBfA4VvQ3ImLBwMlkfKF21i4aPxB3pkcP_-YO0_mTAAYoxsSsZLvOn76NkJEvam2Jv8_5Yu36CezjI4FHFBdlw0M1izX143qdn88BUYZYQ==",
-          "title": "aba.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGny0dnqTz5Mb7q-U4Ntlw5zxSE9AU87b8pbPhOTGWq8liOISGTdl_lckoDIC3OZY6K2h312THTLCP5IaeJyo9px4FyEAZghRfPLiQWbKrpKfQsJ3WY45BX4gWoCNLZ8tElbb2YzpDByae9VRQVo1YYwr5tN2cpdrrz",
-          "title": "federalreserve.gov"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsZk8yPnNJ8gRdIA00xXKPO4WbaEo9fSA7JlSF-tlVdMQqUupry0Ex8wuFH7xL9s8q12F7eJASr1YZB_ns9JzGjfz3qf1L7gMOF3vVi9Wso57EY3JRRxtGt5er-ogdL9pjSs7WNkVRdj7XoELmegZuNd225kMNCIeEouKoKUs20_I=",
-          "title": "chicagofed.org"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRU2bqhS79XBgEBP8xRe6fEe_7MpL5IdBCoHbwS3maRUR2AV8D0h8-79T3WjIzVg1Brf8XBlrGacUOP7VbL_YpAuMSHy65nxPsQ_wuccK2l5l2jmHrTUYq0s_kaB_SJWKqJSYFhhRS3Hlawf7C0oBZx7IzvXkj8pTgZHEw7apoL8rH4HSANj3X8-cW5RvE1yBok39CrUNCn9LzvNAIzbmPaB4JSLsn-MA=",
-          "title": "xtb.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBmwFDga4-RotX1xe8xVzqErqhoOz7iGmyH7uGbX8JROw3yrKPNNa1CC_wbomlx92Knmh0Bz3ihrDv-dMDSJXPoiB8sCJH_a1JAvpD8pDOd_LCo9CDDhLHCQcfTN2UQD4H5_31SWRUf2kDCNXRMOiIMKYZshBBg1u1Q0p1w8GzFYgryIdC3yfTV6EIEbd2-tKk",
-          "title": "treasurydirect.gov"
-        }
-      ],
-      "fetchedAt": "2026-05-24T22:13:22.733Z"
-    }
-  }
+  ]
 }

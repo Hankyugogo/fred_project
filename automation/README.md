@@ -24,7 +24,9 @@ npm run publish:full
 `.github/workflows/daily-report.yml`은 매일 08:15 KST에 `npm run publish:full`을 실행합니다.
 원격 저장소에서 쓰려면 repository secret에 `FRED_API_KEY`, `GEMINI_API_KEY`를 추가해야 합니다.
 
-워크플로는 생성물을 커밋한 뒤 GitHub Pages artifact를 배포합니다. 이메일/텔레그램 secrets가 있으면 알림도 보냅니다.
+워크플로는 LLM 리라이트 검증을 엄격 모드(`STRICT_REWRITE_VALIDATION=1`)로 실행합니다. 리라이트가 quota, 숫자 검증, 민감 뉴스 검증, 오래된 지표 서술 검증에서 실패하면 로컬 fallback 본문을 채우고 HTML을 렌더링합니다.
+
+생성 후에는 `npm run check:quality`와 `npm run check:copy`를 통과해야만 생성물을 커밋하고 GitHub Pages artifact를 배포합니다. 이메일/텔레그램 secrets가 있으면 알림도 보냅니다.
 
 선택 secrets:
 

@@ -40,7 +40,41 @@ const CATEGORY_KEYWORDS = {
   ]
 };
 
-const LOW_SIGNAL_SOURCES = new Set(["Bitget", "MEXC", "Whalesbook"]);
+const ESTABLISHED_NEWS_SOURCES = new Set([
+  "Associated Press",
+  "AP",
+  "Bloomberg",
+  "CNBC",
+  "Financial Times",
+  "Investing.com",
+  "MarketWatch",
+  "Reuters",
+  "The Wall Street Journal",
+  "Wall Street Journal",
+  "WSJ",
+  "Yahoo Finance"
+]);
+const LOW_SIGNAL_SOURCES = new Set([
+  "Bitget",
+  "Coinpedia",
+  "CryptoRank",
+  "Invezz",
+  "MEXC",
+  "MEXC Exchange",
+  "The Daily Hodl",
+  "U.Today",
+  "Whalesbook"
+]);
+const CRYPTO_CENTRIC_SOURCES = new Set([
+  "Bitget",
+  "Coinpedia",
+  "CryptoRank",
+  "MEXC",
+  "MEXC Exchange",
+  "The Daily Hodl",
+  "U.Today",
+  "Whalesbook"
+]);
 const LOW_SIGNAL_TITLE_PATTERNS = [
   /\bmy\b/i,
   /\bi['’]ve\b/i,
@@ -53,6 +87,21 @@ const LOW_SIGNAL_TITLE_PATTERNS = [
   /\btoilet\b/i,
   /\bct scan\b/i,
   /\bsocial security\b/i
+];
+const CRYPTO_TITLE_PATTERNS = [
+  /\bbitcoin\b/i,
+  /\bcrypto(?:currency)?\b/i,
+  /\beth(?:ereum)?\b/i,
+  /\bbtc\b/i,
+  /\b비트코인\b/u,
+  /\b가상자산\b/u
+];
+const FED_LEADERSHIP_CLAIM_PATTERNS = [
+  /\bwarsh-led fed\b/i,
+  /\b(?:warsh|powell replacement|fed chair|fed chairman|fomc chair).{0,90}\b(?:appoint|appointed|appointment|nominate|nominated|nomination|name|named|elect|elected|select|selected|lead|led)\b/i,
+  /\b(?:appoint|appointed|appointment|nominate|nominated|nomination|name|named|elect|elected|select|selected).{0,90}\b(?:fed chair|fed chairman|fomc chair|federal reserve chair)\b/i,
+  /\bwarsh.{0,140}(?:federal reserve|fomc|federal open market committee|board of governors).{0,140}(?:chair|chairman)\b/i,
+  /\bwarsh.{0,140}(?:takes oath|selected|selects|chairman)\b/i
 ];
 
 function toTimeZoneDateString(date, timeZone) {
@@ -200,9 +249,62 @@ function scoreItem(item, source) {
   const titleBoost = /fed|federal reserve|powell|inflation|jobs|payroll|gdp|treasury|yield|s&p|nasdaq|dow|oil|dollar/i.test(item.title)
     ? 5
     : 0;
-  const sourcePenalty = LOW_SIGNAL_SOURCES.has(item.source) ? 8 : 0;
+  const sourcePenalty = LOW_SIGNAL_SOURCES.has(item.source) || item.credibility === "low" ? 10 : 0;
+  const cryptoPenalty = item.topicFlags?.includes("crypto") ? 8 : 0;
+  const claimPenalty = item.claimRisk === "high" ? 45 : item.claimRisk === "medium" ? 12 : 0;
 
-  return Math.round((source.weight || 5) + freshness + categoryBoost + titleBoost - sourcePenalty);
+  return Math.round((source.weight || 5) + freshness + categoryBoost + titleBoost - sourcePenalty - cryptoPenalty - claimPenalty);
+}
+
+function inferCredibility(sourceName, source) {
+  if (source.type === "official") return "official";
+  if (source.type === "market-news") return "established";
+  if (ESTABLISHED_NEWS_SOURCES.has(sourceName)) return "established";
+  if (LOW_SIGNAL_SOURCES.has(sourceName)) return "low";
+  return source.type === "news-search" ? "standard" : "standard";
+}
+
+function assessClaimPolicy({ title, description, sourceName, source, credibility }) {
+  const text = `${title} ${description}`;
+  const reasons = [];
+  const topicFlags = [];
+  const trustedForSensitiveClaims = credibility === "official" || credibility === "established";
+
+  if (CRYPTO_CENTRIC_SOURCES.has(sourceName) || CRYPTO_TITLE_PATTERNS.some((pattern) => pattern.test(text))) {
+    topicFlags.push("crypto");
+  }
+
+  if (FED_LEADERSHIP_CLAIM_PATTERNS.some((pattern) => pattern.test(text))) {
+    reasons.push("sensitive_fed_leadership_claim");
+  }
+
+  if (reasons.length > 0 && !trustedForSensitiveClaims) {
+    return {
+      credibility,
+      claimRisk: "high",
+      usePolicy: "withhold_from_llm",
+      claimRiskReasons: reasons,
+      topicFlags
+    };
+  }
+
+  if (topicFlags.includes("crypto") && credibility === "low") {
+    return {
+      credibility,
+      claimRisk: "medium",
+      usePolicy: "context_only",
+      claimRiskReasons: ["crypto_centric_low_signal_source"],
+      topicFlags
+    };
+  }
+
+  return {
+    credibility,
+    claimRisk: reasons.length > 0 ? "medium" : "low",
+    usePolicy: "allow",
+    claimRiskReasons: reasons,
+    topicFlags
+  };
 }
 
 function normalizeNewsItem(raw, source) {
@@ -210,17 +312,31 @@ function normalizeNewsItem(raw, source) {
   const title = source.id.startsWith("google") ? removeGoogleSource(raw.title) : raw.title;
   const published = parseDate(raw.pubDate);
   const category = categorize(title, raw.description, source.category);
+  const sourceName = inferredSource || source.label;
+  const credibility = inferCredibility(sourceName, source);
+  const policy = assessClaimPolicy({
+    title,
+    description: raw.description || "",
+    sourceName,
+    source,
+    credibility
+  });
   const item = {
     id: `${source.id}:${normalizeTitle(title).slice(0, 80)}`,
     title,
     link: raw.link,
     sourceId: source.id,
-    source: inferredSource || source.label,
+    source: sourceName,
     sourceType: source.type,
     category,
     categoryLabel: CATEGORY_LABELS[category] || "기타",
     publishedAt: published ? published.toISOString() : null,
-    description: raw.description ? raw.description.slice(0, 280) : ""
+    description: raw.description ? raw.description.slice(0, 280) : "",
+    credibility: policy.credibility,
+    claimRisk: policy.claimRisk,
+    usePolicy: policy.usePolicy,
+    claimRiskReasons: policy.claimRiskReasons,
+    topicFlags: policy.topicFlags
   };
 
   return {
@@ -280,6 +396,10 @@ function dedupeItems(items) {
   }
 
   return unique;
+}
+
+function isPromotableItem(item) {
+  return item.usePolicy !== "withhold_from_llm";
 }
 
 function buildThemes(items) {
@@ -381,7 +501,18 @@ async function main() {
 
     return String(right.publishedAt || "").localeCompare(String(left.publishedAt || ""));
   });
-  const themes = buildThemes(uniqueItems);
+  const promotableItems = uniqueItems.filter(isPromotableItem);
+  const themes = buildThemes(promotableItems.length ? promotableItems : uniqueItems);
+  const withheldItems = uniqueItems
+    .filter((item) => !isPromotableItem(item))
+    .slice(0, 10)
+    .map((item) => ({
+      id: item.id,
+      source: item.source,
+      title: item.title,
+      reasons: item.claimRiskReasons,
+      usePolicy: item.usePolicy
+    }));
   const payload = {
     generatedAt: generatedAt.toISOString(),
     reportDate,
@@ -392,8 +523,12 @@ async function main() {
     },
     editorialSummary: buildEditorialSummary(themes, failures),
     themes,
-    topItems: uniqueItems.slice(0, 15),
+    topItems: promotableItems.slice(0, 15),
     items: uniqueItems,
+    guardrails: {
+      withheldCount: withheldItems.length,
+      withheldItems
+    },
     failures
   };
 

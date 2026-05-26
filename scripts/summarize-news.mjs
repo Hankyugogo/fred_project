@@ -51,7 +51,9 @@ function buildSystemInstruction(style) {
     "4) 영어 단어를 한국어 본문에 그대로 노출하지 않는다. 'S&P 500'은 'S&P500', 'Nasdaq'은 '나스닥 종합지수', 'Fed'는 '연방준비제도(연준)', 'FOMC'는 '연방공개시장위원회(FOMC)', 'CPI'는 '소비자물가지수(CPI)', 'PCE'는 '개인소비지출 물가지수(PCE)', 'GDP'는 '국내총생산(GDP)', 'WTI'는 '서부텍사스산원유(WTI)', 'BOJ'는 '일본은행', 'BoE'는 '영란은행', 'BoC'는 '캐나다은행' 등 한국 언론 표기를 따른다.",
     "5) 번역투('~에 따르면', '~의 측면에서', '~을 가지고 있다', '~을 보여주고 있다', '다소', '최근 몇 달 동안')를 쓰지 않는다.",
     "6) 일반 라이프스타일·금융상품 안내 기사 등 매크로/시장과 무관한 기사는 koreanSummary 첫 문장에 '시장 직접 영향은 제한적이다'를 명시한 뒤 사실만 한 문장으로 요약한다.",
-    "7) 모든 출력은 반드시 요청된 JSON 스키마에 맞춰 반환한다. 키 외 다른 텍스트는 출력하지 않는다.",
+    "7) 출처 신뢰도 또는 claimRisk가 낮지 않은 항목만 확정 사실처럼 쓴다. 특히 연방준비제도(연준) 의장·위원 임명, 정책 결정, 공식 경제지표 확정치, 전쟁·제재 같은 고위험 사안은 공식기관·주요 통신·주요 경제지 출처가 아니면 '확인되지 않은 시장 추측성 보도'로 낮춰 쓴다.",
+    "8) usePolicy가 context_only인 항목은 핵심 뉴스처럼 부각하지 말고 관련 자산 투자심리 참고 정도로만 요약한다. withhold_from_llm 항목은 통상 입력되지 않지만, 들어오면 '시장 직접 영향은 제한적이다'로 처리한다.",
+    "9) 모든 출력은 반드시 요청된 JSON 스키마에 맞춰 반환한다. 키 외 다른 텍스트는 출력하지 않는다.",
     style?.voice ? `에디터 톤 가이드: ${style.voice}` : ""
   ].filter(Boolean).join("\n");
 }
@@ -68,7 +70,11 @@ function getCleanItemMap(digest) {
       category: item.category,
       categoryLabel: item.categoryLabel,
       description: item.description || "",
-      publishedAt: item.publishedAt
+      publishedAt: item.publishedAt,
+      credibility: item.credibility || null,
+      claimRisk: item.claimRisk || null,
+      usePolicy: item.usePolicy || null,
+      claimRiskReasons: item.claimRiskReasons || []
     });
   };
   (digest.topItems || []).forEach(collect);
@@ -83,6 +89,10 @@ function buildItemPrompt(items) {
     sourceKorean: item.sourceKorean,
     category: item.categoryLabel,
     publishedAt: item.publishedAt,
+    credibility: item.credibility,
+    claimRisk: item.claimRisk,
+    usePolicy: item.usePolicy,
+    claimRiskReasons: item.claimRiskReasons,
     headline: item.title,
     description: item.description
   }));
@@ -115,6 +125,9 @@ function buildThemePrompt(themes) {
     headlines: (theme.items || []).slice(0, 5).map((item) => ({
       title: item.title,
       source: SOURCE_KOREAN_MAP[item.source] || item.source,
+      credibility: item.credibility || null,
+      claimRisk: item.claimRisk || null,
+      usePolicy: item.usePolicy || null,
       description: item.description || ""
     }))
   }));

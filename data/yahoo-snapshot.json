@@ -1,26 +1,38 @@
 {
-  "generatedAt": "2026-05-24T22:08:38.470Z",
+  "generatedAt": "2026-05-25T10:39:07.453Z",
   "source": "Yahoo Finance v8 chart API",
   "items": [
     {
       "id": "KOSPI",
       "label": "코스피",
       "group": "korea",
-      "yahoo": "^KS11",
       "format": "index",
       "decimals": 2,
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EKS11",
-      "error": "HTTP 429"
+      "latestValue": 7847.71,
+      "previousValue": 7815.59,
+      "absoluteChange": 32.12,
+      "percentChange": 0.41,
+      "observationDate": "2026-05-22",
+      "previousObservationDate": "2026-05-21",
+      "source": "naver-finance-sise-json",
+      "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI",
+      "fetchedAt": "2026-05-25T10:39:07.094Z"
     },
     {
       "id": "KOSDAQ",
       "label": "코스닥",
       "group": "korea",
-      "yahoo": "^KQ11",
       "format": "index",
       "decimals": 2,
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EKQ11",
-      "error": "HTTP 429"
+      "latestValue": 1161.13,
+      "previousValue": 1105.97,
+      "absoluteChange": 55.16,
+      "percentChange": 4.99,
+      "observationDate": "2026-05-22",
+      "previousObservationDate": "2026-05-21",
+      "source": "naver-finance-sise-json",
+      "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ",
+      "fetchedAt": "2026-05-25T10:39:07.452Z"
     }
   ]
 }

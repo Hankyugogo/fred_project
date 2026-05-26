@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[데일리 마감] 미 증시 강세 마감… 반도체 주도 속 금리 정체 · 2026-05-25 | FRED Market Briefing</title>
-<meta name="description" content="뉴욕 증시는 다우존스30 산업평균지수가 0.58% 상승하는 등 주요 지수들이 일제히 강세로 마감했다. 미 국채 10년물 금리는 4.57% 수준에서 정체하며 시장의 금리 부담이 일부 완화되는 모습을 보였다. 반도체 섹터가 강한 상승세를 보이며 시장을 견인했으나, 기술주는 상대적으로 부진했다. 전반적으로 금리 정체와 섹터별 차별화가 나타난 하루였다.">
+<title>광범위한 동행 강세, 장기금리 4.57% 부담 점검 · 2026-05-25 | FRED Market Briefing</title>
+<meta name="description" content="미국 증시는 S&amp;P500지수 +0.37%, 나스닥 종합지수 +0.19%, 다우존스30 산업평균지수 +0.58%로 마감했다. 미 국채 10년물 금리는 4.57%를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 16.76로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;0,8..60,800;0,8..60,900;1,8..60,400&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
@@ -92,6 +92,13 @@ h1.hero em{font-style:normal;color:var(--accent)}
 .section-head .num .bar{display:block;width:48px;height:2px;background:var(--accent);margin-bottom:10px}
 .section-head h2{margin:0;font-family:"Source Serif 4",serif;font-weight:800;font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.15;letter-spacing:-.015em}
 .section-head .lede{color:var(--muted);font-size:.96rem;margin:8px 0 0;max-width:760px}
+
+/* ─── multi-period strip used in matrix cells ─── */
+.periods{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px;padding-top:10px;border-top:1px dashed var(--rule-soft);font-family:"JetBrains Mono",monospace}
+.periods .p{display:flex;flex-direction:column;gap:2px;padding:0 6px;border-left:1px solid var(--rule-soft)}
+.periods .p:first-child{padding-left:0;border-left:none}
+.periods .p .key{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.periods .p .v{font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
 
 /* INDEX MATRIX */
 .matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
@@ -185,18 +192,6 @@ h1.hero em{font-style:normal;color:var(--accent)}
 .checkpoint .marker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:700;width:80px;padding-top:3px}
 .checkpoint p{margin:0;line-height:1.7;color:var(--ink-2)}
 
-/* timeframe */
-.timeframes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
-.tf-card{padding:22px 22px 20px;border-right:1px solid var(--rule-soft);display:grid;gap:14px;align-content:start}
-.tf-card:last-child{border-right:none}
-.tf-card .top{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
-.tf-card h3{margin:0;font-family:"Source Serif 4",serif;font-size:1.28rem;font-weight:800;line-height:1.25;letter-spacing:-.01em;word-break:keep-all}
-.tf-card dl{margin:0;display:grid;gap:10px}
-.tf-card dt{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.tf-card dd{margin:3px 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.7}
-.tf-card .watch{margin:0;padding:10px 12px;border-top:1px dotted var(--rule-soft);background:rgba(15,94,62,.05);display:flex;flex-wrap:wrap;gap:6px}
-.tf-card .watch span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--accent);border:1px solid rgba(15,94,62,.24);background:var(--panel);padding:3px 6px}
-
 /* positioning */
 .pos-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
 .pos-card{background:var(--panel);border:1px solid var(--rule);padding:24px 26px}
@@ -224,6 +219,91 @@ h1.hero em{font-style:normal;color:var(--accent)}
 .fresh-cell .lbl{font-size:.92rem;font-weight:600;margin-bottom:4px}
 .fresh-cell .obs{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
 
+/* ───── §03 spread history ───── */
+.spread-card{margin-top:20px;border:1px solid var(--rule);background:var(--panel);padding:22px 24px}
+.spread-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule-soft);flex-wrap:wrap}
+.spread-head h3{margin:0;font-family:"Source Serif 4",serif;font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+.spread-head .sub{margin:4px 0 0;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.spread-stats{display:flex;gap:0;align-items:stretch}
+.spread-stats .stat{display:flex;flex-direction:column;gap:2px;padding:0 16px;border-left:1px solid var(--rule-soft);min-width:88px}
+.spread-stats .stat:first-child{padding-left:0;border-left:none}
+.spread-stats .stat .key{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.spread-stats .stat strong{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.spread-card .explain{margin:14px 0 0;font-size:.88rem;line-height:1.65;color:var(--ink-2);max-width:none}
+
+/* ───── §09 WATCHLIST ───── */
+.wl-backdrop{border:1px solid var(--rule);background:var(--panel);padding:20px 22px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1.4fr;gap:24px}
+.wl-backdrop-head{border-right:1px solid var(--rule-soft);padding-right:24px}
+.wl-bd-kicker{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.wl-backdrop-head h3{margin:0 0 10px;font-family:"Source Serif 4",serif;font-size:1.2rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.wl-backdrop-head p{margin:0;color:var(--ink-2);line-height:1.65;font-size:.92rem}
+.wl-bd-signals{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;align-content:start}
+.wl-bd-sig{display:grid;grid-template-columns:90px auto 70px;gap:8px;align-items:baseline;padding:6px 0;border-bottom:1px dotted var(--rule-soft);column-gap:10px}
+.wl-bd-sig:nth-last-child(-n+2){border-bottom:none}
+.wl-bd-sig .key{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.wl-bd-sig strong{font-size:13px;font-weight:700}
+.wl-bd-sig .chg{font-size:11px;font-weight:600;justify-self:end}
+.wl-bd-sig .note{grid-column:1/-1;font-size:11px;color:var(--muted);font-family:"Noto Sans KR";line-height:1.5;margin-top:2px}
+
+.wl-stack{display:flex;flex-direction:column;gap:18px}
+.wl-card{border:1px solid var(--rule);background:var(--panel);padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.wl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:14px;border-bottom:1px solid var(--rule-soft)}
+.wl-head-left{display:flex;gap:14px;align-items:flex-start}
+.wl-idx{font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1;padding-top:2px}
+.wl-head h3{margin:0;font-family:"Source Serif 4",serif;font-size:1.4rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.wl-sub{margin:5px 0 0;font-size:11px;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.wl-price{text-align:right}
+.wl-price-val{font-family:"Source Serif 4",serif;font-size:1.9rem;font-weight:700;line-height:1;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.wl-cur{font-size:.7rem;color:var(--muted);font-weight:500;margin-left:4px}
+.wl-price-chg{margin-top:6px;font-size:13px;font-weight:600}
+
+.wl-tone-row{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+.wl-tone-chip{display:inline-flex;align-items:center;font-size:11px;letter-spacing:.04em;padding:5px 10px;border:1px solid var(--rule-soft);background:var(--paper);color:var(--ink);font-weight:600}
+.wl-tone-chip .sep{display:inline-block;margin:0 6px;color:var(--rule-soft)}
+.wl-tone-chip.up{color:var(--up);border-color:rgba(13,138,90,.4);background:rgba(13,138,90,.06)}
+.wl-tone-chip.down{color:var(--down);border-color:rgba(196,61,46,.4);background:rgba(196,61,46,.06)}
+.wl-tone-chip.warn{color:var(--amber);border-color:rgba(168,106,24,.4);background:rgba(168,106,24,.06)}
+
+.wl-thesis{margin:0;padding:14px 16px;background:var(--paper);border-left:3px solid var(--accent);font-size:.94rem;line-height:1.7;color:var(--ink-2)}
+
+.wl-chart{border:1px solid var(--rule-soft);background:var(--paper);padding:10px 14px 6px;overflow:hidden}
+
+.wl-tech-summary{margin:0;font-size:.9rem;line-height:1.65;color:var(--ink-2)}
+.wl-tech-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-right:4px}
+
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule-soft);background:var(--paper)}
+.tech-cell{padding:10px 12px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:4px}
+.tech-cell:nth-child(4n){border-right:none}
+.tech-cell:nth-last-child(-n+4){border-bottom:none}
+.tech-cell .tk{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tech-cell strong{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.tech-cell strong.warn{color:var(--amber)}
+
+.drivers-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.drv-col{padding:12px 14px;border:1px solid var(--rule-soft);background:var(--paper)}
+.drv-col.up{border-left:3px solid var(--up)}
+.drv-col.down{border-left:3px solid var(--down)}
+.drv-head{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.drv-col.up .drv-head{color:var(--up)}
+.drv-col.down .drv-head{color:var(--down)}
+.drv-col ul{margin:0;padding-left:18px;font-size:.88rem;line-height:1.65;color:var(--ink-2)}
+.drv-col li{margin-bottom:4px}
+
+.mf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.mf{padding:12px 14px;border:1px solid var(--rule-soft);background:var(--paper)}
+.mf-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.mf-label{font-size:.86rem;font-weight:600}
+.mf-score{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.mf-bar{height:6px;background:var(--rule-soft);position:relative;overflow:hidden}
+.mf-fill{height:100%;background:var(--up);transition:width .4s ease}
+.mf-note{margin:8px 0 0;font-size:.8rem;line-height:1.55;color:var(--muted)}
+
+.wl-bottom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.wl-list{padding:12px 14px;border:1px solid var(--rule-soft);background:var(--paper)}
+.wl-list-head{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.wl-list ul{margin:0;padding-left:18px;font-size:.85rem;line-height:1.65;color:var(--ink-2)}
+.wl-list li{margin-bottom:4px}
+
 /* colophon */
 .colophon{padding:32px 0 56px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;line-height:1.8}
 .colophon .row{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:18px;margin-top:18px;gap:16px;flex-wrap:wrap}
@@ -237,17 +317,22 @@ h1.hero em{font-style:normal;color:var(--accent)}
   .matrix .cell:nth-child(1),.matrix .cell:nth-child(2){border-bottom:1px solid var(--rule-soft)}
   .data-grid,.pos-grid{grid-template-columns:1fr}
   .essay{columns:1}
-  .verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:repeat(2,1fr)}
-  .tf-card:nth-child(2){border-right:none}
-  .tf-card:nth-child(1),.tf-card:nth-child(2){border-bottom:1px solid var(--rule-soft)}
+  .verdicts,.lede3,.fresh-grid{grid-template-columns:repeat(2,1fr)}
   .section-head{grid-template-columns:1fr}
   .issue{grid-template-columns:60px 1fr;gap:18px}
   .issue .idx{font-size:2.4rem}
+  .wl-backdrop{grid-template-columns:1fr}
+  .wl-backdrop-head{border-right:none;border-bottom:1px solid var(--rule-soft);padding-right:0;padding-bottom:16px}
+  .wl-bd-signals{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-cell:nth-child(4n){border-right:1px solid var(--rule-soft)}
+  .tech-cell:nth-child(2n){border-right:none}
+  .tech-cell:nth-last-child(-n+2){border-bottom:none}
+  .wl-bottom-grid,.mf-grid,.drivers-grid{grid-template-columns:1fr}
 }
 @media (max-width:680px){
-  .matrix,.verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:1fr}
+  .matrix,.verdicts,.lede3,.fresh-grid{grid-template-columns:1fr}
   .matrix .cell{border-right:none;border-bottom:1px solid var(--rule-soft)}
-  .tf-card{border-right:none;border-bottom:1px solid var(--rule-soft)}
   .tape .ticks{display:none}
   .shell{padding:0 18px}
 }
@@ -262,7 +347,7 @@ h1.hero em{font-style:normal;color:var(--accent)}
 <body>
 <div class="tape"><div class="row">
     <div class="ticks"><span class="tick"><b>SPX</b> <span class="v">7,473.47</span> <span class="up">+0.37%</span></span><span class="tick"><b>NDX</b> <span class="v">26,343.97</span> <span class="up">+0.19%</span></span><span class="tick"><b>DJI</b> <span class="v">50,579.70</span> <span class="up">+0.58%</span></span><span class="tick"><b>UST10Y</b> <span class="v">4.57%</span> <span class="flat">0bp</span></span><span class="tick"><b>UST2Y</b> <span class="v">4.08%</span> <span class="up">+4bp</span></span><span class="tick"><b>VIX</b> <span class="v">16.76</span> <span class="down">-3.90%</span></span><span class="tick"><b>DXY</b> <span class="v">119.2825</span> <span class="up">+0.52%</span></span><span class="tick"><b>WTI</b> <span class="v">$112.25</span> <span class="up">+2.99%</span></span><span class="tick"><b>USD/KRW</b> <span class="v">1,499.61</span> <span class="up">+0.53%</span></span></div>
-    <div class="right"><span class="live">LIVE</span><span>2026-05-25-07:09 KST</span></div>
+    <div class="right"><span class="live">LIVE</span><span>2026-05-25-19:39 KST</span></div>
   </div></div>
 <header class="masthead"><div class="shell">
     <div class="top">
@@ -280,12 +365,15 @@ h1.hero em{font-style:normal;color:var(--accent)}
     <span class="kicker"><span class="dot"></span>오늘의 마켓 브리핑<span class="sep">·</span>FRED + 연관 데이터<span class="sep">·</span>일간 정기 발행</span>
     <div class="hero-grid">
       <div>
-        <h1 class="hero">[데일리 마감] 미 증시 강세 마감… 반도체 주도 속 금리 정체</h1>
-        <p class="deck">뉴욕 증시는 다우존스30 산업평균지수가 <b>0.58%</b> 상승하는 등 주요 지수들이 일제히 강세로 마감했다. 미 국채 10년물 금리는 <b>4.57%</b> 수준에서 정체하며 시장의 금리 부담이 일부 완화되는 모습을 보였다. 반도체 섹터가 강한 상승세를 보이며 시장을 견인했으나, 기술주는 상대적으로 부진했다. 전반적으로 금리 정체와 섹터별 차별화가 나타난 하루였다.</p>
+        <h1 class="hero">광범위한 동행 강세, 장기금리 4.57% 부담 점검</h1>
+        <p class="deck">미국 증시는 S&amp;P500지수 +<b>0.37%</b>, 나스닥 종합지수 +<b>0.19%</b>, 다우존스30 산업평균지수 +<b>0.58%</b>로 마감했다. 미 국채 10년물 금리는 <b>4.57%</b>를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 16.76로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.</p>
       </div>
       <aside class="hero-side" aria-label="오늘의 주요 변동폭">
         <h4><span>오늘의 주요 변동</span><span>TOP 5</span></h4>
         <div class="row">
+    <span class="lbl">코스닥</span>
+    <span class="val">1,161.13<span class="chg up">+4.99%</span></span>
+  </div><div class="row">
     <span class="lbl">미 국채 2년물</span>
     <span class="val">4.08%<span class="chg up">+4bp</span></span>
   </div><div class="row">
@@ -297,9 +385,6 @@ h1.hero em{font-style:normal;color:var(--accent)}
   </div><div class="row">
     <span class="lbl">WTI 유가</span>
     <span class="val">$112.25<span class="chg up">+2.99%</span></span>
-  </div><div class="row">
-    <span class="lbl">브렌트유</span>
-    <span class="val">$116.73<span class="chg up">+2.43%</span></span>
   </div>
         <p class="note">변동폭 절대값 기준. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 환산해 비교합니다.</p>
       </aside>
@@ -311,7 +396,7 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <div class="num"><span class="bar"></span>§ 01</div>
       <div>
         <h2>오늘의 시장 지표</h2>
-        <p class="lede">미국 주식·금리·변동성·환율 네 축의 종가와 전일 대비 변화를 한눈에 확인합니다. 변동폭은 전 영업일 대비이며, 금리는 베이시스포인트(bp)로 표시합니다.</p>
+        <p class="lede">미국 주식·금리·변동성·환율 네 축의 종가, 그리고 전일·1주·1개월·1년 대비 변동을 함께 봅니다. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 표기합니다.</p>
       </div>
     </div>
     <div class="matrix"><div class="cell">
@@ -325,6 +410,16 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <text x="57.3" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">7,445.72</text>
       <text x="142.7" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">7,473.47</text>
     </svg></div>
+    <div class="periods"><div class="p">
+      <span class="key">1W</span>
+      <span class="v up">+0.88%</span>
+    </div><div class="p">
+      <span class="key">1M</span>
+      <span class="v up">+5.14%</span>
+    </div><div class="p">
+      <span class="key">1Y</span>
+      <span class="v up">+27.87%</span>
+    </div></div>
     <div class="foot"><span>OBS 2026-05-22</span><span>PREV 2026-05-21</span></div>
   </div><div class="cell">
     <div class="lbl"><span class="ticker">미 국채 10년물</span><span>금리</span></div>
@@ -337,6 +432,16 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <text x="100.0" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.57</text>
       <text x="100.0" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">4.57</text>
     </svg></div>
+    <div class="periods"><div class="p">
+      <span class="key">1W</span>
+      <span class="v up">+10bp</span>
+    </div><div class="p">
+      <span class="key">1M</span>
+      <span class="v up">+27bp</span>
+    </div><div class="p">
+      <span class="key">1Y</span>
+      <span class="v up">+11bp</span>
+    </div></div>
     <div class="foot"><span>OBS 2026-05-21</span><span>PREV 2026-05-20</span></div>
   </div><div class="cell">
     <div class="lbl"><span class="ticker">VIX</span><span>변동성</span></div>
@@ -349,6 +454,16 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <text x="142.7" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">17.44</text>
       <text x="57.3" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">16.76</text>
     </svg></div>
+    <div class="periods"><div class="p">
+      <span class="key">1W</span>
+      <span class="v down">-2.90%</span>
+    </div><div class="p">
+      <span class="key">1M</span>
+      <span class="v down">-11.42%</span>
+    </div><div class="p">
+      <span class="key">1Y</span>
+      <span class="v down">-12.62%</span>
+    </div></div>
     <div class="foot"><span>OBS 2026-05-21</span><span>PREV 2026-05-20</span></div>
   </div><div class="cell">
     <div class="lbl"><span class="ticker">달러/원 환율</span><span>환율</span></div>
@@ -361,9 +476,19 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <text x="57.3" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">1,491.75</text>
       <text x="142.7" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">1,499.61</text>
     </svg></div>
+    <div class="periods"><div class="p">
+      <span class="key">1W</span>
+      <span class="v up">+2.64%</span>
+    </div><div class="p">
+      <span class="key">1M</span>
+      <span class="v up">+1.45%</span>
+    </div><div class="p">
+      <span class="key">1Y</span>
+      <span class="v up">+5.71%</span>
+    </div></div>
     <div class="foot"><span>OBS 2026-05-15</span><span>PREV 2026-05-14</span></div>
   </div></div>
-    <ul class="lede3"><li>미국 주요 3대 지수는 모두 상승 마감했다. 다우존스30 산업평균지수가 0.58% 오르며 가장 큰 폭의 상승률을 기록했다.</li><li>미 국채 10년물 금리는 4.57% 수준에서 정체하며 시장의 금리 부담이 완화됐다. 변동성지수(VIX)는 16.76으로 안정적인 흐름을 보였다.</li><li>미국 반도체 ETF(SOXX)가 2.41% 상승하며 시장 강세를 주도했다. 반면 미국 기술 ETF(XLK)는 0.64% 하락하며 차별화된 흐름을 보였다.</li></ul>
+    <ul class="lede3"><li>미국 3대 지수는 S&amp;P500지수 +0.37%, 나스닥 종합지수 +0.19%, 다우존스30 산업평균지수 +0.58%로 마감했다.</li><li>미 국채 10년물 금리는 4.57%, 2년물 금리는 4.08%이며 10년-2년 금리차는 0.49%p를 기록했다.</li><li>한국시장 보조 시세는 코스피 7,847.71, 코스닥 1,161.13다. 달러/원 FRED 기준일은 2026-05-15로 지연 상태다.</li></ul>
   </div></section>
 <section class="section"><div class="shell">
     <div class="section-head">
@@ -401,137 +526,182 @@ h1.hero em{font-style:normal;color:var(--accent)}
     <div class="section-head">
       <div class="num"><span class="bar"></span>§ 03</div>
       <div>
-        <h2>전체 지표 데이터 · 일드 커브</h2>
-        <p class="lede">표는 오늘 마감된 모든 지표의 종가와 변동폭을 그대로 보여줍니다. 우측 곡선은 만기별 금리를 한 그림으로 묶어, 시장이 단기와 장기를 어떻게 다르게 보는지 비교합니다.</p>
+        <h2>전체 지표 데이터 · 스프레드 vs 나스닥</h2>
+        <p class="lede">표는 오늘 마감된 모든 지표의 종가와 1주·1개월·1년 변동을 보여줍니다. 하단 차트는 <b>10년–2년 금리 스프레드</b>가 5년 동안 움직인 흐름을 <b>나스닥 지수</b>와 같은 그래프에 겹쳐, 둘 사이의 상관관계와 시점별 갈림길을 한눈에 보여줍니다.</p>
       </div>
     </div>
-    <div class="data-grid">
-      <table class="data-table">
-    <caption>전체 지표 데이터</caption>
-    <thead><tr><th>지표</th><th>분류</th><th class="num">종가</th><th class="num">변동</th><th>관측일</th></tr></thead>
+    <table class="data-table">
+    <caption>전체 지표 데이터 · 다기간 변동</caption>
+    <thead><tr><th>지표</th><th>분류</th><th class="num">종가</th><th class="num">전일</th><th class="num">1주</th><th class="num">1개월</th><th class="num">1년</th><th>관측일</th></tr></thead>
     <tbody><tr>
       <td class="lbl-ko">S&amp;P 500 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>주요 지수</td>
       <td class="num">7,473.47</td>
       <td class="num up">+0.37%</td>
+      <td class="num up">+0.88%</td><td class="num up">+5.14%</td><td class="num up">+27.87%</td>
       <td class="obs">2026-05-22</td>
     </tr><tr>
       <td class="lbl-ko">나스닥종합지수 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>주요 지수</td>
       <td class="num">26,343.97</td>
       <td class="num up">+0.19%</td>
+      <td class="num up">+0.45%</td><td class="num up">+7.80%</td><td class="num up">+39.59%</td>
       <td class="obs">2026-05-22</td>
     </tr><tr>
       <td class="lbl-ko">다우지수 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>주요 지수</td>
       <td class="num">50,579.70</td>
       <td class="num up">+0.58%</td>
+      <td class="num up">+2.13%</td><td class="num up">+2.57%</td><td class="num up">+20.83%</td>
+      <td class="obs">2026-05-22</td>
+    </tr><tr>
+      <td class="lbl-ko">코스피 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>한국 시장</td>
+      <td class="num">7,847.71</td>
+      <td class="num up">+0.41%</td>
+      <td class="num flat">—</td><td class="num flat">—</td><td class="num flat">—</td>
+      <td class="obs">2026-05-22</td>
+    </tr><tr>
+      <td class="lbl-ko">코스닥 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>한국 시장</td>
+      <td class="num">1,161.13</td>
+      <td class="num up">+4.99%</td>
+      <td class="num flat">—</td><td class="num flat">—</td><td class="num flat">—</td>
       <td class="obs">2026-05-22</td>
     </tr><tr>
       <td class="lbl-ko">원-엔 환율(100엔당) <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>한국 시장</td>
       <td class="num">944.99</td>
       <td class="num up">+0.14%</td>
+      <td class="num flat">—</td><td class="num flat">—</td><td class="num flat">—</td>
       <td class="obs">2026-05-15</td>
     </tr><tr>
       <td class="lbl-ko">미 국채 2년물 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>금리</td>
       <td class="num">4.08%</td>
       <td class="num up">+4bp</td>
+      <td class="num up">+8bp</td><td class="num up">+29bp</td><td class="num up">+11bp</td>
       <td class="obs">2026-05-21</td>
     </tr><tr>
       <td class="lbl-ko">미 국채 10년물 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>금리</td>
       <td class="num">4.57%</td>
       <td class="num flat">0bp</td>
+      <td class="num up">+10bp</td><td class="num up">+27bp</td><td class="num up">+11bp</td>
       <td class="obs">2026-05-21</td>
     </tr><tr>
       <td class="lbl-ko">실효 연방기금금리 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>금리</td>
       <td class="num">3.62%</td>
       <td class="num flat">0bp</td>
+      <td class="num flat">—</td><td class="num flat">—</td><td class="num flat">—</td>
       <td class="obs">2026-05-21</td>
     </tr><tr>
       <td class="lbl-ko">10Y-2Y Curve Spread <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>금리</td>
       <td class="num">0.49%</td>
       <td class="num down">-4bp</td>
+      <td class="num flat">—</td><td class="num flat">—</td><td class="num flat">—</td>
       <td class="obs">2026-05-21</td>
     </tr><tr>
       <td class="lbl-ko">VIX <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
       <td>변동성</td>
       <td class="num">16.76</td>
       <td class="num down">-3.90%</td>
+      <td class="num down">-2.90%</td><td class="num down">-11.42%</td><td class="num down">-12.62%</td>
       <td class="obs">2026-05-21</td>
     </tr><tr>
       <td class="lbl-ko">달러/원 환율 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>환율</td>
       <td class="num">1,499.61</td>
       <td class="num up">+0.53%</td>
+      <td class="num up">+2.64%</td><td class="num up">+1.45%</td><td class="num up">+5.71%</td>
       <td class="obs">2026-05-15</td>
     </tr><tr>
       <td class="lbl-ko">광의 달러지수 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>환율</td>
       <td class="num">119.2825</td>
       <td class="num up">+0.52%</td>
+      <td class="num up">+1.05%</td><td class="num up">+0.78%</td><td class="num down">-2.99%</td>
       <td class="obs">2026-05-15</td>
     </tr><tr>
       <td class="lbl-ko">달러/엔 환율 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>환율</td>
       <td class="num">158.69</td>
       <td class="num up">+0.39%</td>
+      <td class="num up">+1.31%</td><td class="num down">-0.24%</td><td class="num up">+7.40%</td>
       <td class="obs">2026-05-15</td>
     </tr><tr>
       <td class="lbl-ko">WTI 유가 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>원자재</td>
       <td class="num">$112.25</td>
       <td class="num up">+2.99%</td>
+      <td class="num up">+10.53%</td><td class="num up">+30.66%</td><td class="num up">+72.59%</td>
       <td class="obs">2026-05-18</td>
     </tr><tr>
       <td class="lbl-ko">브렌트유 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
       <td>원자재</td>
       <td class="num">$116.73</td>
       <td class="num up">+2.43%</td>
+      <td class="num up">+10.01%</td><td class="num up">+0.09%</td><td class="num up">+76.20%</td>
       <td class="obs">2026-05-18</td>
     </tr></tbody>
   </table>
-      <div class="curve-card">
-    <h3>장단기 금리 스프레드 (10Y–2Y)</h3>
-    <p class="sub">경기 침체 신호의 핵심 지표 · 음수면 역전</p>
-    <div style="display:flex;align-items:baseline;gap:18px;margin:8px 0 14px">
-        <div style="font-family:'Source Serif 4',serif;font-weight:800;font-size:3.2rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums">+49<span style="font-size:1.4rem;color:var(--muted)">bp</span></div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <span class="mono down" style="font-size:12px;font-weight:600">-4bp 전일 대비</span>
-          <span class="mono" style="font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">10Y–2Y · 정상 곡선 · 0bp가 침체 임계</span>
+    <div class="spread-card">
+    <div class="spread-head">
+      <div>
+        <h3>10Y–2Y 스프레드 추이 vs 나스닥 (5년)</h3>
+        <p class="sub mono">2025-03-26 → 2026-05-21 · 1영업일 간격</p>
+      </div>
+      <div class="spread-stats mono">
+        <div class="stat">
+          <span class="key">현재 스프레드</span>
+          <strong class="up">+49bp</strong>
+        </div>
+        <div class="stat">
+          <span class="key">5년 변동</span>
+          <strong class="up">+12bp</strong>
+        </div>
+        <div class="stat">
+          <span class="key">나스닥 (현재)</span>
+          <strong>26,293</strong>
+        </div>
+        <div class="stat">
+          <span class="key">나스닥 5Y</span>
+          <strong class="up">+46.9%</strong>
+        </div>
+        <div class="stat">
+          <span class="key">상관계수</span>
+          <strong class="up">38%</strong>
+        </div>
+        <div class="stat">
+          <span class="key">역전 구간</span>
+          <strong class="up">0회</strong>
         </div>
       </div>
-    <svg viewBox="0 0 380 200" width="100%" role="img" aria-label="Yield curve">
-      <line x1="40" y1="164.0" x2="364" y2="164.0" stroke="var(--grid)" stroke-width="1"></line>
-          <text x="34" y="164.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">3.57</text><line x1="40" y1="126.5" x2="364" y2="126.5" stroke="var(--grid)" stroke-width="1"></line>
-          <text x="34" y="126.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">3.83</text><line x1="40" y1="89.0" x2="364" y2="89.0" stroke="var(--grid)" stroke-width="1"></line>
-          <text x="34" y="89.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.10</text><line x1="40" y1="51.5" x2="364" y2="51.5" stroke="var(--grid)" stroke-width="1"></line>
-          <text x="34" y="51.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.36</text><line x1="40" y1="14.0" x2="364" y2="14.0" stroke="var(--grid)" stroke-width="1"></line>
-          <text x="34" y="14.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.62</text>
-      <text x="40.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">EFFR</text><text x="202.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">2Y</text><text x="364.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">10Y</text>
-      <path d="M40.0,156.9 L202.0,96.9 L364.0,21.1" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="3 3"></path>
-      <path d="M40.0,156.9 L202.0,91.1 L364.0,21.1" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"></path>
-      <circle cx="40.0" cy="156.9" r="3.4" fill="var(--accent)"></circle>
-        <text x="40.0" y="146.9" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">3.62</text><circle cx="202.0" cy="91.1" r="3.4" fill="var(--accent)"></circle>
-        <text x="202.0" y="81.1" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">4.08</text><circle cx="364.0" cy="21.1" r="3.4" fill="var(--accent)"></circle>
-        <text x="364.0" y="11.1" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">4.57</text>
-      <g font-family="JetBrains Mono" font-size="9" fill="var(--muted)">
-        <line x1="44" y1="14" x2="64" y2="14" stroke="var(--accent)" stroke-width="2"></line>
-        <text x="68" y="17">오늘</text>
-        <line x1="108" y1="14" x2="128" y2="14" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="3 3"></line>
-        <text x="132" y="17">전일</text>
-      </g>
+    </div>
+    <svg viewBox="0 0 1180 360" width="100%" height="auto" preserveAspectRatio="none" style="display:block">
+
+      <line x1="70" y1="285.8" x2="1110" y2="285.8" stroke="var(--down)" stroke-width="1.2" stroke-dasharray="5 3"/>
+          <text x="62" y="285.8" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--down)" font-weight="700">0bp 역전</text><line x1="70" y1="210.3" x2="1110" y2="210.3" stroke="var(--grid)" stroke-width="0.5" />
+          <text x="62" y="210.3" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--muted)" font-weight="500">+25bp</text><line x1="70" y1="134.7" x2="1110" y2="134.7" stroke="var(--grid)" stroke-width="0.5" />
+          <text x="62" y="134.7" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--muted)" font-weight="500">+50bp</text><line x1="70" y1="59.2" x2="1110" y2="59.2" stroke="var(--grid)" stroke-width="0.5" />
+          <text x="62" y="59.2" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--muted)" font-weight="500">+75bp</text>
+      <text x="1118.0" y="316.0" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">14,657</text><text x="1118.0" y="259.2" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">17,266</text><text x="1118.0" y="202.4" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">19,875</text><text x="1118.0" y="145.6" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">22,483</text><text x="1118.0" y="88.8" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">25,092</text><text x="1118.0" y="32.0" text-anchor="start" dominant-baseline="middle" font-family="JetBrains Mono" font-size="10" fill="var(--accent-2)">27,701</text>
+      <path d="M70.0,245.4 L73.6,247.5 L77.2,258.0 L80.8,258.5 L84.4,255.2 L88.1,251.9 L91.7,274.8 L95.3,295.7 L98.9,295.4 L102.5,302.7 L106.1,262.3 L109.7,278.3 L113.3,271.0 L116.9,268.7 L120.6,268.8 L124.2,280.1 L127.8,280.5 L131.4,289.6 L135.0,280.2 L138.6,271.3 L142.2,261.4 L145.8,256.7 L149.4,257.0 L153.1,254.9 L156.7,255.3 L160.3,249.5 L163.9,243.7 L167.5,246.6 L171.1,250.0 L174.7,248.9 L178.3,244.8 L181.9,244.8 L185.6,227.8 L189.2,221.2 L192.8,218.2 L196.4,219.0 L200.0,216.8 L203.6,216.8 L207.2,218.3 L210.8,224.2 L214.4,223.1 L218.1,227.2 L221.7,217.1 L225.3,219.2 L228.9,217.6 L232.5,219.0 L236.1,216.2 L239.7,212.8 L243.3,211.4 L246.9,214.9 L250.6,209.9 L254.2,208.6 L257.8,205.9 L261.4,208.0 L265.0,207.0 L268.6,212.6 L272.2,206.2 L275.8,210.1 L279.4,209.5 L283.1,211.7 L286.7,207.7 L290.3,201.6 L293.9,200.2 L297.5,196.0 L301.1,193.7 L304.7,191.6 L308.3,195.3 L311.9,191.1 L315.6,186.6 L319.2,190.7 L322.8,190.6 L326.4,186.4 L330.0,185.9 L333.6,186.9 L337.2,185.7 L340.8,184.9 L344.4,183.8 L348.1,180.4 L351.7,180.2 L355.3,178.5 L358.9,180.2 L362.5,177.5 L366.1,176.6 L369.7,175.5 L373.3,174.0 L376.9,175.8 L380.6,175.1 L384.2,175.2 L387.8,185.5 L391.4,176.7 L395.0,179.7 L398.6,174.2 L402.2,172.6 L405.8,168.1 L409.4,169.5 L413.1,163.0 L416.7,162.4 L420.3,162.4 L423.9,164.3 L427.5,164.2 L431.1,171.0 L434.7,174.1 L438.3,175.7 L441.9,167.1 L445.6,168.1 L449.2,166.0 L452.8,165.0 L456.4,162.5 L460.0,168.0 L463.6,171.8 L467.2,167.1 L470.8,162.5 L474.4,162.6 L478.1,160.5 L481.7,158.7 L485.3,158.6 L488.9,155.2 L492.5,153.0 L496.1,148.5 L499.7,148.9 L503.3,150.4 L506.9,145.9 L510.6,142.4 L514.2,138.9 L517.8,143.6 L521.4,145.3 L525.0,147.7 L528.6,145.6 L532.2,143.3 L535.8,141.8 L539.4,139.7 L543.1,137.7 L546.7,139.1 L550.3,135.6 L553.9,139.0 L557.5,133.4 L561.1,133.8 L564.7,151.7 L568.3,144.8 L571.9,141.5 L575.6,143.9 L579.2,141.3 L582.8,134.6 L586.4,135.4 L590.0,140.0 L593.6,135.6 L597.2,129.9 L600.8,120.5 L604.4,116.3 L608.1,113.5 L611.7,121.7 L615.3,118.6 L618.9,116.2 L622.5,126.8 L626.1,123.5 L629.7,133.2 L633.3,134.2 L636.9,122.9 L640.6,125.5 L644.2,137.2 L647.8,136.5 L651.4,140.7 L655.0,146.7 L658.6,143.8 L662.2,154.4 L665.8,150.2 L669.4,137.1 L673.1,133.8 L676.7,129.7 L680.3,126.4 L683.9,128.3 L687.5,125.3 L691.1,124.5 L694.7,123.4 L698.3,121.8 L701.9,122.5 L705.6,121.8 L709.2,120.1 L712.8,121.4 L716.4,130.1 L720.0,133.1 L723.6,131.9 L727.2,141.0 L730.8,134.2 L734.4,127.7 L738.1,125.0 L741.7,122.1 L745.3,121.0 L748.9,121.4 L752.5,124.0 L756.1,125.2 L759.7,129.1 L763.3,129.2 L766.9,125.7 L770.6,122.4 L774.2,121.6 L777.8,123.9 L781.4,119.7 L785.0,118.4 L788.6,118.9 L792.2,124.1 L795.8,122.8 L799.4,123.1 L803.1,135.3 L806.7,129.5 L810.3,124.9 L813.9,123.4 L817.5,121.3 L821.1,116.6 L824.7,115.7 L828.3,119.4 L831.9,124.3 L835.6,121.5 L839.2,128.8 L842.8,136.4 L846.4,144.4 L850.0,133.7 L853.6,129.2 L857.2,132.1 L860.8,132.9 L864.4,143.1 L868.1,144.2 L871.7,143.5 L875.3,139.7 L878.9,141.3 L882.5,136.8 L886.1,142.5 L889.7,137.3 L893.3,131.0 L896.9,137.0 L900.6,141.6 L904.2,139.8 L907.8,144.9 L911.4,138.5 L915.0,139.8 L918.6,147.7 L922.2,141.0 L925.8,140.9 L929.4,140.5 L933.1,149.3 L936.7,153.8 L940.3,148.0 L943.9,145.7 L947.5,152.8 L951.1,154.1 L954.7,163.8 L958.3,157.3 L961.9,161.3 L965.6,157.6 L969.2,169.0 L972.8,179.0 L976.4,182.4 L980.0,165.0 L983.6,159.6 L987.2,158.8 L990.8,156.2 L994.4,155.7 L998.1,142.3 L1001.7,138.2 L1005.3,136.5 L1008.9,130.3 L1012.5,120.4 L1016.1,112.2 L1019.7,110.3 L1023.3,102.4 L1026.9,103.8 L1030.6,106.9 L1034.2,98.3 L1037.8,103.0 L1041.4,94.4 L1045.0,93.3 L1048.6,98.1 L1052.2,97.9 L1055.8,93.1 L1059.4,88.3 L1063.1,89.3 L1066.7,83.7 L1070.3,72.5 L1073.9,73.2 L1077.5,63.6 L1081.1,63.1 L1084.7,67.1 L1088.3,60.3 L1091.9,55.2 L1095.6,64.1 L1099.2,67.1 L1102.8,71.8 L1106.4,63.1 L1110.0,62.6" fill="none" stroke="var(--accent-2)" stroke-width="1.6" stroke-linejoin="round" opacity="0.85"/>
+      <path d="M70.0,174.0 L73.6,161.9 L77.2,171.0 L80.8,183.1 L84.4,195.1 L88.1,198.2 L91.7,180.0 L95.3,186.1 L98.9,158.9 L102.5,119.6 L106.1,155.9 L109.7,116.6 L113.3,128.7 L116.9,122.6 L120.6,131.7 L124.2,128.7 L127.8,125.7 L131.4,83.4 L135.0,89.4 L138.6,107.5 L142.2,119.6 L145.8,119.6 L149.4,116.6 L153.1,122.6 L156.7,113.6 L160.3,119.6 L163.9,134.7 L167.5,125.7 L171.1,128.7 L174.7,140.8 L178.3,143.8 L181.9,137.7 L185.6,143.8 L189.2,143.8 L192.8,140.8 L196.4,137.7 L200.0,149.8 L203.6,137.7 L207.2,131.7 L210.8,110.6 L214.4,122.6 L218.1,131.7 L221.7,131.7 L225.3,131.7 L228.9,131.7 L232.5,128.7 L236.1,128.7 L239.7,134.7 L243.3,134.7 L246.9,140.8 L250.6,143.8 L254.2,140.8 L257.8,146.8 L261.4,143.8 L265.0,146.8 L268.6,149.8 L272.2,137.7 L275.8,149.8 L279.4,152.9 L283.1,140.8 L286.7,134.7 L290.3,119.6 L293.9,119.6 L297.5,116.6 L301.1,116.6 L304.7,128.7 L308.3,140.8 L311.9,128.7 L315.6,143.8 L319.2,134.7 L322.8,128.7 L326.4,140.8 L330.0,137.7 L333.6,125.7 L337.2,125.7 L340.8,119.6 L344.4,110.6 L348.1,116.6 L351.7,116.6 L355.3,125.7 L358.9,128.7 L362.5,128.7 L366.1,128.7 L369.7,137.7 L373.3,131.7 L376.9,140.8 L380.6,152.9 L384.2,155.9 L387.8,122.6 L391.4,125.7 L395.0,134.7 L398.6,125.7 L402.2,131.7 L405.8,131.7 L409.4,131.7 L413.1,113.6 L416.7,113.6 L420.3,119.6 L423.9,110.6 L427.5,113.6 L431.1,119.6 L434.7,119.6 L438.3,122.6 L441.9,110.6 L445.6,119.6 L449.2,89.4 L452.8,89.4 L456.4,104.5 L460.0,92.4 L463.6,98.5 L467.2,101.5 L470.8,110.6 L474.4,107.5 L478.1,116.6 L481.7,122.6 L485.3,134.7 L488.9,137.7 L492.5,134.7 L496.1,131.7 L499.7,125.7 L503.3,122.6 L506.9,122.6 L510.6,113.6 L514.2,122.6 L517.8,107.5 L521.4,107.5 L525.0,122.6 L528.6,113.6 L532.2,128.7 L535.8,116.6 L539.4,113.6 L543.1,119.6 L546.7,119.6 L550.3,110.6 L553.9,113.6 L557.5,119.6 L561.1,122.6 L564.7,125.7 L568.3,119.6 L571.9,119.6 L575.6,110.6 L579.2,116.6 L582.8,122.6 L586.4,125.7 L590.0,128.7 L593.6,125.7 L597.2,122.6 L600.8,125.7 L604.4,128.7 L608.1,137.7 L611.7,134.7 L615.3,131.7 L618.9,125.7 L622.5,128.7 L626.1,122.6 L629.7,122.6 L633.3,116.6 L636.9,119.6 L640.6,128.7 L644.2,125.7 L647.8,128.7 L651.4,125.7 L655.0,122.6 L658.6,119.6 L662.2,119.6 L665.8,119.6 L669.4,110.6 L673.1,110.6 L676.7,119.6 L680.3,119.6 L683.9,119.6 L687.5,110.6 L691.1,113.6 L694.7,107.5 L698.3,110.6 L701.9,104.5 L705.6,113.6 L709.2,107.5 L712.8,98.5 L716.4,83.4 L720.0,83.4 L723.6,83.4 L727.2,83.4 L730.8,86.4 L734.4,80.3 L738.1,65.2 L741.7,74.3 L745.3,80.3 L748.9,80.3 L752.5,83.4 L756.1,77.3 L759.7,71.3 L763.3,68.3 L766.9,71.3 L770.6,71.3 L774.2,80.3 L777.8,74.3 L781.4,92.4 L785.0,89.4 L788.6,89.4 L792.2,92.4 L795.8,101.5 L799.4,89.4 L803.1,74.3 L806.7,86.4 L810.3,89.4 L813.9,92.4 L817.5,86.4 L821.1,71.3 L824.7,74.3 L828.3,71.3 L831.9,62.2 L835.6,68.3 L839.2,71.3 L842.8,68.3 L846.4,62.2 L850.0,68.3 L853.6,62.2 L857.2,71.3 L860.8,86.4 L864.4,98.5 L868.1,92.4 L871.7,98.5 L875.3,98.5 L878.9,101.5 L882.5,104.5 L886.1,104.5 L889.7,101.5 L893.3,104.5 L896.9,104.5 L900.6,107.5 L904.2,110.6 L907.8,119.6 L911.4,119.6 L915.0,116.6 L918.6,107.5 L922.2,116.6 L925.8,110.6 L929.4,113.6 L933.1,131.7 L936.7,119.6 L940.3,119.6 L943.9,128.7 L947.5,134.7 L951.1,146.8 L954.7,131.7 L958.3,131.7 L961.9,137.7 L965.6,137.7 L969.2,146.8 L972.8,116.6 L976.4,125.7 L980.0,131.7 L983.6,128.7 L987.2,128.7 L990.8,134.7 L994.4,128.7 L998.1,134.7 L1001.7,131.7 L1005.3,134.7 L1008.9,128.7 L1012.5,134.7 L1016.1,125.7 L1019.7,122.6 L1023.3,119.6 L1026.9,122.6 L1030.6,128.7 L1034.2,131.7 L1037.8,131.7 L1041.4,125.7 L1045.0,113.6 L1048.6,128.7 L1052.2,134.7 L1055.8,128.7 L1059.4,131.7 L1063.1,134.7 L1066.7,134.7 L1070.3,137.7 L1073.9,137.7 L1077.5,140.8 L1081.1,143.8 L1084.7,146.8 L1088.3,140.8 L1091.9,143.8 L1095.6,134.7 L1099.2,122.6 L1102.8,122.6 L1106.4,125.7 L1110.0,137.7" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="1110.0" cy="137.7" r="4" fill="var(--accent)"/>
+      <circle cx="1110.0" cy="62.6" r="4" fill="var(--accent-2)"/>
+      <text x="70.0" y="346.0" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--muted)">2025</text><text x="763.3" y="346.0" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--muted)">2026</text>
+      <text x="62" y="20.0" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="var(--accent)" font-weight="700">← 스프레드 (bp)</text>
+      <text x="1118.0" y="20.0" text-anchor="start" font-family="JetBrains Mono" font-size="9" fill="var(--accent-2)" font-weight="700">나스닥 →</text>
     </svg>
-    <p style="margin:14px 0 0;font-size:.84rem;color:var(--muted);line-height:1.55">
-      이 그림은 만기가 짧은 금리(왼쪽)부터 긴 금리(오른쪽)를 차례로 잇습니다.
-      <b>우상향</b>이면 정상, <b>평탄·하향</b>이면 경기 둔화 신호로 해석합니다.
+    <p class="explain">
+      <b>스프레드(녹색, 좌축)</b>가 0bp 아래로 내려가면 <b>장단기 역전</b>으로 경기 둔화 신호 — 음영 처리한 구간이 역전 시기입니다.
+      <b>나스닥(주황색, 우축)</b>과 겹쳐 보면 두 지표가 같은 방향으로 움직이는지, 반대로 움직이는지 한눈에 비교할 수 있습니다.
+      5년 데이터 기준 두 시계열의 상관계수는 <b>38%</b>로 <b>중간 양의 상관</b>관계입니다.
     </p>
   </div>
-    </div>
   </div></section>
 <section class="section"><div class="shell">
     <div class="section-head">
@@ -545,213 +715,78 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <article class="issue">
         <div class="idx">01</div>
         <div>
-          <h3>미 국채 금리 19년 만에 최고치 기록</h3>
+          <h3>미국 3대 지수 동반 움직임</h3>
           <dl>
-            <dt>WHAT · 사실</dt><dd>미국 30년물 국채 금리가 인플레이션 우려 속 19년 만에 최고치를 기록했다. 다우존스30 산업평균지수는 322포인트 하락하며 거래를 마쳤다.</dd>
-            <dt>WHY · 반응</dt><dd>고금리 환경은 기업의 자금 조달 비용을 증가시키고 주식 시장의 밸류에이션에 부담으로 작용한다. 연방준비제도(연준)의 긴축 기조 장기화 가능성에 대한 시장의 불안감이 반영된 결과로 분석된다.</dd>
-            <dt>WATCH · 관측</dt><dd>미 국채 10년물 금리가 4.60%를 상회할 경우 성장주 전반의 추가적인 밸류에이션 압박이 심화될 수 있다.</dd>
+            <dt>WHAT · 사실</dt><dd>S&amp;P500지수는 7,473.47로 +0.37% 움직였고, 나스닥 종합지수는 26,343.97로 +0.19% 변동했다. 다우존스30 산업평균지수는 50,579.70로 +0.58%를 기록했다.</dd>
+            <dt>WHY · 반응</dt><dd>주요 지수가 같은 방향으로 움직이면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 함께 오르는 구간에서는 상승의 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다.</dd>
+            <dt>WATCH · 관측</dt><dd>나스닥 종합지수 26,344선과 S&amp;P500지수 7,473선 유지 여부를 먼저 확인한다.</dd>
           </dl>
         </div>
       </article><article class="issue">
         <div class="idx">02</div>
         <div>
-          <h3>주요 경제 지표 발표 앞둔 시장 관망세</h3>
+          <h3>장기금리 상단 재확인</h3>
           <dl>
-            <dt>WHAT · 사실</dt><dd>비트코인 시장을 비롯한 금융 시장은 개인소비지출(PCE) 물가지수, 국내총생산(GDP) 데이터 발표와 이란 핵 협상 업데이트를 앞두고 관망세를 보였다.</dd>
-            <dt>WHY · 반응</dt><dd>주요 경제 지표와 지정학적 이벤트는 시장의 변동성을 키울 수 있는 요인이다. 인플레이션 압력이 연방준비제도(연준)의 통화 정책 방향에 영향을 미칠지 주목하며 투자자들은 신중한 접근을 유지했다.</dd>
-            <dt>WATCH · 관측</dt><dd>5월 28일 발표될 국내총생산(GDP) 2차 잠정치가 컨센서스를 하회하면 연방준비제도(연준)의 금리 인하 기대가 다시 부상할 수 있다.</dd>
+            <dt>WHAT · 사실</dt><dd>미 국채 10년물 금리는 4.57%로 전일 대비 0bp 움직였다. 2년물은 4.08%, 10년-2년 금리차는 0.49%p다.</dd>
+            <dt>WHY · 반응</dt><dd>장기금리 상승은 경기 기대와 기간 보상의 재평가를 반영한다. 동시에 성장주 평가에는 제약으로 작용하므로 주가 상승과 금리 상승이 공존하는 구간에서는 지수보다 업종 확산을 확인해야 한다.</dd>
+            <dt>WATCH · 관측</dt><dd>미 10년물 4.70% 상향 돌파 여부와 4.50% 하향 안정 여부를 함께 본다.</dd>
           </dl>
         </div>
       </article><article class="issue">
         <div class="idx">03</div>
         <div>
-          <h3>기업 실적 마무리 속 증시 변동성 우려</h3>
+          <h3>변동성은 20선 아래</h3>
           <dl>
-            <dt>WHAT · 사실</dt><dd>이번 주 월가는 기업 실적 발표가 마무리되고 국채 금리가 상승하면서 증시가 불안정한 흐름을 보일 수 있다는 우려가 제기됐다.</dd>
-            <dt>WHY · 반응</dt><dd>그동안 주식 시장을 견인했던 기업 실적 모멘텀이 약화될 경우 시장 변동성이 확대될 가능성이 주목된다. 투자자들은 금리 상승 압력과 기업 실적 둔화 가능성에 대비하는 모습을 보였다.</dd>
-            <dt>WATCH · 관측</dt><dd>변동성지수(VIX)가 18선을 돌파할 경우 시장 전반의 위험 회피 심리가 강화될 수 있다.</dd>
+            <dt>WHAT · 사실</dt><dd>변동성지수(VIX)는 16.76로 전일 대비 -3.90% 움직였다.</dd>
+            <dt>WHY · 반응</dt><dd>VIX가 20선 아래에 있으면 급격한 방어 심리는 제한적이다. 그러나 금리와 원자재 가격이 높은 구간에서는 작은 재료에도 헤지 수요가 다시 늘 수 있다.</dd>
+            <dt>WATCH · 관측</dt><dd>VIX 20선 재돌파, 미 10년물 4.70% 부근 반응, 주요 지수의 장중 저점 이탈 여부를 함께 확인한다.</dd>
           </dl>
         </div>
       </article><article class="issue">
         <div class="idx">04</div>
         <div>
-          <h3>엔비디아, 반도체 공급에도 빅테크 위기 해결 역부족</h3>
+          <h3>한국시장 강세와 환율 기준일 지연</h3>
           <dl>
-            <dt>WHAT · 사실</dt><dd>엔비디아가 반도체 공급을 늘려도 빅테크 기업들이 직면한 신용 및 전력망 위기를 해결하기는 어려울 것으로 분석됐다.</dd>
-            <dt>WHY · 반응</dt><dd>미중 무역 갈등, 신용 프리미엄 상승, 인공지능(AI) 인프라 한계 등 복합적인 요인이 작용하며 개별 기업의 실적 호조가 거시적 문제를 해결하기 어렵다는 점이 부각됐다.</dd>
-            <dt>WATCH · 관측</dt><dd>미국 반도체 ETF(SOXX)가 520달러 아래로 하락하면 단기적인 차익 실현 압력이 커질 수 있다.</dd>
+            <dt>WHAT · 사실</dt><dd>코스피 보조 시세는 7,847.71, 코스닥은 1,161.13로 집계됐다. 달러/원 FRED 시계열은 1,499.61원, 기준일은 2026-05-15다.</dd>
+            <dt>WHY · 반응</dt><dd>미국 지수 강세와 한국 지수 보조 시세가 같은 방향을 가리킨다. 다만 원화 관련 FRED 데이터가 지연돼 외국인 매매와 환율 해석은 보수적으로 처리해야 한다.</dd>
+            <dt>WATCH · 관측</dt><dd>달러/원은 기준일 지연 상태이므로 1,480원과 1,500원을 보조 확인선으로 두고, 코스피 외국인 순매수 전환과 반도체 대형주의 상대 강도를 동시에 점검한다.</dd>
           </dl>
         </div>
       </article><article class="issue">
         <div class="idx">05</div>
         <div>
-          <h3>미국-이란 핵 협상 진전 가능성, 유가 영향 주목</h3>
+          <h3>정책 뉴스는 연준 의사록과 인플레이션 경로에 집중</h3>
           <dl>
-            <dt>WHAT · 사실</dt><dd>미국과 이란 간 전쟁 종식 및 호르무즈 해협 재개통 합의가 임박한 것으로 알려졌다. 서부텍사스산원유(WTI)는 96.60달러로 하락했다.</dd>
-            <dt>WHY · 반응</dt><dd>중동 지역의 지정학적 위험 완화는 국제 유가 안정에 긍정적인 영향을 미칠 수 있다. 다만 이란과의 갈등이 심화될 경우 미국 부채의 이자 부담이 증가할 수 있다는 분석도 제기됐다.</dd>
-            <dt>WATCH · 관측</dt><dd>서부텍사스산원유(WTI)가 95달러 아래로 하락하면 글로벌 인플레이션 압력 완화에 기여할 수 있다.</dd>
+            <dt>WHAT · 사실</dt><dd>뉴스 우선순위는 Investing.com의 '월가, 기술주 실적·물가 지표·국채 금리 주목'가 가장 높게 잡혔다.</dd>
+            <dt>WHY · 반응</dt><dd>연준 의사록과 물가 관련 뉴스는 하루 가격보다 향후 금리 경로와 금융 여건을 재평가하게 만드는 재료다.</dd>
+            <dt>WATCH · 관측</dt><dd>다음 연준 발언에서 물가 목표, 추가 긴축 가능성, 금융 여건 평가 문구가 반복되는지 확인한다.</dd>
           </dl>
         </div>
       </article>
     </div>
   </div></section>
-<section class="section"><div class="shell">
-    <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 05</div>
-      <div>
-        <h2>상위 시간축 인사이트</h2>
-        <p class="lede">오늘의 마감 신호를 주간·월간·분기·연간 흐름 안에서 다시 해석합니다. 판단은 짧게, 한국시장 연결은 섹터와 확인 지표 중심으로 정리합니다.</p>
-      </div>
-    </div>
-    <div class="timeframes">
-      <article class="tf-card">
-        <div class="top">WEEKLY</div>
-        <h3>주간 관점: 금리 정체 속 반도체 강세 지속 여부</h3>
-        <dl>
-          <div><dt>판단</dt><dd>이번 주 시장은 미 국채 금리 정체 속 반도체 섹터의 강세가 지속될지 여부에 주목한다.</dd></div>
-          <div><dt>의미</dt><dd>금리가 높은 수준에서 정체되면 유동성보다는 기업의 이익 모멘텀이 시장을 주도한다. 이는 지수 전반의 상승보다는 섹터별 차별화를 심화시킬 수 있다.</dd></div>
-          <div><dt>한국시장</dt><dd>한국 반도체(삼성전자, SK하이닉스)는 미국 반도체 ETF(SOXX)의 흐름에 동조하며 강세를 이어갈 가능성이 크다. 반면 2차전지(LG에너지솔루션, 에코프로비엠)와 바이오(삼성바이오로직스, 셀트리온)는 여전히 높은 금리 수준에 따른 밸류에이션 부담을 받을 수 있어 주의가 필요하다.</dd></div>
-        </dl>
-        <p class="watch"><span>미 국채 10년물 4.50% 상회 여부</span><span>달러/원 환율 1,520원 지지 여부</span><span>미국 반도체 ETF(SOXX) 530달러 유지</span></p>
-      </article><article class="tf-card">
-        <div class="top">MONTHLY</div>
-        <h3>월간 관점: 달러 강세와 신흥국 자금 흐름</h3>
-        <dl>
-          <div><dt>판단</dt><dd>이달 시장은 달러 강세가 신흥국 자금 흐름과 위험자산 선호에 미치는 영향에 주목한다.</dd></div>
-          <div><dt>의미</dt><dd>월간 기준으로 달러와 금리가 동시에 강해지면 신흥국 통화 가치에 하방 압력이 커지며 외국인 자금 이탈을 유발할 수 있다. 이는 주식 시장의 반등에도 불구하고 한국 증시의 상승 지속성을 약화시키는 요인으로 작용한다.</dd></div>
-          <div><dt>한국시장</dt><dd>달러/원 환율 1,520원 부근은 한국 수출주(자동차, 조선)의 환율 효과와 외국인 매매 방향을 가르는 핵심 변수다. 인터넷/플랫폼(NAVER, 카카오)과 바이오 섹터는 금리·환율 동반 상승에 취약해 외국인 매매 동향을 면밀히 살펴야 한다.</dd></div>
-        </dl>
-        <p class="watch"><span>달러/원 환율 1,530원 돌파 여부</span><span>달러지수(DXY) 99.50 상회 여부</span><span>코스피 외국인 선물 누적 순매도 전환</span></p>
-      </article><article class="tf-card">
-        <div class="top">QUARTERLY</div>
-        <h3>분기 관점: 실적 모멘텀과 연방준비제도(연준) 정책 경로의 충돌</h3>
-        <dl>
-          <div><dt>판단</dt><dd>이번 분기는 기업 실적 모멘텀과 연방준비제도(연준)의 정책 경로가 충돌하는 구간이다.</dd></div>
-          <div><dt>의미</dt><dd>기업 실적이 개선되더라도 금리 인하 기대가 후퇴하면 주가 밸류에이션 확장은 제한될 수 있다. 분기 수익률은 실적 전망 상향 폭이 금리 부담을 넘어서는지에 따라 성장주와 가치주의 우위가 갈릴 것으로 분석된다.</dd></div>
-          <div><dt>한국시장</dt><dd>반도체(삼성전자, SK하이닉스)는 인공지능(AI) 투자와 메모리 업황 개선이 이어진다면 분기 주도 업종으로 남을 수 있다. 금융(KB금융, 신한지주)은 한국 장기금리 동조성과 순이자마진(NIM)에 따라, 조선(HD현대중공업, 삼성중공업)과 방산(한화에어로, LIG넥스원)은 달러 강세와 지정학 리스크에 따라 상대 강도가 결정될 전망이다.</dd></div>
-        </dl>
-        <p class="watch"><span>미 국채 10년물 4.70% 상향 돌파 시</span><span>실질금리(10Y TIPS yield) 2.20% 상회</span><span>미국 반도체 ETF(SOXX) 분기별 상대강도</span></p>
-      </article><article class="tf-card">
-        <div class="top">YEARLY</div>
-        <h3>연간 관점: 인공지능(AI) 사이클과 고금리 환경의 공존</h3>
-        <dl>
-          <div><dt>판단</dt><dd>연간 핵심 테마는 인공지능(AI) 투자 사이클과 고금리 환경의 공존이다.</dd></div>
-          <div><dt>의미</dt><dd>인공지능(AI) 투자 확대는 반도체와 전력 인프라 수요를 지지하지만, 고금리는 장기 성장주의 현재가치 평가를 압박한다. 연간 수익률은 특정 테마의 힘보다 금리와 달러가 어느 수준에서 안정되는지에 따라 좌우될 가능성이 크다.</dd></div>
-          <div><dt>한국시장</dt><dd>한국 시장에서는 반도체(삼성전자, SK하이닉스), 전력기기, 조선(HD현대중공업, 삼성중공업), 방산(한화에어로, LIG넥스원)이 구조적 테마와 연결되어 강세를 보일 수 있다. 2차전지(LG에너지솔루션, 에코프로비엠), 바이오(삼성바이오로직스, 셀트리온), 인터넷/플랫폼(NAVER, 카카오)은 금리 하락과 실적 회복 신호가 함께 나와야 연간 상대 성과가 개선될 여지가 있다.</dd></div>
-        </dl>
-        <p class="watch"><span>연방준비제도(연준) 금리 인하 횟수 (시장 예상 2회 vs 1회)</span><span>미 국채 10년물 4.00%~4.50% 밴드 유지 여부</span><span>달러지수(DXY) 98선 하회 여부</span><span>인공지능(AI) 설비투자 연간 성장률</span></p>
-      </article>
-    </div>
-  </div></section>
+
 <section class="section"><div class="shell">
     <div class="section-head">
       <div class="num"><span class="bar"></span>§ 06</div>
-      <div>
-        <h2>섹터 히트맵</h2>
-        <p class="lede">SPDR 섹터 ETF의 일간 변동폭. 같은 날에도 어떤 업종이 시장 전체를 앞섰고 어떤 업종이 뒤처졌는지 한눈에 보여줍니다.</p>
-      </div>
-    </div>
-    <div class="sectors"><div class="sector-row">
-      <div class="name"><span class="ticker">SOXX</span><span class="ko">반도체</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:50.00%"></div></div>
-      <div class="pct up">+2.41%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLV</span><span class="ko">헬스케어</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:24.27%"></div></div>
-      <div class="pct up">+1.17%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLU</span><span class="ko">유틸리티</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:16.18%"></div></div>
-      <div class="pct up">+0.78%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLI</span><span class="ko">산업재</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:15.15%"></div></div>
-      <div class="pct up">+0.73%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLE</span><span class="ko">에너지</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:12.66%"></div></div>
-      <div class="pct up">+0.61%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLF</span><span class="ko">금융</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:8.51%"></div></div>
-      <div class="pct up">+0.41%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLY</span><span class="ko">임의소비재</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:8.30%"></div></div>
-      <div class="pct up">+0.40%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLP</span><span class="ko">필수소비재</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:3.53%"></div></div>
-      <div class="pct up">+0.17%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLRE</span><span class="ko">리츠</span></div>
-      <div class="bar-track"><div class="bar-fill " style="left:50%;width:2.70%"></div></div>
-      <div class="pct up">+0.13%</div>
-    </div><div class="sector-row">
-      <div class="name"><span class="ticker">XLK</span><span class="ko">기술</span></div>
-      <div class="bar-track"><div class="bar-fill neg" style="left:36.72199170124481%;width:13.28%"></div></div>
-      <div class="pct down">-0.64%</div>
-    </div></div>
-  </div></section>
-<section class="section"><div class="shell">
-    <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 07</div>
       <div>
         <h2>다가오는 일정 · 한국 시장 체크포인트</h2>
         <p class="lede">앞으로 시장을 흔들 수 있는 미국 경제 일정과, 한국 시장 관점에서 봐야 할 임계 수준을 묶어 적습니다.</p>
       </div>
     </div>
     <div class="data-grid">
-      <div class="timeline-card">
-        <h3>이코노믹 캘린더</h3>
-        <p class="sub">UPCOMING U.S. RELEASES</p>
-        <div class="tl-list">
-          <div class="tl-event ">
-              <div class="when"><span class="day">화</span>5/26</div>
-              <div class="name">FHFA 주택가격지수 (FHFA Home Price Index)<span class="ko">이 데이터는 미국 주택 시장의 건전성에 대한 통찰력을 제공하며, 이는 광범위한 경제의 핵심 구성 요소입니다.</span></div>
-              <div class="imp">MEDIUM</div>
-            </div><div class="tl-event ">
-              <div class="when"><span class="day">화</span>5/26</div>
-              <div class="name">6-Week, 13-Week, 26-Week Bill Auctions<span class="ko">이 경매는 재무부의 정기적인 차입 일정의 일부입니다.</span></div>
-              <div class="imp">LOW</div>
-            </div><div class="tl-event ">
-              <div class="when"><span class="day">수</span>5/27</div>
-              <div class="name">리치몬드 연은 제조업 지수 (Richmond Fed Index)<span class="ko">이 지역 제조업 지수는 제조업 활동 및 경제 상황에 대한 조기 정보를 제공합니다.</span></div>
-              <div class="imp">MEDIUM</div>
-            </div><div class="tl-event ">
-              <div class="when"><span class="day">수</span>5/27</div>
-              <div class="name">17-Week Bill, 2-Year FRN, 5-Year Note Auctions<span class="ko">이 경매는 재무부의 정기적인 차입 일정의 일부입니다.</span></div>
-              <div class="imp">LOW</div>
-            </div><div class="tl-event high">
-              <div class="when"><span class="day">목</span>5/28</div>
-              <div class="name">GDP (2차 잠정치) (GDP Second Preliminary)<span class="ko">GDP의 두 번째 추정치는 이전 분기의 경제 성장에 대한 보다 정교한 그림을 제공합니다.</span></div>
-              <div class="imp">HIGH</div>
-            </div><div class="tl-event ">
-              <div class="when"><span class="day">목</span>5/28</div>
-              <div class="name">개인소득 (Personal Income)<span class="ko">이 보고서는 개인 소득의 변화를 나타내며, 이는 소비자 지출의 동인입니다.</span></div>
-              <div class="imp">MEDIUM</div>
-            </div><div class="tl-event ">
-              <div class="when"><span class="day">목</span>5/28</div>
-              <div class="name">4-Week, 8-Week Bill, 7-Year Note Auctions<span class="ko">이 경매는 재무부의 정기적인 차입 일정의 일부입니다.</span></div>
-              <div class="imp">LOW</div>
-            </div><div class="tl-event high">
-              <div class="when"><span class="day">목</span>5/28</div>
-              <div class="name">한국은행 금융통화위원회 본회의 (Bank of Korea Monetary Policy Board Meeting)<span class="ko">이 결정은 한국의 통화 정책과 경제 안정에 중요합니다.</span></div>
-              <div class="imp">HIGH</div>
-            </div>
-        </div>
-      </div>
+      
       <div>
         <div class="checkpoints">
           <div class="checkpoint">
             <div class="marker">CHECK 01</div>
-            <p>미 국채 10년물 금리가 4.60%를 상회할 경우 한국 성장주(반도체, 인터넷/플랫폼, 바이오) 전반의 밸류에이션 부담이 커질 수 있다.</p>
+            <p>코스피는 7,847.71 기준으로 미국 기술주 강세가 반도체 대형주까지 이어지는지 확인한다.</p>
           </div><div class="checkpoint">
             <div class="marker">CHECK 02</div>
-            <p>달러/원 환율이 1,530원을 돌파하면 한국 수출 기업(자동차, 조선)의 환율 효과가 부각될 수 있으나, 외국인 자금 이탈 압력은 더욱 심화될 가능성이 있다.</p>
+            <p>달러/원은 FRED 기준 1,499.61원이며 데이터 기준일이 2026-05-15로 늦다. 1,480원과 1,500원을 한국시장 해석의 1차 범위로 둔다.</p>
           </div><div class="checkpoint">
             <div class="marker">CHECK 03</div>
-            <p>미국 반도체 ETF(SOXX)의 강세가 지속되어 540달러를 넘어설 경우 삼성전자, SK하이닉스 등 한국 반도체 기업의 주가에 긍정적인 모멘텀으로 작용할 수 있다.</p>
+            <p>미 10년물 4.57%가 4.70% 위로 확장되면 2차전지, 바이오, 인터넷/플랫폼 등 장기 성장 업종의 변동성 확대 가능성을 점검한다.</p>
           </div>
         </div>
       </div>
@@ -759,7 +794,7 @@ h1.hero em{font-style:normal;color:var(--accent)}
   </div></section>
 <section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 08</div>
+      <div class="num"><span class="bar"></span>§ 07</div>
       <div>
         <h2>참고 포지셔닝 · 시나리오</h2>
         <p class="lede">위 4축 신호와 일정을 종합해 가상의 멀티에셋 포트폴리오가 취할 만한 자세를 적습니다. 실제 매매 권유가 아니라 사고의 출발점입니다.</p>
@@ -768,40 +803,541 @@ h1.hero em{font-style:normal;color:var(--accent)}
     <div class="pos-grid">
       <article class="pos-card ">
       <div class="top">BASE CASE · 기본 시나리오</div>
-      <h3>미 국채 금리 정체와 인공지능(AI) 모멘텀에 기반한 성장주 내 차별화 전략을 검토할 여지가 있다.</h3>
+      <h3>주가 강세는 인정하되 장기금리 상단을 함께 확인하는 중립적 위험자산 우위</h3>
       <dl>
-        <dt>근거</dt><dd>연방준비제도(연준)의 금리 인하 기대가 후퇴했으나, 금리 자체가 급등하지 않고 정체되는 구간에서는 강력한 이익 모멘텀을 가진 섹터가 시장을 주도할 수 있다. 특히 인공지능(AI) 관련 반도체 섹터는 구조적 성장 동력을 보유하고 있다.</dd>
-        <dt>긍정 요인</dt><dd>인공지능(AI) 관련 기업들의 실적 개선이 지속될 경우 시장 대비 초과 수익을 기대할 수 있다. 금리 정체는 기술주 전반의 밸류에이션 부담을 완화하는 효과가 있다.</dd>
-        <dt>부정 요인</dt><dd>예상치 못한 인플레이션 재상승으로 미 국채 금리가 다시 급등할 경우, 성장주 전반의 밸류에이션 압박이 재개될 수 있다. 또한 인공지능(AI) 테마의 과열에 따른 조정 가능성도 상존한다.</dd>
-        <dt>트리거</dt><dd><ul><li>미 국채 10년물 금리 4.60% 상향 돌파 시</li><li>미국 반도체 ETF(SOXX) 520달러 하회 시</li><li>달러/원 환율 1,530원 돌파 시</li></ul></dd>
-        <dt>실행 힌트</dt><dd>인공지능(AI) 관련 반도체 섹터 비중을 유지하되, 미 국채 금리 4.60% 돌파 시에는 일부 차익 실현을 고려하여 현금 비중을 늘릴 수 있는 환경이다. 달러/원 환율이 1,530원을 상회하면 수출주 비중을 늘리는 전략도 유효하다.</dd>
+        <dt>근거</dt><dd>미국 3대 지수가 같은 방향으로 움직였고 VIX가 16.76로 20선 아래에 있다. 다만 미 10년물 금리가 4.57%까지 올라 금리 상단 확인이 필요하다.</dd>
+        <dt>긍정 요인</dt><dd>지수 동반 상승, 나스닥 상대 강세, 코스피·코스닥 보조 시세 강세가 우호 요인이다.</dd>
+        <dt>부정 요인</dt><dd>장기금리 상승, 환율 데이터 지연, 원자재 지표 지연이 판단의 제약 요인이다.</dd>
+        <dt>트리거</dt><dd><ul><li>나스닥 26,344선 유지</li><li>VIX 20선 이하</li><li>미 10년물 4.70% 이하 안정</li></ul></dd>
+        <dt>실행 힌트</dt><dd>추격 매수보다 주도 업종의 장중 유지력과 금리 반응을 확인한 뒤 비중을 조절한다.</dd>
         
       </dl>
     </article>
       <article class="pos-card alt">
       <div class="top">ALT CASE · 대체 시나리오</div>
-      <h3>성장주 전반의 밸류에이션 확장이 재개될 가능성이 커지며, 특히 금리 민감도가 높은 인터넷/플랫폼 및 바이오 섹터의 비중 확대를 검토할 수 있다.</h3>
+      <h3>지수 상승에도 방어적 포지션을 늘리는 대체 시나리오</h3>
       <dl>
+        <dt>근거</dt><dd>금리와 변동성이 동시에 높아지면 성장주 중심의 상승 탄력이 약해지고 한국시장에서는 외국인 매매와 환율 민감도가 커질 수 있다.</dd>
         
         
-        
-        
-        
-        <dt>발동 조건</dt><dd>미국 국내총생산(GDP) 또는 소비자물가지수(CPI)가 예상치를 크게 하회하여 연방준비제도(연준)의 금리 인하 기대가 다시 급부상할 경우</dd>
+        <dt>트리거</dt><dd><ul><li>미 10년물 4.70% 상회</li><li>VIX 20선 재돌파</li><li>달러/원 기준일 지연 해소 후 1,500원 상회</li></ul></dd>
+        <dt>실행 힌트</dt><dd>반도체 주도력이 약해지는지 먼저 확인하고, 민감 업종보다 현금흐름 안정 업종의 상대 강도를 본다.</dd>
+        <dt>발동 조건</dt><dd>미 10년물 4.70% 상향 돌파와 VIX 20선 재진입이 동시에 나타나는 경우</dd>
       </dl>
     </article>
     </div>
-    <p class="compliance">본 결과물은 정보 제공이며 투자자문이 아닙니다.</p>
+    <p class="compliance">본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있습니다.</p>
   </div></section>
 <section class="section"><div class="shell">
     <div class="section-head">
-      <div class="num"><span class="bar"></span>§ 09</div>
+      <div class="num"><span class="bar"></span>§ 08</div>
       <div>
         <h2>오늘의 시장 해설</h2>
         <p class="lede">데이터를 잇는 흐름과 맥락을 풀어 적습니다.</p>
       </div>
     </div>
-    <div class="essay"><p>간밤 뉴욕 증시는 주요 지수가 모두 상승하며 강세를 보였다. 특히 반도체 섹터가 시장을 주도했으나, 기술주 전반은 상대적으로 부진한 모습을 나타냈다. 이는 미 국채 10년물 금리가 4.57% 수준에서 정체하며 금리 부담이 완화되었음에도, 인공지능(AI) 관련 기업과 여타 기술주 간의 차별화가 심화되고 있음을 시사한다.</p><p>미 국채 금리의 정체는 연방준비제도(연준)의 통화 정책 경로에 대한 시장의 불확실성이 단기적으로 균형을 찾았음을 의미한다. 그러나 여전히 높은 금리 수준은 기업의 자금 조달 비용과 주식 밸류에이션에 지속적인 영향을 미친다. 국제 유가 하락은 인플레이션 압력 완화에 기여하며 연준의 향후 정책 결정에 유연성을 제공할 수 있는 배경으로 작용한다.</p><p>한국 시장은 미국 증시의 섹터별 차별화 흐름에 민감하게 반응할 것으로 예상된다. 반도체(삼성전자, SK하이닉스)는 인공지능(AI) 모멘텀에 힘입어 강세를 이어갈 가능성이 크다. 반면 금리 민감도가 높은 2차전지(LG에너지솔루션, 에코프로비엠)와 바이오(삼성바이오로직스, 셀트리온), 인터넷/플랫폼(NAVER, 카카오)은 미 국채 금리 동향과 달러/원 환율 1,520원대 유지 여부에 따라 변동성이 확대될 수 있다.</p><p>투자자들은 미 국채 10년물 금리가 4.60%를 상회하는지, 그리고 달러/원 환율이 1,530원을 돌파하는지 여부를 핵심 임계치로 삼아 포트폴리오 비중을 조절할 필요가 있다. 인공지능(AI) 관련 성장주에 대한 비중은 유지하되, 거시 경제 지표 발표와 연방준비제도(연준) 위원들의 발언에 따라 시장 변동성 확대에 대비하는 신중한 접근이 요구된다.</p></div>
+    <div class="essay"><p>오늘 리포트의 핵심은 주가와 장기금리가 동시에 움직였다는 점이다. S&amp;P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 움직였지만 미 10년물 금리도 4.57%를 기록했다. 이는 시장이 경기와 실적 기대를 반영하면서도 자금 조달 비용의 상단을 다시 시험하고 있음을 뜻한다.</p><p>한국시장 관점에서는 미국 기술주 강세가 반도체와 성장 업종에 우호적이다. 다만 달러/원 FRED 시계열 기준일이 2026-05-15로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 7,847.71와 코스닥 1,161.13라는 보조 시세는 강세를 가리키지만, 환율 안정이 동반되지 않으면 상승 지속성은 약해질 수 있다.</p><p>뉴스 흐름은 연준 의사록과 인플레이션 경로로 모인다. 당장 하루 가격을 결정하는 단일 재료보다 금리 경로와 금융 여건을 재평가하게 만드는 재료가 많다. 따라서 오늘의 결론은 강세 추종이 아니라 금리 상단, 환율, 주도 업종 확산 여부를 함께 확인하는 쪽에 가깝다.</p></div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 09</div>
+      <div>
+        <h2>관심 종목 워치리스트</h2>
+        <p class="lede">초기 관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, SRXH로 구성합니다.</p>
+      </div>
+    </div>
+    <div class="wl-backdrop">
+    <div class="wl-backdrop-head">
+      <span class="wl-bd-kicker mono">매크로 배경</span>
+      <h3>광범위 강세, 10년물 4.57% · VIX 16.76</h3>
+      <p>미국 증시는 S&amp;P500지수 +0.37%, 나스닥 종합지수 +0.19%, 다우존스30 산업평균지수 +0.58%로 마감했다. 미 국채 10년물 금리는 4.57%를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 16.76로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.</p>
+    </div>
+    <div class="wl-bd-signals">
+      <div class="wl-bd-sig">
+        <span class="key mono">S&amp;P 500</span>
+        <strong class="mono">7473.47</strong>
+        <span class="chg mono up">+0.37%</span>
+        <span class="note">미국 위험자산 선호의 기준 지표입니다.</span>
+      </div><div class="wl-bd-sig">
+        <span class="key mono">미 국채 10년물</span>
+        <strong class="mono">4.57%</strong>
+        <span class="chg mono flat">0bp</span>
+        <span class="note">성장주와 한국 증시 할인율을 좌우합니다.</span>
+      </div><div class="wl-bd-sig">
+        <span class="key mono">VIX</span>
+        <strong class="mono">16.76</strong>
+        <span class="chg mono up">-3.9%</span>
+        <span class="note">변동성 확대 여부를 보여줍니다.</span>
+      </div><div class="wl-bd-sig">
+        <span class="key mono">달러/원</span>
+        <strong class="mono">1499.61원</strong>
+        <span class="chg mono down">+0.53%</span>
+        <span class="note">외국인 매매와 환율 민감 업종의 핵심 변수입니다.</span>
+      </div>
+    </div>
+  </div>
+    <div class="wl-stack">
+      <article class="wl-card">
+    <header class="wl-head">
+      <div class="wl-head-left">
+        <span class="wl-idx mono">01</span>
+        <div>
+          <h3>코스피지수</h3>
+          <p class="wl-sub mono">^KS11 · 한국 · 국내 주식시장 지수</p>
+        </div>
+      </div>
+      <div class="wl-price">
+        <div class="wl-price-val mono">7,847.71<span class="wl-cur">pt</span></div>
+        <div class="wl-price-chg mono up">↑ +0.41% <span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+      </div>
+    </header>
+
+    <div class="wl-tone-row mono">
+      <span class="wl-tone-chip flat">매크로 중립<span class="sep">·</span>점수 53/100</span>
+      <span class="wl-tone-chip up">기술 상방 우위<span class="sep">·</span>점수 86/100</span>
+    </div>
+
+    <p class="wl-thesis">핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대입니다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해집니다.</p>
+
+    <div class="wl-chart"><svg viewBox="0 0 580 240" width="100%" height="auto" preserveAspectRatio="none" style="display:block">
+    <defs>
+      <linearGradient id="wl-area-KS11" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--up)" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="var(--up)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="56" y1="156.0" x2="566" y2="156.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="156.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">3,095</text><line x1="56" y1="120.5" x2="566" y2="120.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="120.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4,317</text><line x1="56" y1="85.0" x2="566" y2="85.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="85.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">5,538</text><line x1="56" y1="49.5" x2="566" y2="49.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="49.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">6,760</text><line x1="56" y1="14.0" x2="566" y2="14.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="14.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">7,981</text>
+    <path d="M56.0,153.6 L58.8,153.3 L61.7,153.1 L64.5,153.4 L67.4,154.6 L70.2,153.8 L73.1,153.4 L75.9,152.9 L78.8,152.8 L81.6,152.4 L84.5,151.2 L87.3,149.6 L90.2,148.8 L93.0,147.3 L95.9,146.9 L98.7,145.7 L101.6,146.8 L104.4,145.4 L107.3,145.8 L110.1,145.1 L113.0,144.6 L115.8,145.0 L118.7,145.1 L121.5,147.5 L124.4,146.2 L127.2,146.4 L130.1,145.5 L132.9,142.8 L135.8,141.0 L138.6,141.8 L141.5,142.4 L144.3,139.7 L147.2,137.0 L150.0,137.0 L152.9,135.1 L155.7,134.8 L158.6,133.1 L161.4,134.2 L164.3,131.4 L167.1,128.5 L170.0,129.4 L172.8,127.3 L175.7,127.2 L178.5,126.6 L181.4,123.3 L184.2,126.2 L187.1,129.6 L189.9,128.9 L192.8,131.1 L195.6,127.6 L198.5,126.6 L201.3,125.3 L204.2,124.7 L207.0,129.4 L209.9,127.1 L212.7,131.1 L215.6,131.8 L218.4,129.6 L221.3,134.0 L224.1,134.2 L226.9,133.8 L229.8,130.8 L232.6,130.1 L235.5,131.8 L238.3,132.0 L241.2,129.9 L244.0,128.7 L246.9,128.9 L249.7,126.8 L252.6,125.2 L255.4,125.5 L258.3,125.8 L261.1,126.5 L264.0,124.8 L266.8,127.1 L269.7,129.7 L272.5,128.1 L275.4,129.9 L278.2,129.1 L281.1,126.6 L283.9,126.3 L286.8,126.5 L289.6,125.9 L292.5,123.3 L295.3,123.5 L298.2,120.7 L301.0,116.4 L303.9,114.4 L306.7,113.7 L309.6,113.7 L312.4,112.7 L315.3,111.5 L318.1,109.6 L321.0,108.7 L323.8,106.5 L326.7,105.3 L329.5,103.4 L332.4,104.0 L335.2,103.3 L338.1,102.0 L340.9,100.9 L343.8,102.1 L346.6,98.2 L349.5,95.7 L352.3,94.2 L355.2,94.1 L358.0,102.1 L360.9,92.3 L363.7,89.9 L366.6,95.9 L369.4,98.1 L372.3,92.0 L375.1,91.9 L378.0,90.3 L380.8,85.5 L383.7,85.9 L386.5,81.0 L389.4,77.1 L392.2,76.1 L395.1,72.5 L397.9,69.1 L400.7,62.7 L403.6,64.5 L406.4,77.6 L409.3,97.9 L412.1,83.7 L415.0,83.6 L417.8,93.3 L420.7,85.2 L423.5,82.9 L426.4,83.7 L429.2,86.5 L432.1,84.7 L434.9,82.0 L437.8,73.8 L440.6,78.5 L443.5,77.9 L446.3,88.9 L449.2,84.5 L452.0,82.0 L454.9,87.3 L457.7,87.9 L460.6,92.6 L463.4,99.1 L466.3,86.7 L469.1,93.8 L472.0,89.7 L474.8,87.6 L477.7,86.3 L480.5,75.3 L483.4,78.0 L486.2,75.7 L489.1,77.1 L491.9,72.5 L494.8,68.9 L497.6,65.0 L500.5,66.0 L503.3,65.2 L506.2,60.3 L509.0,59.4 L511.9,57.8 L514.7,57.8 L517.6,53.7 L520.4,53.0 L523.3,51.5 L526.1,54.2 L529.0,44.4 L531.8,31.3 L534.7,28.3 L537.5,28.0 L540.4,18.6 L543.2,23.8 L546.1,18.0 L548.9,14.0 L551.8,28.2 L554.6,27.5 L557.5,34.6 L560.3,36.4 L563.2,18.8 L566.0,17.9 L566.0,156.0 L56.0,156.0 Z" fill="url(#wl-area-KS11)"/>
+    <path d="M56.0,156.0 L58.8,155.8 L61.7,155.5 L64.5,155.3 L67.4,155.2 L70.2,155.0 L73.1,154.9 L75.9,154.7 L78.8,154.6 L81.6,154.4 L84.5,154.3 L87.3,154.1 L90.2,153.9 L93.0,153.7 L95.9,153.5 L98.7,153.3 L101.6,153.2 L104.4,153.0 L107.3,152.8 L110.1,152.6 L113.0,152.4 L115.8,152.2 L118.7,152.0 L121.5,151.9 L124.4,151.7 L127.2,151.5 L130.1,151.4 L132.9,151.2 L135.8,151.0 L138.6,150.8 L141.5,150.6 L144.3,150.4 L147.2,150.1 L150.0,149.8 L152.9,149.5 L155.7,149.2 L158.6,148.9 L161.4,148.6 L164.3,148.2 L167.1,147.8 L170.0,147.4 L172.8,147.0 L175.7,146.6 L178.5,146.2 L181.4,145.6 L184.2,145.2 L187.1,144.8 L189.9,144.4 L192.8,144.0 L195.6,143.6 L198.5,143.2 L201.3,142.7 L204.2,142.3 L207.0,141.9 L209.9,141.4 L212.7,141.0 L215.6,140.7 L218.4,140.2 L221.3,139.9 L224.1,139.6 L226.9,139.3 L229.8,138.9 L232.6,138.5 L235.5,138.2 L238.3,137.8 L241.2,137.4 L244.0,137.0 L246.9,136.6 L249.7,136.1 L252.6,135.7 L255.4,135.3 L258.3,134.9 L261.1,134.5 L264.0,134.1 L266.8,133.8 L269.7,133.5 L272.5,133.2 L275.4,132.9 L278.2,132.7 L281.1,132.4 L283.9,132.0 L286.8,131.7 L289.6,131.4 L292.5,131.0 L295.3,130.6 L298.2,130.2 L301.0,129.7 L303.9,129.3 L306.7,128.8 L309.6,128.3 L312.4,127.8 L315.3,127.4 L318.1,126.9 L321.0,126.4 L323.8,126.0 L326.7,125.5 L329.5,125.0 L332.4,124.5 L335.2,124.0 L338.1,123.6 L340.9,123.1 L343.8,122.7 L346.6,122.2 L349.5,121.7 L352.3,121.2 L355.2,120.6 L358.0,120.2 L360.9,119.6 L363.7,118.9 L366.6,118.4 L369.4,117.9 L372.3,117.3 L375.1,116.8 L378.0,116.1 L380.8,115.4 L383.7,114.7 L386.5,113.8 L389.4,113.0 L392.2,112.0 L395.1,111.0 L397.9,109.9 L400.7,108.8 L403.6,107.7 L406.4,106.8 L409.3,106.2 L412.1,105.4 L415.0,104.7 L417.8,104.1 L420.7,103.4 L423.5,102.7 L426.4,102.0 L429.2,101.3 L432.1,100.6 L434.9,99.9 L437.8,99.0 L440.6,98.2 L443.5,97.3 L446.3,96.7 L449.2,95.9 L452.0,95.2 L454.9,94.5 L457.7,93.9 L460.6,93.3 L463.4,92.9 L466.3,92.3 L469.1,91.9 L472.0,91.4 L474.8,91.0 L477.7,90.5 L480.5,89.9 L483.4,89.3 L486.2,88.7 L489.1,88.1 L491.9,87.5 L494.8,86.9 L497.6,86.2 L500.5,85.6 L503.3,85.0 L506.2,84.3 L509.0,83.6 L511.9,82.8 L514.7,82.1 L517.6,81.4 L520.4,80.6 L523.3,79.9 L526.1,79.3 L529.0,78.3 L531.8,77.3 L534.7,76.3 L537.5,75.1 L540.4,73.8 L543.2,72.7 L546.1,71.4 L548.9,70.2 L551.8,69.2 L554.6,68.2 L557.5,67.5 L560.3,66.8 L563.2,65.8 L566.0,64.9" fill="none" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/>
+    <path d="M56.0,153.2 L58.8,153.3 L61.7,153.3 L64.5,153.4 L67.4,153.4 L70.2,153.4 L73.1,153.4 L75.9,153.4 L78.8,153.4 L81.6,153.4 L84.5,153.3 L87.3,153.1 L90.2,153.0 L93.0,152.7 L95.9,152.4 L98.7,151.9 L101.6,151.5 L104.4,151.1 L107.3,150.7 L110.1,150.3 L113.0,149.8 L115.8,149.4 L118.7,149.0 L121.5,148.7 L124.4,148.3 L127.2,148.0 L130.1,147.6 L132.9,147.1 L135.8,146.5 L138.6,145.9 L141.5,145.5 L144.3,145.0 L147.2,144.4 L150.0,143.9 L152.9,143.3 L155.7,142.8 L158.6,142.1 L161.4,141.5 L164.3,140.8 L167.1,140.0 L170.0,139.2 L172.8,138.3 L175.7,137.4 L178.5,136.4 L181.4,135.2 L184.2,134.2 L187.1,133.4 L189.9,132.7 L192.8,132.2 L195.6,131.5 L198.5,130.7 L201.3,130.0 L204.2,129.4 L207.0,129.0 L209.9,128.6 L212.7,128.4 L215.6,128.4 L218.4,128.1 L221.3,128.3 L224.1,128.5 L226.9,128.8 L229.8,128.9 L232.6,129.1 L235.5,129.3 L238.3,129.8 L241.2,130.0 L244.0,129.9 L246.9,129.9 L249.7,129.7 L252.6,129.6 L255.4,129.5 L258.3,129.6 L261.1,129.6 L264.0,129.4 L266.8,129.4 L269.7,129.3 L272.5,129.2 L275.4,129.2 L278.2,128.9 L281.1,128.6 L283.9,128.2 L286.8,128.0 L289.6,127.8 L292.5,127.3 L295.3,126.9 L298.2,126.4 L301.0,125.8 L303.9,125.1 L306.7,124.5 L309.6,123.9 L312.4,123.2 L315.3,122.5 L318.1,121.7 L321.0,120.9 L323.8,119.8 L326.7,118.6 L329.5,117.4 L332.4,116.1 L335.2,114.8 L338.1,113.6 L340.9,112.3 L343.8,111.1 L346.6,109.7 L349.5,108.3 L352.3,106.8 L355.2,105.5 L358.0,104.8 L360.9,103.7 L363.7,102.5 L366.6,101.6 L369.4,100.9 L372.3,99.9 L375.1,99.0 L378.0,98.1 L380.8,97.1 L383.7,96.1 L386.5,95.0 L389.4,93.6 L392.2,92.3 L395.1,90.8 L397.9,89.2 L400.7,87.2 L403.6,85.5 L406.4,84.6 L409.3,84.8 L412.1,84.3 L415.0,83.4 L417.8,83.4 L420.7,83.2 L423.5,82.5 L426.4,81.8 L429.2,81.5 L432.1,81.2 L434.9,80.8 L437.8,80.2 L440.6,79.8 L443.5,79.7 L446.3,80.2 L449.2,80.7 L452.0,81.2 L454.9,82.1 L457.7,83.3 L460.6,84.7 L463.4,85.8 L466.3,85.2 L469.1,85.7 L472.0,86.0 L474.8,85.8 L477.7,85.8 L480.5,85.4 L483.4,85.1 L486.2,84.6 L489.1,84.2 L491.9,83.8 L494.8,83.5 L497.6,82.8 L500.5,82.2 L503.3,81.1 L506.2,79.9 L509.0,78.7 L511.9,77.3 L514.7,75.7 L517.6,73.8 L520.4,71.5 L523.3,69.7 L526.1,67.7 L529.0,65.5 L531.8,62.7 L534.7,59.8 L537.5,57.4 L540.4,54.4 L543.2,51.8 L546.1,48.9 L548.9,46.0 L551.8,43.9 L554.6,42.1 L557.5,40.5 L560.3,39.0 L563.2,37.0 L566.0,34.9" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".75"/>
+    <path d="M56.0,153.6 L58.8,153.3 L61.7,153.1 L64.5,153.4 L67.4,154.6 L70.2,153.8 L73.1,153.4 L75.9,152.9 L78.8,152.8 L81.6,152.4 L84.5,151.2 L87.3,149.6 L90.2,148.8 L93.0,147.3 L95.9,146.9 L98.7,145.7 L101.6,146.8 L104.4,145.4 L107.3,145.8 L110.1,145.1 L113.0,144.6 L115.8,145.0 L118.7,145.1 L121.5,147.5 L124.4,146.2 L127.2,146.4 L130.1,145.5 L132.9,142.8 L135.8,141.0 L138.6,141.8 L141.5,142.4 L144.3,139.7 L147.2,137.0 L150.0,137.0 L152.9,135.1 L155.7,134.8 L158.6,133.1 L161.4,134.2 L164.3,131.4 L167.1,128.5 L170.0,129.4 L172.8,127.3 L175.7,127.2 L178.5,126.6 L181.4,123.3 L184.2,126.2 L187.1,129.6 L189.9,128.9 L192.8,131.1 L195.6,127.6 L198.5,126.6 L201.3,125.3 L204.2,124.7 L207.0,129.4 L209.9,127.1 L212.7,131.1 L215.6,131.8 L218.4,129.6 L221.3,134.0 L224.1,134.2 L226.9,133.8 L229.8,130.8 L232.6,130.1 L235.5,131.8 L238.3,132.0 L241.2,129.9 L244.0,128.7 L246.9,128.9 L249.7,126.8 L252.6,125.2 L255.4,125.5 L258.3,125.8 L261.1,126.5 L264.0,124.8 L266.8,127.1 L269.7,129.7 L272.5,128.1 L275.4,129.9 L278.2,129.1 L281.1,126.6 L283.9,126.3 L286.8,126.5 L289.6,125.9 L292.5,123.3 L295.3,123.5 L298.2,120.7 L301.0,116.4 L303.9,114.4 L306.7,113.7 L309.6,113.7 L312.4,112.7 L315.3,111.5 L318.1,109.6 L321.0,108.7 L323.8,106.5 L326.7,105.3 L329.5,103.4 L332.4,104.0 L335.2,103.3 L338.1,102.0 L340.9,100.9 L343.8,102.1 L346.6,98.2 L349.5,95.7 L352.3,94.2 L355.2,94.1 L358.0,102.1 L360.9,92.3 L363.7,89.9 L366.6,95.9 L369.4,98.1 L372.3,92.0 L375.1,91.9 L378.0,90.3 L380.8,85.5 L383.7,85.9 L386.5,81.0 L389.4,77.1 L392.2,76.1 L395.1,72.5 L397.9,69.1 L400.7,62.7 L403.6,64.5 L406.4,77.6 L409.3,97.9 L412.1,83.7 L415.0,83.6 L417.8,93.3 L420.7,85.2 L423.5,82.9 L426.4,83.7 L429.2,86.5 L432.1,84.7 L434.9,82.0 L437.8,73.8 L440.6,78.5 L443.5,77.9 L446.3,88.9 L449.2,84.5 L452.0,82.0 L454.9,87.3 L457.7,87.9 L460.6,92.6 L463.4,99.1 L466.3,86.7 L469.1,93.8 L472.0,89.7 L474.8,87.6 L477.7,86.3 L480.5,75.3 L483.4,78.0 L486.2,75.7 L489.1,77.1 L491.9,72.5 L494.8,68.9 L497.6,65.0 L500.5,66.0 L503.3,65.2 L506.2,60.3 L509.0,59.4 L511.9,57.8 L514.7,57.8 L517.6,53.7 L520.4,53.0 L523.3,51.5 L526.1,54.2 L529.0,44.4 L531.8,31.3 L534.7,28.3 L537.5,28.0 L540.4,18.6 L543.2,23.8 L546.1,18.0 L548.9,14.0 L551.8,28.2 L554.6,27.5 L557.5,34.6 L560.3,36.4 L563.2,18.8 L566.0,17.9" fill="none" stroke="var(--up)" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="566.0" cy="17.9" r="3" fill="var(--up)"/>
+
+    <!-- volume separator + label -->
+    <line x1="56" y1="164.0" x2="566" y2="164.0" stroke="var(--rule-soft)" stroke-width=".5"/>
+    <text x="50" y="166.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)" letter-spacing="0.1em">VOL</text>
+    <text x="50" y="212.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)">1.7M</text>
+    <rect x="55.0" y="204.7" width="2.0" height="9.3" fill="var(--up)" fill-opacity="0.5"/><rect x="57.9" y="205.9" width="2.0" height="8.1" fill="var(--up)" fill-opacity="0.5"/><rect x="60.7" y="205.1" width="2.0" height="8.9" fill="var(--up)" fill-opacity="0.5"/><rect x="63.6" y="207.0" width="2.0" height="7.0" fill="var(--down)" fill-opacity="0.5"/><rect x="66.4" y="206.6" width="2.0" height="7.4" fill="var(--down)" fill-opacity="0.5"/><rect x="69.2" y="205.1" width="2.0" height="8.9" fill="var(--up)" fill-opacity="0.5"/><rect x="72.1" y="204.4" width="2.0" height="9.6" fill="var(--up)" fill-opacity="0.5"/><rect x="74.9" y="205.8" width="2.0" height="8.2" fill="var(--up)" fill-opacity="0.5"/><rect x="77.8" y="204.7" width="2.0" height="9.3" fill="var(--up)" fill-opacity="0.5"/><rect x="80.6" y="203.4" width="2.0" height="10.6" fill="var(--up)" fill-opacity="0.5"/><rect x="83.5" y="201.4" width="2.0" height="12.6" fill="var(--up)" fill-opacity="0.5"/><rect x="86.3" y="197.9" width="2.0" height="16.1" fill="var(--up)" fill-opacity="0.5"/><rect x="89.2" y="201.5" width="2.0" height="12.5" fill="var(--up)" fill-opacity="0.5"/><rect x="92.0" y="201.2" width="2.0" height="12.8" fill="var(--up)" fill-opacity="0.5"/><rect x="94.9" y="203.2" width="2.0" height="10.8" fill="var(--up)" fill-opacity="0.5"/><rect x="97.7" y="202.4" width="2.0" height="11.6" fill="var(--up)" fill-opacity="0.5"/><rect x="100.6" y="204.7" width="2.0" height="9.3" fill="var(--down)" fill-opacity="0.5"/><rect x="103.4" y="202.8" width="2.0" height="11.2" fill="var(--up)" fill-opacity="0.5"/><rect x="106.3" y="204.0" width="2.0" height="10.0" fill="var(--down)" fill-opacity="0.5"/><rect x="109.1" y="205.8" width="2.0" height="8.2" fill="var(--up)" fill-opacity="0.5"/><rect x="112.0" y="203.8" width="2.0" height="10.2" fill="var(--up)" fill-opacity="0.5"/><rect x="114.8" y="205.8" width="2.0" height="8.2" fill="var(--down)" fill-opacity="0.5"/><rect x="117.7" y="205.6" width="2.0" height="8.4" fill="var(--down)" fill-opacity="0.5"/><rect x="120.5" y="202.6" width="2.0" height="11.4" fill="var(--down)" fill-opacity="0.5"/><rect x="123.4" y="202.1" width="2.0" height="11.9" fill="var(--up)" fill-opacity="0.5"/><rect x="126.2" y="199.0" width="2.0" height="15.0" fill="var(--down)" fill-opacity="0.5"/><rect x="129.1" y="199.9" width="2.0" height="14.1" fill="var(--up)" fill-opacity="0.5"/><rect x="131.9" y="202.5" width="2.0" height="11.5" fill="var(--up)" fill-opacity="0.5"/><rect x="134.8" y="202.4" width="2.0" height="11.6" fill="var(--up)" fill-opacity="0.5"/><rect x="137.6" y="202.3" width="2.0" height="11.7" fill="var(--down)" fill-opacity="0.5"/><rect x="140.5" y="193.0" width="2.0" height="21.0" fill="var(--down)" fill-opacity="0.5"/><rect x="143.3" y="198.5" width="2.0" height="15.5" fill="var(--up)" fill-opacity="0.5"/><rect x="146.2" y="199.8" width="2.0" height="14.2" fill="var(--up)" fill-opacity="0.5"/><rect x="149.0" y="202.0" width="2.0" height="12.0" fill="var(--up)" fill-opacity="0.5"/><rect x="151.9" y="202.3" width="2.0" height="11.7" fill="var(--up)" fill-opacity="0.5"/><rect x="154.7" y="198.9" width="2.0" height="15.1" fill="var(--up)" fill-opacity="0.5"/><rect x="157.6" y="196.9" width="2.0" height="17.1" fill="var(--up)" fill-opacity="0.5"/><rect x="160.4" y="201.9" width="2.0" height="12.1" fill="var(--down)" fill-opacity="0.5"/><rect x="163.3" y="201.8" width="2.0" height="12.2" fill="var(--up)" fill-opacity="0.5"/><rect x="166.1" y="199.2" width="2.0" height="14.8" fill="var(--up)" fill-opacity="0.5"/><rect x="169.0" y="202.3" width="2.0" height="11.7" fill="var(--down)" fill-opacity="0.5"/><rect x="171.8" y="200.7" width="2.0" height="13.3" fill="var(--up)" fill-opacity="0.5"/><rect x="174.7" y="197.8" width="2.0" height="16.2" fill="var(--up)" fill-opacity="0.5"/><rect x="177.5" y="202.3" width="2.0" height="11.7" fill="var(--up)" fill-opacity="0.5"/><rect x="180.4" y="200.5" width="2.0" height="13.5" fill="var(--up)" fill-opacity="0.5"/><rect x="183.2" y="201.9" width="2.0" height="12.1" fill="var(--down)" fill-opacity="0.5"/><rect x="186.1" y="197.0" width="2.0" height="17.0" fill="var(--down)" fill-opacity="0.5"/><rect x="188.9" y="201.9" width="2.0" height="12.1" fill="var(--up)" fill-opacity="0.5"/><rect x="191.8" y="203.2" width="2.0" height="10.8" fill="var(--down)" fill-opacity="0.5"/><rect x="194.6" y="204.3" width="2.0" height="9.7" fill="var(--up)" fill-opacity="0.5"/><rect x="197.5" y="203.2" width="2.0" height="10.8" fill="var(--up)" fill-opacity="0.5"/><rect x="200.3" y="204.4" width="2.0" height="9.6" fill="var(--up)" fill-opacity="0.5"/><rect x="203.2" y="201.9" width="2.0" height="12.1" fill="var(--up)" fill-opacity="0.5"/><rect x="206.0" y="202.6" width="2.0" height="11.4" fill="var(--down)" fill-opacity="0.5"/><rect x="208.9" y="204.2" width="2.0" height="9.8" fill="var(--up)" fill-opacity="0.5"/><rect x="211.7" y="204.9" width="2.0" height="9.1" fill="var(--down)" fill-opacity="0.5"/><rect x="214.6" y="204.3" width="2.0" height="9.7" fill="var(--down)" fill-opacity="0.5"/><rect x="217.4" y="203.7" width="2.0" height="10.3" fill="var(--up)" fill-opacity="0.5"/><rect x="220.3" y="204.9" width="2.0" height="9.1" fill="var(--down)" fill-opacity="0.5"/><rect x="223.1" y="203.3" width="2.0" height="10.7" fill="var(--down)" fill-opacity="0.5"/><rect x="226.0" y="206.0" width="2.0" height="8.0" fill="var(--up)" fill-opacity="0.5"/><rect x="228.8" y="205.6" width="2.0" height="8.4" fill="var(--up)" fill-opacity="0.5"/><rect x="231.7" y="206.6" width="2.0" height="7.4" fill="var(--up)" fill-opacity="0.5"/><rect x="234.5" y="207.1" width="2.0" height="6.9" fill="var(--down)" fill-opacity="0.5"/><rect x="237.3" y="205.5" width="2.0" height="8.5" fill="var(--down)" fill-opacity="0.5"/><rect x="240.2" y="204.9" width="2.0" height="9.1" fill="var(--up)" fill-opacity="0.5"/><rect x="243.0" y="205.7" width="2.0" height="8.3" fill="var(--up)" fill-opacity="0.5"/><rect x="245.9" y="203.9" width="2.0" height="10.1" fill="var(--down)" fill-opacity="0.5"/><rect x="248.7" y="200.3" width="2.0" height="13.7" fill="var(--up)" fill-opacity="0.5"/><rect x="251.6" y="202.7" width="2.0" height="11.3" fill="var(--up)" fill-opacity="0.5"/><rect x="254.4" y="202.5" width="2.0" height="11.5" fill="var(--down)" fill-opacity="0.5"/><rect x="257.3" y="204.9" width="2.0" height="9.1" fill="var(--down)" fill-opacity="0.5"/><rect x="260.1" y="198.6" width="2.0" height="15.4" fill="var(--down)" fill-opacity="0.5"/><rect x="263.0" y="201.8" width="2.0" height="12.2" fill="var(--up)" fill-opacity="0.5"/><rect x="265.8" y="204.1" width="2.0" height="9.9" fill="var(--down)" fill-opacity="0.5"/><rect x="268.7" y="203.3" width="2.0" height="10.7" fill="var(--down)" fill-opacity="0.5"/><rect x="271.5" y="203.7" width="2.0" height="10.3" fill="var(--up)" fill-opacity="0.5"/><rect x="274.4" y="197.4" width="2.0" height="16.6" fill="var(--down)" fill-opacity="0.5"/><rect x="277.2" y="201.3" width="2.0" height="12.7" fill="var(--up)" fill-opacity="0.5"/><rect x="280.1" y="205.0" width="2.0" height="9.0" fill="var(--up)" fill-opacity="0.5"/><rect x="282.9" y="203.0" width="2.0" height="11.0" fill="var(--up)" fill-opacity="0.5"/><rect x="285.8" y="203.6" width="2.0" height="10.4" fill="var(--down)" fill-opacity="0.5"/><rect x="288.6" y="199.4" width="2.0" height="14.6" fill="var(--up)" fill-opacity="0.5"/><rect x="291.5" y="199.6" width="2.0" height="14.4" fill="var(--up)" fill-opacity="0.5"/><rect x="294.3" y="202.3" width="2.0" height="11.7" fill="var(--down)" fill-opacity="0.5"/><rect x="297.2" y="202.4" width="2.0" height="11.6" fill="var(--up)" fill-opacity="0.5"/><rect x="300.0" y="199.3" width="2.0" height="14.7" fill="var(--up)" fill-opacity="0.5"/><rect x="302.9" y="199.8" width="2.0" height="14.2" fill="var(--up)" fill-opacity="0.5"/><rect x="305.7" y="198.2" width="2.0" height="15.8" fill="var(--up)" fill-opacity="0.5"/><rect x="308.6" y="201.4" width="2.0" height="12.6" fill="var(--up)" fill-opacity="0.5"/><rect x="311.4" y="202.6" width="2.0" height="11.4" fill="var(--up)" fill-opacity="0.5"/><rect x="314.3" y="202.7" width="2.0" height="11.3" fill="var(--up)" fill-opacity="0.5"/><rect x="317.1" y="201.7" width="2.0" height="12.3" fill="var(--up)" fill-opacity="0.5"/><rect x="320.0" y="198.3" width="2.0" height="15.7" fill="var(--up)" fill-opacity="0.5"/><rect x="322.8" y="198.4" width="2.0" height="15.6" fill="var(--up)" fill-opacity="0.5"/><rect x="325.7" y="193.4" width="2.0" height="20.6" fill="var(--up)" fill-opacity="0.5"/><rect x="328.5" y="197.7" width="2.0" height="16.3" fill="var(--up)" fill-opacity="0.5"/><rect x="331.4" y="194.9" width="2.0" height="19.1" fill="var(--down)" fill-opacity="0.5"/><rect x="334.2" y="196.8" width="2.0" height="17.2" fill="var(--up)" fill-opacity="0.5"/><rect x="337.1" y="197.7" width="2.0" height="16.3" fill="var(--up)" fill-opacity="0.5"/><rect x="339.9" y="196.5" width="2.0" height="17.5" fill="var(--up)" fill-opacity="0.5"/><rect x="342.8" y="201.2" width="2.0" height="12.8" fill="var(--down)" fill-opacity="0.5"/><rect x="345.6" y="200.4" width="2.0" height="13.6" fill="var(--up)" fill-opacity="0.5"/><rect x="348.5" y="197.0" width="2.0" height="17.0" fill="var(--up)" fill-opacity="0.5"/><rect x="351.3" y="194.0" width="2.0" height="20.0" fill="var(--up)" fill-opacity="0.5"/><rect x="354.2" y="189.3" width="2.0" height="24.7" fill="var(--up)" fill-opacity="0.5"/><rect x="357.0" y="197.6" width="2.0" height="16.4" fill="var(--down)" fill-opacity="0.5"/><rect x="359.9" y="194.8" width="2.0" height="19.2" fill="var(--up)" fill-opacity="0.5"/><rect x="362.7" y="191.4" width="2.0" height="22.6" fill="var(--up)" fill-opacity="0.5"/><rect x="365.6" y="187.9" width="2.0" height="26.1" fill="var(--down)" fill-opacity="0.5"/><rect x="368.4" y="192.7" width="2.0" height="21.3" fill="var(--down)" fill-opacity="0.5"/><rect x="371.3" y="196.3" width="2.0" height="17.7" fill="var(--up)" fill-opacity="0.5"/><rect x="374.1" y="193.6" width="2.0" height="20.4" fill="var(--up)" fill-opacity="0.5"/><rect x="377.0" y="192.5" width="2.0" height="21.5" fill="var(--up)" fill-opacity="0.5"/><rect x="379.8" y="192.5" width="2.0" height="21.5" fill="var(--up)" fill-opacity="0.5"/><rect x="382.7" y="177.1" width="2.0" height="36.9" fill="var(--down)" fill-opacity="0.5"/><rect x="385.5" y="180.1" width="2.0" height="33.9" fill="var(--up)" fill-opacity="0.5"/><rect x="388.4" y="164.0" width="2.0" height="50.0" fill="var(--up)" fill-opacity="0.5"/><rect x="391.2" y="171.8" width="2.0" height="42.2" fill="var(--up)" fill-opacity="0.5"/><rect x="394.1" y="168.2" width="2.0" height="45.8" fill="var(--up)" fill-opacity="0.5"/><rect x="396.9" y="173.5" width="2.0" height="40.5" fill="var(--up)" fill-opacity="0.5"/><rect x="399.8" y="173.7" width="2.0" height="40.3" fill="var(--up)" fill-opacity="0.5"/><rect x="402.6" y="180.7" width="2.0" height="33.3" fill="var(--down)" fill-opacity="0.5"/><rect x="405.4" y="178.9" width="2.0" height="35.1" fill="var(--down)" fill-opacity="0.5"/><rect x="408.3" y="167.2" width="2.0" height="46.8" fill="var(--down)" fill-opacity="0.5"/><rect x="411.1" y="166.5" width="2.0" height="47.5" fill="var(--up)" fill-opacity="0.5"/><rect x="414.0" y="179.0" width="2.0" height="35.0" fill="var(--up)" fill-opacity="0.5"/><rect x="416.8" y="184.7" width="2.0" height="29.3" fill="var(--down)" fill-opacity="0.5"/><rect x="419.7" y="187.6" width="2.0" height="26.4" fill="var(--up)" fill-opacity="0.5"/><rect x="422.5" y="184.0" width="2.0" height="30.0" fill="var(--up)" fill-opacity="0.5"/><rect x="425.4" y="191.1" width="2.0" height="22.9" fill="var(--down)" fill-opacity="0.5"/><rect x="428.2" y="188.1" width="2.0" height="25.9" fill="var(--down)" fill-opacity="0.5"/><rect x="431.1" y="183.3" width="2.0" height="30.7" fill="var(--up)" fill-opacity="0.5"/><rect x="433.9" y="181.6" width="2.0" height="32.4" fill="var(--up)" fill-opacity="0.5"/><rect x="436.8" y="181.3" width="2.0" height="32.7" fill="var(--up)" fill-opacity="0.5"/><rect x="439.6" y="180.2" width="2.0" height="33.8" fill="var(--down)" fill-opacity="0.5"/><rect x="442.5" y="171.4" width="2.0" height="42.6" fill="var(--up)" fill-opacity="0.5"/><rect x="445.3" y="181.8" width="2.0" height="32.2" fill="var(--down)" fill-opacity="0.5"/><rect x="448.2" y="180.5" width="2.0" height="33.5" fill="var(--up)" fill-opacity="0.5"/><rect x="451.0" y="192.2" width="2.0" height="21.8" fill="var(--up)" fill-opacity="0.5"/><rect x="453.9" y="187.6" width="2.0" height="26.4" fill="var(--down)" fill-opacity="0.5"/><rect x="456.7" y="188.3" width="2.0" height="25.7" fill="var(--down)" fill-opacity="0.5"/><rect x="459.6" y="193.2" width="2.0" height="20.8" fill="var(--down)" fill-opacity="0.5"/><rect x="462.4" y="180.7" width="2.0" height="33.3" fill="var(--down)" fill-opacity="0.5"/><rect x="465.3" y="186.6" width="2.0" height="27.4" fill="var(--up)" fill-opacity="0.5"/><rect x="468.1" y="173.2" width="2.0" height="40.8" fill="var(--down)" fill-opacity="0.5"/><rect x="471.0" y="180.1" width="2.0" height="33.9" fill="var(--up)" fill-opacity="0.5"/><rect x="473.8" y="182.3" width="2.0" height="31.7" fill="var(--up)" fill-opacity="0.5"/><rect x="476.7" y="185.7" width="2.0" height="28.3" fill="var(--up)" fill-opacity="0.5"/><rect x="479.5" y="187.3" width="2.0" height="26.7" fill="var(--up)" fill-opacity="0.5"/><rect x="482.4" y="184.7" width="2.0" height="29.3" fill="var(--down)" fill-opacity="0.5"/><rect x="485.2" y="185.3" width="2.0" height="28.7" fill="var(--up)" fill-opacity="0.5"/><rect x="488.1" y="183.0" width="2.0" height="31.0" fill="var(--down)" fill-opacity="0.5"/><rect x="490.9" y="188.6" width="2.0" height="25.4" fill="var(--up)" fill-opacity="0.5"/><rect x="493.8" y="187.6" width="2.0" height="26.4" fill="var(--up)" fill-opacity="0.5"/><rect x="496.6" y="187.5" width="2.0" height="26.5" fill="var(--up)" fill-opacity="0.5"/><rect x="499.5" y="194.3" width="2.0" height="19.7" fill="var(--down)" fill-opacity="0.5"/><rect x="502.3" y="194.2" width="2.0" height="19.8" fill="var(--up)" fill-opacity="0.5"/><rect x="505.2" y="191.4" width="2.0" height="22.6" fill="var(--up)" fill-opacity="0.5"/><rect x="508.0" y="188.3" width="2.0" height="25.7" fill="var(--up)" fill-opacity="0.5"/><rect x="510.9" y="184.2" width="2.0" height="29.8" fill="var(--up)" fill-opacity="0.5"/><rect x="513.7" y="188.9" width="2.0" height="25.1" fill="var(--down)" fill-opacity="0.5"/><rect x="516.6" y="189.9" width="2.0" height="24.1" fill="var(--up)" fill-opacity="0.5"/><rect x="519.4" y="181.4" width="2.0" height="32.6" fill="var(--up)" fill-opacity="0.5"/><rect x="522.3" y="193.5" width="2.0" height="20.5" fill="var(--up)" fill-opacity="0.5"/><rect x="525.1" y="194.4" width="2.0" height="19.6" fill="var(--down)" fill-opacity="0.5"/><rect x="528.0" y="189.0" width="2.0" height="25.0" fill="var(--up)" fill-opacity="0.5"/><rect x="530.8" y="185.5" width="2.0" height="28.5" fill="var(--up)" fill-opacity="0.5"/><rect x="533.7" y="192.1" width="2.0" height="21.9" fill="var(--up)" fill-opacity="0.5"/><rect x="536.5" y="199.0" width="2.0" height="15.0" fill="var(--up)" fill-opacity="0.5"/><rect x="539.4" y="193.1" width="2.0" height="20.9" fill="var(--up)" fill-opacity="0.5"/><rect x="542.2" y="184.8" width="2.0" height="29.2" fill="var(--down)" fill-opacity="0.5"/><rect x="545.1" y="192.9" width="2.0" height="21.1" fill="var(--up)" fill-opacity="0.5"/><rect x="547.9" y="189.7" width="2.0" height="24.3" fill="var(--up)" fill-opacity="0.5"/><rect x="550.8" y="188.7" width="2.0" height="25.3" fill="var(--down)" fill-opacity="0.5"/><rect x="553.6" y="197.8" width="2.0" height="16.2" fill="var(--up)" fill-opacity="0.5"/><rect x="556.5" y="198.8" width="2.0" height="15.2" fill="var(--down)" fill-opacity="0.5"/><rect x="559.3" y="199.9" width="2.0" height="14.1" fill="var(--down)" fill-opacity="0.5"/><rect x="562.2" y="196.2" width="2.0" height="17.8" fill="var(--up)" fill-opacity="0.5"/><rect x="565.0" y="201.6" width="2.0" height="12.4" fill="var(--up)" fill-opacity="0.5"/>
+
+    <!-- date labels -->
+    <text x="56" y="234.0" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2025-08-26</text>
+    <text x="311.0" y="234.0" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-01-08</text>
+    <text x="566.0" y="234.0" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-05-22</text>
+
+    <!-- legend -->
+    <g font-family="JetBrains Mono" font-size="9" fill="var(--muted)">
+      <line x1="60" y1="10.0" x2="74" y2="10.0" stroke="var(--up)" stroke-width="1.6"/>
+      <text x="78" y="13.0">종가</text>
+      <line x1="114" y1="10.0" x2="128" y2="10.0" stroke="var(--accent)" stroke-width="1.2"/>
+      <text x="132" y="13.0">MA20</text>
+      <line x1="168" y1="10.0" x2="182" y2="10.0" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="186" y="13.0">MA60</text>
+      <rect x="224" y="6.0" width="10" height="6" fill="var(--up)" fill-opacity="0.5"/>
+      <text x="238" y="13.0">거래량 (상승일)</text>
+      <rect x="310" y="6.0" width="10" height="6" fill="var(--down)" fill-opacity="0.5"/>
+      <text x="324" y="13.0">거래량 (하락일)</text>
+    </g>
+  </svg></div>
+
+    <p class="wl-tech-summary"><span class="wl-tech-label">기술 신호 해석 ·</span> 상방 우위 신호입니다. 20거래일 수익률 22.28%, RSI 69.5, 60일 추세 31.46% 기준으로 판단했습니다.</p>
+
+    <div class="tech-grid">
+    <div class="tech-cell">
+      <span class="tk">20일 수익률</span>
+      <strong class="mono up">+22.28%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">60일 수익률</span>
+      <strong class="mono up">+31.46%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">RSI(14)</span>
+      <strong class="mono flat">70</strong>
+    </div><div class="tech-cell">
+      <span class="tk">MACD 히스토그램</span>
+      <strong class="mono down">-21.0</strong>
+    </div><div class="tech-cell">
+      <span class="tk">연환산 변동성</span>
+      <strong class="mono flat">51.3%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">120일 최대낙폭</span>
+      <strong class="mono flat">-1.7%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">지지선 (20일)</span>
+      <strong class="mono flat">6,309.10</strong>
+    </div><div class="tech-cell">
+      <span class="tk">저항선 (20일)</span>
+      <strong class="mono flat">8,046.78</strong>
+    </div>
+  </div>
+
+    <div class="drivers-grid">
+    <div class="drv-col up">
+      <div class="drv-head">우호 요인 +</div>
+      <ul><li>미국 3대 지수와 나스닥 동반 강세</li><li>달러/원 환율 하향 안정</li><li>반도체 대형주와 외국인 코스피 순매수</li></ul>
+    </div>
+    <div class="drv-col down">
+      <div class="drv-head">부담 요인 −</div>
+      <ul><li>미 10년물 금리 재상승</li><li>달러/원 1,450원·1,480원 상향 돌파</li><li>나스닥·반도체 지수 약세</li></ul>
+    </div>
+  </div>
+
+    <div class="mf-grid">
+    <div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">시장 유동성</span>
+          <span class="mf-score mono">78<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:78%;background:var(--up)"></div></div>
+        <p class="mf-note">대표 지수라 가격 발견과 거래 기반은 안정적입니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">실적 확산</span>
+          <span class="mf-score mono">54<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:54%;background:var(--amber)"></div></div>
+        <p class="mf-note">반도체 대형주 의존도가 높아 업종 확산 여부가 중요합니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">환율 민감도</span>
+          <span class="mf-score mono">48<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:48%;background:var(--amber)"></div></div>
+        <p class="mf-note">달러/원 상승 구간에서는 외국인 매매 부담이 커질 수 있습니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">매매 안정성</span>
+          <span class="mf-score mono">52<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:52%;background:var(--amber)"></div></div>
+        <p class="mf-note">외국인 현·선물 흐름이 단기 방향성을 좌우합니다.</p>
+      </div>
+  </div>
+
+    <div class="wl-bottom-grid">
+      <div class="wl-list">
+        <span class="wl-list-head">관찰 레벨</span>
+        <ul><li>코스피 전일 대비 방향</li><li>달러/원 1,450원·1,480원</li><li>미 10년물 4.50%</li><li>외국인 코스피 순매수</li></ul>
+      </div>
+      <div class="wl-list">
+        <span class="wl-list-head">다음 점검</span>
+        <ul><li>미국 나스닥·SOXX 마감 방향</li><li>달러/원 장중 고점과 종가</li><li>삼성전자·SK하이닉스 매매 흐름</li></ul>
+      </div>
+      
+    </div>
+  </article><article class="wl-card">
+    <header class="wl-head">
+      <div class="wl-head-left">
+        <span class="wl-idx mono">02</span>
+        <div>
+          <h3>KODEX 200선물인버스2X</h3>
+          <p class="wl-sub mono">252670.KS · 한국 · 코스피200 선물 -2배</p>
+        </div>
+      </div>
+      <div class="wl-price">
+        <div class="wl-price-val mono">102.00<span class="wl-cur">KRW</span></div>
+        <div class="wl-price-chg mono down">↓ -0.97% <span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+      </div>
+    </header>
+
+    <div class="wl-tone-row mono">
+      <span class="wl-tone-chip flat">매크로 중립<span class="sep">·</span>점수 49/100</span>
+      <span class="wl-tone-chip down">기술 하방 경계<span class="sep">·</span>점수 0/100</span>
+    </div>
+
+    <p class="wl-thesis">핵심 변수는 코스피 하락 압력과 장중 변동성입니다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔들 수 있습니다.</p>
+
+    <div class="wl-chart"><svg viewBox="0 0 580 240" width="100%" height="auto" preserveAspectRatio="none" style="display:block">
+    <defs>
+      <linearGradient id="wl-area-252670KS" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--down)" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="var(--down)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="56" y1="156.0" x2="566" y2="156.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="156.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">102</text><line x1="56" y1="120.5" x2="566" y2="120.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="120.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">431</text><line x1="56" y1="85.0" x2="566" y2="85.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="85.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">759</text><line x1="56" y1="49.5" x2="566" y2="49.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="49.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">1,088</text><line x1="56" y1="14.0" x2="566" y2="14.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="14.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">1,416</text>
+    <path d="M56.0,24.9 L58.8,25.5 L61.7,27.0 L64.5,25.7 L67.4,21.1 L70.2,24.1 L73.1,25.6 L75.9,26.5 L78.8,27.7 L81.6,28.8 L84.5,32.6 L87.3,38.2 L90.2,40.0 L93.0,45.3 L95.9,46.4 L98.7,50.4 L101.6,47.6 L104.4,51.7 L107.3,50.7 L110.1,53.1 L113.0,54.9 L115.8,54.2 L118.7,54.2 L121.5,48.6 L124.4,52.4 L127.2,51.5 L130.1,54.0 L132.9,61.1 L135.8,66.3 L138.6,64.4 L141.5,62.1 L144.3,68.0 L147.2,73.2 L150.0,73.7 L152.9,77.2 L155.7,77.4 L158.6,79.6 L161.4,77.8 L164.3,82.4 L167.1,87.1 L170.0,85.5 L172.8,88.9 L175.7,89.3 L178.5,91.2 L181.4,95.9 L184.2,91.7 L187.1,87.7 L189.9,88.6 L192.8,85.8 L195.6,90.7 L198.5,92.2 L201.3,93.8 L204.2,94.7 L207.0,88.0 L209.9,91.5 L212.7,86.3 L215.6,85.2 L218.4,88.7 L221.3,82.1 L224.1,82.3 L226.9,83.2 L229.8,87.7 L232.6,88.8 L235.5,86.6 L238.3,86.2 L241.2,89.4 L244.0,91.3 L246.9,90.7 L249.7,93.8 L252.6,95.6 L255.4,94.7 L258.3,94.7 L261.1,93.5 L264.0,95.7 L266.8,92.5 L269.7,89.1 L272.5,92.1 L275.4,90.3 L278.2,91.2 L281.1,94.6 L283.9,95.1 L286.8,95.2 L289.6,96.5 L292.5,100.2 L295.3,100.6 L298.2,104.5 L301.0,109.2 L303.9,111.2 L306.7,111.9 L309.6,111.7 L312.4,112.8 L315.3,113.4 L318.1,114.7 L321.0,115.4 L323.8,117.1 L326.7,118.2 L329.5,119.6 L332.4,118.7 L335.2,119.7 L338.1,120.6 L340.9,121.3 L343.8,120.3 L346.6,123.6 L349.5,125.2 L352.3,126.1 L355.2,126.3 L358.0,121.6 L360.9,128.8 L363.7,129.7 L366.6,126.5 L369.4,125.6 L372.3,129.1 L375.1,129.2 L378.0,129.7 L380.8,132.4 L383.7,132.4 L386.5,134.6 L389.4,136.1 L392.2,136.4 L395.1,138.1 L397.9,139.1 L400.7,141.6 L403.6,141.3 L406.4,137.1 L409.3,129.6 L412.1,136.9 L415.0,136.9 L417.8,133.1 L420.7,137.1 L423.5,137.7 L426.4,137.4 L429.2,136.3 L432.1,137.3 L434.9,138.4 L437.8,141.8 L440.6,140.1 L443.5,140.1 L446.3,136.4 L449.2,138.5 L452.0,139.3 L454.9,137.2 L457.7,137.0 L460.6,135.1 L463.4,132.3 L466.3,138.8 L469.1,135.8 L472.0,137.7 L474.8,138.6 L477.7,139.3 L480.5,143.6 L483.4,142.6 L486.2,143.4 L489.1,142.8 L491.9,144.3 L494.8,145.5 L497.6,146.4 L500.5,146.2 L503.3,146.4 L506.2,147.5 L509.0,147.5 L511.9,147.9 L514.7,147.9 L517.6,148.8 L520.4,148.8 L523.3,149.1 L526.1,148.8 L529.0,150.6 L531.8,153.1 L534.7,153.6 L537.5,153.7 L540.4,155.1 L543.2,154.6 L546.1,155.4 L548.9,155.8 L551.8,154.3 L554.6,154.5 L557.5,153.7 L560.3,153.5 L563.2,155.9 L566.0,156.0 L566.0,156.0 L56.0,156.0 Z" fill="url(#wl-area-252670KS)"/>
+    <path d="M56.0,14.0 L58.8,15.1 L61.7,16.2 L64.5,17.1 L67.4,17.8 L70.2,18.4 L73.1,19.1 L75.9,19.7 L78.8,20.2 L81.6,20.9 L84.5,21.5 L87.3,22.2 L90.2,22.9 L93.0,23.6 L95.9,24.3 L98.7,25.1 L101.6,25.6 L104.4,26.2 L107.3,26.8 L110.1,27.5 L113.0,28.2 L115.8,28.9 L118.7,29.5 L121.5,30.1 L124.4,30.7 L127.2,31.4 L130.1,32.0 L132.9,32.7 L135.8,33.4 L138.6,34.1 L141.5,34.7 L144.3,35.4 L147.2,36.2 L150.0,37.0 L152.9,37.8 L155.7,38.7 L158.6,39.6 L161.4,40.5 L164.3,41.5 L167.1,42.5 L170.0,43.5 L172.8,44.5 L175.7,45.5 L178.5,46.5 L181.4,47.8 L184.2,49.0 L187.1,50.0 L189.9,51.0 L192.8,52.0 L195.6,53.1 L198.5,54.1 L201.3,55.3 L204.2,56.4 L207.0,57.3 L209.9,58.4 L212.7,59.5 L215.6,60.6 L218.4,61.7 L221.3,62.6 L224.1,63.6 L226.9,64.5 L229.8,65.6 L232.6,66.6 L235.5,67.6 L238.3,68.7 L241.2,69.8 L244.0,70.9 L246.9,71.9 L249.7,73.0 L252.6,74.2 L255.4,75.2 L258.3,76.1 L261.1,77.0 L264.0,77.9 L266.8,78.6 L269.7,79.3 L272.5,80.0 L275.4,80.7 L278.2,81.3 L281.1,82.0 L283.9,82.7 L286.8,83.4 L289.6,84.1 L292.5,84.9 L295.3,85.8 L298.2,86.6 L301.0,87.6 L303.9,88.4 L306.7,89.1 L309.6,89.9 L312.4,90.8 L315.3,91.5 L318.1,92.2 L321.0,92.9 L323.8,93.6 L326.7,94.3 L329.5,94.9 L332.4,95.6 L335.2,96.2 L338.1,96.8 L340.9,97.4 L343.8,97.9 L346.6,98.5 L349.5,99.1 L352.3,99.6 L355.2,100.1 L358.0,100.7 L360.9,101.4 L363.7,102.1 L366.6,102.7 L369.4,103.3 L372.3,103.8 L375.1,104.4 L378.0,105.1 L380.8,105.8 L383.7,106.6 L386.5,107.4 L389.4,108.2 L392.2,109.1 L395.1,110.0 L397.9,110.9 L400.7,111.8 L403.6,112.7 L406.4,113.6 L409.3,114.3 L412.1,115.1 L415.0,115.8 L417.8,116.5 L420.7,117.3 L423.5,118.0 L426.4,118.7 L429.2,119.4 L432.1,120.1 L434.9,120.8 L437.8,121.6 L440.6,122.5 L443.5,123.3 L446.3,124.1 L449.2,124.8 L452.0,125.6 L454.9,126.3 L457.7,127.0 L460.6,127.6 L463.4,128.2 L466.3,128.8 L469.1,129.3 L472.0,129.8 L474.8,130.3 L477.7,130.7 L480.5,131.2 L483.4,131.7 L486.2,132.2 L489.1,132.7 L491.9,133.2 L494.8,133.7 L497.6,134.1 L500.5,134.6 L503.3,135.0 L506.2,135.5 L509.0,136.0 L511.9,136.4 L514.7,136.9 L517.6,137.3 L520.4,137.7 L523.3,138.1 L526.1,138.4 L529.0,138.9 L531.8,139.3 L534.7,139.7 L537.5,140.2 L540.4,140.7 L543.2,141.1 L546.1,141.5 L548.9,142.0 L551.8,142.3 L554.6,142.7 L557.5,143.0 L560.3,143.3 L563.2,143.6 L566.0,143.9" fill="none" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/>
+    <path d="M56.0,25.8 L58.8,25.7 L61.7,25.5 L64.5,25.3 L67.4,25.4 L70.2,25.5 L73.1,25.5 L75.9,25.5 L78.8,25.5 L81.6,25.6 L84.5,25.9 L87.3,26.4 L90.2,27.0 L93.0,27.8 L95.9,28.9 L98.7,30.2 L101.6,31.6 L104.4,33.1 L107.3,34.4 L110.1,35.7 L113.0,37.2 L115.8,38.6 L118.7,40.0 L121.5,41.1 L124.4,42.7 L127.2,44.0 L130.1,45.5 L132.9,47.2 L135.8,49.1 L138.6,50.9 L141.5,52.4 L144.3,53.9 L147.2,55.5 L150.0,56.9 L152.9,58.5 L155.7,59.8 L158.6,61.4 L161.4,62.7 L164.3,64.3 L167.1,66.0 L170.0,67.5 L172.8,69.3 L175.7,71.0 L178.5,73.2 L181.4,75.3 L184.2,77.3 L187.1,79.0 L189.9,80.4 L192.8,81.4 L195.6,82.7 L198.5,84.2 L201.3,85.5 L204.2,86.6 L207.0,87.3 L209.9,88.0 L212.7,88.4 L215.6,88.7 L218.4,89.3 L221.3,89.2 L224.1,89.0 L226.9,88.9 L229.8,88.8 L232.6,88.8 L235.5,88.6 L238.3,88.1 L241.2,88.0 L244.0,88.2 L246.9,88.3 L249.7,88.7 L252.6,88.9 L255.4,89.0 L258.3,89.1 L261.1,89.0 L264.0,89.4 L266.8,89.4 L269.7,89.6 L272.5,89.9 L275.4,90.0 L278.2,90.5 L281.1,91.1 L283.9,91.7 L286.8,92.1 L289.6,92.4 L292.5,93.1 L295.3,93.8 L298.2,94.6 L301.0,95.5 L303.9,96.5 L306.7,97.4 L309.6,98.2 L312.4,99.1 L315.3,100.1 L318.1,101.1 L321.0,102.1 L323.8,103.3 L326.7,104.8 L329.5,106.2 L332.4,107.6 L335.2,109.0 L338.1,110.3 L340.9,111.6 L343.8,112.9 L346.6,114.2 L349.5,115.5 L352.3,116.8 L355.2,117.8 L358.0,118.5 L360.9,119.3 L363.7,120.2 L366.6,121.0 L369.4,121.6 L372.3,122.4 L375.1,123.1 L378.0,123.8 L380.8,124.6 L383.7,125.3 L386.5,126.1 L389.4,126.9 L392.2,127.8 L395.1,128.7 L397.9,129.6 L400.7,130.6 L403.6,131.5 L406.4,132.1 L409.3,132.3 L412.1,132.8 L415.0,133.6 L417.8,133.8 L420.7,134.1 L423.5,134.7 L426.4,135.3 L429.2,135.7 L432.1,136.1 L434.9,136.5 L437.8,137.0 L440.6,137.4 L443.5,137.6 L446.3,137.6 L449.2,137.7 L452.0,137.8 L454.9,137.7 L457.7,137.5 L460.6,137.2 L463.4,136.9 L466.3,137.4 L469.1,137.3 L472.0,137.4 L474.8,137.7 L477.7,137.8 L480.5,138.1 L483.4,138.3 L486.2,138.7 L489.1,138.9 L491.9,139.2 L494.8,139.4 L497.6,139.7 L500.5,140.0 L503.3,140.5 L506.2,141.0 L509.0,141.4 L511.9,141.9 L514.7,142.5 L517.6,143.2 L520.4,144.0 L523.3,144.5 L526.1,145.1 L529.0,145.8 L531.8,146.5 L534.7,147.2 L537.5,147.7 L540.4,148.4 L543.2,148.9 L546.1,149.5 L548.9,150.1 L551.8,150.6 L554.6,151.0 L557.5,151.3 L560.3,151.7 L563.2,152.1 L566.0,152.5" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".75"/>
+    <path d="M56.0,24.9 L58.8,25.5 L61.7,27.0 L64.5,25.7 L67.4,21.1 L70.2,24.1 L73.1,25.6 L75.9,26.5 L78.8,27.7 L81.6,28.8 L84.5,32.6 L87.3,38.2 L90.2,40.0 L93.0,45.3 L95.9,46.4 L98.7,50.4 L101.6,47.6 L104.4,51.7 L107.3,50.7 L110.1,53.1 L113.0,54.9 L115.8,54.2 L118.7,54.2 L121.5,48.6 L124.4,52.4 L127.2,51.5 L130.1,54.0 L132.9,61.1 L135.8,66.3 L138.6,64.4 L141.5,62.1 L144.3,68.0 L147.2,73.2 L150.0,73.7 L152.9,77.2 L155.7,77.4 L158.6,79.6 L161.4,77.8 L164.3,82.4 L167.1,87.1 L170.0,85.5 L172.8,88.9 L175.7,89.3 L178.5,91.2 L181.4,95.9 L184.2,91.7 L187.1,87.7 L189.9,88.6 L192.8,85.8 L195.6,90.7 L198.5,92.2 L201.3,93.8 L204.2,94.7 L207.0,88.0 L209.9,91.5 L212.7,86.3 L215.6,85.2 L218.4,88.7 L221.3,82.1 L224.1,82.3 L226.9,83.2 L229.8,87.7 L232.6,88.8 L235.5,86.6 L238.3,86.2 L241.2,89.4 L244.0,91.3 L246.9,90.7 L249.7,93.8 L252.6,95.6 L255.4,94.7 L258.3,94.7 L261.1,93.5 L264.0,95.7 L266.8,92.5 L269.7,89.1 L272.5,92.1 L275.4,90.3 L278.2,91.2 L281.1,94.6 L283.9,95.1 L286.8,95.2 L289.6,96.5 L292.5,100.2 L295.3,100.6 L298.2,104.5 L301.0,109.2 L303.9,111.2 L306.7,111.9 L309.6,111.7 L312.4,112.8 L315.3,113.4 L318.1,114.7 L321.0,115.4 L323.8,117.1 L326.7,118.2 L329.5,119.6 L332.4,118.7 L335.2,119.7 L338.1,120.6 L340.9,121.3 L343.8,120.3 L346.6,123.6 L349.5,125.2 L352.3,126.1 L355.2,126.3 L358.0,121.6 L360.9,128.8 L363.7,129.7 L366.6,126.5 L369.4,125.6 L372.3,129.1 L375.1,129.2 L378.0,129.7 L380.8,132.4 L383.7,132.4 L386.5,134.6 L389.4,136.1 L392.2,136.4 L395.1,138.1 L397.9,139.1 L400.7,141.6 L403.6,141.3 L406.4,137.1 L409.3,129.6 L412.1,136.9 L415.0,136.9 L417.8,133.1 L420.7,137.1 L423.5,137.7 L426.4,137.4 L429.2,136.3 L432.1,137.3 L434.9,138.4 L437.8,141.8 L440.6,140.1 L443.5,140.1 L446.3,136.4 L449.2,138.5 L452.0,139.3 L454.9,137.2 L457.7,137.0 L460.6,135.1 L463.4,132.3 L466.3,138.8 L469.1,135.8 L472.0,137.7 L474.8,138.6 L477.7,139.3 L480.5,143.6 L483.4,142.6 L486.2,143.4 L489.1,142.8 L491.9,144.3 L494.8,145.5 L497.6,146.4 L500.5,146.2 L503.3,146.4 L506.2,147.5 L509.0,147.5 L511.9,147.9 L514.7,147.9 L517.6,148.8 L520.4,148.8 L523.3,149.1 L526.1,148.8 L529.0,150.6 L531.8,153.1 L534.7,153.6 L537.5,153.7 L540.4,155.1 L543.2,154.6 L546.1,155.4 L548.9,155.8 L551.8,154.3 L554.6,154.5 L557.5,153.7 L560.3,153.5 L563.2,155.9 L566.0,156.0" fill="none" stroke="var(--down)" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="566.0" cy="156.0" r="3" fill="var(--down)"/>
+
+    <!-- volume separator + label -->
+    <line x1="56" y1="164.0" x2="566" y2="164.0" stroke="var(--rule-soft)" stroke-width=".5"/>
+    <text x="50" y="166.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)" letter-spacing="0.1em">VOL</text>
+    <text x="50" y="212.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)">16.3B</text>
+    <rect x="55.0" y="213.1" width="2.0" height="0.9" fill="var(--up)" fill-opacity="0.5"/><rect x="57.9" y="213.1" width="2.0" height="0.9" fill="var(--down)" fill-opacity="0.5"/><rect x="60.7" y="213.0" width="2.0" height="1.0" fill="var(--down)" fill-opacity="0.5"/><rect x="63.6" y="213.4" width="2.0" height="0.6" fill="var(--up)" fill-opacity="0.5"/><rect x="66.4" y="212.9" width="2.0" height="1.1" fill="var(--up)" fill-opacity="0.5"/><rect x="69.2" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="72.1" y="213.1" width="2.0" height="0.9" fill="var(--down)" fill-opacity="0.5"/><rect x="74.9" y="213.1" width="2.0" height="0.9" fill="var(--down)" fill-opacity="0.5"/><rect x="77.8" y="213.3" width="2.0" height="0.7" fill="var(--down)" fill-opacity="0.5"/><rect x="80.6" y="213.5" width="2.0" height="0.5" fill="var(--down)" fill-opacity="0.5"/><rect x="83.5" y="213.0" width="2.0" height="1.0" fill="var(--down)" fill-opacity="0.5"/><rect x="86.3" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="89.2" y="213.0" width="2.0" height="1.0" fill="var(--down)" fill-opacity="0.5"/><rect x="92.0" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="94.9" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="97.7" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="100.6" y="213.0" width="2.0" height="1.0" fill="var(--up)" fill-opacity="0.5"/><rect x="103.4" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="106.3" y="213.1" width="2.0" height="0.9" fill="var(--up)" fill-opacity="0.5"/><rect x="109.1" y="213.1" width="2.0" height="0.9" fill="var(--down)" fill-opacity="0.5"/><rect x="112.0" y="213.0" width="2.0" height="1.0" fill="var(--down)" fill-opacity="0.5"/><rect x="114.8" y="212.8" width="2.0" height="1.2" fill="var(--up)" fill-opacity="0.5"/><rect x="117.7" y="212.9" width="2.0" height="1.1" fill="var(--up)" fill-opacity="0.5"/><rect x="120.5" y="212.5" width="2.0" height="1.5" fill="var(--up)" fill-opacity="0.5"/><rect x="123.4" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="126.2" y="213.1" width="2.0" height="0.9" fill="var(--up)" fill-opacity="0.5"/><rect x="129.1" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="131.9" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="134.8" y="212.3" width="2.0" height="1.7" fill="var(--down)" fill-opacity="0.5"/><rect x="137.6" y="212.4" width="2.0" height="1.6" fill="var(--up)" fill-opacity="0.5"/><rect x="140.5" y="211.4" width="2.0" height="2.6" fill="var(--up)" fill-opacity="0.5"/><rect x="143.3" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="146.2" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="149.0" y="211.4" width="2.0" height="2.6" fill="var(--down)" fill-opacity="0.5"/><rect x="151.9" y="212.1" width="2.0" height="1.9" fill="var(--down)" fill-opacity="0.5"/><rect x="154.7" y="211.1" width="2.0" height="2.9" fill="var(--down)" fill-opacity="0.5"/><rect x="157.6" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="160.4" y="211.5" width="2.0" height="2.5" fill="var(--up)" fill-opacity="0.5"/><rect x="163.3" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="166.1" y="211.6" width="2.0" height="2.4" fill="var(--down)" fill-opacity="0.5"/><rect x="169.0" y="211.7" width="2.0" height="2.3" fill="var(--up)" fill-opacity="0.5"/><rect x="171.8" y="211.5" width="2.0" height="2.5" fill="var(--down)" fill-opacity="0.5"/><rect x="174.7" y="210.0" width="2.0" height="4.0" fill="var(--down)" fill-opacity="0.5"/><rect x="177.5" y="211.6" width="2.0" height="2.4" fill="var(--down)" fill-opacity="0.5"/><rect x="180.4" y="210.7" width="2.0" height="3.3" fill="var(--down)" fill-opacity="0.5"/><rect x="183.2" y="210.7" width="2.0" height="3.3" fill="var(--up)" fill-opacity="0.5"/><rect x="186.1" y="207.5" width="2.0" height="6.5" fill="var(--up)" fill-opacity="0.5"/><rect x="188.9" y="209.5" width="2.0" height="4.5" fill="var(--down)" fill-opacity="0.5"/><rect x="191.8" y="208.5" width="2.0" height="5.5" fill="var(--up)" fill-opacity="0.5"/><rect x="194.6" y="210.2" width="2.0" height="3.8" fill="var(--down)" fill-opacity="0.5"/><rect x="197.5" y="209.0" width="2.0" height="5.0" fill="var(--down)" fill-opacity="0.5"/><rect x="200.3" y="211.0" width="2.0" height="3.0" fill="var(--down)" fill-opacity="0.5"/><rect x="203.2" y="211.6" width="2.0" height="2.4" fill="var(--down)" fill-opacity="0.5"/><rect x="206.0" y="210.5" width="2.0" height="3.5" fill="var(--up)" fill-opacity="0.5"/><rect x="208.9" y="211.0" width="2.0" height="3.0" fill="var(--down)" fill-opacity="0.5"/><rect x="211.7" y="210.6" width="2.0" height="3.4" fill="var(--up)" fill-opacity="0.5"/><rect x="214.6" y="209.1" width="2.0" height="4.9" fill="var(--up)" fill-opacity="0.5"/><rect x="217.4" y="210.3" width="2.0" height="3.7" fill="var(--down)" fill-opacity="0.5"/><rect x="220.3" y="210.7" width="2.0" height="3.3" fill="var(--up)" fill-opacity="0.5"/><rect x="223.1" y="210.5" width="2.0" height="3.5" fill="var(--down)" fill-opacity="0.5"/><rect x="226.0" y="210.9" width="2.0" height="3.1" fill="var(--down)" fill-opacity="0.5"/><rect x="228.8" y="211.3" width="2.0" height="2.7" fill="var(--down)" fill-opacity="0.5"/><rect x="231.7" y="211.3" width="2.0" height="2.7" fill="var(--down)" fill-opacity="0.5"/><rect x="234.5" y="211.9" width="2.0" height="2.1" fill="var(--up)" fill-opacity="0.5"/><rect x="237.3" y="211.4" width="2.0" height="2.6" fill="var(--up)" fill-opacity="0.5"/><rect x="240.2" y="211.3" width="2.0" height="2.7" fill="var(--down)" fill-opacity="0.5"/><rect x="243.0" y="211.6" width="2.0" height="2.4" fill="var(--down)" fill-opacity="0.5"/><rect x="245.9" y="212.2" width="2.0" height="1.8" fill="var(--up)" fill-opacity="0.5"/><rect x="248.7" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="251.6" y="212.2" width="2.0" height="1.8" fill="var(--down)" fill-opacity="0.5"/><rect x="254.4" y="212.5" width="2.0" height="1.5" fill="var(--up)" fill-opacity="0.5"/><rect x="257.3" y="212.0" width="2.0" height="2.0" fill="var(--up)" fill-opacity="0.5"/><rect x="260.1" y="211.7" width="2.0" height="2.3" fill="var(--up)" fill-opacity="0.5"/><rect x="263.0" y="212.0" width="2.0" height="2.0" fill="var(--down)" fill-opacity="0.5"/><rect x="265.8" y="211.7" width="2.0" height="2.3" fill="var(--up)" fill-opacity="0.5"/><rect x="268.7" y="211.4" width="2.0" height="2.6" fill="var(--up)" fill-opacity="0.5"/><rect x="271.5" y="211.5" width="2.0" height="2.5" fill="var(--down)" fill-opacity="0.5"/><rect x="274.4" y="211.1" width="2.0" height="2.9" fill="var(--up)" fill-opacity="0.5"/><rect x="277.2" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="280.1" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="282.9" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="285.8" y="212.9" width="2.0" height="1.1" fill="var(--down)" fill-opacity="0.5"/><rect x="288.6" y="212.2" width="2.0" height="1.8" fill="var(--down)" fill-opacity="0.5"/><rect x="291.5" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="294.3" y="212.5" width="2.0" height="1.5" fill="var(--down)" fill-opacity="0.5"/><rect x="297.2" y="211.4" width="2.0" height="2.6" fill="var(--down)" fill-opacity="0.5"/><rect x="300.0" y="210.7" width="2.0" height="3.3" fill="var(--down)" fill-opacity="0.5"/><rect x="302.9" y="210.7" width="2.0" height="3.3" fill="var(--down)" fill-opacity="0.5"/><rect x="305.7" y="209.4" width="2.0" height="4.6" fill="var(--down)" fill-opacity="0.5"/><rect x="308.6" y="209.1" width="2.0" height="4.9" fill="var(--up)" fill-opacity="0.5"/><rect x="311.4" y="209.9" width="2.0" height="4.1" fill="var(--down)" fill-opacity="0.5"/><rect x="314.3" y="209.9" width="2.0" height="4.1" fill="var(--down)" fill-opacity="0.5"/><rect x="317.1" y="210.5" width="2.0" height="3.5" fill="var(--down)" fill-opacity="0.5"/><rect x="320.0" y="210.9" width="2.0" height="3.1" fill="var(--down)" fill-opacity="0.5"/><rect x="322.8" y="209.8" width="2.0" height="4.2" fill="var(--down)" fill-opacity="0.5"/><rect x="325.7" y="209.6" width="2.0" height="4.4" fill="var(--down)" fill-opacity="0.5"/><rect x="328.5" y="209.6" width="2.0" height="4.4" fill="var(--down)" fill-opacity="0.5"/><rect x="331.4" y="208.0" width="2.0" height="6.0" fill="var(--up)" fill-opacity="0.5"/><rect x="334.2" y="206.4" width="2.0" height="7.6" fill="var(--down)" fill-opacity="0.5"/><rect x="337.1" y="207.7" width="2.0" height="6.3" fill="var(--down)" fill-opacity="0.5"/><rect x="339.9" y="208.8" width="2.0" height="5.2" fill="var(--down)" fill-opacity="0.5"/><rect x="342.8" y="210.1" width="2.0" height="3.9" fill="var(--up)" fill-opacity="0.5"/><rect x="345.6" y="208.4" width="2.0" height="5.6" fill="var(--down)" fill-opacity="0.5"/><rect x="348.5" y="206.8" width="2.0" height="7.2" fill="var(--down)" fill-opacity="0.5"/><rect x="351.3" y="204.3" width="2.0" height="9.7" fill="var(--down)" fill-opacity="0.5"/><rect x="354.2" y="203.7" width="2.0" height="10.3" fill="var(--down)" fill-opacity="0.5"/><rect x="357.0" y="199.3" width="2.0" height="14.7" fill="var(--up)" fill-opacity="0.5"/><rect x="359.9" y="202.8" width="2.0" height="11.2" fill="var(--down)" fill-opacity="0.5"/><rect x="362.7" y="205.8" width="2.0" height="8.2" fill="var(--down)" fill-opacity="0.5"/><rect x="365.6" y="204.4" width="2.0" height="9.6" fill="var(--up)" fill-opacity="0.5"/><rect x="368.4" y="200.3" width="2.0" height="13.7" fill="var(--up)" fill-opacity="0.5"/><rect x="371.3" y="208.1" width="2.0" height="5.9" fill="var(--down)" fill-opacity="0.5"/><rect x="374.1" y="207.1" width="2.0" height="6.9" fill="var(--down)" fill-opacity="0.5"/><rect x="377.0" y="208.0" width="2.0" height="6.0" fill="var(--down)" fill-opacity="0.5"/><rect x="379.8" y="206.8" width="2.0" height="7.2" fill="var(--down)" fill-opacity="0.5"/><rect x="382.7" y="204.0" width="2.0" height="10.0" fill="var(--up)" fill-opacity="0.5"/><rect x="385.5" y="207.1" width="2.0" height="6.9" fill="var(--down)" fill-opacity="0.5"/><rect x="388.4" y="207.0" width="2.0" height="7.0" fill="var(--down)" fill-opacity="0.5"/><rect x="391.2" y="205.2" width="2.0" height="8.8" fill="var(--down)" fill-opacity="0.5"/><rect x="394.1" y="205.4" width="2.0" height="8.6" fill="var(--down)" fill-opacity="0.5"/><rect x="396.9" y="205.0" width="2.0" height="9.0" fill="var(--down)" fill-opacity="0.5"/><rect x="399.8" y="200.9" width="2.0" height="13.1" fill="var(--down)" fill-opacity="0.5"/><rect x="402.6" y="200.1" width="2.0" height="13.9" fill="var(--up)" fill-opacity="0.5"/><rect x="405.4" y="197.6" width="2.0" height="16.4" fill="var(--up)" fill-opacity="0.5"/><rect x="408.3" y="183.1" width="2.0" height="30.9" fill="var(--up)" fill-opacity="0.5"/><rect x="411.1" y="183.3" width="2.0" height="30.7" fill="var(--down)" fill-opacity="0.5"/><rect x="414.0" y="189.2" width="2.0" height="24.8" fill="var(--up)" fill-opacity="0.5"/><rect x="416.8" y="194.1" width="2.0" height="19.9" fill="var(--up)" fill-opacity="0.5"/><rect x="419.7" y="198.7" width="2.0" height="15.3" fill="var(--down)" fill-opacity="0.5"/><rect x="422.5" y="199.6" width="2.0" height="14.4" fill="var(--down)" fill-opacity="0.5"/><rect x="425.4" y="203.2" width="2.0" height="10.8" fill="var(--up)" fill-opacity="0.5"/><rect x="428.2" y="201.3" width="2.0" height="12.7" fill="var(--up)" fill-opacity="0.5"/><rect x="431.1" y="203.3" width="2.0" height="10.7" fill="var(--down)" fill-opacity="0.5"/><rect x="433.9" y="205.8" width="2.0" height="8.2" fill="var(--down)" fill-opacity="0.5"/><rect x="436.8" y="204.3" width="2.0" height="9.7" fill="var(--down)" fill-opacity="0.5"/><rect x="439.6" y="203.6" width="2.0" height="10.4" fill="var(--up)" fill-opacity="0.5"/><rect x="442.5" y="207.7" width="2.0" height="6.3" fill="var(--up)" fill-opacity="0.5"/><rect x="445.3" y="201.6" width="2.0" height="12.4" fill="var(--up)" fill-opacity="0.5"/><rect x="448.2" y="196.1" width="2.0" height="17.9" fill="var(--down)" fill-opacity="0.5"/><rect x="451.0" y="202.8" width="2.0" height="11.2" fill="var(--down)" fill-opacity="0.5"/><rect x="453.9" y="202.9" width="2.0" height="11.1" fill="var(--up)" fill-opacity="0.5"/><rect x="456.7" y="196.8" width="2.0" height="17.2" fill="var(--up)" fill-opacity="0.5"/><rect x="459.6" y="201.6" width="2.0" height="12.4" fill="var(--up)" fill-opacity="0.5"/><rect x="462.4" y="196.5" width="2.0" height="17.5" fill="var(--up)" fill-opacity="0.5"/><rect x="465.3" y="197.7" width="2.0" height="16.3" fill="var(--down)" fill-opacity="0.5"/><rect x="468.1" y="187.8" width="2.0" height="26.2" fill="var(--up)" fill-opacity="0.5"/><rect x="471.0" y="199.2" width="2.0" height="14.8" fill="var(--down)" fill-opacity="0.5"/><rect x="473.8" y="200.4" width="2.0" height="13.6" fill="var(--down)" fill-opacity="0.5"/><rect x="476.7" y="197.7" width="2.0" height="16.3" fill="var(--down)" fill-opacity="0.5"/><rect x="479.5" y="196.4" width="2.0" height="17.6" fill="var(--down)" fill-opacity="0.5"/><rect x="482.4" y="205.3" width="2.0" height="8.7" fill="var(--up)" fill-opacity="0.5"/><rect x="485.2" y="204.4" width="2.0" height="9.6" fill="var(--down)" fill-opacity="0.5"/><rect x="488.1" y="205.4" width="2.0" height="8.6" fill="var(--up)" fill-opacity="0.5"/><rect x="490.9" y="205.2" width="2.0" height="8.8" fill="var(--down)" fill-opacity="0.5"/><rect x="493.8" y="203.2" width="2.0" height="10.8" fill="var(--down)" fill-opacity="0.5"/><rect x="496.6" y="205.0" width="2.0" height="9.0" fill="var(--down)" fill-opacity="0.5"/><rect x="499.5" y="207.4" width="2.0" height="6.6" fill="var(--up)" fill-opacity="0.5"/><rect x="502.3" y="206.7" width="2.0" height="7.3" fill="var(--down)" fill-opacity="0.5"/><rect x="505.2" y="205.8" width="2.0" height="8.2" fill="var(--down)" fill-opacity="0.5"/><rect x="508.0" y="207.1" width="2.0" height="6.9" fill="var(--up)" fill-opacity="0.5"/><rect x="510.9" y="196.4" width="2.0" height="17.6" fill="var(--down)" fill-opacity="0.5"/><rect x="513.7" y="205.4" width="2.0" height="8.6" fill="var(--up)" fill-opacity="0.5"/><rect x="516.6" y="203.8" width="2.0" height="10.2" fill="var(--down)" fill-opacity="0.5"/><rect x="519.4" y="203.3" width="2.0" height="10.7" fill="var(--up)" fill-opacity="0.5"/><rect x="522.3" y="205.8" width="2.0" height="8.2" fill="var(--down)" fill-opacity="0.5"/><rect x="525.1" y="202.8" width="2.0" height="11.2" fill="var(--up)" fill-opacity="0.5"/><rect x="528.0" y="203.5" width="2.0" height="10.5" fill="var(--down)" fill-opacity="0.5"/><rect x="530.8" y="196.0" width="2.0" height="18.0" fill="var(--down)" fill-opacity="0.5"/><rect x="533.7" y="193.8" width="2.0" height="20.2" fill="var(--down)" fill-opacity="0.5"/><rect x="536.5" y="200.8" width="2.0" height="13.2" fill="var(--down)" fill-opacity="0.5"/><rect x="539.4" y="191.5" width="2.0" height="22.5" fill="var(--down)" fill-opacity="0.5"/><rect x="542.2" y="173.0" width="2.0" height="41.0" fill="var(--up)" fill-opacity="0.5"/><rect x="545.1" y="179.6" width="2.0" height="34.4" fill="var(--down)" fill-opacity="0.5"/><rect x="547.9" y="191.2" width="2.0" height="22.8" fill="var(--down)" fill-opacity="0.5"/><rect x="550.8" y="181.0" width="2.0" height="33.0" fill="var(--up)" fill-opacity="0.5"/><rect x="553.6" y="164.0" width="2.0" height="50.0" fill="var(--down)" fill-opacity="0.5"/><rect x="556.5" y="183.2" width="2.0" height="30.8" fill="var(--up)" fill-opacity="0.5"/><rect x="559.3" y="174.5" width="2.0" height="39.5" fill="var(--up)" fill-opacity="0.5"/><rect x="562.2" y="187.0" width="2.0" height="27.0" fill="var(--down)" fill-opacity="0.5"/><rect x="565.0" y="207.4" width="2.0" height="6.6" fill="var(--down)" fill-opacity="0.5"/>
+
+    <!-- date labels -->
+    <text x="56" y="234.0" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2025-08-26</text>
+    <text x="311.0" y="234.0" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-01-08</text>
+    <text x="566.0" y="234.0" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-05-22</text>
+
+    <!-- legend -->
+    <g font-family="JetBrains Mono" font-size="9" fill="var(--muted)">
+      <line x1="60" y1="10.0" x2="74" y2="10.0" stroke="var(--down)" stroke-width="1.6"/>
+      <text x="78" y="13.0">종가</text>
+      <line x1="114" y1="10.0" x2="128" y2="10.0" stroke="var(--accent)" stroke-width="1.2"/>
+      <text x="132" y="13.0">MA20</text>
+      <line x1="168" y1="10.0" x2="182" y2="10.0" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="186" y="13.0">MA60</text>
+      <rect x="224" y="6.0" width="10" height="6" fill="var(--up)" fill-opacity="0.5"/>
+      <text x="238" y="13.0">거래량 (상승일)</text>
+      <rect x="310" y="6.0" width="10" height="6" fill="var(--down)" fill-opacity="0.5"/>
+      <text x="324" y="13.0">거래량 (하락일)</text>
+    </g>
+  </svg></div>
+
+    <p class="wl-tech-summary"><span class="wl-tech-label">기술 신호 해석 ·</span> 하방 경계 신호입니다. 20거래일 수익률 -43.65%, RSI 22.8, 60일 추세 -61.94% 기준으로 판단했습니다.</p>
+
+    <div class="tech-grid">
+    <div class="tech-cell">
+      <span class="tk">20일 수익률</span>
+      <strong class="mono down">-43.65%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">60일 수익률</span>
+      <strong class="mono down">-61.94%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">RSI(14)</span>
+      <strong class="mono down">23</strong>
+    </div><div class="tech-cell">
+      <span class="tk">MACD 히스토그램</span>
+      <strong class="mono up">+2.3</strong>
+    </div><div class="tech-cell">
+      <span class="tk">연환산 변동성</span>
+      <strong class="mono flat">110.1%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">120일 최대낙폭</span>
+      <strong class="mono down">-86.9%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">지지선 (20일)</span>
+      <strong class="mono flat">100.00</strong>
+    </div><div class="tech-cell">
+      <span class="tk">저항선 (20일)</span>
+      <strong class="mono flat">187.00</strong>
+    </div>
+  </div>
+
+    <div class="drivers-grid">
+    <div class="drv-col up">
+      <div class="drv-head">우호 요인 +</div>
+      <ul><li>코스피와 코스피200 선물 약세</li><li>달러/원 급등과 외국인 순매도</li><li>VIX 상승과 미국 기술주 약세</li></ul>
+    </div>
+    <div class="drv-col down">
+      <div class="drv-head">부담 요인 −</div>
+      <ul><li>코스피 반등과 외국인 순매수 전환</li><li>달러/원 하향 안정</li><li>미국 위험자산 선호 회복</li></ul>
+    </div>
+  </div>
+
+    <div class="mf-grid">
+    <div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">전술 적합성</span>
+          <span class="mf-score mono">46<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:46%;background:var(--amber)"></div></div>
+        <p class="mf-note">단기 하락 방어에는 쓸 수 있지만 보유 기간 관리가 필수입니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">경로 의존성</span>
+          <span class="mf-score mono">34<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:34%;background:var(--down)"></div></div>
+        <p class="mf-note">일간 -2배 구조라 횡보·급등락 구간에서 성과 왜곡이 커질 수 있습니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">거래 유동성</span>
+          <span class="mf-score mono">62<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:62%;background:var(--amber)"></div></div>
+        <p class="mf-note">대표 곱버스 ETF라 거래 접근성은 비교적 높은 편입니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">추적 리스크</span>
+          <span class="mf-score mono">42<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:42%;background:var(--amber)"></div></div>
+        <p class="mf-note">선물 롤오버, 괴리율, 장중 호가 품질을 함께 점검해야 합니다.</p>
+      </div>
+  </div>
+
+    <div class="wl-bottom-grid">
+      <div class="wl-list">
+        <span class="wl-list-head">관찰 레벨</span>
+        <ul><li>코스피200 선물 전일 대비 방향</li><li>코스피 1% 이상 하락 여부</li><li>달러/원 1,450원·1,480원</li><li>ETF 괴리율과 거래대금</li></ul>
+      </div>
+      <div class="wl-list">
+        <span class="wl-list-head">다음 점검</span>
+        <ul><li>장 시작 전 미국 지수와 환율</li><li>외국인 선물 순매도</li><li>장중 코스피200 선물 저점 갱신 여부</li></ul>
+      </div>
+      <div class="wl-list">
+        <span class="wl-list-head">리스크</span>
+        <ul><li>레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있습니다.</li></ul>
+      </div>
+    </div>
+  </article><article class="wl-card">
+    <header class="wl-head">
+      <div class="wl-head-left">
+        <span class="wl-idx mono">03</span>
+        <div>
+          <h3>SRx Health Solutions</h3>
+          <p class="wl-sub mono">SRXH · 미국 · 헬스케어·마이크로캡</p>
+        </div>
+      </div>
+      <div class="wl-price">
+        <div class="wl-price-val mono">0.14<span class="wl-cur">USD</span></div>
+        <div class="wl-price-chg mono down">↓ -8.24% <span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+      </div>
+    </header>
+
+    <div class="wl-tone-row mono">
+      <span class="wl-tone-chip flat">매크로 중립<span class="sep">·</span>점수 55/100</span>
+      <span class="wl-tone-chip flat">기술 중립<span class="sep">·</span>점수 58/100</span>
+    </div>
+
+    <p class="wl-thesis">핵심 변수는 거래량 지속성, 현금 소진 속도, 자금조달 조건, 사업 전환 관련 공시입니다. 대형 헬스케어 섹터보다 개별 이벤트와 유동성 변화가 주가를 더 크게 흔들 수 있습니다.</p>
+
+    <div class="wl-chart"><svg viewBox="0 0 580 240" width="100%" height="auto" preserveAspectRatio="none" style="display:block">
+    <defs>
+      <linearGradient id="wl-area-SRXH" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--down)" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="var(--down)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="56" y1="156.0" x2="566" y2="156.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="156.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">0.110</text><line x1="56" y1="120.5" x2="566" y2="120.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="120.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">0.228</text><line x1="56" y1="85.0" x2="566" y2="85.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="85.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">0.347</text><line x1="56" y1="49.5" x2="566" y2="49.5" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="49.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">0.465</text><line x1="56" y1="14.0" x2="566" y2="14.0" stroke="var(--grid)" stroke-width=".5"/>
+      <text x="50" y="14.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">0.583</text>
+    <path d="M56.0,77.9 L58.8,79.5 L61.7,63.6 L64.5,68.0 L67.4,68.9 L70.2,74.3 L73.1,76.4 L75.9,82.2 L78.8,88.2 L81.6,98.5 L84.5,97.8 L87.3,97.2 L90.2,80.9 L93.0,85.5 L95.9,85.2 L98.7,87.3 L101.6,84.8 L104.4,87.9 L107.3,87.3 L110.1,83.9 L113.0,87.3 L115.8,90.5 L118.7,87.6 L121.5,93.9 L124.4,93.0 L127.2,83.2 L130.1,84.2 L132.9,78.8 L135.8,89.5 L138.6,87.6 L141.5,79.5 L144.3,90.0 L147.2,92.7 L150.0,93.0 L152.9,90.0 L155.7,94.0 L158.6,93.2 L161.4,90.9 L164.3,89.7 L167.1,92.8 L170.0,92.9 L172.8,89.7 L175.7,85.5 L178.5,77.9 L181.4,87.7 L184.2,83.3 L187.1,99.0 L189.9,97.2 L192.8,108.6 L195.6,102.8 L198.5,108.6 L201.3,120.6 L204.2,125.7 L207.0,122.6 L209.9,116.4 L212.7,115.8 L215.6,115.5 L218.4,114.9 L221.3,110.1 L224.1,110.4 L226.9,114.8 L229.8,106.9 L232.6,99.3 L235.5,92.8 L238.3,89.4 L241.2,86.4 L244.0,85.8 L246.9,73.8 L249.7,70.8 L252.6,69.1 L255.4,56.9 L258.3,52.2 L261.1,44.9 L264.0,14.0 L266.8,75.1 L269.7,50.6 L272.5,97.6 L275.4,75.9 L278.2,76.4 L281.1,88.5 L283.9,95.4 L286.8,99.6 L289.6,123.0 L292.5,111.3 L295.3,104.7 L298.2,120.8 L301.0,123.0 L303.9,120.5 L306.7,117.6 L309.6,128.0 L312.4,128.3 L315.3,128.7 L318.1,129.3 L321.0,131.2 L323.8,129.0 L326.7,128.4 L329.5,132.0 L332.4,131.9 L335.2,135.7 L338.1,137.4 L340.9,137.7 L343.8,142.6 L346.6,141.0 L349.5,142.6 L352.3,143.9 L355.2,143.9 L358.0,147.1 L360.9,148.2 L363.7,147.4 L366.6,145.2 L369.4,147.3 L372.3,150.3 L375.1,151.1 L378.0,156.0 L380.8,141.0 L383.7,148.8 L386.5,142.8 L389.4,144.4 L392.2,148.8 L395.1,148.6 L397.9,150.7 L400.7,151.1 L403.6,153.4 L406.4,150.9 L409.3,148.2 L412.1,150.3 L415.0,151.4 L417.8,152.5 L420.7,154.3 L423.5,152.0 L426.4,152.2 L429.2,153.0 L432.1,152.0 L434.9,149.6 L437.8,145.9 L440.6,149.1 L443.5,146.1 L446.3,145.1 L449.2,143.5 L452.0,148.7 L454.9,151.2 L457.7,152.7 L460.6,150.6 L463.4,152.6 L466.3,153.9 L469.1,154.3 L472.0,153.6 L474.8,155.4 L477.7,150.3 L480.5,149.7 L483.4,148.0 L486.2,147.8 L489.1,141.1 L491.9,148.7 L494.8,147.4 L497.6,150.6 L500.5,148.5 L503.3,148.1 L506.2,153.0 L509.0,150.7 L511.9,150.9 L514.7,150.9 L517.6,153.7 L520.4,153.1 L523.3,153.7 L526.1,153.1 L529.0,153.1 L531.8,154.3 L534.7,154.5 L537.5,154.8 L540.4,153.2 L543.2,154.5 L546.1,154.6 L548.9,155.1 L551.8,155.4 L554.6,154.3 L557.5,153.0 L560.3,153.1 L563.2,143.9 L566.0,147.6 L566.0,156.0 L56.0,156.0 Z" fill="url(#wl-area-SRXH)"/>
+    <path d="M56.0,36.5 L58.8,37.8 L61.7,39.0 L64.5,40.3 L67.4,41.5 L70.2,42.8 L73.1,43.9 L75.9,45.1 L78.8,46.3 L81.6,47.5 L84.5,48.9 L87.3,50.2 L90.2,51.4 L93.0,52.5 L95.9,53.7 L98.7,55.0 L101.6,56.1 L104.4,57.5 L107.3,58.6 L110.1,59.9 L113.0,61.6 L115.8,63.2 L118.7,64.7 L121.5,66.2 L124.4,67.7 L127.2,68.8 L130.1,70.0 L132.9,70.9 L135.8,72.2 L138.6,73.2 L141.5,74.1 L144.3,75.2 L147.2,76.4 L150.0,77.5 L152.9,78.6 L155.7,79.5 L158.6,80.3 L161.4,81.1 L164.3,81.7 L167.1,82.4 L170.0,82.9 L172.8,83.2 L175.7,83.4 L178.5,83.3 L181.4,83.7 L184.2,83.9 L187.1,84.2 L189.9,84.5 L192.8,85.0 L195.6,85.2 L198.5,85.4 L201.3,85.6 L204.2,87.0 L207.0,88.0 L209.9,88.5 L212.7,89.0 L215.6,89.8 L218.4,90.7 L221.3,91.4 L224.1,92.0 L226.9,92.6 L229.8,93.1 L232.6,93.7 L235.5,94.1 L238.3,94.5 L241.2,94.6 L244.0,94.8 L246.9,94.7 L249.7,94.4 L252.6,93.9 L255.4,93.2 L258.3,92.4 L261.1,91.8 L264.0,90.6 L266.8,90.5 L269.7,89.9 L272.5,90.1 L275.4,89.9 L278.2,89.7 L281.1,89.8 L283.9,89.9 L286.8,90.1 L289.6,90.7 L292.5,90.9 L295.3,91.2 L298.2,91.8 L301.0,92.4 L303.9,93.1 L306.7,93.6 L309.6,94.2 L312.4,95.1 L315.3,95.7 L318.1,96.3 L321.0,96.9 L323.8,97.6 L326.7,98.2 L329.5,98.8 L332.4,99.5 L335.2,100.3 L338.1,101.0 L340.9,101.8 L343.8,102.7 L346.6,103.6 L349.5,104.7 L352.3,105.6 L355.2,106.6 L358.0,107.4 L360.9,108.3 L363.7,108.9 L366.6,109.6 L369.4,110.2 L372.3,110.8 L375.1,111.2 L378.0,111.7 L380.8,112.1 L383.7,112.7 L386.5,113.1 L389.4,113.6 L392.2,114.3 L395.1,114.9 L397.9,115.5 L400.7,116.3 L403.6,117.2 L406.4,118.1 L409.3,119.1 L412.1,120.2 L415.0,121.3 L417.8,122.6 L420.7,124.0 L423.5,125.3 L426.4,126.9 L429.2,128.6 L432.1,130.4 L434.9,132.7 L437.8,133.8 L440.6,135.5 L443.5,136.3 L446.3,137.4 L449.2,138.6 L452.0,139.6 L454.9,140.5 L457.7,141.4 L460.6,141.8 L463.4,142.5 L466.3,143.4 L469.1,143.9 L472.0,144.4 L474.8,145.0 L477.7,145.6 L480.5,145.9 L483.4,146.2 L486.2,146.6 L489.1,146.8 L491.9,147.1 L494.8,147.4 L497.6,147.7 L500.5,148.0 L503.3,148.3 L506.2,148.6 L509.0,148.8 L511.9,149.0 L514.7,149.1 L517.6,149.4 L520.4,149.5 L523.3,149.7 L526.1,149.8 L529.0,149.9 L531.8,150.1 L534.7,150.2 L537.5,150.3 L540.4,150.4 L543.2,150.5 L546.1,150.6 L548.9,150.5 L551.8,150.8 L554.6,150.9 L557.5,151.0 L560.3,151.2 L563.2,151.1 L566.0,151.1" fill="none" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/>
+    <path d="M56.0,76.0 L58.8,76.5 L61.7,76.0 L64.5,75.3 L67.4,75.6 L70.2,75.6 L73.1,75.5 L75.9,75.4 L78.8,76.1 L81.6,76.5 L84.5,76.4 L87.3,75.9 L90.2,78.0 L93.0,79.1 L95.9,79.1 L98.7,79.1 L101.6,79.9 L104.4,81.2 L107.3,82.1 L110.1,82.8 L113.0,83.2 L115.8,83.8 L118.7,85.0 L121.5,86.3 L124.4,87.5 L127.2,87.9 L130.1,88.3 L132.9,88.2 L135.8,88.2 L138.6,87.7 L141.5,86.7 L144.3,86.4 L147.2,87.0 L150.0,87.3 L152.9,87.6 L155.7,87.9 L158.6,88.4 L161.4,88.5 L164.3,88.6 L167.1,89.1 L170.0,89.3 L172.8,89.3 L175.7,89.2 L178.5,88.4 L181.4,88.1 L184.2,88.1 L187.1,88.9 L189.9,89.8 L192.8,90.7 L195.6,91.5 L198.5,93.0 L201.3,94.5 L204.2,96.1 L207.0,97.6 L209.9,98.9 L212.7,100.0 L215.6,101.2 L218.4,102.4 L221.3,103.4 L224.1,104.2 L226.9,105.4 L229.8,106.2 L232.6,106.9 L235.5,107.6 L238.3,107.7 L241.2,107.9 L244.0,107.2 L246.9,106.0 L249.7,104.2 L252.6,102.5 L255.4,99.9 L258.3,96.5 L261.1,92.4 L264.0,87.0 L266.8,84.9 L269.7,81.7 L272.5,80.8 L275.4,78.8 L278.2,77.2 L281.1,76.1 L283.9,75.1 L286.8,74.7 L289.6,75.9 L292.5,76.8 L295.3,77.6 L298.2,79.3 L301.0,81.2 L303.9,83.5 L306.7,85.8 L309.6,88.8 L312.4,92.4 L315.3,96.2 L318.1,100.4 L321.0,106.3 L323.8,109.0 L326.7,112.9 L329.5,114.6 L332.4,117.4 L335.2,120.3 L338.1,122.8 L340.9,124.9 L343.8,127.0 L346.6,128.0 L349.5,129.5 L352.3,131.5 L355.2,132.6 L358.0,133.8 L360.9,135.2 L363.7,136.7 L366.6,137.6 L369.4,138.5 L372.3,139.6 L375.1,140.7 L378.0,141.9 L380.8,142.5 L383.7,143.5 L386.5,144.1 L389.4,144.7 L392.2,145.4 L395.1,145.9 L397.9,146.6 L400.7,147.0 L403.6,147.6 L406.4,148.0 L409.3,148.3 L412.1,148.6 L415.0,148.8 L417.8,149.0 L420.7,149.3 L423.5,149.7 L426.4,149.9 L429.2,150.1 L432.1,150.1 L434.9,149.8 L437.8,150.1 L440.6,150.1 L443.5,150.2 L446.3,150.3 L449.2,150.0 L452.0,150.0 L454.9,150.0 L457.7,150.1 L460.6,150.0 L463.4,150.1 L466.3,150.3 L469.1,150.5 L472.0,150.7 L474.8,150.8 L477.7,150.6 L480.5,150.5 L483.4,150.3 L486.2,150.0 L489.1,149.5 L491.9,149.4 L494.8,149.5 L497.6,149.6 L500.5,149.7 L503.3,149.8 L506.2,150.3 L509.0,150.4 L511.9,150.4 L514.7,150.3 L517.6,150.5 L520.4,150.5 L523.3,150.5 L526.1,150.4 L529.0,150.4 L531.8,150.4 L534.7,150.6 L537.5,150.8 L540.4,151.1 L543.2,151.4 L546.1,152.1 L548.9,152.4 L551.8,152.8 L554.6,153.0 L557.5,153.2 L560.3,153.5 L563.2,153.0 L566.0,152.8" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".75"/>
+    <path d="M56.0,77.9 L58.8,79.5 L61.7,63.6 L64.5,68.0 L67.4,68.9 L70.2,74.3 L73.1,76.4 L75.9,82.2 L78.8,88.2 L81.6,98.5 L84.5,97.8 L87.3,97.2 L90.2,80.9 L93.0,85.5 L95.9,85.2 L98.7,87.3 L101.6,84.8 L104.4,87.9 L107.3,87.3 L110.1,83.9 L113.0,87.3 L115.8,90.5 L118.7,87.6 L121.5,93.9 L124.4,93.0 L127.2,83.2 L130.1,84.2 L132.9,78.8 L135.8,89.5 L138.6,87.6 L141.5,79.5 L144.3,90.0 L147.2,92.7 L150.0,93.0 L152.9,90.0 L155.7,94.0 L158.6,93.2 L161.4,90.9 L164.3,89.7 L167.1,92.8 L170.0,92.9 L172.8,89.7 L175.7,85.5 L178.5,77.9 L181.4,87.7 L184.2,83.3 L187.1,99.0 L189.9,97.2 L192.8,108.6 L195.6,102.8 L198.5,108.6 L201.3,120.6 L204.2,125.7 L207.0,122.6 L209.9,116.4 L212.7,115.8 L215.6,115.5 L218.4,114.9 L221.3,110.1 L224.1,110.4 L226.9,114.8 L229.8,106.9 L232.6,99.3 L235.5,92.8 L238.3,89.4 L241.2,86.4 L244.0,85.8 L246.9,73.8 L249.7,70.8 L252.6,69.1 L255.4,56.9 L258.3,52.2 L261.1,44.9 L264.0,14.0 L266.8,75.1 L269.7,50.6 L272.5,97.6 L275.4,75.9 L278.2,76.4 L281.1,88.5 L283.9,95.4 L286.8,99.6 L289.6,123.0 L292.5,111.3 L295.3,104.7 L298.2,120.8 L301.0,123.0 L303.9,120.5 L306.7,117.6 L309.6,128.0 L312.4,128.3 L315.3,128.7 L318.1,129.3 L321.0,131.2 L323.8,129.0 L326.7,128.4 L329.5,132.0 L332.4,131.9 L335.2,135.7 L338.1,137.4 L340.9,137.7 L343.8,142.6 L346.6,141.0 L349.5,142.6 L352.3,143.9 L355.2,143.9 L358.0,147.1 L360.9,148.2 L363.7,147.4 L366.6,145.2 L369.4,147.3 L372.3,150.3 L375.1,151.1 L378.0,156.0 L380.8,141.0 L383.7,148.8 L386.5,142.8 L389.4,144.4 L392.2,148.8 L395.1,148.6 L397.9,150.7 L400.7,151.1 L403.6,153.4 L406.4,150.9 L409.3,148.2 L412.1,150.3 L415.0,151.4 L417.8,152.5 L420.7,154.3 L423.5,152.0 L426.4,152.2 L429.2,153.0 L432.1,152.0 L434.9,149.6 L437.8,145.9 L440.6,149.1 L443.5,146.1 L446.3,145.1 L449.2,143.5 L452.0,148.7 L454.9,151.2 L457.7,152.7 L460.6,150.6 L463.4,152.6 L466.3,153.9 L469.1,154.3 L472.0,153.6 L474.8,155.4 L477.7,150.3 L480.5,149.7 L483.4,148.0 L486.2,147.8 L489.1,141.1 L491.9,148.7 L494.8,147.4 L497.6,150.6 L500.5,148.5 L503.3,148.1 L506.2,153.0 L509.0,150.7 L511.9,150.9 L514.7,150.9 L517.6,153.7 L520.4,153.1 L523.3,153.7 L526.1,153.1 L529.0,153.1 L531.8,154.3 L534.7,154.5 L537.5,154.8 L540.4,153.2 L543.2,154.5 L546.1,154.6 L548.9,155.1 L551.8,155.4 L554.6,154.3 L557.5,153.0 L560.3,153.1 L563.2,143.9 L566.0,147.6" fill="none" stroke="var(--down)" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="566.0" cy="147.6" r="3" fill="var(--down)"/>
+
+    <!-- volume separator + label -->
+    <line x1="56" y1="164.0" x2="566" y2="164.0" stroke="var(--rule-soft)" stroke-width=".5"/>
+    <text x="50" y="166.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)" letter-spacing="0.1em">VOL</text>
+    <text x="50" y="212.0" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="var(--muted)">378.8M</text>
+    <rect x="55.0" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="57.9" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="60.7" y="203.5" width="2.0" height="10.5" fill="var(--up)" fill-opacity="0.5"/><rect x="63.6" y="213.5" width="2.0" height="0.5" fill="var(--down)" fill-opacity="0.5"/><rect x="66.4" y="213.8" width="2.0" height="0.2" fill="var(--down)" fill-opacity="0.5"/><rect x="69.2" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="72.1" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="74.9" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="77.8" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="80.6" y="213.7" width="2.0" height="0.3" fill="var(--down)" fill-opacity="0.5"/><rect x="83.5" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="86.3" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="89.2" y="213.4" width="2.0" height="0.6" fill="var(--up)" fill-opacity="0.5"/><rect x="92.0" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="94.9" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="97.7" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="100.6" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="103.4" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="106.3" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="109.1" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="112.0" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="114.8" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="117.7" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="120.5" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="123.4" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="126.2" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="129.1" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="131.9" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="134.8" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="137.6" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="140.5" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="143.3" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="146.2" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="149.0" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="151.9" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="154.7" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="157.6" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="160.4" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="163.3" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="166.1" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="169.0" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="171.8" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="174.7" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="177.5" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="180.4" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="183.2" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="186.1" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="188.9" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="191.8" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="194.6" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="197.5" y="211.4" width="2.0" height="2.6" fill="var(--down)" fill-opacity="0.5"/><rect x="200.3" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="203.2" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="206.0" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="208.9" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="211.7" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="214.6" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="217.4" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="220.3" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="223.1" y="214.0" width="2.0" height="0.0" fill="var(--down)" fill-opacity="0.5"/><rect x="226.0" y="213.9" width="2.0" height="0.1" fill="var(--down)" fill-opacity="0.5"/><rect x="228.8" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="231.7" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="234.5" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="237.3" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="240.2" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="243.0" y="214.0" width="2.0" height="0.0" fill="var(--up)" fill-opacity="0.5"/><rect x="245.9" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="248.7" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="251.6" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="254.4" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="257.3" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="260.1" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="263.0" y="213.8" width="2.0" height="0.2" fill="var(--up)" fill-opacity="0.5"/><rect x="265.8" y="213.8" width="2.0" height="0.2" fill="var(--down)" fill-opacity="0.5"/><rect x="268.7" y="213.9" width="2.0" height="0.1" fill="var(--up)" fill-opacity="0.5"/><rect x="271.5" y="213.7" width="2.0" height="0.3" fill="var(--down)" fill-opacity="0.5"/><rect x="274.4" y="164.0" width="2.0" height="50.0" fill="var(--up)" fill-opacity="0.5"/><rect x="277.2" y="207.6" width="2.0" height="6.4" fill="var(--down)" fill-opacity="0.5"/><rect x="280.1" y="211.4" width="2.0" height="2.6" fill="var(--down)" fill-opacity="0.5"/><rect x="282.9" y="212.0" width="2.0" height="2.0" fill="var(--down)" fill-opacity="0.5"/><rect x="285.8" y="212.8" width="2.0" height="1.2" fill="var(--down)" fill-opacity="0.5"/><rect x="288.6" y="209.5" width="2.0" height="4.5" fill="var(--down)" fill-opacity="0.5"/><rect x="291.5" y="212.2" width="2.0" height="1.8" fill="var(--up)" fill-opacity="0.5"/><rect x="294.3" y="210.0" width="2.0" height="4.0" fill="var(--up)" fill-opacity="0.5"/><rect x="297.2" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="300.0" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="302.9" y="211.5" width="2.0" height="2.5" fill="var(--up)" fill-opacity="0.5"/><rect x="305.7" y="212.0" width="2.0" height="2.0" fill="var(--up)" fill-opacity="0.5"/><rect x="308.6" y="202.8" width="2.0" height="11.2" fill="var(--down)" fill-opacity="0.5"/><rect x="311.4" y="210.5" width="2.0" height="3.5" fill="var(--down)" fill-opacity="0.5"/><rect x="314.3" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="317.1" y="209.9" width="2.0" height="4.1" fill="var(--down)" fill-opacity="0.5"/><rect x="320.0" y="209.8" width="2.0" height="4.2" fill="var(--down)" fill-opacity="0.5"/><rect x="322.8" y="210.7" width="2.0" height="3.3" fill="var(--up)" fill-opacity="0.5"/><rect x="325.7" y="209.0" width="2.0" height="5.0" fill="var(--up)" fill-opacity="0.5"/><rect x="328.5" y="210.1" width="2.0" height="3.9" fill="var(--down)" fill-opacity="0.5"/><rect x="331.4" y="212.2" width="2.0" height="1.8" fill="var(--up)" fill-opacity="0.5"/><rect x="334.2" y="209.0" width="2.0" height="5.0" fill="var(--down)" fill-opacity="0.5"/><rect x="337.1" y="210.7" width="2.0" height="3.3" fill="var(--down)" fill-opacity="0.5"/><rect x="339.9" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="342.8" y="210.1" width="2.0" height="3.9" fill="var(--down)" fill-opacity="0.5"/><rect x="345.6" y="212.1" width="2.0" height="1.9" fill="var(--up)" fill-opacity="0.5"/><rect x="348.5" y="210.7" width="2.0" height="3.3" fill="var(--down)" fill-opacity="0.5"/><rect x="351.3" y="211.0" width="2.0" height="3.0" fill="var(--down)" fill-opacity="0.5"/><rect x="354.2" y="211.1" width="2.0" height="2.9" fill="var(--down)" fill-opacity="0.5"/><rect x="357.0" y="211.2" width="2.0" height="2.8" fill="var(--down)" fill-opacity="0.5"/><rect x="359.9" y="209.4" width="2.0" height="4.6" fill="var(--down)" fill-opacity="0.5"/><rect x="362.7" y="209.9" width="2.0" height="4.1" fill="var(--up)" fill-opacity="0.5"/><rect x="365.6" y="209.7" width="2.0" height="4.3" fill="var(--up)" fill-opacity="0.5"/><rect x="368.4" y="211.5" width="2.0" height="2.5" fill="var(--down)" fill-opacity="0.5"/><rect x="371.3" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="374.1" y="210.9" width="2.0" height="3.1" fill="var(--down)" fill-opacity="0.5"/><rect x="377.0" y="210.2" width="2.0" height="3.8" fill="var(--down)" fill-opacity="0.5"/><rect x="379.8" y="203.1" width="2.0" height="10.9" fill="var(--up)" fill-opacity="0.5"/><rect x="382.7" y="196.7" width="2.0" height="17.3" fill="var(--down)" fill-opacity="0.5"/><rect x="385.5" y="202.8" width="2.0" height="11.2" fill="var(--up)" fill-opacity="0.5"/><rect x="388.4" y="198.8" width="2.0" height="15.2" fill="var(--down)" fill-opacity="0.5"/><rect x="391.2" y="210.3" width="2.0" height="3.7" fill="var(--down)" fill-opacity="0.5"/><rect x="394.1" y="211.1" width="2.0" height="2.9" fill="var(--up)" fill-opacity="0.5"/><rect x="396.9" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="399.8" y="209.5" width="2.0" height="4.5" fill="var(--down)" fill-opacity="0.5"/><rect x="402.6" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="405.4" y="212.4" width="2.0" height="1.6" fill="var(--up)" fill-opacity="0.5"/><rect x="408.3" y="211.6" width="2.0" height="2.4" fill="var(--up)" fill-opacity="0.5"/><rect x="411.1" y="212.6" width="2.0" height="1.4" fill="var(--down)" fill-opacity="0.5"/><rect x="414.0" y="212.8" width="2.0" height="1.2" fill="var(--down)" fill-opacity="0.5"/><rect x="416.8" y="212.3" width="2.0" height="1.7" fill="var(--down)" fill-opacity="0.5"/><rect x="419.7" y="212.2" width="2.0" height="1.8" fill="var(--down)" fill-opacity="0.5"/><rect x="422.5" y="212.7" width="2.0" height="1.3" fill="var(--up)" fill-opacity="0.5"/><rect x="425.4" y="213.1" width="2.0" height="0.9" fill="var(--down)" fill-opacity="0.5"/><rect x="428.2" y="213.0" width="2.0" height="1.0" fill="var(--down)" fill-opacity="0.5"/><rect x="431.1" y="212.0" width="2.0" height="2.0" fill="var(--up)" fill-opacity="0.5"/><rect x="433.9" y="211.2" width="2.0" height="2.8" fill="var(--up)" fill-opacity="0.5"/><rect x="436.8" y="210.9" width="2.0" height="3.1" fill="var(--up)" fill-opacity="0.5"/><rect x="439.6" y="212.6" width="2.0" height="1.4" fill="var(--down)" fill-opacity="0.5"/><rect x="442.5" y="203.8" width="2.0" height="10.2" fill="var(--up)" fill-opacity="0.5"/><rect x="445.3" y="209.0" width="2.0" height="5.0" fill="var(--up)" fill-opacity="0.5"/><rect x="448.2" y="210.8" width="2.0" height="3.2" fill="var(--up)" fill-opacity="0.5"/><rect x="451.0" y="206.2" width="2.0" height="7.8" fill="var(--down)" fill-opacity="0.5"/><rect x="453.9" y="211.6" width="2.0" height="2.4" fill="var(--down)" fill-opacity="0.5"/><rect x="456.7" y="209.7" width="2.0" height="4.3" fill="var(--down)" fill-opacity="0.5"/><rect x="459.6" y="211.8" width="2.0" height="2.2" fill="var(--up)" fill-opacity="0.5"/><rect x="462.4" y="212.2" width="2.0" height="1.8" fill="var(--down)" fill-opacity="0.5"/><rect x="465.3" y="211.7" width="2.0" height="2.3" fill="var(--down)" fill-opacity="0.5"/><rect x="468.1" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="471.0" y="212.9" width="2.0" height="1.1" fill="var(--up)" fill-opacity="0.5"/><rect x="473.8" y="212.3" width="2.0" height="1.7" fill="var(--down)" fill-opacity="0.5"/><rect x="476.7" y="211.5" width="2.0" height="2.5" fill="var(--up)" fill-opacity="0.5"/><rect x="479.5" y="211.1" width="2.0" height="2.9" fill="var(--up)" fill-opacity="0.5"/><rect x="482.4" y="211.8" width="2.0" height="2.2" fill="var(--up)" fill-opacity="0.5"/><rect x="485.2" y="211.5" width="2.0" height="2.5" fill="var(--up)" fill-opacity="0.5"/><rect x="488.1" y="205.5" width="2.0" height="8.5" fill="var(--up)" fill-opacity="0.5"/><rect x="490.9" y="203.9" width="2.0" height="10.1" fill="var(--down)" fill-opacity="0.5"/><rect x="493.8" y="209.6" width="2.0" height="4.4" fill="var(--up)" fill-opacity="0.5"/><rect x="496.6" y="209.6" width="2.0" height="4.4" fill="var(--down)" fill-opacity="0.5"/><rect x="499.5" y="210.0" width="2.0" height="4.0" fill="var(--up)" fill-opacity="0.5"/><rect x="502.3" y="207.7" width="2.0" height="6.3" fill="var(--up)" fill-opacity="0.5"/><rect x="505.2" y="207.4" width="2.0" height="6.6" fill="var(--down)" fill-opacity="0.5"/><rect x="508.0" y="209.5" width="2.0" height="4.5" fill="var(--up)" fill-opacity="0.5"/><rect x="510.9" y="212.7" width="2.0" height="1.3" fill="var(--down)" fill-opacity="0.5"/><rect x="516.6" y="210.9" width="2.0" height="3.1" fill="var(--down)" fill-opacity="0.5"/><rect x="519.4" y="210.0" width="2.0" height="4.0" fill="var(--up)" fill-opacity="0.5"/><rect x="522.3" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="525.1" y="211.4" width="2.0" height="2.6" fill="var(--up)" fill-opacity="0.5"/><rect x="528.0" y="211.9" width="2.0" height="2.1" fill="var(--up)" fill-opacity="0.5"/><rect x="530.8" y="212.0" width="2.0" height="2.0" fill="var(--down)" fill-opacity="0.5"/><rect x="533.7" y="211.0" width="2.0" height="3.0" fill="var(--down)" fill-opacity="0.5"/><rect x="536.5" y="212.4" width="2.0" height="1.6" fill="var(--down)" fill-opacity="0.5"/><rect x="539.4" y="211.8" width="2.0" height="2.2" fill="var(--up)" fill-opacity="0.5"/><rect x="542.2" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="545.1" y="212.0" width="2.0" height="2.0" fill="var(--down)" fill-opacity="0.5"/><rect x="547.9" y="211.8" width="2.0" height="2.2" fill="var(--down)" fill-opacity="0.5"/><rect x="550.8" y="211.9" width="2.0" height="2.1" fill="var(--down)" fill-opacity="0.5"/><rect x="553.6" y="209.6" width="2.0" height="4.4" fill="var(--up)" fill-opacity="0.5"/><rect x="556.5" y="209.8" width="2.0" height="4.2" fill="var(--up)" fill-opacity="0.5"/><rect x="559.3" y="210.8" width="2.0" height="3.2" fill="var(--down)" fill-opacity="0.5"/><rect x="562.2" y="199.0" width="2.0" height="15.0" fill="var(--up)" fill-opacity="0.5"/><rect x="565.0" y="196.3" width="2.0" height="17.7" fill="var(--down)" fill-opacity="0.5"/>
+
+    <!-- date labels -->
+    <text x="56" y="234.0" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2025-08-27</text>
+    <text x="311.0" y="234.0" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-01-05</text>
+    <text x="566.0" y="234.0" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">2026-05-14</text>
+
+    <!-- legend -->
+    <g font-family="JetBrains Mono" font-size="9" fill="var(--muted)">
+      <line x1="60" y1="10.0" x2="74" y2="10.0" stroke="var(--down)" stroke-width="1.6"/>
+      <text x="78" y="13.0">종가</text>
+      <line x1="114" y1="10.0" x2="128" y2="10.0" stroke="var(--accent)" stroke-width="1.2"/>
+      <text x="132" y="13.0">MA20</text>
+      <line x1="168" y1="10.0" x2="182" y2="10.0" stroke="var(--amber)" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="186" y="13.0">MA60</text>
+      <rect x="224" y="6.0" width="10" height="6" fill="var(--up)" fill-opacity="0.5"/>
+      <text x="238" y="13.0">거래량 (상승일)</text>
+      <rect x="310" y="6.0" width="10" height="6" fill="var(--down)" fill-opacity="0.5"/>
+      <text x="324" y="13.0">거래량 (하락일)</text>
+    </g>
+  </svg></div>
+
+    <p class="wl-tech-summary"><span class="wl-tech-label">기술 신호 해석 ·</span> 중립 신호입니다. 20거래일 수익률 8.07%, RSI 63.2, 60일 추세 2.6% 기준으로 판단했습니다.</p>
+
+    <div class="tech-grid">
+    <div class="tech-cell">
+      <span class="tk">20일 수익률</span>
+      <strong class="mono up">+8.07%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">60일 수익률</span>
+      <strong class="mono up">+2.60%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">RSI(14)</span>
+      <strong class="mono flat">63</strong>
+    </div><div class="tech-cell">
+      <span class="tk">MACD 히스토그램</span>
+      <strong class="mono up">+0.0</strong>
+    </div><div class="tech-cell">
+      <span class="tk">연환산 변동성</span>
+      <strong class="mono flat">104.3%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">120일 최대낙폭</span>
+      <strong class="mono down">-76.3%</strong>
+    </div><div class="tech-cell">
+      <span class="tk">지지선 (20일)</span>
+      <strong class="mono flat">0.11</strong>
+    </div><div class="tech-cell">
+      <span class="tk">저항선 (20일)</span>
+      <strong class="mono flat">0.17</strong>
+    </div>
+  </div>
+
+    <div class="drivers-grid">
+    <div class="drv-col up">
+      <div class="drv-head">우호 요인 +</div>
+      <ul><li>미국 소형주와 헬스케어 섹터 동반 강세</li><li>거래량 급증 후 가격 지지</li><li>자금조달·사업 전환 관련 불확실성 완화</li></ul>
+    </div>
+    <div class="drv-col down">
+      <div class="drv-head">부담 요인 −</div>
+      <ul><li>VIX 상승과 투기성 소형주 회피</li><li>추가 주식 발행 또는 전환증권 부담</li><li>거래량 급감과 호가 스프레드 확대</li></ul>
+    </div>
+  </div>
+
+    <div class="mf-grid">
+    <div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">거래 유동성</span>
+          <span class="mf-score mono">28<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:28%;background:var(--down)"></div></div>
+        <p class="mf-note">마이크로캡 특성상 거래대금과 호가 스프레드 확인이 우선입니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">재무 안정성</span>
+          <span class="mf-score mono">32<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:32%;background:var(--down)"></div></div>
+        <p class="mf-note">현금 소진과 희석성 자금조달 가능성을 보수적으로 봐야 합니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">이벤트 모멘텀</span>
+          <span class="mf-score mono">44<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:44%;background:var(--amber)"></div></div>
+        <p class="mf-note">사업 전환·합병·공시 이벤트가 단기 가격을 크게 흔들 수 있습니다.</p>
+      </div><div class="mf">
+        <div class="mf-top">
+          <span class="mf-label">공시 리스크</span>
+          <span class="mf-score mono">35<span style="font-size:9px;color:var(--muted);margin-left:2px">/100</span></span>
+        </div>
+        <div class="mf-bar"><div class="mf-fill" style="width:35%;background:var(--down)"></div></div>
+        <p class="mf-note">상장 유지, 역분할, 전환증권 관련 공시를 계속 추적해야 합니다.</p>
+      </div>
+  </div>
+
+    <div class="wl-bottom-grid">
+      <div class="wl-list">
+        <span class="wl-list-head">관찰 레벨</span>
+        <ul><li>전일 대비 거래량 배수</li><li>현금 보유와 분기 현금 소진</li><li>신주·전환증권·워런트 공시</li><li>XLV와 러셀2000 방향</li></ul>
+      </div>
+      <div class="wl-list">
+        <span class="wl-list-head">다음 점검</span>
+        <ul><li>최근 8-K·10-Q 공시</li><li>사업 전환 또는 합병 관련 업데이트</li><li>장중 거래대금과 호가 스프레드</li></ul>
+      </div>
+      <div class="wl-list">
+        <span class="wl-list-head">리스크</span>
+        <ul><li>마이크로캡은 유동성이 얕아 작은 주문에도 가격이 크게 움직일 수 있습니다.</li><li>저가주는 상장 유지 요건, 역분할, 희석성 자금조달 공시를 반드시 확인해야 합니다.</li></ul>
+      </div>
+    </div>
+  </article>
+    </div>
   </div></section>
 <section class="section"><div class="shell">
     <div class="section-head">
@@ -813,7 +1349,7 @@ h1.hero em{font-style:normal;color:var(--accent)}
     </div>
     
     <div style="display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--muted);margin:0 0 18px;flex-wrap:wrap">
-      <span><span class="chip fresh" style="margin-right:6px">최신</span>7건</span>
+      <span><span class="chip fresh" style="margin-right:6px">최신</span>9건</span>
       <span><span class="chip delayed" style="margin-right:6px">지연</span>0건</span>
       <span><span class="chip stale" style="margin-right:6px">오래됨</span>5건</span>
       <span style="margin-left:auto">기준일 2026-05-25</span>
@@ -864,12 +1400,12 @@ h1.hero em{font-style:normal;color:var(--accent)}
       <span>데이터 출처: FRED (Federal Reserve Bank of St. Louis) · [object Object]</span>
     </div>
     <div class="row">
-      <span>발행: 2026-05-25-07:09 KST</span>
+      <span>발행: 2026-05-25-19:39 KST</span>
       <span>리포트 일자: 2026-05-25</span>
       <span>모드: fred-api</span>
     </div>
     <div class="row">
-      <span>본 결과물은 정보 제공이며 투자자문이 아닙니다.</span>
+      <span>본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있습니다.</span>
     </div>
   </div></footer>
 </body>

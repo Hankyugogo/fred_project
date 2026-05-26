@@ -42,6 +42,12 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          STRICT_REWRITE_VALIDATION: "1"
+
+      - name: Validate generated report
+        run: |
+          npm run check:quality
+          npm run check:copy
 
       - name: Build notification payload
         id: payload
