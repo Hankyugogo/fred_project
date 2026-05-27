@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T12:57:31.502Z",
+  "generatedAt": "2026-05-27T00:18:50.913Z",
   "source": "FRED API + Yahoo Finance v8 chart API",
   "range": "~14mo",
   "interval": "1d",
@@ -11,18 +11,10 @@
       "yahooSymbol": "^GSPC",
       "label": "S&P 500",
       "kind": "index",
-      "historyLength": 292,
+      "historyLength": 290,
       "latestDate": "2026-05-22",
       "latestClose": 7473.47,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 5712.2
-        },
-        {
-          "date": "2025-03-27",
-          "close": 5693.31
-        },
         {
           "date": "2025-03-28",
           "close": 5580.94
@@ -1193,18 +1185,10 @@
       "yahooSymbol": "^IXIC",
       "label": "나스닥종합",
       "kind": "index",
-      "historyLength": 292,
+      "historyLength": 290,
       "latestDate": "2026-05-22",
       "latestClose": 26343.97,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 17899.01
-        },
-        {
-          "date": "2025-03-27",
-          "close": 17804.03
-        },
         {
           "date": "2025-03-28",
           "close": 17322.99
@@ -2375,18 +2359,10 @@
       "yahooSymbol": "^DJI",
       "label": "다우지수",
       "kind": "index",
-      "historyLength": 292,
-      "latestDate": "2026-05-22",
-      "latestClose": 50579.7,
+      "historyLength": 291,
+      "latestDate": "2026-05-26",
+      "latestClose": 50461.68,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 42454.79
-        },
-        {
-          "date": "2025-03-27",
-          "close": 42299.7
-        },
         {
           "date": "2025-03-28",
           "close": 41583.9
@@ -3546,6 +3522,10 @@
         {
           "date": "2026-05-22",
           "close": 50579.7
+        },
+        {
+          "date": "2026-05-26",
+          "close": 50461.68
         }
       ],
       "source": "FRED API",
@@ -8604,7 +8584,7 @@
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-05-25T12:57:27.326Z"
+      "fetchedAt": "2026-05-27T00:18:49.335Z"
     },
     {
       "id": "VIXCLS",
@@ -8613,17 +8593,9 @@
       "label": "VIX",
       "kind": "index",
       "historyLength": 298,
-      "latestDate": "2026-05-21",
-      "latestClose": 16.76,
+      "latestDate": "2026-05-25",
+      "latestClose": 16.59,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 18.33
-        },
-        {
-          "date": "2025-03-27",
-          "close": 18.69
-        },
         {
           "date": "2025-03-28",
           "close": 21.65
@@ -9807,6 +9779,14 @@
         {
           "date": "2026-05-21",
           "close": 16.76
+        },
+        {
+          "date": "2026-05-22",
+          "close": 16.7
+        },
+        {
+          "date": "2026-05-25",
+          "close": 16.59
         }
       ],
       "source": "FRED API",
@@ -9818,18 +9798,10 @@
       "yahooSymbol": "^TNX",
       "label": "미 국채 10년물",
       "kind": "rate",
-      "historyLength": 290,
-      "latestDate": "2026-05-21",
-      "latestClose": 4.57,
+      "historyLength": 289,
+      "latestDate": "2026-05-22",
+      "latestClose": 4.56,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 4.35
-        },
-        {
-          "date": "2025-03-27",
-          "close": 4.38
-        },
         {
           "date": "2025-03-28",
           "close": 4.27
@@ -10981,6 +10953,10 @@
         {
           "date": "2026-05-21",
           "close": 4.57
+        },
+        {
+          "date": "2026-05-22",
+          "close": 4.56
         }
       ],
       "source": "FRED API",
@@ -10992,18 +10968,10 @@
       "yahooSymbol": "^IRX",
       "label": "미 국채 단기 (^IRX, 13W T-Bill)",
       "kind": "rate",
-      "historyLength": 290,
-      "latestDate": "2026-05-21",
-      "latestClose": 4.08,
+      "historyLength": 289,
+      "latestDate": "2026-05-22",
+      "latestClose": 4.13,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 3.98
-        },
-        {
-          "date": "2025-03-27",
-          "close": 3.97
-        },
         {
           "date": "2025-03-28",
           "close": 3.89
@@ -12155,6 +12123,10 @@
         {
           "date": "2026-05-21",
           "close": 4.08
+        },
+        {
+          "date": "2026-05-22",
+          "close": 4.13
         }
       ],
       "source": "FRED API",
@@ -12166,18 +12138,10 @@
       "yahooSymbol": "KRW=X",
       "label": "USD/KRW",
       "kind": "fx",
-      "historyLength": 287,
-      "latestDate": "2026-05-15",
-      "latestClose": 1499.61,
+      "historyLength": 290,
+      "latestDate": "2026-05-22",
+      "latestClose": 1517.33,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 1467.25
-        },
-        {
-          "date": "2025-03-27",
-          "close": 1463.9
-        },
         {
           "date": "2025-03-28",
           "close": 1469.2
@@ -13317,6 +13281,26 @@
         {
           "date": "2026-05-15",
           "close": 1499.61
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1494.67
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1508.49
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1498.77
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1508.47
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1517.33
         }
       ],
       "source": "FRED API",
@@ -13328,18 +13312,10 @@
       "yahooSymbol": "DX-Y.NYB",
       "label": "달러지수 (DXY)",
       "kind": "fx",
-      "historyLength": 287,
-      "latestDate": "2026-05-15",
-      "latestClose": 119.2825,
+      "historyLength": 290,
+      "latestDate": "2026-05-22",
+      "latestClose": 119.2868,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 126.2364
-        },
-        {
-          "date": "2025-03-27",
-          "close": 126.3626
-        },
         {
           "date": "2025-03-28",
           "close": 126.4187
@@ -14479,6 +14455,26 @@
         {
           "date": "2026-05-15",
           "close": 119.2825
+        },
+        {
+          "date": "2026-05-18",
+          "close": 119.0574
+        },
+        {
+          "date": "2026-05-19",
+          "close": 119.451
+        },
+        {
+          "date": "2026-05-20",
+          "close": 119.1624
+        },
+        {
+          "date": "2026-05-21",
+          "close": 119.369
+        },
+        {
+          "date": "2026-05-22",
+          "close": 119.2868
         }
       ],
       "source": "FRED API",
@@ -14490,18 +14486,10 @@
       "yahooSymbol": "JPY=X",
       "label": "USD/JPY",
       "kind": "fx",
-      "historyLength": 287,
-      "latestDate": "2026-05-15",
-      "latestClose": 158.69,
+      "historyLength": 290,
+      "latestDate": "2026-05-22",
+      "latestClose": 159.2,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 150.69
-        },
-        {
-          "date": "2025-03-27",
-          "close": 150.97
-        },
         {
           "date": "2025-03-28",
           "close": 150.26
@@ -15641,6 +15629,26 @@
         {
           "date": "2026-05-15",
           "close": 158.69
+        },
+        {
+          "date": "2026-05-18",
+          "close": 158.83
+        },
+        {
+          "date": "2026-05-19",
+          "close": 159.11
+        },
+        {
+          "date": "2026-05-20",
+          "close": 158.84
+        },
+        {
+          "date": "2026-05-21",
+          "close": 159.16
+        },
+        {
+          "date": "2026-05-22",
+          "close": 159.2
         }
       ],
       "source": "FRED API",
@@ -15652,18 +15660,10 @@
       "yahooSymbol": "CL=F",
       "label": "WTI 유가",
       "kind": "commodity",
-      "historyLength": 286,
+      "historyLength": 284,
       "latestDate": "2026-05-18",
       "latestClose": 112.25,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 70.05
-        },
-        {
-          "date": "2025-03-27",
-          "close": 70.3
-        },
         {
           "date": "2025-03-28",
           "close": 69.74
@@ -16810,18 +16810,10 @@
       "yahooSymbol": "BZ=F",
       "label": "브렌트유",
       "kind": "commodity",
-      "historyLength": 288,
+      "historyLength": 286,
       "latestDate": "2026-05-18",
       "latestClose": 116.73,
       "history": [
-        {
-          "date": "2025-03-26",
-          "close": 74.6
-        },
-        {
-          "date": "2025-03-27",
-          "close": 74.72
-        },
         {
           "date": "2025-03-28",
           "close": 74.69
@@ -23023,7 +23015,7 @@
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-05-25T12:57:30.071Z"
+      "fetchedAt": "2026-05-27T00:18:50.848Z"
     },
     {
       "id": "COPPER",
@@ -28078,7 +28070,7 @@
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-05-25T12:57:31.002Z"
+      "fetchedAt": "2026-05-27T00:18:50.897Z"
     },
     {
       "id": "BTC",
@@ -33133,7 +33125,7 @@
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-05-25T12:57:31.502Z"
+      "fetchedAt": "2026-05-27T00:18:50.913Z"
     }
   ]
 }
