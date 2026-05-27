@@ -22,6 +22,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "config", "macro-indicators.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "macro-history.json");
+const SUPPLEMENTS_PATH = path.join(ROOT, "data", "market-supplements.json");
 const FETCH_TIMEOUT_MS = 30_000;
 
 // FRED observations endpoint
@@ -74,6 +75,68 @@ function round(value, digits = 4) {
   if (!Number.isFinite(value)) return null;
   const factor = 10 ** digits;
   return Math.round(value * factor) / factor;
+}
+
+function compareDateStrings(leftDateString, rightDateString) {
+  if (!leftDateString || !rightDateString) return 0;
+  const left = new Date(`${leftDateString}T00:00:00Z`);
+  const right = new Date(`${rightDateString}T00:00:00Z`);
+  return Math.round((left.getTime() - right.getTime()) / 86400000);
+}
+
+async function readMarketSupplements() {
+  if (!existsSync(SUPPLEMENTS_PATH)) return new Map();
+  try {
+    const raw = JSON.parse(await readFile(SUPPLEMENTS_PATH, "utf8"));
+    const valid = (raw.items || []).filter((item) =>
+      !item.error &&
+      item.replacementPolicy !== "supplement-only" &&
+      item.id &&
+      item.observationDate &&
+      Number.isFinite(Number(item.latestValue))
+    );
+    return new Map(valid.map((item) => [item.id, item]));
+  } catch (error) {
+    console.warn(`[fetch-macro-history] market supplements ignored: ${error.message}`);
+    return new Map();
+  }
+}
+
+function applyMarketSupplementToHistory(result, supplement) {
+  if (!result?.history?.length || !supplement) return result;
+  const dateComparison = compareDateStrings(supplement.observationDate, result.latestDate);
+  const existingSourceIsClean = result.source && !String(result.source).startsWith("undefined");
+  if (dateComparison < 0) return result;
+  if (dateComparison === 0 && existingSourceIsClean) return result;
+
+  const close = round(Number(supplement.latestValue));
+  if (!Number.isFinite(close)) return result;
+
+  const byDate = new Map(result.history.map((row) => [row.date, row]));
+  byDate.set(supplement.observationDate, {
+    date: supplement.observationDate,
+    close
+  });
+  const history = Array.from(byDate.values()).sort((a, b) => a.date.localeCompare(b.date));
+  const latest = history[history.length - 1];
+  const baseSource = result.source && !String(result.source).startsWith("undefined")
+    ? result.source
+    : "cached history";
+
+  return {
+    ...result,
+    historyLength: history.length,
+    latestDate: latest.date,
+    latestClose: latest.close,
+    history,
+    source: `${baseSource} + market supplement`,
+    marketSupplement: {
+      source: supplement.source || "Yahoo Finance v8 chart API",
+      sourceSymbol: supplement.sourceSymbol || supplement.yahoo || null,
+      replacementPolicy: supplement.replacementPolicy || "replace",
+      fetchedAt: supplement.fetchedAt || null
+    }
+  };
 }
 
 // FRED observations → history[]
@@ -153,14 +216,15 @@ async function fetchYahooHistory(indicator) {
   };
 }
 
-async function fetchOne(indicator, apiKey, fallback) {
+async function fetchOne(indicator, apiKey, fallback, supplementById) {
   const hasFred = Boolean(indicator.fredId && apiKey);
   const errors = [];
+  const supplement = supplementById.get(indicator.id);
 
   // 1) FRED API
   if (hasFred) {
     try {
-      return await fetchFredHistory(indicator, apiKey);
+      return applyMarketSupplementToHistory(await fetchFredHistory(indicator, apiKey), supplement);
     } catch (err) {
       errors.push(`FRED: ${err.message}`);
     }
@@ -176,8 +240,9 @@ async function fetchOne(indicator, apiKey, fallback) {
   // 3) 캐시 폴백
   const errorMsg = errors.join("; ");
   if (fallback?.history?.length) {
+    const supplementedFallback = applyMarketSupplementToHistory(fallback, supplement);
     return {
-      ...fallback,
+      ...supplementedFallback,
       fallbackUsed: true,
       error: errorMsg,
       fetchedAt: new Date().toISOString()
@@ -208,6 +273,7 @@ async function main() {
   const config = JSON.parse(await readFile(CONFIG_PATH, "utf8"));
   const apiKey = process.env.FRED_API_KEY || null;
   const previous = await readPreviousOutput();
+  const supplementById = await readMarketSupplements();
   const fallbackById = new Map((previous?.items || []).map((item) => [item.id, item]));
   const indicators = Array.isArray(config.indicators) ? config.indicators : [];
 
@@ -223,7 +289,7 @@ async function main() {
     const label = hasFred ? "FRED→Yahoo" : "Yahoo";
     process.stdout.write(`  ${ind.id.padEnd(14)} ${ind.yahooSymbol.padEnd(12)} [${label}] … `);
     const t0 = Date.now();
-    const result = await fetchOne(ind, apiKey, fallbackById.get(ind.id));
+    const result = await fetchOne(ind, apiKey, fallbackById.get(ind.id), supplementById);
     const dt = Date.now() - t0;
 
     if (!result.error) {

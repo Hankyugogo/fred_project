@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "config", "fred-series.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "market-snapshot.json");
 const YAHOO_PATH = path.join(ROOT, "data", "yahoo-snapshot.json");
+const MARKET_SUPPLEMENTS_PATH = path.join(ROOT, "data", "market-supplements.json");
 const API_BASE = "https://api.stlouisfed.org/fred/series/observations";
 const DEMO_MODE = process.argv.includes("--demo");
 const REPORT_DATE_OVERRIDE = process.env.REPORT_DATE_OVERRIDE;
@@ -25,6 +26,11 @@ function differenceInDays(leftDateString, rightDateString) {
   const left = new Date(`${leftDateString}T00:00:00Z`);
   const right = new Date(`${rightDateString}T00:00:00Z`);
   return Math.round((left.getTime() - right.getTime()) / 86400000);
+}
+
+function compareDateStrings(leftDateString, rightDateString) {
+  if (!leftDateString || !rightDateString) return 0;
+  return differenceInDays(leftDateString, rightDateString);
 }
 
 function subtractBusinessDays(dateString, count) {
@@ -277,6 +283,96 @@ async function fetchFredSeries(item, apiKey) {
 
   const { latest, previous } = latestTwoValidObservations(payload.observations);
   return normalizeSeriesItem(item, latest, previous, "fred-api");
+}
+
+async function loadMarketSupplements() {
+  try {
+    const raw = JSON.parse(await readFile(MARKET_SUPPLEMENTS_PATH, "utf8"));
+    return (raw.items || []).filter((item) =>
+      !item.error &&
+      item.replacementPolicy !== "supplement-only" &&
+      item.id &&
+      item.observationDate &&
+      Number.isFinite(Number(item.latestValue)) &&
+      Number.isFinite(Number(item.previousValue))
+    );
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return [];
+    }
+    console.warn(`시장 보강 시세 읽기 실패: ${error.message}`);
+    return [];
+  }
+}
+
+function buildMarketReplacement(base, supplement) {
+  const latestValue = Number(supplement.latestValue);
+  const previousValue = Number(supplement.previousValue);
+  const absoluteChange = supplement.absoluteChange !== null && supplement.absoluteChange !== undefined && Number.isFinite(Number(supplement.absoluteChange))
+    ? Number(supplement.absoluteChange)
+    : round(latestValue - previousValue, 6);
+  const percentChange = supplement.percentChange !== null && supplement.percentChange !== undefined && Number.isFinite(Number(supplement.percentChange))
+    ? Number(supplement.percentChange)
+    : previousValue === 0
+      ? null
+      : round(((latestValue - previousValue) / previousValue) * 100, 4);
+
+  return {
+    ...base,
+    label: supplement.label || base.label,
+    latestValue,
+    previousValue,
+    absoluteChange,
+    percentChange,
+    observationDate: supplement.observationDate,
+    previousObservationDate: supplement.previousObservationDate,
+    sourceUrl: supplement.sourceUrl || base.sourceUrl,
+    mode: "market-supplement",
+    marketSupplement: {
+      source: supplement.source || "Yahoo Finance v8 chart API",
+      sourceSymbol: supplement.sourceSymbol || supplement.yahoo || null,
+      replacementPolicy: supplement.replacementPolicy || "replace",
+      note: supplement.note || null,
+      fetchedAt: supplement.fetchedAt || null
+    },
+    fredReference: {
+      latestValue: base.latestValue,
+      previousValue: base.previousValue,
+      observationDate: base.observationDate,
+      previousObservationDate: base.previousObservationDate,
+      sourceUrl: base.sourceUrl
+    }
+  };
+}
+
+function applyMarketSupplements(series, supplements, reportDate, defaultThreshold) {
+  const byId = new Map(supplements.map((item) => [item.id, item]));
+  const replacements = [];
+  const enrichedSeries = series.map((item) => {
+    const supplement = byId.get(item.id);
+    if (!supplement) return item;
+
+    const supplementIsNewer = compareDateStrings(supplement.observationDate, item.observationDate) > 0;
+    if (!supplementIsNewer) return item;
+
+    const replacement = annotateFreshness(buildMarketReplacement(item, supplement), reportDate, defaultThreshold);
+    if ((replacement.freshness?.businessDaysOld ?? Infinity) >= (item.freshness?.businessDaysOld ?? Infinity)) {
+      return item;
+    }
+
+    replacements.push({
+      id: item.id,
+      label: item.label,
+      policy: supplement.replacementPolicy || "replace",
+      fromDate: item.observationDate,
+      toDate: supplement.observationDate,
+      source: supplement.source || "Yahoo Finance v8 chart API",
+      sourceSymbol: supplement.sourceSymbol || supplement.yahoo || null
+    });
+    return replacement;
+  });
+
+  return { series: enrichedSeries, replacements };
 }
 
 function buildDerived(series) {
@@ -706,6 +802,9 @@ function buildPositioningSignals(equitySignal, rateSignal, volatilitySignal, dat
 function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
   const byId = Object.fromEntries(series.map((item) => [item.id, item]));
   const curve = derived.find((item) => item.id === "UST10Y_UST2Y_SPREAD");
+  const sourceLabel = series.some((item) => item.mode === "market-supplement")
+    ? "FRED+시장시세 기반 브리핑"
+    : "FRED 데이터 기반 브리핑";
   const dataQuality = assessDataQuality(series, reportDate);
   const equitySignal = buildEquitySignal(byId);
   const rateSignal = buildRateSignal(byId, curve);
@@ -758,7 +857,7 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
     qualityLine
   ].filter(Boolean);
   const title = `${equitySignal.label}, 10년물 ${byId.DGS10 ? byId.DGS10.latestValue.toFixed(2) : "N/A"}% · VIX ${byId.VIXCLS ? byId.VIXCLS.latestValue.toFixed(2) : "N/A"}`;
-  const deck = `FRED 데이터 기반 브리핑 · ${dataQuality.confidenceLabel} · ${dataQuality.publicationLabel}`;
+  const deck = `${sourceLabel} · ${dataQuality.confidenceLabel} · ${dataQuality.publicationLabel}`;
   const highlights = [
     `오늘의 요약: ${equitySignal.label}. ${rateSignal ? rateSignal.label : "금리 판단 보류"}, ${volatilitySignal ? volatilitySignal.label : "변동성 확인 보류"} 조합입니다.`,
     `핵심 근거: ${equitySignal.evidence}${rateSignal ? ` / ${rateSignal.evidence}` : ""}${volatilitySignal ? ` / ${volatilitySignal.evidence}` : ""}.`,
@@ -836,13 +935,16 @@ function buildHighlights(analysis) {
   return analysis.highlights;
 }
 
-function buildPayload(config, series, derived, generatedAt, reportDate) {
+function buildPayload(config, series, derived, generatedAt, reportDate, options = {}) {
   const groups = config.groups.map((group) => ({
     ...group,
     items: [...series, ...derived].filter((item) => item.group === group.id)
   }));
 
-  const mode = series.some((item) => item.mode === "fred-api") ? "fred-api" : "demo";
+  const hasMarketSupplements = series.some((item) => item.mode === "market-supplement");
+  const mode = hasMarketSupplements
+    ? "fred-api+market-supplements"
+    : series.some((item) => item.mode === "fred-api") ? "fred-api" : "demo";
   const freshnessSummary = summarizeFreshness(series, reportDate);
   const analysis = buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate);
   const freshnessNote = freshnessSummary.staleCount > 0
@@ -850,6 +952,9 @@ function buildPayload(config, series, derived, generatedAt, reportDate) {
     : freshnessSummary.delayedCount > 0
       ? `지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 일부 값은 당일 실시간 해석보다 전일 컨텍스트에 가깝습니다.`
       : "현재 선택한 핵심 시리즈는 모두 허용한 최신 범위 안에 들어왔습니다.";
+  const marketReplacementNote = options.marketReplacements?.length
+    ? `FRED 기준일이 늦은 ${options.marketReplacements.length}개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했습니다.`
+    : null;
 
   return {
     generatedAt: generatedAt.toISOString(),
@@ -861,13 +966,15 @@ function buildPayload(config, series, derived, generatedAt, reportDate) {
     highlights: buildHighlights(analysis),
     analysis,
     freshnessSummary,
+    marketSupplementMeta: options.marketSupplementMeta || null,
     notes: [
       analysis.qualityLine,
       freshnessNote,
+      marketReplacementNote,
       "핵심 시계열은 FRED API의 fred/series/observations 엔드포인트를 기준으로 가져옵니다.",
       "주식지수와 변동성 계열 일부는 FRED 안에서도 원 데이터 공급자의 별도 저작권/사용 조건이 붙을 수 있으니 공개 배포 전 각 시리즈 노트를 확인해야 합니다.",
       "뉴스·실적·정책 이벤트를 붙이지 않은 규칙 기반 해석이므로, 원인 설명은 실시간 헤드라인과 함께 교차 확인해야 합니다."
-    ],
+    ].filter(Boolean),
     groups
   };
 }
@@ -917,11 +1024,22 @@ async function main() {
   const rawSeries = await Promise.all(
     config.series.map((item) => (DEMO_MODE ? buildDemoSeries(item, reportDate) : fetchFredSeries(item, apiKey)))
   );
-  const series = rawSeries.map((item) => annotateFreshness(item, reportDate, defaultThreshold));
+  const fredSeries = rawSeries.map((item) => annotateFreshness(item, reportDate, defaultThreshold));
+  const marketSupplements = DEMO_MODE ? [] : await loadMarketSupplements();
+  const marketApplied = applyMarketSupplements(fredSeries, marketSupplements, reportDate, defaultThreshold);
+  const series = marketApplied.series;
   const derived = buildDerived(series).map((item) => annotateFreshness(item, reportDate, defaultThreshold));
   const yahooExtras = await loadYahooExtras(reportDate, defaultThreshold);
   const replacements = await loadPreferredReplacements(ROOT);
-  const payload = applyPreferredTermsDeep(buildPayload(config, [...series, ...yahooExtras], derived, generatedAt, reportDate), replacements);
+  const payload = applyPreferredTermsDeep(buildPayload(config, [...series, ...yahooExtras], derived, generatedAt, reportDate, {
+    marketReplacements: marketApplied.replacements,
+    marketSupplementMeta: marketSupplements.length > 0 ? {
+      generatedAt: generatedAt.toISOString(),
+      available: marketSupplements.length,
+      applied: marketApplied.replacements.length,
+      replacements: marketApplied.replacements
+    } : null
+  }), replacements);
 
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
   await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");

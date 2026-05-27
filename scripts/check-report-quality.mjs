@@ -12,6 +12,7 @@ const BRIEFINGS_PATH = path.join(ROOT, "data", "briefings.json");
 const NEWS_PATH = path.join(ROOT, "data", "news-digest.json");
 const STOCK_WATCHLIST_PATH = path.join(ROOT, "data", "stock-watchlist.json");
 const POSTS_DIR = path.join(ROOT, "posts");
+const MIN_DATA_QUALITY_SCORE = Number(process.env.MIN_DATA_QUALITY_SCORE || 50);
 
 const TRUSTED_NEWS_SOURCES = new Set([
   "Associated Press",
@@ -146,6 +147,27 @@ function checkKospiGrounding(text, stockWatchlist, issues) {
   }
 }
 
+function checkDataFreshnessFloor(snapshot, issues) {
+  const quality = snapshot?.analysis?.dataQuality;
+  if (!quality) return;
+
+  if (quality.publicationStatus === "hold" || quality.coreStaleCount > 0) {
+    issues.push("핵심 판단 지표가 오래돼 자동 발행 보류 상태입니다.");
+  }
+
+  if (Number.isFinite(quality.score) && quality.score < MIN_DATA_QUALITY_SCORE) {
+    issues.push(`데이터 품질 점수 ${quality.score}/100이 최소 기준 ${MIN_DATA_QUALITY_SCORE}보다 낮습니다.`);
+  }
+
+  if ((quality.coreDelayedCount || 0) >= 3) {
+    issues.push(`핵심 판단 지표 ${quality.coreDelayedCount}건이 지연돼 보강 시세 확인 전 발행하기 어렵습니다.`);
+  }
+
+  if ((quality.contextStaleCount || 0) >= 2) {
+    issues.push(`보조 해석용 시계열 ${quality.contextStaleCount}건이 오래돼 보고서 해석 범위를 과도하게 제한합니다.`);
+  }
+}
+
 function pickNarrativeFields(briefing) {
   const newsBrief = briefing?.newsBrief ? {
     koreanEditorialSummary: briefing.newsBrief.koreanEditorialSummary || briefing.newsBrief.editorialSummary || "",
@@ -196,6 +218,7 @@ async function main() {
   checkSensitiveClaims(text, news, issues);
   checkBlockedNarrativeTerms(text, snapshot, issues);
   checkKospiGrounding(text, stockWatchlist, issues);
+  checkDataFreshnessFloor(snapshot, issues);
 
   const uniqueIssues = [...new Set(issues)];
   if (uniqueIssues.length > 0) {

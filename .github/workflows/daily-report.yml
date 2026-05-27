@@ -38,7 +38,7 @@ jobs:
           node-version: "22"
 
       - name: Generate report
-        run: npm run publish:full
+        run: npm run publish:full-rich
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
