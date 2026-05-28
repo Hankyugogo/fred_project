@@ -16,7 +16,7 @@
     "build:stocks:full": "npm run fetch:watchlist && npm run build:stocks",
     "rewrite:llm": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs",
     "fill:fallback": "node --env-file-if-exists=.env scripts/fill-briefing-fallback.mjs",
-    "rewrite:llm:optional": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs || node --env-file-if-exists=.env scripts/fill-briefing-fallback.mjs",
+    "rewrite:llm:optional": "node --env-file-if-exists=.env scripts/rewrite-with-llm.mjs || (node --env-file-if-exists=.env scripts/fill-briefing-fallback.mjs && node --env-file-if-exists=.env scripts/apply-editorial-copy.mjs)",
     "publish:data": "npm run build:data && node --env-file-if-exists=.env scripts/publish-briefing.mjs",
     "publish:demo": "npm run build:demo && node --env-file-if-exists=.env scripts/publish-briefing.mjs --demo",
     "publish:full": "npm run fetch:news && npm run fetch:yahoo && npm run fetch:market-supplements && npm run summarize:news && npm run build:data && node --env-file-if-exists=.env scripts/publish-briefing.mjs && npm run fetch:watchlist && npm run build:stocks && npm run fetch:macro && npm run rewrite:llm:optional && node --env-file-if-exists=.env scripts/render-report.mjs",
