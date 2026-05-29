@@ -263,7 +263,10 @@ function buildDemoSeries(item, reportDate) {
   return normalizeSeriesItem(item, latest, previous, "demo");
 }
 
-async function fetchFredSeries(item, apiKey) {
+const FRED_RETRY_DELAYS = [5000, 15000, 30000];
+const FRED_RETRYABLE = new Set([429, 500, 502, 503, 504]);
+
+async function fetchFredSeries(item, apiKey, cachedSnapshot = null) {
   const url = new URL(API_BASE);
   url.searchParams.set("series_id", item.id);
   url.searchParams.set("api_key", apiKey);
@@ -271,18 +274,51 @@ async function fetchFredSeries(item, apiKey) {
   url.searchParams.set("sort_order", "desc");
   url.searchParams.set("limit", "10");
 
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`FRED request failed for ${item.id}: ${response.status}`);
+  let lastError;
+  for (let attempt = 0; attempt <= FRED_RETRY_DELAYS.length; attempt++) {
+    if (attempt > 0) {
+      const delay = FRED_RETRY_DELAYS[attempt - 1];
+      console.warn(`[FRED] ${item.id} 재시도 ${attempt}/${FRED_RETRY_DELAYS.length} (${delay / 1000}s 대기)`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        const err = new Error(`FRED request failed for ${item.id}: ${response.status}`);
+        err.status = response.status;
+        if (FRED_RETRYABLE.has(response.status) && attempt < FRED_RETRY_DELAYS.length) {
+          lastError = err;
+          continue;
+        }
+        throw err;
+      }
+      const payload = await response.json();
+      if (!Array.isArray(payload.observations)) {
+        throw new Error(`Unexpected FRED payload for ${item.id}`);
+      }
+      const { latest, previous } = latestTwoValidObservations(payload.observations);
+      return normalizeSeriesItem(item, latest, previous, "fred-api");
+    } catch (err) {
+      if (err.status && FRED_RETRYABLE.has(err.status) && attempt < FRED_RETRY_DELAYS.length) {
+        lastError = err;
+        continue;
+      }
+      lastError = err;
+      break;
+    }
   }
 
-  const payload = await response.json();
-  if (!Array.isArray(payload.observations)) {
-    throw new Error(`Unexpected FRED payload for ${item.id}`);
+  // 재시도 소진 — 이전 스냅샷 캐시로 폴백
+  if (cachedSnapshot) {
+    const cached = (cachedSnapshot.groups || [])
+      .flatMap((g) => g.items || [])
+      .find((i) => i.id === item.id);
+    if (cached) {
+      console.warn(`[FRED] ${item.id} 폴백: 이전 스냅샷 사용 (${cached.observationDate})`);
+      return { ...cached, source: "fred-api-cached", freshness: { ...cached.freshness, status: "stale" } };
+    }
   }
-
-  const { latest, previous } = latestTwoValidObservations(payload.observations);
-  return normalizeSeriesItem(item, latest, previous, "fred-api");
+  throw lastError;
 }
 
 async function loadMarketSupplements() {
@@ -1021,8 +1057,15 @@ async function main() {
     throw new Error("FRED_API_KEY is required. Run with --demo for sample output.");
   }
 
+  let cachedSnapshot = null;
+  try {
+    cachedSnapshot = JSON.parse(await readFile(OUTPUT_PATH, "utf8"));
+  } catch {
+    // 첫 실행이거나 파일 없음 — 폴백 없이 진행
+  }
+
   const rawSeries = await Promise.all(
-    config.series.map((item) => (DEMO_MODE ? buildDemoSeries(item, reportDate) : fetchFredSeries(item, apiKey)))
+    config.series.map((item) => (DEMO_MODE ? buildDemoSeries(item, reportDate) : fetchFredSeries(item, apiKey, cachedSnapshot)))
   );
   const fredSeries = rawSeries.map((item) => annotateFreshness(item, reportDate, defaultThreshold));
   const marketSupplements = DEMO_MODE ? [] : await loadMarketSupplements();
