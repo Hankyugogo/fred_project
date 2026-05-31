@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T00:21:13.811Z",
+  "generatedAt": "2026-05-31T08:27:15.964Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "초기 관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, SRXH로 구성합니다.",
   "source": {
@@ -7,18 +7,18 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-05-30T00:19:04.101Z",
-    "latestBriefingDate": "2026-05-30",
-    "priceHistoryGeneratedAt": "2026-05-30T00:21:13.648Z"
+    "snapshotGeneratedAt": "2026-05-31T08:24:22.470Z",
+    "latestBriefingDate": "2026-05-31",
+    "priceHistoryGeneratedAt": "2026-05-31T08:27:15.799Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-05-30",
+    "reportDate": "2026-05-31",
     "title": "전통 대형주 견조 광범위 강세, 10년물 4.45% · VIX 15.74",
     "summary": "미국 증시는 강세 흐름으로 마감했다. S&P500지수가 +0.22%, 나스닥 종합지수가 +0.20%, 다우존스30 산업평균지수가 +0.72% 변동하며 다우지수 상대 강세 흐름이 나타났다. 주가 강세와 변동성 안정이 동반되면서 투자심리가 개선된 흐름이 나타났다. 미 국채 10년물 금리는 4.45%로 주가와 공존이 가능하나 추세적 밸류에이션 확장을 동시에 허용하기는 어려운 수준이다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.83%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 광의 달러지수(2026-05-22, 오래됨 5영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
     "signals": [
       {
         "label": "S&P 500",
-        "value": "7580.1",
+        "value": "7580.06",
         "change": "+0.22%",
         "tone": "up",
         "note": "미국 위험자산 선호의 기준 지표입니다."
@@ -133,7 +133,7 @@
         "asOf": "2026-05-29",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
-        "historyLength": 243,
+        "historyLength": 242,
         "score": 100,
         "tone": "상방 우위",
         "toneClass": "positive",
@@ -1571,7 +1571,7 @@
         "asOf": "2026-05-29",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
-        "historyLength": 243,
+        "historyLength": 242,
         "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -2996,15 +2996,15 @@
       },
       "price": 0.138,
       "changePercent": -8.24,
-      "macroScore": 56,
+      "macroScore": 52,
       "macroTone": "중립",
       "macroToneClass": "neutral",
       "sectorSignal": {
         "ticker": "XLV",
         "label": "미국 헬스케어 ETF",
-        "close": 149.89,
-        "percentChange": 1.17,
-        "observationDate": "2026-05-22"
+        "close": 149.47,
+        "percentChange": -0.93,
+        "observationDate": "2026-05-29"
       },
       "technical": {
         "status": "ready",
@@ -4327,7 +4327,7 @@
         ]
       },
       "forecast": {
-        "score": 57,
+        "score": 55,
         "toneClass": "neutral",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
@@ -4335,15 +4335,15 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 2.52,
-            "upProbabilityPct": 54,
+            "expectedReturnPct": 2.18,
+            "upProbabilityPct": 53,
             "rangeLowPct": -4.69,
             "rangeHighPct": 4.69
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 9.07,
-            "upProbabilityPct": 56,
+            "expectedReturnPct": 8.4,
+            "upProbabilityPct": 54,
             "rangeLowPct": -12.07,
             "rangeHighPct": 12.07
           }

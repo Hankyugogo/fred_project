@@ -1,5 +1,968 @@
 [
   {
+    "date": "2026-05-31",
+    "title": "광범위한 동행 강세, 장기금리 4.45% 부담 점검",
+    "highlights": [
+      "미 3대 지수 동행: S&P500 +0.22%, 나스닥 +0.20%, 다우 +0.72%.",
+      "미 10년물 4.45%, 2년물 3.98%로 금리 상단 확인 필요.",
+      "VIX 15.74로 20선 아래, 단기 위험 회피는 제한적.",
+      "달러/원·원자재 시계열은 기준일 지연으로 보조 참고에 한정."
+    ],
+    "tags": [
+      "미국증시",
+      "금리",
+      "VIX",
+      "코스피",
+      "환율확인",
+      "데이터품질"
+    ],
+    "file": "./posts/2026-05-31.md",
+    "indices": {
+      "sp": {
+        "level": "7,580.06",
+        "chg": "+0.22%"
+      },
+      "nasdaq": {
+        "level": "26,972.62",
+        "chg": "+0.20%"
+      },
+      "dow": {
+        "level": "51,032.50",
+        "chg": "+0.72%"
+      }
+    },
+    "overnightLead": "미국 증시는 S&P500지수 +0.22%, 나스닥 종합지수 +0.20%, 다우존스30 산업평균지수 +0.72%로 마감했다. 미 국채 10년물 금리는 4.45%를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 15.74로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.",
+    "insightSections": {
+      "topStory": [
+        {
+          "title": "시장 판정",
+          "desc": "미 3대 지수는 동반 움직임을 보였고 VIX는 15.74로 20선 아래에 있다."
+        },
+        {
+          "title": "자료 제약",
+          "desc": "달러/원과 원자재 일부 시계열은 기준일이 늦어 보조 참고로 제한한다."
+        }
+      ],
+      "marketReaction": [
+        {
+          "title": "지수와 금리",
+          "desc": "S&P500 +0.22% / 나스닥 +0.20% / 미 10년물 4.45%."
+        },
+        {
+          "title": "변동성",
+          "desc": "VIX 15.74로 단기 위험 회피는 제한적이다."
+        }
+      ],
+      "watchNow": [
+        {
+          "title": "확인 변수",
+          "desc": "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다."
+        },
+        {
+          "title": "한국 연결",
+          "desc": "반도체 대형주의 상대 강도와 외국인 매매 흐름 전환 여부가 중요하다."
+        }
+      ],
+      "positioning": [
+        {
+          "title": "기본",
+          "desc": "강세는 인정하되 금리 상단과 환율을 확인하는 중립적 위험자산 우위다."
+        },
+        {
+          "title": "대체",
+          "desc": "금리와 VIX가 동시에 오르면 방어적 포지션을 늘리는 쪽으로 전환한다."
+        }
+      ]
+    },
+    "timeframeInsights": {
+      "weekly": {
+        "title": "주간 관점: 금리 상단 확인",
+        "coreView": "이번 주 핵심은 미 10년물 4.45% 부근을 시장이 흡수하는지 여부다.",
+        "whyItMatters": "주가와 금리가 함께 높아지면 상승의 질은 실적과 업종 확산에 더 의존한다. 금리 상단이 낮아지지 않으면 성장주 반등은 짧아질 수 있다.",
+        "koreaImpact": "반도체는 나스닥 흐름에 우호적이지만 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다.",
+        "watchLevels": [
+          "미 10년물 4.70%",
+          "VIX 20선",
+          "나스닥 26,973선"
+        ]
+      },
+      "monthly": {
+        "title": "월간 관점: 환율 확인 필요",
+        "coreView": "달러/원 시계열은 기준일이 늦어 월간 외국인 매매 흐름 판단은 보조 시세 확인이 필요하다.",
+        "whyItMatters": "환율이 안정되지 않으면 한국 증시의 상승 지속성은 약해진다. 미국 지수 강세가 있어도 원화 약세가 동반되면 외국인 매매가 흔들릴 수 있다.",
+        "koreaImpact": "자동차·조선은 환율 방어력이 있지만 바이오·인터넷/플랫폼은 금리와 환율 동반 상승에 취약하다.",
+        "watchLevels": [
+          "달러/원 기준일 지연 해소 후 1,480원",
+          "달러/원 기준일 지연 해소 후 1,500원",
+          "코스피 외국인 순매수 전환"
+        ]
+      },
+      "quarterly": {
+        "title": "분기 관점: 실적 모멘텀 검증",
+        "coreView": "분기 흐름은 실적 개선이 금리 부담을 넘어서는지에 달려 있다.",
+        "whyItMatters": "금리가 높은 구간에서는 기대만으로 밸류에이션을 넓히기 어렵다. 실제 이익 전망이 상향돼야 상승 지속성이 생긴다.",
+        "koreaImpact": "반도체·조선·방산은 실적 모멘텀이 확인되면 상대 강도를 유지할 수 있다. 2차전지와 바이오는 금리 안정이 필요하다.",
+        "watchLevels": [
+          "미 10년물 4.50~4.70%",
+          "나스닥 상대강도",
+          "한국 반도체 대형주 매매 흐름"
+        ]
+      },
+      "yearly": {
+        "title": "연간 관점: 고금리와 성장 테마의 공존",
+        "coreView": "연간 핵심은 인공지능(AI) 투자 사이클과 고금리 환경의 공존이다.",
+        "whyItMatters": "AI 투자는 반도체와 전력 인프라 수요를 지지한다. 그러나 고금리는 장기 성장주의 현재가치 평가를 계속 압박한다.",
+        "koreaImpact": "반도체·전력기기·조선·방산은 구조적 테마와 연결된다. 바이오·인터넷/플랫폼은 금리 하락과 실적 회복이 함께 필요하다.",
+        "watchLevels": [
+          "미 10년물 4.00~4.50%",
+          "연준 금리 인하 횟수",
+          "달러 방향성"
+        ]
+      }
+    },
+    "freshnessSummary": {
+      "reportDate": "2026-05-31",
+      "status": "attention",
+      "freshCount": 12,
+      "delayedCount": 1,
+      "staleCount": 1,
+      "items": [
+        {
+          "id": "DTWEXBGS",
+          "label": "광의 달러지수",
+          "status": "stale",
+          "observationDate": "2026-05-22",
+          "businessDaysOld": 5,
+          "freshnessLabel": "오래됨 5영업일",
+          "sourceUrl": "https://fred.stlouisfed.org/series/DTWEXBGS"
+        },
+        {
+          "id": "DCOILBRENTEU",
+          "label": "브렌트유",
+          "status": "delayed",
+          "observationDate": "2026-05-26",
+          "businessDaysOld": 3,
+          "freshnessLabel": "지연 3영업일",
+          "sourceUrl": "https://fred.stlouisfed.org/series/DCOILBRENTEU"
+        }
+      ]
+    },
+    "quality": {
+      "score": 82,
+      "confidence": "medium",
+      "confidenceLabel": "보조지표 확인 필요",
+      "publicationStatus": "caution",
+      "publicationLabel": "일부 지표 지연 반영",
+      "warnings": [
+        "보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다.",
+        "보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했습니다."
+      ]
+    },
+    "newsBrief": {
+      "koreanEditorialSummary": "오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
+      "topItems": [
+        {
+          "id": "google-us-macro:inflation rises but isn t hotter than expected while gdp slips",
+          "title": "Inflation rises but isn't hotter than expected while GDP slips",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQQ2xmMDl1Nl9DcUpCbUVseHBydlB5VF9melVXWjdTS0xvSGdxRnZpRG05NG5xZERHX1Z0UUROd1ZhNm9QNFZwWEhxWDlpVUpxdnNFRmFaOXptODkzaDhKTHpLMUZveWlEYXVUellISEFvSUF4c1F3cjJOMzBaMTd1QmpTVDRSY0k?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "AOL.com",
+          "sourceType": "news-search",
+          "category": "macro",
+          "categoryLabel": "매크로 지표",
+          "publishedAt": "2026-05-31T05:29:04.000Z",
+          "description": "Inflation rises but isn't hotter than expected while GDP slips AOL.com",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 37,
+          "koreanTitle": "미국 물가 상승률 예상치 하회, GDP는 하락",
+          "koreanSummary": "미국 소비자물가지수(CPI) 상승률이 시장 예상치를 밑돌았으나 국내총생산(GDP)은 감소했다. 이는 인플레이션 압력이 완화되는 가운데 경기 둔화 우려가 커지고 있음을 시사한다. 연방준비제도(연준)의 통화정책 결정에 복합적인 영향을 미칠 것으로 전망된다.",
+          "sourceKorean": "AOL.com"
+        },
+        {
+          "id": "google-us-macro:fed s favored inflation measure reaches highest level since 2023",
+          "title": "Fed's favored inflation measure reaches highest level since 2023",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMDRIYWNnUWRvaGVieFltTHhfaGlOUVVLVEVtRGlMMXM4cE1hMFZtRDVGZ01yTktNaVdqYmpGQkpYZTdHOTMxSHhORkZDYmdwVV9EdnR4QWs1V2ZjUDREMld1OFhtNlBpb2JrYTB5Z09iTmVhUndhakR0eHItSWM0dnA4Z19FczkwaGc?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "AOL.com",
+          "sourceType": "news-search",
+          "category": "macro",
+          "categoryLabel": "매크로 지표",
+          "publishedAt": "2026-05-31T04:22:25.000Z",
+          "description": "Fed's favored inflation measure reaches highest level since 2023 AOL.com",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 37,
+          "koreanTitle": "연준 선호 물가 지표, 2023년 이후 최고치 기록",
+          "koreanSummary": "연방준비제도(연준)가 선호하는 개인소비지출(PCE) 물가지수가 2023년 이후 최고 수준에 도달했다. 이는 인플레이션 압력이 여전히 높다는 점을 보여주며 연준의 금리 인하 기대감을 낮추는 요인으로 작용할 수 있다. 시장은 연준의 다음 통화정책 회의 결과에 주목하고 있다.",
+          "sourceKorean": "AOL.com"
+        },
+        {
+          "id": "google-us-macro:us debt tops gdp as surging yields lift borrowing costs",
+          "title": "US debt tops GDP as surging yields lift borrowing costs",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPbFBYbHVhM3NZeFpzTDZ5eVR6cEZVZVVJRHVCLWsyYzJyV3dLSTRPSV84eEdmOGNfVmhJcmNPV0hFdndtSW05ZmFaTXFQTzJtSXhIaHU3My1OVUQ5LUhxQVE4a2dKNG5IQ2RNT2JqNEpWc000UUN3enVWNU1VZHFhY0dHbDcwWi1QeDNtMnBQbk5pSHdLNVBXVFV0aDZpUWZRNk5PcjF1S1RCODBINjZRSVR4SE9vZ3FKVFdMaU1NU0FjSFpEYnZpWDFsQ212NGlOZUxES0xUOXhncFk?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "MSN",
+          "sourceType": "news-search",
+          "category": "policy",
+          "categoryLabel": "정책/연준",
+          "publishedAt": "2026-05-31T02:55:28.000Z",
+          "description": "US debt tops GDP as surging yields lift borrowing costs MSN",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 36,
+          "koreanTitle": "미국 국가 부채, GDP 초과…금리 상승에 차입 비용 증가",
+          "koreanSummary": "미국 국가 부채가 국내총생산(GDP)을 넘어섰고, 국채 수익률 급등으로 정부의 차입 비용이 증가했다. 이는 재정 건전성에 대한 우려를 키우고 장기적으로 경제 성장에 부담을 줄 수 있다. 투자자들은 미국 재정 상황과 금리 추이에 촉각을 세우고 있다.",
+          "sourceKorean": "MSN"
+        },
+        {
+          "id": "google-us-macro:us jobs report set to reveal solid growth steady unemployment rate",
+          "title": "US jobs report set to reveal solid growth, steady unemployment rate",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFB5TUlSc0xSNk1DZVR1RDd4Z2ROTmJyTnV3SnNwSjR1XzF6OEhEZ3ZWWEFFS0RUZkdXNklkczdsMU8wTlgtVnJoNHMyTjA5ZTBj?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "The Edge Malaysia",
+          "sourceType": "news-search",
+          "category": "macro",
+          "categoryLabel": "매크로 지표",
+          "publishedAt": "2026-05-31T00:27:09.000Z",
+          "description": "US jobs report set to reveal solid growth, steady unemployment rate The Edge Malaysia",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 35,
+          "koreanTitle": "미국 고용 보고서, 견조한 성장과 안정적 실업률 예상",
+          "koreanSummary": "미국 고용 보고서가 견조한 일자리 증가와 안정적인 실업률을 나타낼 것으로 예상된다. 이는 미국 노동 시장이 여전히 강세를 유지하고 있음을 시사한다. 연방준비제도(연준)의 금리 인하 시점 결정에 중요한 고려 사항이 될 것으로 분석된다.",
+          "sourceKorean": "The Edge Malaysia"
+        },
+        {
+          "id": "google-us-macro:april jobs report economy adds 115 000 jobs far better than expected",
+          "title": "April jobs report: Economy adds 115,000 jobs, far better than expected",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSjNIb3o2M0hOV2t2SDJFU3ZuakNFT0tQYXNYdWh3ZTJ0YXhzRHBCNHlnUzNFNC1iVnRCWUFxQWEtVzBCWUtrX3BjLWF6QWFHOHA3ODBNcHF2RjRNS3d6VldFeUd1QlAyU2NpY1VMSlJSdVdVWTdFblBwcXlBRk84MmVB?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "AOL.com",
+          "sourceType": "news-search",
+          "category": "macro",
+          "categoryLabel": "매크로 지표",
+          "publishedAt": "2026-05-30T19:21:20.000Z",
+          "description": "April jobs report: Economy adds 115,000 jobs, far better than expected AOL.com",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 34,
+          "koreanTitle": "4월 미국 일자리 11만5천 개 증가, 예상치 상회",
+          "koreanSummary": "4월 미국 고용 보고서에 따르면 경제는 11만5천 개의 일자리를 추가하며 시장 예상치를 크게 웃돌았다. 이는 미국 노동 시장의 견고함을 다시 한번 확인시켜 주었다. 연방준비제도(연준)의 금리 인하 결정에 신중한 접근을 유도할 것으로 전망된다.",
+          "sourceKorean": "AOL.com"
+        },
+        {
+          "id": "google-us-macro:fed faces rate hike dilemma as iran ceasefire extends",
+          "title": "Fed faces rate hike dilemma as Iran ceasefire extends",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUThxbnNpckp6bHA1d0JIWG5vMjU0R2VWZTdnbjUySGhpUC1xajN6ZjBTbmJZZlhoZXNTMGRwMFNrNXFlUHo0eDNIQXNMSFlLVHBVYU5fbmN3VnF4TkJiTmN0ZXZiOFJZT2s5ZDM4ZFU1Qk9wNkxXZ3JqV3pVWndzUkpOa0FkUWJVUTFpeGFQNFJCbFZpWkFCODNUbkZycjdCQTJ3SFEzNng?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "MSN",
+          "sourceType": "news-search",
+          "category": "policy",
+          "categoryLabel": "정책/연준",
+          "publishedAt": "2026-05-30T17:47:43.000Z",
+          "description": "Fed faces rate hike dilemma as Iran ceasefire extends MSN",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 33,
+          "koreanTitle": "이란 휴전 연장, 연준 금리 인상 딜레마 직면",
+          "koreanSummary": "이란 휴전 연장으로 국제 유가 변동성이 커지면서 연방준비제도(연준)는 금리 인상 여부를 두고 딜레마에 직면했다. 지정학적 요인이 인플레이션에 미칠 영향이 불확실해 연준의 통화정책 결정이 더욱 복잡해졌다. 시장은 연준의 신중한 접근을 예상하고 있다.",
+          "sourceKorean": "MSN"
+        },
+        {
+          "id": "google-us-macro:will ai put economists out of business fed s john williams says i m not a believ",
+          "title": "Will AI put economists out of business? Fed’s John Williams says 'I’m not a believer that...'",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZjZqbU9YXzhtNGktU3lIWENRRm1CQ25UaUVLZUYtY2o4RXJIVkQyX2dWX1lhNWdLSEJRaVNQVE5TbHA5WmJqZ3NjdUtNdlNiSS1wWUdpdldZbnF3YW5HeTZVXzJIZHdVeGhpLV90Nm53UGc2aFBiYVAtWWktMDlYOS1KR25FLVdHNk5WMUhjaS1qblVoLWpNVkVfNG81eGNZZlpnN0VtZFA2WTAwUVVidTQwQWNHQk0zRG4zMWYzREpDM2YtSWZ3N3JGTlptMlBpYVlCZGRGNNIB3AFBVV95cUxQd01WVWN6Z09Xb0RKYlVkYVpmMkVZaDd1UW9ndnZVODRNWEl6dlV6alJhU1RhZUF1VkVsQ2xjMDVrUW8xQ3JjNE11c2I1NEFYUzlrSy1ja1pZbVp1UFJGUkQ3ZExPWG02WFlhejNrV056bkEyNGZTTk50TklJbDZOUVpXZ2F3aE9wTlVjdTl2TmVWSjBUeDZ2Z0FveEMxS1M4V2Voa1dlc3hBcVhUdzloTkpMR3ZJcUlvZFp5bk9rMzQ2bHBBX3pGYW9DcDJZQ0RhSmhJWm01V0lOOXFM?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "Mint",
+          "sourceType": "news-search",
+          "category": "policy",
+          "categoryLabel": "정책/연준",
+          "publishedAt": "2026-05-30T14:44:33.000Z",
+          "description": "Will AI put economists out of business? Fed’s John Williams says 'I’m not a believer that...' Mint",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 32,
+          "koreanTitle": "존 윌리엄스 연은 총재, AI의 경제학자 대체에 회의적",
+          "koreanSummary": "존 윌리엄스 뉴욕 연방준비은행 총재는 인공지능(AI)이 경제학자들을 대체할 것이라는 주장에 회의적인 입장을 밝혔다. 이는 기술 발전이 특정 직업에 미치는 영향에 대한 논의의 일부로, 시장 직접 영향은 제한적이다. 연준 인사들의 기술에 대한 시각을 엿볼 수 있다.",
+          "sourceKorean": "Mint"
+        },
+        {
+          "id": "google-us-macro:stock market next week rbi mpc pmi data us jobs report and more to watch",
+          "title": "Stock Market Next Week: RBI MPC, PMI Data, US Jobs Report And More To Watch",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNSXNRT0F1emR6N1ZqZlBzR2h2c0cxdHRjU09VMkNWRGdYUWhFbUsxeFhDeWNUWjNncW42ZEdYbEdLeURPYlc3RjNIeW5sNW1Ib2NuVGt3NTVpbk5lSm90X3g2d1lCMHZEVU52TTNKeGlPeWZWYWJ0OFFUVHBUSWtCVTJLeldpYUhKd0RiV2tubDRkclBxcG9TWDJGSC1RRllTRGxLT1ZmSFhWRnNyZXhGemNHRUhuaFdyb0HSAboBQVVfeXFMTUlzUU9BdXpkejdWamZQc0dodnNHMXR0Y1NPVTJDVkRnWFFoRW1LMXhYQ3ljVFozZ3FuNmRHWGxHS3lET2JXN0YzSHlubDVtSG9jblRrdzU1aW5OZUpvdF94NndZQjB2RFVOdk0zSnhpT3lmVmFidDhRVFRwVElrQlUyS3pXaWFISndEYldrbmw0ZHJQcXBvU1gyRkgtUUZZU0RsS09WZkhYVkZzcmV4RnpjR0VIbmhXcm9B?oc=5",
+          "sourceId": "google-us-macro",
+          "source": "Outlook Money",
+          "sourceType": "news-search",
+          "category": "macro",
+          "categoryLabel": "매크로 지표",
+          "publishedAt": "2026-05-30T12:54:22.000Z",
+          "description": "Stock Market Next Week: RBI MPC, PMI Data, US Jobs Report And More To Watch Outlook Money",
+          "credibility": "standard",
+          "claimRisk": "low",
+          "usePolicy": "allow",
+          "claimRiskReasons": [],
+          "topicFlags": [],
+          "importance": 32,
+          "koreanTitle": "다음 주 증시, 인도 중앙은행 회의·미국 고용 보고서 주목",
+          "koreanSummary": "다음 주 증시는 인도 중앙은행(RBI) 통화정책위원회(MPC) 회의, 구매관리자지수(PMI) 데이터, 미국 고용 보고서 등 주요 경제 지표 발표에 주목할 것으로 예상된다. 특히 미국 고용 보고서는 연방준비제도(연준)의 통화정책 방향에 중요한 영향을 미칠 수 있다. 투자자들은 주요 경제 지표 발표를 앞두고 관망세를 보일 가능성이 있다.",
+          "sourceKorean": "Outlook Money"
+        }
+      ],
+      "themes": [
+        {
+          "category": "policy",
+          "label": "정책/연준",
+          "summary": "정책/연준 흐름은 '미국 국가 부채, GDP 초과…금리 상승에 차입 비용 증가' 중심으로 제한해 해석한다.",
+          "items": [
+            {
+              "id": "google-us-macro:us debt tops gdp as surging yields lift borrowing costs",
+              "title": "US debt tops GDP as surging yields lift borrowing costs",
+              "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPbFBYbHVhM3NZeFpzTDZ5eVR6cEZVZVVJRHVCLWsyYzJyV3dLSTRPSV84eEdmOGNfVmhJcmNPV0hFdndtSW05ZmFaTXFQTzJtSXhIaHU3My1OVUQ5LUhxQVE4a2dKNG5IQ2RNT2JqNEpWc000UUN3enVWNU1VZHFhY0dHbDcwWi1QeDNtMnBQbk5pSHdLNVBXVFV0aDZpUWZRNk5PcjF1S1RCODBINjZRSVR4SE9vZ3FKVFdMaU1NU0FjSFpEYnZpWDFsQ212NGlOZUxES0xUOXhncFk?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "MSN",
+              "sourceType": "news-search",
+              "category": "policy",
+              "categoryLabel": "정책/연준",
+              "publishedAt": "2026-05-31T02:55:28.000Z",
+              "description": "US debt tops GDP as surging yields lift borrowing costs MSN",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 36,
+              "koreanTitle": "미국 국가 부채, GDP 초과…금리 상승에 차입 비용 증가",
+              "koreanSummary": "미국 국가 부채가 국내총생산(GDP)을 넘어섰고, 국채 수익률 급등으로 정부의 차입 비용이 증가했다. 이는 재정 건전성에 대한 우려를 키우고 장기적으로 경제 성장에 부담을 줄 수 있다. 투자자들은 미국 재정 상황과 금리 추이에 촉각을 세우고 있다.",
+              "sourceKorean": "MSN"
+            },
+            {
+              "id": "google-us-macro:fed faces rate hike dilemma as iran ceasefire extends",
+              "title": "Fed faces rate hike dilemma as Iran ceasefire extends",
+              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUThxbnNpckp6bHA1d0JIWG5vMjU0R2VWZTdnbjUySGhpUC1xajN6ZjBTbmJZZlhoZXNTMGRwMFNrNXFlUHo0eDNIQXNMSFlLVHBVYU5fbmN3VnF4TkJiTmN0ZXZiOFJZT2s5ZDM4ZFU1Qk9wNkxXZ3JqV3pVWndzUkpOa0FkUWJVUTFpeGFQNFJCbFZpWkFCODNUbkZycjdCQTJ3SFEzNng?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "MSN",
+              "sourceType": "news-search",
+              "category": "policy",
+              "categoryLabel": "정책/연준",
+              "publishedAt": "2026-05-30T17:47:43.000Z",
+              "description": "Fed faces rate hike dilemma as Iran ceasefire extends MSN",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 33,
+              "koreanTitle": "이란 휴전 연장, 연준 금리 인상 딜레마 직면",
+              "koreanSummary": "이란 휴전 연장으로 국제 유가 변동성이 커지면서 연방준비제도(연준)는 금리 인상 여부를 두고 딜레마에 직면했다. 지정학적 요인이 인플레이션에 미칠 영향이 불확실해 연준의 통화정책 결정이 더욱 복잡해졌다. 시장은 연준의 신중한 접근을 예상하고 있다.",
+              "sourceKorean": "MSN"
+            },
+            {
+              "id": "google-us-macro:will ai put economists out of business fed s john williams says i m not a believ",
+              "title": "Will AI put economists out of business? Fed’s John Williams says 'I’m not a believer that...'",
+              "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZjZqbU9YXzhtNGktU3lIWENRRm1CQ25UaUVLZUYtY2o4RXJIVkQyX2dWX1lhNWdLSEJRaVNQVE5TbHA5WmJqZ3NjdUtNdlNiSS1wWUdpdldZbnF3YW5HeTZVXzJIZHdVeGhpLV90Nm53UGc2aFBiYVAtWWktMDlYOS1KR25FLVdHNk5WMUhjaS1qblVoLWpNVkVfNG81eGNZZlpnN0VtZFA2WTAwUVVidTQwQWNHQk0zRG4zMWYzREpDM2YtSWZ3N3JGTlptMlBpYVlCZGRGNNIB3AFBVV95cUxQd01WVWN6Z09Xb0RKYlVkYVpmMkVZaDd1UW9ndnZVODRNWEl6dlV6alJhU1RhZUF1VkVsQ2xjMDVrUW8xQ3JjNE11c2I1NEFYUzlrSy1ja1pZbVp1UFJGUkQ3ZExPWG02WFlhejNrV056bkEyNGZTTk50TklJbDZOUVpXZ2F3aE9wTlVjdTl2TmVWSjBUeDZ2Z0FveEMxS1M4V2Voa1dlc3hBcVhUdzloTkpMR3ZJcUlvZFp5bk9rMzQ2bHBBX3pGYW9DcDJZQ0RhSmhJWm01V0lOOXFM?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "Mint",
+              "sourceType": "news-search",
+              "category": "policy",
+              "categoryLabel": "정책/연준",
+              "publishedAt": "2026-05-30T14:44:33.000Z",
+              "description": "Will AI put economists out of business? Fed’s John Williams says 'I’m not a believer that...' Mint",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 32,
+              "koreanTitle": "존 윌리엄스 연은 총재, AI의 경제학자 대체에 회의적",
+              "koreanSummary": "존 윌리엄스 뉴욕 연방준비은행 총재는 인공지능(AI)이 경제학자들을 대체할 것이라는 주장에 회의적인 입장을 밝혔다. 이는 기술 발전이 특정 직업에 미치는 영향에 대한 논의의 일부로, 시장 직접 영향은 제한적이다. 연준 인사들의 기술에 대한 시각을 엿볼 수 있다.",
+              "sourceKorean": "Mint"
+            },
+            {
+              "id": "google-us-macro:fed inflation gauges diverge as rate hike debate intensifies",
+              "title": "Fed inflation gauges diverge as rate hike debate intensifies",
+              "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxONTktNGdVeEMySy02VFItYnNBMS1mZV9lYWZJNUNKSU1xeml5d19LNjZNUm1MVFVUOU9qMXBTdE5lMGlibDlmSTdNQkVORlNPemoyNkZCa2xGN1Y4b1FENDB5WEJMTlVVYmlVd19CWkFKTHczUnZOVE41Zy15TWVGaThJSHRqOEg3QVFyR3FhU1IwV0txdFJpTkN4cXFGMEpnSlN2alBqWldjbmtHb01YcDRkQXRVLXgwS2hCVEYyQ2UxM0paSzN6S3RZOGJ5VVM1YW5VYzJfbGhQV2JMcWp0aWRVMDBFMmFCQmI5MkM4Nmw2VEZi?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "MSN",
+              "sourceType": "news-search",
+              "category": "policy",
+              "categoryLabel": "정책/연준",
+              "publishedAt": "2026-05-30T11:10:12.000Z",
+              "description": "Fed inflation gauges diverge as rate hike debate intensifies MSN",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 31,
+              "sourceKorean": "MSN"
+            },
+            {
+              "id": "google-us-macro:what just happened with trump s tariffs and why does it matter",
+              "title": "What Just Happened with Trump's Tariffs, and Why Does it Matter",
+              "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZlg3NEdRRm5RekFka2IyYVlILUVoVS1Cd0t4Z3BGVTRwcFF5MFlTV2ppMVFYS3REZG01cC1hcm9uRjI0TFNkOXZ5YlY1OWVETDctbC05X1VjeDBrWjZKN3pveXRydkVqVkNHRzdEM0F0MlBXTURnUWl5S3NMNVZtaFY2MVRmU1ROd2tFczJsQ25CVHZUUFEweDlwSGF1QQ?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "Kavout",
+              "sourceType": "news-search",
+              "category": "policy",
+              "categoryLabel": "정책/연준",
+              "publishedAt": "2026-05-30T23:33:48.000Z",
+              "description": "What Just Happened with Trump's Tariffs, and Why Does it Matter Kavout",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 30,
+              "sourceKorean": "Kavout"
+            }
+          ],
+          "koreanSummary": "정책/연준 흐름은 품질 게이트를 통과한 항목만 반영한다."
+        },
+        {
+          "category": "macro",
+          "label": "매크로 지표",
+          "summary": "매크로 지표 흐름은 '미국 물가 상승률 예상치 하회, GDP는 하락' 중심으로 제한해 해석한다.",
+          "items": [
+            {
+              "id": "google-us-macro:inflation rises but isn t hotter than expected while gdp slips",
+              "title": "Inflation rises but isn't hotter than expected while GDP slips",
+              "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQQ2xmMDl1Nl9DcUpCbUVseHBydlB5VF9melVXWjdTS0xvSGdxRnZpRG05NG5xZERHX1Z0UUROd1ZhNm9QNFZwWEhxWDlpVUpxdnNFRmFaOXptODkzaDhKTHpLMUZveWlEYXVUellISEFvSUF4c1F3cjJOMzBaMTd1QmpTVDRSY0k?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "AOL.com",
+              "sourceType": "news-search",
+              "category": "macro",
+              "categoryLabel": "매크로 지표",
+              "publishedAt": "2026-05-31T05:29:04.000Z",
+              "description": "Inflation rises but isn't hotter than expected while GDP slips AOL.com",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 37,
+              "koreanTitle": "미국 물가 상승률 예상치 하회, GDP는 하락",
+              "koreanSummary": "미국 소비자물가지수(CPI) 상승률이 시장 예상치를 밑돌았으나 국내총생산(GDP)은 감소했다. 이는 인플레이션 압력이 완화되는 가운데 경기 둔화 우려가 커지고 있음을 시사한다. 연방준비제도(연준)의 통화정책 결정에 복합적인 영향을 미칠 것으로 전망된다.",
+              "sourceKorean": "AOL.com"
+            },
+            {
+              "id": "google-us-macro:fed s favored inflation measure reaches highest level since 2023",
+              "title": "Fed's favored inflation measure reaches highest level since 2023",
+              "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMDRIYWNnUWRvaGVieFltTHhfaGlOUVVLVEVtRGlMMXM4cE1hMFZtRDVGZ01yTktNaVdqYmpGQkpYZTdHOTMxSHhORkZDYmdwVV9EdnR4QWs1V2ZjUDREMld1OFhtNlBpb2JrYTB5Z09iTmVhUndhakR0eHItSWM0dnA4Z19FczkwaGc?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "AOL.com",
+              "sourceType": "news-search",
+              "category": "macro",
+              "categoryLabel": "매크로 지표",
+              "publishedAt": "2026-05-31T04:22:25.000Z",
+              "description": "Fed's favored inflation measure reaches highest level since 2023 AOL.com",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 37,
+              "koreanTitle": "연준 선호 물가 지표, 2023년 이후 최고치 기록",
+              "koreanSummary": "연방준비제도(연준)가 선호하는 개인소비지출(PCE) 물가지수가 2023년 이후 최고 수준에 도달했다. 이는 인플레이션 압력이 여전히 높다는 점을 보여주며 연준의 금리 인하 기대감을 낮추는 요인으로 작용할 수 있다. 시장은 연준의 다음 통화정책 회의 결과에 주목하고 있다.",
+              "sourceKorean": "AOL.com"
+            },
+            {
+              "id": "google-us-macro:us jobs report set to reveal solid growth steady unemployment rate",
+              "title": "US jobs report set to reveal solid growth, steady unemployment rate",
+              "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFB5TUlSc0xSNk1DZVR1RDd4Z2ROTmJyTnV3SnNwSjR1XzF6OEhEZ3ZWWEFFS0RUZkdXNklkczdsMU8wTlgtVnJoNHMyTjA5ZTBj?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "The Edge Malaysia",
+              "sourceType": "news-search",
+              "category": "macro",
+              "categoryLabel": "매크로 지표",
+              "publishedAt": "2026-05-31T00:27:09.000Z",
+              "description": "US jobs report set to reveal solid growth, steady unemployment rate The Edge Malaysia",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 35,
+              "koreanTitle": "미국 고용 보고서, 견조한 성장과 안정적 실업률 예상",
+              "koreanSummary": "미국 고용 보고서가 견조한 일자리 증가와 안정적인 실업률을 나타낼 것으로 예상된다. 이는 미국 노동 시장이 여전히 강세를 유지하고 있음을 시사한다. 연방준비제도(연준)의 금리 인하 시점 결정에 중요한 고려 사항이 될 것으로 분석된다.",
+              "sourceKorean": "The Edge Malaysia"
+            },
+            {
+              "id": "google-us-macro:april jobs report economy adds 115 000 jobs far better than expected",
+              "title": "April jobs report: Economy adds 115,000 jobs, far better than expected",
+              "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNSjNIb3o2M0hOV2t2SDJFU3ZuakNFT0tQYXNYdWh3ZTJ0YXhzRHBCNHlnUzNFNC1iVnRCWUFxQWEtVzBCWUtrX3BjLWF6QWFHOHA3ODBNcHF2RjRNS3d6VldFeUd1QlAyU2NpY1VMSlJSdVdVWTdFblBwcXlBRk84MmVB?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "AOL.com",
+              "sourceType": "news-search",
+              "category": "macro",
+              "categoryLabel": "매크로 지표",
+              "publishedAt": "2026-05-30T19:21:20.000Z",
+              "description": "April jobs report: Economy adds 115,000 jobs, far better than expected AOL.com",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 34,
+              "koreanTitle": "4월 미국 일자리 11만5천 개 증가, 예상치 상회",
+              "koreanSummary": "4월 미국 고용 보고서에 따르면 경제는 11만5천 개의 일자리를 추가하며 시장 예상치를 크게 웃돌았다. 이는 미국 노동 시장의 견고함을 다시 한번 확인시켜 주었다. 연방준비제도(연준)의 금리 인하 결정에 신중한 접근을 유도할 것으로 전망된다.",
+              "sourceKorean": "AOL.com"
+            },
+            {
+              "id": "google-us-macro:stock market next week rbi mpc pmi data us jobs report and more to watch",
+              "title": "Stock Market Next Week: RBI MPC, PMI Data, US Jobs Report And More To Watch",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNSXNRT0F1emR6N1ZqZlBzR2h2c0cxdHRjU09VMkNWRGdYUWhFbUsxeFhDeWNUWjNncW42ZEdYbEdLeURPYlc3RjNIeW5sNW1Ib2NuVGt3NTVpbk5lSm90X3g2d1lCMHZEVU52TTNKeGlPeWZWYWJ0OFFUVHBUSWtCVTJLeldpYUhKd0RiV2tubDRkclBxcG9TWDJGSC1RRllTRGxLT1ZmSFhWRnNyZXhGemNHRUhuaFdyb0HSAboBQVVfeXFMTUlzUU9BdXpkejdWamZQc0dodnNHMXR0Y1NPVTJDVkRnWFFoRW1LMXhYQ3ljVFozZ3FuNmRHWGxHS3lET2JXN0YzSHlubDVtSG9jblRrdzU1aW5OZUpvdF94NndZQjB2RFVOdk0zSnhpT3lmVmFidDhRVFRwVElrQlUyS3pXaWFISndEYldrbmw0ZHJQcXBvU1gyRkgtUUZZU0RsS09WZkhYVkZzcmV4RnpjR0VIbmhXcm9B?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "Outlook Money",
+              "sourceType": "news-search",
+              "category": "macro",
+              "categoryLabel": "매크로 지표",
+              "publishedAt": "2026-05-30T12:54:22.000Z",
+              "description": "Stock Market Next Week: RBI MPC, PMI Data, US Jobs Report And More To Watch Outlook Money",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 32,
+              "koreanTitle": "다음 주 증시, 인도 중앙은행 회의·미국 고용 보고서 주목",
+              "koreanSummary": "다음 주 증시는 인도 중앙은행(RBI) 통화정책위원회(MPC) 회의, 구매관리자지수(PMI) 데이터, 미국 고용 보고서 등 주요 경제 지표 발표에 주목할 것으로 예상된다. 특히 미국 고용 보고서는 연방준비제도(연준)의 통화정책 방향에 중요한 영향을 미칠 수 있다. 투자자들은 주요 경제 지표 발표를 앞두고 관망세를 보일 가능성이 있다.",
+              "sourceKorean": "Outlook Money"
+            }
+          ],
+          "koreanSummary": "매크로 지표 흐름은 품질 게이트를 통과한 항목만 반영한다."
+        },
+        {
+          "category": "markets",
+          "label": "시장 반응",
+          "summary": "시장 반응 흐름은 'The Dollar’s Next Move Will Make or Break Your EDIV Returns Over the Next 12 Months' 중심으로 제한해 해석한다.",
+          "items": [
+            {
+              "id": "google-us-markets:the dollar s next move will make or break your ediv returns over the next 12 mon",
+              "title": "The Dollar’s Next Move Will Make or Break Your EDIV Returns Over the Next 12 Months",
+              "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5felNmRVFDLS00OTBTcGNGUTRHdVV6THhwTU45eHVnTFNDMG5rYVpYWTB0ajBqbW1oakhvVTV5aHFCZE84V29hSjFiTjNkSDB0bVB5bTNSN0RkVHgyYmppY1ZxaVh5aDZ0MERadGM5dkhFXy1xZmZKWVRTMA?oc=5",
+              "sourceId": "google-us-markets",
+              "source": "AOL.com",
+              "sourceType": "news-search",
+              "category": "markets",
+              "categoryLabel": "시장 반응",
+              "publishedAt": "2026-05-30T17:28:28.000Z",
+              "description": "The Dollar’s Next Move Will Make or Break Your EDIV Returns Over the Next 12 Months AOL.com",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 31,
+              "sourceKorean": "AOL.com"
+            },
+            {
+              "id": "google-us-markets:us stock market reaches new heights amid strong corporate earnings",
+              "title": "US stock market reaches new heights amid strong corporate earnings",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQUHhZNGE4c0VVTUFkdDhNcWRjTktUeEJzX2haeWV4a1NTZ3ZwZjE4SDhaVXNQbE9MekcyUzNjUW1lRkRhMllzUnprb3lucUpza3dxSnp2MTlLM3NfejMta29GOTRUUU9fVDNFcHZIdThSYlBza3lpZkM2YUw1OGktZmNTTmctY3h6ejI2c1RBNnAtdUpBUWNvN3hYYzhaSmVITDRZdTBHZ21jVWg2Qm81dHExMVFnWk5md3c?oc=5",
+              "sourceId": "google-us-markets",
+              "source": "MSN",
+              "sourceType": "news-search",
+              "category": "markets",
+              "categoryLabel": "시장 반응",
+              "publishedAt": "2026-05-31T03:59:19.000Z",
+              "description": "US stock market reaches new heights amid strong corporate earnings MSN",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 30,
+              "sourceKorean": "MSN"
+            },
+            {
+              "id": "marketwatch-top:it is such a fine line i am a cfp and see nothing wrong with networking on the g",
+              "title": "‘It is such a fine line’: I am a CFP and see nothing wrong with networking on the golf course. Am I wrong?",
+              "link": "https://www.marketwatch.com/story/it-is-such-a-fine-line-i-am-a-cfp-and-see-nothing-wrong-with-networking-on-the-golf-course-am-i-wrong-50a698e8?mod=mw_rss_topstories",
+              "sourceId": "marketwatch-top",
+              "source": "MarketWatch Top Stories",
+              "sourceType": "market-news",
+              "category": "markets",
+              "categoryLabel": "시장 반응",
+              "publishedAt": "2026-05-30T20:58:00.000Z",
+              "description": "“I would love to develop working relationships with almost everyone I play golf with.”",
+              "credibility": "established",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 30,
+              "sourceKorean": "마켓워치"
+            },
+            {
+              "id": "marketwatch-top:i have no preexisting conditions i m 56 earn 198 000 and want to retire early ca",
+              "title": "‘I have no preexisting conditions’: I’m 56, earn $198,000 and want to retire early. Can I afford private healthcare?",
+              "link": "https://www.marketwatch.com/story/i-have-no-preexisting-conditions-im-56-earn-198-000-and-want-to-retire-early-can-i-afford-private-healthcare-e80cdd26?mod=mw_rss_topstories",
+              "sourceId": "marketwatch-top",
+              "source": "MarketWatch Top Stories",
+              "sourceType": "market-news",
+              "category": "markets",
+              "categoryLabel": "시장 반응",
+              "publishedAt": "2026-05-30T20:55:00.000Z",
+              "description": "“I’m trying to figure out whether it’s worth my while achieving FIRE.”",
+              "credibility": "established",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 30,
+              "sourceKorean": "마켓워치"
+            },
+            {
+              "id": "google-us-markets:gold rises silver falls amid oil decline and firmer dollar may 30 2026",
+              "title": "Gold Rises, Silver Falls Amid Oil Decline and Firmer Dollar | May 30, 2026 - News and Statistics",
+              "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQZ25mMzNsaURJUFF2S3pKb0EycF9SS0ZfMk44NXVRRTFDa3BlVG1pbTNXZkJlSENTWm00MW1IYUsxNlNtaks3bWJEMTRfN2Z6eHpubXVIZVpqU1ZqekswQ21pYkVwYk1IRWhMZHRNbVI4ekljcmg0RnBfdVZkZ2dYYTNyb29uZmRLMnIyUmc1NTVhMGhG?oc=5",
+              "sourceId": "google-us-markets",
+              "source": "IndexBox",
+              "sourceType": "news-search",
+              "category": "markets",
+              "categoryLabel": "시장 반응",
+              "publishedAt": "2026-05-30T14:56:34.000Z",
+              "description": "Gold Rises, Silver Falls Amid Oil Decline and Firmer Dollar | May 30, 2026 - News and Statistics IndexBox",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 30,
+              "sourceKorean": "IndexBox"
+            }
+          ],
+          "koreanSummary": "시장 반응 흐름은 품질 게이트를 통과한 항목만 반영한다."
+        },
+        {
+          "category": "corporate",
+          "label": "기업/실적",
+          "summary": "기업/실적 흐름은 'As Big Tech’s power demand surges, data centers bring utilities a huge new profit center' 중심으로 제한해 해석한다.",
+          "items": [
+            {
+              "id": "marketwatch-top:as big tech s power demand surges data centers bring utilities a huge new profit",
+              "title": "As Big Tech’s power demand surges, data centers bring utilities a huge new profit center",
+              "link": "https://www.marketwatch.com/story/in-america-big-techs-ai-data-centers-come-first-and-your-community-will-be-last-to-know-06a3fce4?mod=mw_rss_topstories",
+              "sourceId": "marketwatch-top",
+              "source": "MarketWatch Top Stories",
+              "sourceType": "market-news",
+              "category": "corporate",
+              "categoryLabel": "기업/실적",
+              "publishedAt": "2026-05-30T18:56:00.000Z",
+              "description": "The market hasn’t fully priced the next logical step for the AI buildout: Big Tech acquiring regulated utilities outright.",
+              "credibility": "established",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 26,
+              "sourceKorean": "마켓워치"
+            },
+            {
+              "id": "fed-speeches:cook the opportunities and risks ai presents for the economy and financial syste",
+              "title": "Cook, The Opportunities and Risks AI Presents for the Economy and Financial System",
+              "link": "https://www.federalreserve.gov/newsevents/speech/cook20260527a.htm",
+              "sourceId": "fed-speeches",
+              "source": "Fed Speeches",
+              "sourceType": "official",
+              "category": "corporate",
+              "categoryLabel": "기업/실적",
+              "publishedAt": "2026-05-27T19:55:00.000Z",
+              "description": "Speech At the Stanford Institute for Economic Policy Research, Stanford University, Stanford, California",
+              "credibility": "official",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 15,
+              "sourceKorean": "연준 연설"
+            }
+          ],
+          "koreanSummary": "기업/실적 흐름은 품질 게이트를 통과한 항목만 반영한다."
+        },
+        {
+          "category": "risk",
+          "label": "위험 요인",
+          "summary": "위험 요인 흐름은 'China’s next export shock walks on two legs — and costs less than a used car' 중심으로 제한해 해석한다.",
+          "items": [
+            {
+              "id": "marketwatch-top:china s next export shock walks on two legs and costs less than a used car",
+              "title": "China’s next export shock walks on two legs — and costs less than a used car",
+              "link": "https://www.marketwatch.com/story/chinas-next-export-shock-walks-on-two-legs-and-costs-less-than-a-used-car-f0becf3f?mod=mw_rss_topstories",
+              "sourceId": "marketwatch-top",
+              "source": "MarketWatch Top Stories",
+              "sourceType": "market-news",
+              "category": "risk",
+              "categoryLabel": "위험 요인",
+              "publishedAt": "2026-05-30T18:50:00.000Z",
+              "description": "Beijing is funding humanoid robots to slash Chinese factory costs and build a competitive advantage.",
+              "credibility": "established",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 28,
+              "sourceKorean": "마켓워치"
+            },
+            {
+              "id": "marketwatch-top:your portfolio can t afford the real bill for the iran war",
+              "title": "Your portfolio can’t afford the real bill for the Iran war",
+              "link": "https://www.marketwatch.com/story/the-true-cost-of-the-iran-war-is-billions-more-than-the-pentagon-says-and-were-paying-for-it-7bf90988?mod=mw_rss_topstories",
+              "sourceId": "marketwatch-top",
+              "source": "MarketWatch Top Stories",
+              "sourceType": "market-news",
+              "category": "risk",
+              "categoryLabel": "위험 요인",
+              "publishedAt": "2026-05-30T18:18:00.000Z",
+              "description": "The Pentagon claims the conflict has cost $29 billion — but the true cost is much higher and it’s fueling inflation.",
+              "credibility": "established",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 28,
+              "sourceKorean": "마켓워치"
+            },
+            {
+              "id": "google-us-macro:new fed chair kevin warsh may face the central bank s worst nightmare stagflatio",
+              "title": "New Fed Chair Kevin Warsh May Face the Central Bank's Worst Nightmare: Stagflation",
+              "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQWGVBdEFkMWFwQWdoQWR2U2ItLUdVU2tUQ3RRV1dzVlZyM01xdFl1bGJwQ0Juc1l2QnJzZG5aanlrN09LTlhLWHdKTFhMQlJRNmpzQ21KcUtibVpPaDYtT2lDWkpqUDRZVFhNTnBnbDU4anpINzJ0WUVZLUJOYjB1TmN4aG5XbWh4czk1LUh3N3hHMGdQQnh1aHFlajUzdWhDMzhJZ1NUeVVJb3V6UWdZWGpXLVVZLVZqRWZxNlF5NkpYQTJwNHFVRUVybExHQndJSHVTQ1FRbzJ0N3p5ZDhyWmhYcUhweHhpR2hjMEttX2Q3dkRQZDhPRw?oc=5",
+              "sourceId": "google-us-macro",
+              "source": "The Globe and Mail",
+              "sourceType": "news-search",
+              "category": "risk",
+              "categoryLabel": "위험 요인",
+              "publishedAt": "2026-05-30T10:56:24.000Z",
+              "description": "New Fed Chair Kevin Warsh May Face the Central Bank's Worst Nightmare: Stagflation The Globe and Mail",
+              "credibility": "standard",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 28,
+              "sourceKorean": "The Globe and Mail"
+            },
+            {
+              "id": "fed-speeches:bowman a framework for practical monetary policy decision making",
+              "title": "Bowman, A Framework for Practical Monetary Policy Decision Making",
+              "link": "https://www.federalreserve.gov/newsevents/speech/bowman20260529a.htm",
+              "sourceId": "fed-speeches",
+              "source": "Fed Speeches",
+              "sourceType": "official",
+              "category": "risk",
+              "categoryLabel": "위험 요인",
+              "publishedAt": "2026-05-29T13:10:00.000Z",
+              "description": "Speech At the Reykjav&iacute;k Economic Conference 2026, Central Bank of Iceland, Reykjav&iacute;k, Iceland",
+              "credibility": "official",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 24,
+              "sourceKorean": "연준 연설"
+            },
+            {
+              "id": "fed-speeches:jefferson global economic developments and the u s economy",
+              "title": "Jefferson, Global Economic Developments and the U.S. Economy",
+              "link": "https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm",
+              "sourceId": "fed-speeches",
+              "source": "Fed Speeches",
+              "sourceType": "official",
+              "category": "risk",
+              "categoryLabel": "위험 요인",
+              "publishedAt": "2026-05-28T00:00:00.000Z",
+              "description": "Speech At the 2026 Bank of Japan-Institute for Monetary and Economic Studies Conference, Tokyo, Japan",
+              "credibility": "official",
+              "claimRisk": "low",
+              "usePolicy": "allow",
+              "claimRiskReasons": [],
+              "topicFlags": [],
+              "importance": 18,
+              "sourceKorean": "연준 연설"
+            }
+          ],
+          "koreanSummary": "위험 요인 흐름은 품질 게이트를 통과한 항목만 반영한다."
+        }
+      ],
+      "sourceHealth": {
+        "okCount": 7,
+        "failedCount": 0,
+        "sources": [
+          {
+            "id": "fed-press",
+            "label": "Federal Reserve",
+            "ok": true,
+            "itemCount": 1
+          },
+          {
+            "id": "fed-speeches",
+            "label": "Fed Speeches",
+            "ok": true,
+            "itemCount": 3
+          },
+          {
+            "id": "marketwatch-top",
+            "label": "MarketWatch Top Stories",
+            "ok": true,
+            "itemCount": 8
+          },
+          {
+            "id": "marketwatch-marketpulse",
+            "label": "MarketWatch MarketPulse",
+            "ok": true,
+            "itemCount": 0
+          },
+          {
+            "id": "marketwatch-realtime",
+            "label": "MarketWatch Realtime",
+            "ok": true,
+            "itemCount": 0
+          },
+          {
+            "id": "google-us-macro",
+            "label": "Google News: US Macro",
+            "ok": true,
+            "itemCount": 12
+          },
+          {
+            "id": "google-us-markets",
+            "label": "Google News: US Markets",
+            "ok": true,
+            "itemCount": 12
+          }
+        ]
+      },
+      "guardrails": {
+        "sanitizedAt": "2026-05-31T08:27:59.758Z",
+        "omittedCount": 7
+      }
+    },
+    "headline": "광범위한 동행 강세, 장기금리 4.45% 부담 점검",
+    "topThreeLines": [
+      "미국 3대 지수는 S&P500지수 +0.22%, 나스닥 종합지수 +0.20%, 다우존스30 산업평균지수 +0.72%로 마감했다.",
+      "미 국채 10년물 금리는 4.45%, 2년물 금리는 3.98%이며 10년-2년 금리차는 0.47%p를 기록했다.",
+      "한국시장 보조 시세는 코스피 8,476.15, 코스닥 1,074.80다. 달러/원 FRED 기준일은 2026-05-29로 지연 상태다."
+    ],
+    "keyIssues": [
+      {
+        "title": "미국 3대 지수 동반 움직임",
+        "whatHappened": "S&P500지수는 7,580.06로 +0.22% 움직였고, 나스닥 종합지수는 26,972.62로 +0.20% 변동했다. 다우존스30 산업평균지수는 51,032.50로 +0.72%를 기록했다.",
+        "whyMarketReacted": "주요 지수가 같은 방향으로 움직이면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 함께 오르는 구간에서는 상승의 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다.",
+        "whatToWatch": "나스닥 종합지수 26,973선과 S&P500지수 7,580선 유지 여부를 먼저 확인한다."
+      },
+      {
+        "title": "장기금리 상단 재확인",
+        "whatHappened": "미 국채 10년물 금리는 4.45%로 전일 대비 0bp 움직였다. 2년물은 3.98%, 10년-2년 금리차는 0.47%p다.",
+        "whyMarketReacted": "장기금리 상승은 경기 기대와 기간 보상의 재평가를 반영한다. 동시에 성장주 평가에는 제약으로 작용하므로 주가 상승과 금리 상승이 공존하는 구간에서는 지수보다 업종 확산을 확인해야 한다.",
+        "whatToWatch": "미 10년물 4.70% 상향 돌파 여부와 4.50% 하향 안정 여부를 함께 본다."
+      },
+      {
+        "title": "변동성은 20선 아래",
+        "whatHappened": "변동성지수(VIX)는 15.74로 전일 대비 -3.38% 움직였다.",
+        "whyMarketReacted": "VIX가 20선 아래에 있으면 급격한 방어 심리는 제한적이다. 그러나 금리와 원자재 가격이 높은 구간에서는 작은 재료에도 헤지 수요가 다시 늘 수 있다.",
+        "whatToWatch": "VIX 20선 재돌파, 미 10년물 4.70% 부근 반응, 주요 지수의 장중 저점 이탈 여부를 함께 확인한다."
+      },
+      {
+        "title": "한국시장 강세와 환율 기준일 지연",
+        "whatHappened": "코스피 보조 시세는 8,476.15, 코스닥은 1,074.80로 집계됐다. 달러/원 FRED 시계열은 1,503.13원, 기준일은 2026-05-29다.",
+        "whyMarketReacted": "미국 지수 강세와 한국 지수 보조 시세가 같은 방향을 가리킨다. 다만 원화 관련 FRED 데이터가 지연돼 외국인 매매와 환율 해석은 보수적으로 처리해야 한다.",
+        "whatToWatch": "달러/원은 기준일 지연 상태이므로 1,480원과 1,500원을 보조 확인선으로 두고, 코스피 외국인 순매수 전환과 반도체 대형주의 상대 강도를 동시에 점검한다."
+      },
+      {
+        "title": "정책 뉴스는 연준 의사록과 인플레이션 경로에 집중",
+        "whatHappened": "뉴스 우선순위는 AOL.com의 '미국 물가 상승률 예상치 하회, GDP는 하락'가 가장 높게 잡혔다.",
+        "whyMarketReacted": "연준 의사록과 물가 관련 뉴스는 하루 가격보다 향후 금리 경로와 금융 여건을 재평가하게 만드는 재료다.",
+        "whatToWatch": "다음 연준 발언에서 물가 목표, 추가 긴축 가능성, 금융 여건 평가 문구가 반복되는지 확인한다."
+      }
+    ],
+    "marketSnapshot": {
+      "indices": "S&P500지수 +0.22%, 나스닥 종합지수 +0.20%, 다우존스30 산업평균지수 +0.72%로 3대 지수가 움직였다.",
+      "rates": "미 10년물 4.45%, 2년물 3.98%, 10년-2년 금리차 0.47%p다.",
+      "volatility": "VIX는 15.74로 20선 아래에 있다.",
+      "sectors": "섹터별 상세 등락은 별도 보강 데이터가 없으면 단정하지 않는다. 기술주와 반도체는 나스닥 흐름을 통해 간접 확인한다.",
+      "fxCommodities": "달러/원은 FRED 기준 1,503.13원, WTI는 87.36달러다. 두 항목 모두 기준일 지연을 감안해 보조 참고로 제한한다."
+    },
+    "koreanCheckpoints": [
+      "코스피는 8,476.15 기준으로 미국 기술주 강세가 반도체 대형주까지 이어지는지 확인한다.",
+      "달러/원은 FRED 기준 1,503.13원이며 데이터 기준일이 2026-05-29로 늦다. 1,480원과 1,500원을 한국시장 해석의 1차 범위로 둔다.",
+      "미 10년물 4.45%가 4.70% 위로 확장되면 2차전지, 바이오, 인터넷/플랫폼 등 장기 성장 업종의 변동성 확대 가능성을 점검한다."
+    ],
+    "positioning": {
+      "mainScenario": {
+        "view": "주가 강세는 인정하되 장기금리 상단을 함께 확인하는 중립적 위험자산 우위",
+        "reasoning": "미국 3대 지수가 같은 방향으로 움직였고 VIX가 15.74로 20선 아래에 있다. 다만 미 10년물 금리가 4.45%까지 올라 금리 상단 확인이 필요하다.",
+        "pros": "지수 동반 상승, 나스닥 상대 강세, 코스피·코스닥 보조 시세 강세가 우호 요인이다.",
+        "cons": "장기금리 상승, 환율 데이터 지연, 원자재 지표 지연이 판단의 제약 요인이다.",
+        "triggers": [
+          "나스닥 26,973선 유지",
+          "VIX 20선 이하",
+          "미 10년물 4.70% 이하 안정"
+        ],
+        "executionHint": "추격 매수보다 주도 업종의 장중 유지력과 금리 반응을 확인한 뒤 비중을 조절한다."
+      },
+      "altScenario": {
+        "condition": "미 10년물 4.70% 상향 돌파와 VIX 20선 재진입이 동시에 나타나는 경우",
+        "view": "지수 상승에도 방어적 포지션을 늘리는 대체 시나리오",
+        "reasoning": "금리와 변동성이 동시에 높아지면 성장주 중심의 상승 탄력이 약해지고 한국시장에서는 외국인 매매와 환율 민감도가 커질 수 있다.",
+        "triggers": [
+          "미 10년물 4.70% 상회",
+          "VIX 20선 재돌파",
+          "달러/원 기준일 지연 해소 후 1,500원 상회"
+        ],
+        "executionHint": "반도체 주도력이 약해지는지 먼저 확인하고, 민감 업종보다 현금흐름 안정 업종의 상대 강도를 본다."
+      }
+    },
+    "commentary": [
+      "오늘 리포트의 핵심은 주가와 장기금리가 동시에 움직였다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 움직였지만 미 10년물 금리도 4.45%를 기록했다. 이는 시장이 경기와 실적 기대를 반영하면서도 자금 조달 비용의 상단을 다시 시험하고 있음을 뜻한다.",
+      "한국시장 관점에서는 미국 기술주 강세가 반도체와 성장 업종에 우호적이다. 다만 달러/원 FRED 시계열 기준일이 2026-05-29로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 8,476.15와 코스닥 1,074.80라는 보조 시세는 강세를 가리키지만, 환율 안정이 동반되지 않으면 상승 지속성은 약해질 수 있다.",
+      "뉴스 흐름은 연준 의사록과 인플레이션 경로로 모인다. 당장 하루 가격을 결정하는 단일 재료보다 금리 경로와 금융 여건을 재평가하게 만드는 재료가 많다. 따라서 오늘의 결론은 강세 추종이 아니라 금리 상단, 환율, 주도 업종 확산 여부를 함께 확인하는 쪽에 가깝다."
+    ],
+    "causalAnalysis": [
+      {
+        "title": "주가 강세와 금리 부담의 공존",
+        "desc": "S&P500지수와 나스닥 종합지수가 동반 상승했지만 미 10년물 금리는 4.45%에 머물렀다. 주가 강세는 위험 선호 회복을 뜻하지만, 장기금리가 높은 구간에서는 밸류에이션 확장이 제한된다. 따라서 다음 흐름은 지수 상승보다 주도 업종 확산과 금리 상단 안정 여부가 좌우한다."
+      },
+      {
+        "title": "변동성 안정의 조건",
+        "desc": "VIX가 15.74로 20선 아래에 있으면 단기 헤지 수요는 제한적이다. 다만 금리와 환율이 동시에 불안정해지면 낮은 변동성은 빠르게 되돌릴 수 있다. 한국시장에서는 반도체 주도력과 외국인 매매 흐름을 함께 확인해야 한다."
+      }
+    ],
+    "forwardOutlook": [
+      {
+        "title": "다음 물가 지표와 금리 반응",
+        "desc": "다음 개인소비지출 물가지수(PCE) 또는 소비자물가지수(CPI) 발표에서 컨센서스 상회가 나오면 미 10년물 4.70% 재시험 가능성이 커진다. 반대로 둔화 신호가 확인되면 성장주 밸류에이션 부담은 완화될 수 있다."
+      },
+      {
+        "title": "연준 발언과 금융 여건 평가",
+        "desc": "다음 연준 발언에서는 물가 목표, 금융 여건, 금리 인하 시점에 대한 문구를 확인해야 한다. 매파적 발언이 반복되면 달러와 장기금리가 한국 성장주에 부담으로 작용할 수 있다."
+      }
+    ],
+    "complianceNote": "본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있습니다.",
+    "fallbackFilledAt": "2026-05-31T08:27:59.773Z"
+  },
+  {
     "date": "2026-05-30",
     "title": "[데일리 마감] 다우 0.72% 강세… 유가 하락·AI 기대감 부각",
     "highlights": [
