@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T00:18:48.629Z",
+  "generatedAt": "2026-05-30T00:21:13.811Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "초기 관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, SRXH로 구성합니다.",
   "source": {
@@ -7,41 +7,41 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-05-27T00:18:47.023Z",
-    "latestBriefingDate": "2026-05-27",
-    "priceHistoryGeneratedAt": "2026-05-27T00:18:48.483Z"
+    "snapshotGeneratedAt": "2026-05-30T00:19:04.101Z",
+    "latestBriefingDate": "2026-05-30",
+    "priceHistoryGeneratedAt": "2026-05-30T00:21:13.648Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-05-27",
-    "title": "선별 강세, 10년물 4.56% · VIX 16.59",
-    "summary": "미국 증시는 뚜렷한 한 방향보다 혼조 흐름에 가까웠다. S&P500지수가 +0.37%, 나스닥 종합지수가 +0.19%, 다우존스30 산업평균지수가 -0.23% 변동하며 S&P 500 상대 강세 흐름이 나타났다. 지수, 금리, 변동성 신호의 정렬이 약해 단기 해석을 서두르기 어려운 국면이다. 미 국채 10년물 금리는 4.56%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.94%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 WTI 유가(2026-05-18, 오래됨 7영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
+    "reportDate": "2026-05-30",
+    "title": "전통 대형주 견조 광범위 강세, 10년물 4.45% · VIX 15.74",
+    "summary": "미국 증시는 강세 흐름으로 마감했다. S&P500지수가 +0.22%, 나스닥 종합지수가 +0.20%, 다우존스30 산업평균지수가 +0.72% 변동하며 다우지수 상대 강세 흐름이 나타났다. 주가 강세와 변동성 안정이 동반되면서 투자심리가 개선된 흐름이 나타났다. 미 국채 10년물 금리는 4.45%로 주가와 공존이 가능하나 추세적 밸류에이션 확장을 동시에 허용하기는 어려운 수준이다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.83%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 광의 달러지수(2026-05-22, 오래됨 5영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
     "signals": [
       {
         "label": "S&P 500",
-        "value": "7473.47",
-        "change": "+0.37%",
+        "value": "7580.1",
+        "change": "+0.22%",
         "tone": "up",
         "note": "미국 위험자산 선호의 기준 지표입니다."
       },
       {
         "label": "미 국채 10년물",
-        "value": "4.56%",
-        "change": "-1bp",
-        "tone": "up",
+        "value": "4.45%",
+        "change": "0bp",
+        "tone": "flat",
         "note": "성장주와 한국 증시 할인율을 좌우합니다."
       },
       {
         "label": "VIX",
-        "value": "16.59",
-        "change": "-0.66%",
+        "value": "15.74",
+        "change": "-3.38%",
         "tone": "up",
         "note": "변동성 확대 여부를 보여줍니다."
       },
       {
         "label": "달러/원",
-        "value": "1517.33원",
-        "change": "+0.59%",
-        "tone": "down",
+        "value": "1503.13원",
+        "change": "-0.09%",
+        "tone": "up",
         "note": "외국인 매매와 환율 민감 업종의 핵심 변수입니다."
       }
     ]
@@ -111,70 +111,56 @@
         "삼성전자·SK하이닉스 매매 흐름"
       ],
       "quote": {
-        "price": 8396.72,
-        "changePercent": 4.34,
+        "price": 8476.15,
+        "changePercent": 3.55,
         "currency": "pt",
         "source": "watchlist-prices"
       },
-      "price": 8396.72,
-      "changePercent": 4.34,
-      "macroScore": 59,
+      "price": 8476.15,
+      "changePercent": 3.55,
+      "macroScore": 61,
       "macroTone": "중립",
       "macroToneClass": "neutral",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 8396.72,
-        "percentChange": 4.34,
-        "observationDate": "2026-05-27"
+        "close": 8476.15,
+        "percentChange": 3.55,
+        "observationDate": "2026-05-29"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-05-27",
+        "asOf": "2026-05-29",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 100,
         "tone": "상방 우위",
         "toneClass": "positive",
-        "summary": "상방 우위 신호입니다. 20거래일 수익률 29.67%, RSI 67.1, 60일 추세 33.13% 기준으로 판단했습니다.",
+        "summary": "상방 우위 신호입니다. 20거래일 수익률 27.63%, RSI 66.2, 60일 추세 46.34% 기준으로 판단했습니다.",
         "indicators": {
-          "close": 8396.72,
-          "return1d": 4.34,
-          "return5d": 15.47,
-          "return20d": 29.67,
-          "return60d": 33.13,
-          "ma20": 7437.1795,
-          "ma60": 6296.7438,
-          "ma120": 5508.8303,
-          "rsi14": 67.1,
-          "macd": 452.4798,
-          "macdSignal": 428.262,
-          "macdHistogram": 24.2178,
-          "dailyVolatility20d": 3.31,
-          "annualVolatility20d": 52.55,
-          "slope60d": 33.13,
+          "close": 8476.15,
+          "return1d": 3.55,
+          "return5d": 8.45,
+          "return20d": 27.63,
+          "return60d": 46.34,
+          "ma20": 7599.048,
+          "ma60": 6371.0335,
+          "ma120": 5580.3297,
+          "rsi14": 66.2,
+          "macd": 472.2068,
+          "macdSignal": 438.4138,
+          "macdHistogram": 33.793,
+          "dailyVolatility20d": 3.3,
+          "annualVolatility20d": 52.38,
+          "slope60d": 46.34,
           "drawdown120d": 0,
-          "support20d": 6529.19,
-          "resistance20d": 8450.26,
-          "volumeRatio20d": 0.17
+          "support20d": 6596.03,
+          "resistance20d": 8476.15,
+          "volumeRatio20d": 1.05
         },
         "chart": {
           "points": [
-            {
-              "date": "2025-08-28",
-              "close": 3196.32,
-              "ma20": 3186.762,
-              "ma60": 3111.6963,
-              "volume": 312188
-            },
-            {
-              "date": "2025-08-29",
-              "close": 3186.01,
-              "ma20": 3183.7905,
-              "ma60": 3118.6158,
-              "volume": 245132
-            },
             {
               "date": "2025-09-01",
               "close": 3142.93,
@@ -1416,10 +1402,24 @@
             },
             {
               "date": "2026-05-27",
-              "close": 8396.72,
-              "ma20": 7437.1795,
-              "ma60": 6296.7438,
-              "volume": 117017
+              "close": 8228.7,
+              "ma20": 7428.7785,
+              "ma60": 6293.9435,
+              "volume": 619451
+            },
+            {
+              "date": "2026-05-28",
+              "close": 8185.29,
+              "ma20": 7507.2915,
+              "ma60": 6326.2962,
+              "volume": 668951
+            },
+            {
+              "date": "2026-05-29",
+              "close": 8476.15,
+              "ma20": 7599.048,
+              "ma60": 6371.0335,
+              "volume": 735127
             }
           ]
         }
@@ -1457,21 +1457,21 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 8.17,
+            "expectedReturnPct": 7.82,
             "upProbabilityPct": 69,
-            "rangeLowPct": -11.89,
-            "rangeHighPct": 11.89
+            "rangeLowPct": -11.21,
+            "rangeHighPct": 11.21
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 31.17,
+            "expectedReturnPct": 29.46,
             "upProbabilityPct": 76,
-            "rangeLowPct": -33.67,
-            "rangeHighPct": 33.67
+            "rangeLowPct": -31.63,
+            "rangeHighPct": 31.63
           }
         ]
       },
-      "macroSummary": "선별 강세, 10년물 4.56% · VIX 16.59. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대입니다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해집니다.",
+      "macroSummary": "전통 대형주 견조 광범위 강세, 10년물 4.45% · VIX 15.74. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대입니다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해집니다.",
       "riskFlags": [],
       "scenario": {
         "base": "코스피지수은 현재 매크로 배경과 가격 추세를 함께 확인하는 구간입니다.",
@@ -1549,70 +1549,56 @@
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있습니다."
       ],
       "quote": {
-        "price": 87,
-        "changePercent": -9.37,
+        "price": 84,
+        "changePercent": -7.69,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 87,
-      "changePercent": -9.37,
-      "macroScore": 16,
+      "price": 84,
+      "changePercent": -7.69,
+      "macroScore": 26,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 8396.72,
-        "percentChange": 4.34,
-        "observationDate": "2026-05-27"
+        "close": 8476.15,
+        "percentChange": 3.55,
+        "observationDate": "2026-05-29"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-05-27",
+        "asOf": "2026-05-29",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호입니다. 20거래일 수익률 -50.85%, RSI 28.6, 60일 추세 -62.98% 기준으로 판단했습니다.",
+        "summary": "하방 경계 신호입니다. 20거래일 수익률 -50.3%, RSI 29.5, 60일 추세 -69.68% 기준으로 판단했습니다.",
         "indicators": {
-          "close": 87,
-          "return1d": -9.37,
-          "return5d": -29.27,
-          "return20d": -50.85,
-          "return60d": -62.98,
-          "ma20": 125.4,
-          "ma60": 208.65,
-          "ma120": 359.6167,
-          "rsi14": 28.6,
-          "macd": -28.1537,
-          "macdSignal": -29.4639,
-          "macdHistogram": 1.3102,
-          "dailyVolatility20d": 7.08,
-          "annualVolatility20d": 112.45,
-          "slope60d": -62.98,
-          "drawdown120d": -88.37,
+          "close": 84,
+          "return1d": -7.69,
+          "return5d": -18.45,
+          "return20d": -50.3,
+          "return60d": -69.68,
+          "ma20": 117.45,
+          "ma60": 203.05,
+          "ma120": 348.875,
+          "rsi14": 29.5,
+          "macd": -27.4978,
+          "macdSignal": -28.717,
+          "macdHistogram": 1.2191,
+          "dailyVolatility20d": 7.03,
+          "annualVolatility20d": 111.57,
+          "slope60d": -69.68,
+          "drawdown120d": -88.77,
           "support20d": 84,
-          "resistance20d": 175,
-          "volumeRatio20d": 0.2
+          "resistance20d": 171,
+          "volumeRatio20d": 0.27
         },
         "chart": {
           "points": [
-            {
-              "date": "2025-08-28",
-              "close": 1296,
-              "ma20": 1309.75,
-              "ma60": 1395.7,
-              "volume": 340938698
-            },
-            {
-              "date": "2025-08-29",
-              "close": 1308,
-              "ma20": 1311.65,
-              "ma60": 1387.4,
-              "volume": 200960672
-            },
             {
               "date": "2025-09-01",
               "close": 1350,
@@ -2854,10 +2840,24 @@
             },
             {
               "date": "2026-05-27",
-              "close": 87,
-              "ma20": 125.4,
-              "ma60": 208.65,
-              "volume": 1440764271
+              "close": 91,
+              "ma20": 125.6,
+              "ma60": 208.7167,
+              "volume": 9552283373
+            },
+            {
+              "date": "2026-05-28",
+              "close": 91,
+              "ma20": 121.7,
+              "ma60": 206.2667,
+              "volume": 10647240681
+            },
+            {
+              "date": "2026-05-29",
+              "close": 84,
+              "ma20": 117.45,
+              "ma60": 203.05,
+              "volume": 2147483647
             }
           ]
         }
@@ -2887,7 +2887,7 @@
         ]
       },
       "forecast": {
-        "score": 7,
+        "score": 12,
         "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
@@ -2895,21 +2895,21 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -15.55,
-            "upProbabilityPct": 24,
-            "rangeLowPct": -18.95,
-            "rangeHighPct": 18.95
+            "expectedReturnPct": -14.57,
+            "upProbabilityPct": 27,
+            "rangeLowPct": -18.77,
+            "rangeHighPct": 18.77
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -56.52,
-            "upProbabilityPct": 16,
-            "rangeLowPct": -54.85,
-            "rangeHighPct": 54.85
+            "expectedReturnPct": -54.3,
+            "upProbabilityPct": 20,
+            "rangeLowPct": -54.3,
+            "rangeHighPct": 54.3
           }
         ]
       },
-      "macroSummary": "선별 강세, 10년물 4.56% · VIX 16.59. 핵심 변수는 코스피 하락 압력과 장중 변동성입니다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔들 수 있습니다.",
+      "macroSummary": "전통 대형주 견조 광범위 강세, 10년물 4.45% · VIX 15.74. 핵심 변수는 코스피 하락 압력과 장중 변동성입니다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔들 수 있습니다.",
       "riskFlags": [
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있습니다.",
         "120거래일 고점 대비 낙폭이 커 변동성 관리가 필요합니다.",
@@ -2996,10 +2996,16 @@
       },
       "price": 0.138,
       "changePercent": -8.24,
-      "macroScore": 53,
+      "macroScore": 56,
       "macroTone": "중립",
       "macroToneClass": "neutral",
-      "sectorSignal": null,
+      "sectorSignal": {
+        "ticker": "XLV",
+        "label": "미국 헬스케어 ETF",
+        "close": 149.89,
+        "percentChange": 1.17,
+        "observationDate": "2026-05-22"
+      },
       "technical": {
         "status": "ready",
         "asOf": "2026-05-14",
@@ -4321,7 +4327,7 @@
         ]
       },
       "forecast": {
-        "score": 56,
+        "score": 57,
         "toneClass": "neutral",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
@@ -4329,21 +4335,21 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 2.27,
+            "expectedReturnPct": 2.52,
             "upProbabilityPct": 54,
             "rangeLowPct": -4.69,
             "rangeHighPct": 4.69
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 8.57,
-            "upProbabilityPct": 55,
+            "expectedReturnPct": 9.07,
+            "upProbabilityPct": 56,
             "rangeLowPct": -12.07,
             "rangeHighPct": 12.07
           }
         ]
       },
-      "macroSummary": "선별 강세, 10년물 4.56% · VIX 16.59. 핵심 변수는 거래량 지속성, 현금 소진 속도, 자금조달 조건, 사업 전환 관련 공시입니다. 대형 헬스케어 섹터보다 개별 이벤트와 유동성 변화가 주가를 더 크게 흔들 수 있습니다.",
+      "macroSummary": "전통 대형주 견조 광범위 강세, 10년물 4.45% · VIX 15.74. 핵심 변수는 거래량 지속성, 현금 소진 속도, 자금조달 조건, 사업 전환 관련 공시입니다. 대형 헬스케어 섹터보다 개별 이벤트와 유동성 변화가 주가를 더 크게 흔들 수 있습니다.",
       "riskFlags": [
         "마이크로캡은 유동성이 얕아 작은 주문에도 가격이 크게 움직일 수 있습니다.",
         "저가주는 상장 유지 요건, 역분할, 희석성 자금조달 공시를 반드시 확인해야 합니다.",
