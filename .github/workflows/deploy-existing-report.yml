@@ -1,0 +1,68 @@
+name: Deploy Existing Report
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/deploy-existing-report.yml"
+      - "index.html"
+      - "settings.html"
+      - "app.js"
+      - "settings.js"
+      - "styles.css"
+      - "favicon.svg"
+      - "config/**"
+      - "data/**"
+      - "posts/**"
+      - "reports/**"
+      - "report.html"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy-existing-report:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate report files
+        run: |
+          npm run check:quality
+          npm run check:copy
+
+      - name: Build Pages artifact
+        run: |
+          mkdir -p public
+          cp index.html settings.html app.js settings.js styles.css favicon.svg report.html public/
+          cp -R config data posts reports public/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
