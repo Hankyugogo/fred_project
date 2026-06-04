@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T01:50:27.949Z",
+  "generatedAt": "2026-06-04T23:32:49.591Z",
   "source": "FRED API + Yahoo Finance v8 chart API",
   "range": "~14mo",
   "interval": "1d",
@@ -11,9 +11,9 @@
       "yahooSymbol": "^GSPC",
       "label": "S&P 500",
       "kind": "index",
-      "historyLength": 291,
-      "latestDate": "2026-06-03",
-      "latestClose": 7553.68,
+      "historyLength": 292,
+      "latestDate": "2026-06-04",
+      "latestClose": 7584.3,
       "history": [
         {
           "date": "2025-04-07",
@@ -1178,10 +1178,20 @@
         {
           "date": "2026-06-03",
           "close": 7553.68
+        },
+        {
+          "date": "2026-06-04",
+          "close": 7584.3
         }
       ],
-      "source": "FRED API",
-      "error": null
+      "source": "FRED API + market supplement",
+      "error": null,
+      "marketSupplement": {
+        "source": "Stooq quote CSV",
+        "sourceSymbol": "^spx",
+        "replacementPolicy": "replace",
+        "fetchedAt": "2026-06-04T23:31:02.696Z"
+      }
     },
     {
       "id": "NASDAQCOM",
@@ -1189,9 +1199,9 @@
       "yahooSymbol": "^IXIC",
       "label": "나스닥종합",
       "kind": "index",
-      "historyLength": 291,
-      "latestDate": "2026-06-03",
-      "latestClose": 26853.97,
+      "historyLength": 292,
+      "latestDate": "2026-06-04",
+      "latestClose": 26830.96,
       "history": [
         {
           "date": "2025-04-07",
@@ -2355,7 +2365,11 @@
         },
         {
           "date": "2026-06-03",
-          "close": 26853.97
+          "close": 26853.98
+        },
+        {
+          "date": "2026-06-04",
+          "close": 26830.96
         }
       ],
       "source": "FRED API + market supplement",
@@ -2364,7 +2378,7 @@
         "source": "Stooq quote CSV",
         "sourceSymbol": "^ndq",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:39.408Z"
+        "fetchedAt": "2026-06-04T23:31:03.429Z"
       }
     },
     {
@@ -2373,9 +2387,9 @@
       "yahooSymbol": "^DJI",
       "label": "다우지수",
       "kind": "index",
-      "historyLength": 291,
-      "latestDate": "2026-06-03",
-      "latestClose": 50687.07,
+      "historyLength": 292,
+      "latestDate": "2026-06-04",
+      "latestClose": 51561.9,
       "history": [
         {
           "date": "2025-04-07",
@@ -3540,10 +3554,20 @@
         {
           "date": "2026-06-03",
           "close": 50687.07
+        },
+        {
+          "date": "2026-06-04",
+          "close": 51561.9
         }
       ],
-      "source": "FRED API",
-      "error": null
+      "source": "FRED API + market supplement",
+      "error": null,
+      "marketSupplement": {
+        "source": "Stooq quote CSV",
+        "sourceSymbol": "^dji",
+        "replacementPolicy": "replace",
+        "fetchedAt": "2026-06-04T23:31:03.659Z"
+      }
     },
     {
       "id": "RUSSELL2000",
@@ -8598,7 +8622,7 @@
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-06-04T01:50:26.454Z"
+      "fetchedAt": "2026-06-04T23:32:45.926Z"
     },
     {
       "id": "VIXCLS",
@@ -8606,9 +8630,9 @@
       "yahooSymbol": "^VIX",
       "label": "VIX",
       "kind": "index",
-      "historyLength": 298,
-      "latestDate": "2026-06-02",
-      "latestClose": 15.77,
+      "historyLength": 299,
+      "latestDate": "2026-06-03",
+      "latestClose": 16.06,
       "history": [
         {
           "date": "2025-04-07",
@@ -9801,6 +9825,10 @@
         {
           "date": "2026-06-02",
           "close": 15.77
+        },
+        {
+          "date": "2026-06-03",
+          "close": 16.06
         }
       ],
       "source": "FRED API",
@@ -9813,8 +9841,8 @@
       "label": "미 국채 10년물",
       "kind": "rate",
       "historyLength": 290,
-      "latestDate": "2026-06-03",
-      "latestClose": 4.49,
+      "latestDate": "2026-06-04",
+      "latestClose": 4.47,
       "history": [
         {
           "date": "2025-04-07",
@@ -10973,8 +11001,8 @@
           "close": 4.46
         },
         {
-          "date": "2026-06-03",
-          "close": 4.49
+          "date": "2026-06-04",
+          "close": 4.47
         }
       ],
       "source": "FRED API + market supplement",
@@ -10983,7 +11011,7 @@
         "source": "U.S. Treasury Daily Treasury Rates XML",
         "sourceSymbol": "BC_10YEAR",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:39.868Z"
+        "fetchedAt": "2026-06-04T23:31:04.852Z"
       }
     },
     {
@@ -10993,8 +11021,8 @@
       "label": "미 국채 단기 (^IRX, 13W T-Bill)",
       "kind": "rate",
       "historyLength": 290,
-      "latestDate": "2026-06-03",
-      "latestClose": 4.08,
+      "latestDate": "2026-06-04",
+      "latestClose": 4.05,
       "history": [
         {
           "date": "2025-04-07",
@@ -12153,8 +12181,8 @@
           "close": 4.05
         },
         {
-          "date": "2026-06-03",
-          "close": 4.08
+          "date": "2026-06-04",
+          "close": 4.05
         }
       ],
       "source": "FRED API + market supplement",
@@ -12163,7 +12191,7 @@
         "source": "U.S. Treasury Daily Treasury Rates XML",
         "sourceSymbol": "BC_2YEAR",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:39.867Z"
+        "fetchedAt": "2026-06-04T23:31:04.851Z"
       }
     },
     {
@@ -12174,7 +12202,7 @@
       "kind": "fx",
       "historyLength": 289,
       "latestDate": "2026-06-04",
-      "latestClose": 1529.96,
+      "latestClose": 1529.75,
       "history": [
         {
           "date": "2025-04-07",
@@ -13330,7 +13358,7 @@
         },
         {
           "date": "2026-06-04",
-          "close": 1529.96
+          "close": 1529.75
         }
       ],
       "source": "FRED API + market supplement",
@@ -13339,7 +13367,7 @@
         "source": "Stooq quote CSV",
         "sourceSymbol": "usdkrw",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:40.038Z"
+        "fetchedAt": "2026-06-04T23:31:05.080Z"
       }
     },
     {
@@ -14515,8 +14543,8 @@
       "label": "USD/JPY",
       "kind": "fx",
       "historyLength": 289,
-      "latestDate": "2026-06-04",
-      "latestClose": 159.88,
+      "latestDate": "2026-06-05",
+      "latestClose": 159.98,
       "history": [
         {
           "date": "2025-04-07",
@@ -15671,8 +15699,8 @@
           "close": 159.23
         },
         {
-          "date": "2026-06-04",
-          "close": 159.88
+          "date": "2026-06-05",
+          "close": 159.98
         }
       ],
       "source": "FRED API + market supplement",
@@ -15681,7 +15709,7 @@
         "source": "Stooq quote CSV",
         "sourceSymbol": "usdjpy",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:40.203Z"
+        "fetchedAt": "2026-06-04T23:31:05.346Z"
       }
     },
     {
@@ -15691,8 +15719,8 @@
       "label": "WTI 유가",
       "kind": "commodity",
       "historyLength": 288,
-      "latestDate": "2026-06-04",
-      "latestClose": 94.97,
+      "latestDate": "2026-06-05",
+      "latestClose": 92.85,
       "history": [
         {
           "date": "2025-04-07",
@@ -16843,8 +16871,8 @@
           "close": 95.96
         },
         {
-          "date": "2026-06-04",
-          "close": 94.97
+          "date": "2026-06-05",
+          "close": 92.85
         }
       ],
       "source": "FRED API + market supplement",
@@ -16853,7 +16881,7 @@
         "source": "Stooq quote CSV",
         "sourceSymbol": "cl.f",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-06-04T01:48:40.373Z"
+        "fetchedAt": "2026-06-04T23:31:05.657Z"
       }
     },
     {
@@ -18032,9 +18060,9 @@
       "yahooSymbol": "GC=F",
       "label": "금 (Gold Spot)",
       "kind": "commodity",
-      "historyLength": 1266,
-      "latestDate": "2026-06-04",
-      "latestClose": 4491.95,
+      "historyLength": 1267,
+      "latestDate": "2026-06-05",
+      "latestClose": 4493.9,
       "history": [
         {
           "date": "2021-07-08",
@@ -23099,17 +23127,21 @@
         {
           "date": "2026-06-04",
           "close": 4491.95
+        },
+        {
+          "date": "2026-06-05",
+          "close": 4493.9
         }
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-06-04T01:50:27.893Z",
-      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
+      "fetchedAt": "2026-06-04T23:32:49.123Z",
+      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
       "marketSupplement": {
         "source": "Stooq quote CSV",
         "sourceSymbol": "gc.f",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-06-04T01:48:40.585Z"
+        "fetchedAt": "2026-06-04T23:31:06.296Z"
       }
     },
     {
@@ -23118,9 +23150,9 @@
       "yahooSymbol": "HG=F",
       "label": "구리",
       "kind": "commodity",
-      "historyLength": 1266,
-      "latestDate": "2026-06-04",
-      "latestClose": 6.46,
+      "historyLength": 1267,
+      "latestDate": "2026-06-05",
+      "latestClose": 6.52,
       "history": [
         {
           "date": "2021-07-08",
@@ -28185,17 +28217,21 @@
         {
           "date": "2026-06-04",
           "close": 6.46
+        },
+        {
+          "date": "2026-06-05",
+          "close": 6.52
         }
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-06-04T01:50:27.931Z",
-      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
+      "fetchedAt": "2026-06-04T23:32:49.434Z",
+      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
       "marketSupplement": {
         "source": "Stooq quote CSV",
         "sourceSymbol": "hg.f",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-06-04T01:48:40.750Z"
+        "fetchedAt": "2026-06-04T23:31:06.578Z"
       }
     },
     {
@@ -28204,9 +28240,9 @@
       "yahooSymbol": "BTC-USD",
       "label": "비트코인",
       "kind": "crypto",
-      "historyLength": 1266,
-      "latestDate": "2026-06-04",
-      "latestClose": 62570,
+      "historyLength": 1267,
+      "latestDate": "2026-06-05",
+      "latestClose": 63444.5,
       "history": [
         {
           "date": "2021-07-08",
@@ -33271,17 +33307,21 @@
         {
           "date": "2026-06-04",
           "close": 62570
+        },
+        {
+          "date": "2026-06-05",
+          "close": 63444.5
         }
       ],
       "error": "Yahoo: HTTP 429",
       "fallbackUsed": true,
-      "fetchedAt": "2026-06-04T01:50:27.949Z",
-      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
+      "fetchedAt": "2026-06-04T23:32:49.591Z",
+      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
       "marketSupplement": {
         "source": "Stooq quote CSV",
         "sourceSymbol": "btcusd",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-06-04T01:48:40.919Z"
+        "fetchedAt": "2026-06-04T23:31:06.886Z"
       }
     }
   ]
