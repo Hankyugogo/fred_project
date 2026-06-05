@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T23:31:06.886Z",
+  "generatedAt": "2026-06-05T01:30:57.133Z",
   "source": "Yahoo Finance v8 chart API",
   "purpose": "FRED 지연 시 최신 시장 종가/대용 시세로 보강",
   "items": [
@@ -20,7 +20,7 @@
       "sourceUrl": "https://stooq.com/q/?s=%5Espx",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:02.696Z"
+      "fetchedAt": "2026-06-05T01:30:55.364Z"
     },
     {
       "id": "NASDAQCOM",
@@ -39,7 +39,7 @@
       "sourceUrl": "https://stooq.com/q/?s=%5Endq",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:03.429Z"
+      "fetchedAt": "2026-06-05T01:30:56.058Z"
     },
     {
       "id": "DJIA",
@@ -58,7 +58,7 @@
       "sourceUrl": "https://stooq.com/q/?s=%5Edji",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:03.659Z"
+      "fetchedAt": "2026-06-05T01:30:56.162Z"
     },
     {
       "id": "VIXCLS",
@@ -69,7 +69,7 @@
       "sourceUrl": "https://finance.yahoo.com/quote/%5EVIX",
       "replacementPolicy": "replace",
       "error": "Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-04T23:31:04.268Z"
+      "fetchedAt": "2026-06-05T01:30:56.331Z"
     },
     {
       "id": "DGS2",
@@ -88,7 +88,7 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:04.851Z"
+      "fetchedAt": "2026-06-05T01:30:56.429Z"
     },
     {
       "id": "DGS10",
@@ -107,7 +107,7 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
-      "fetchedAt": "2026-06-04T23:31:04.852Z"
+      "fetchedAt": "2026-06-05T01:30:56.430Z"
     },
     {
       "id": "DEXKOUS",
@@ -115,18 +115,18 @@
       "group": "fx",
       "format": "krw",
       "decimals": 2,
-      "latestValue": 1529.75,
-      "previousValue": 1524.53,
-      "absoluteChange": 5.22,
-      "percentChange": 0.3424,
-      "observationDate": "2026-06-04",
+      "latestValue": 1548.25,
+      "previousValue": 1529.75,
+      "absoluteChange": 18.5,
+      "percentChange": 1.2093,
+      "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
       "sourceSymbol": "usdkrw",
       "sourceUrl": "https://stooq.com/q/?s=usdkrw",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:05.080Z"
+      "fetchedAt": "2026-06-05T01:30:56.533Z"
     },
     {
       "id": "DEXJPUS",
@@ -134,10 +134,10 @@
       "group": "fx",
       "format": "index",
       "decimals": 2,
-      "latestValue": 159.98,
+      "latestValue": 159.96,
       "previousValue": 159.99,
-      "absoluteChange": -0.01,
-      "percentChange": -0.0063,
+      "absoluteChange": -0.03,
+      "percentChange": -0.0188,
       "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
@@ -145,7 +145,7 @@
       "sourceUrl": "https://stooq.com/q/?s=usdjpy",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:05.346Z"
+      "fetchedAt": "2026-06-05T01:30:56.635Z"
     },
     {
       "id": "DCOILWTICO",
@@ -153,10 +153,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 92.85,
+      "latestValue": 93.03,
       "previousValue": 92.91,
-      "absoluteChange": -0.06,
-      "percentChange": -0.0646,
+      "absoluteChange": 0.12,
+      "percentChange": 0.1292,
       "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
@@ -164,7 +164,7 @@
       "sourceUrl": "https://stooq.com/q/?s=cl.f",
       "replacementPolicy": "proxy",
       "note": "FRED WTI 현물 지연 시 NYMEX WTI 근월물 종가를 최신 시장 대용치로 쓴다.",
-      "fetchedAt": "2026-06-04T23:31:05.657Z"
+      "fetchedAt": "2026-06-05T01:30:56.738Z"
     },
     {
       "id": "DCOILBRENTEU",
@@ -175,7 +175,7 @@
       "sourceUrl": "https://finance.yahoo.com/quote/BZ=F",
       "replacementPolicy": "proxy",
       "error": "Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-04T23:31:06.067Z"
+      "fetchedAt": "2026-06-05T01:30:56.827Z"
     },
     {
       "id": "GOLD",
@@ -183,10 +183,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 4493.9,
+      "latestValue": 4484.95,
       "previousValue": 4503.5,
-      "absoluteChange": -9.6,
-      "percentChange": -0.2132,
+      "absoluteChange": -18.55,
+      "percentChange": -0.4119,
       "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
@@ -194,7 +194,7 @@
       "sourceUrl": "https://stooq.com/q/?s=gc.f",
       "replacementPolicy": "proxy",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:06.296Z"
+      "fetchedAt": "2026-06-05T01:30:56.929Z"
     },
     {
       "id": "COPPER",
@@ -202,10 +202,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 6.52,
+      "latestValue": 6.44,
       "previousValue": 6.53,
-      "absoluteChange": -0.01,
-      "percentChange": -0.1531,
+      "absoluteChange": -0.09,
+      "percentChange": -1.3783,
       "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
@@ -213,7 +213,7 @@
       "sourceUrl": "https://stooq.com/q/?s=hg.f",
       "replacementPolicy": "proxy",
       "note": "Stooq HG.F는 센트 단위로 제공되어 0.01 스케일을 적용한다.",
-      "fetchedAt": "2026-06-04T23:31:06.578Z"
+      "fetchedAt": "2026-06-05T01:30:57.031Z"
     },
     {
       "id": "BTC",
@@ -221,10 +221,10 @@
       "group": "crypto",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 63444.5,
+      "latestValue": 63442.5,
       "previousValue": 63250.7,
-      "absoluteChange": 193.8,
-      "percentChange": 0.3064,
+      "absoluteChange": 191.8,
+      "percentChange": 0.3032,
       "observationDate": "2026-06-05",
       "previousObservationDate": null,
       "source": "Stooq quote CSV",
@@ -232,7 +232,7 @@
       "sourceUrl": "https://stooq.com/q/?s=btcusd",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-04T23:31:06.886Z"
+      "fetchedAt": "2026-06-05T01:30:57.133Z"
     }
   ]
 }
