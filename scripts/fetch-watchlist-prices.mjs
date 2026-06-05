@@ -1,7 +1,8 @@
 // scripts/fetch-watchlist-prices.mjs
 // 관심종목의 1년 일봉 시계열을 가져온다.
 // 기본은 Yahoo Finance 공개 chart API이고, 한국 지수·종목·ETF는 Yahoo 실패 시
-// Naver Finance siseJson으로 우회한다. 그래도 실패하면 기존 같은 종목 데이터를 보존한다.
+// Naver Finance siseJson으로 우회한다. 미국 종목은 Nasdaq historical API를
+// 추가로 시도한다. 그래도 실패하면 기존 같은 종목 데이터를 보존한다.
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -15,14 +16,14 @@ const CONFIG_PATH = path.join(ROOT, "config", "watchlist-stocks.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "watchlist-prices.json");
 const FETCH_TIMEOUT_MS = 30_000;
 
-function buildChartUrl(symbol) {
+function buildChartUrl(symbol, host = "query1.finance.yahoo.com") {
   const params = new URLSearchParams({
     range: "1y",
     interval: "1d",
     includePrePost: "false",
     events: "div,splits"
   });
-  return `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?${params}`;
+  return `https://${host}/v8/finance/chart/${encodeURIComponent(symbol)}?${params}`;
 }
 
 function buildNaverUrl(symbol) {
@@ -38,6 +39,19 @@ function buildNaverUrl(symbol) {
     timeframe: "day"
   });
   return `https://api.finance.naver.com/siseJson.naver?${params}`;
+}
+
+function buildNasdaqHistoricalUrl(symbol) {
+  const to = new Date();
+  const from = new Date(to);
+  from.setFullYear(from.getFullYear() - 1);
+  const params = new URLSearchParams({
+    assetclass: "stocks",
+    fromdate: from.toISOString().slice(0, 10),
+    todate: to.toISOString().slice(0, 10),
+    limit: "9999"
+  });
+  return `https://api.nasdaq.com/api/quote/${encodeURIComponent(symbol)}/historical?${params}`;
 }
 
 async function readJsonIfExists(file) {
@@ -64,6 +78,27 @@ async function fetchText(url) {
   }
 }
 
+async function fetchNasdaqText(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+        accept: "application/json,text/plain,*/*",
+        origin: "https://www.nasdaq.com",
+        referer: "https://www.nasdaq.com/"
+      }
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function isoDate(epochSeconds) {
   if (!Number.isFinite(epochSeconds)) return null;
   return new Date(epochSeconds * 1000).toISOString().slice(0, 10);
@@ -75,10 +110,22 @@ function isoDateFromYmd(value) {
   return `${text.slice(0, 4)}-${text.slice(4, 6)}-${text.slice(6, 8)}`;
 }
 
+function isoDateFromUsDate(value) {
+  const match = String(value || "").match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!match) return null;
+  return `${match[3]}-${match[1].padStart(2, "0")}-${match[2].padStart(2, "0")}`;
+}
+
 function round(value, digits = 4) {
   if (!Number.isFinite(value)) return null;
   const factor = 10 ** digits;
   return Math.round(value * factor) / factor;
+}
+
+function parseNasdaqNumber(value) {
+  const text = String(value || "").replace(/[$,%\s,]/g, "");
+  const num = Number(text);
+  return Number.isFinite(num) ? num : null;
 }
 
 function normalizeYahooHistory(result) {
@@ -117,6 +164,20 @@ function parseNaverHistory(text) {
   return rows.filter((row) => row.date && Number.isFinite(row.close));
 }
 
+function normalizeNasdaqHistory(rows) {
+  return (rows || [])
+    .map((row) => ({
+      date: isoDateFromUsDate(row.date),
+      open: round(parseNasdaqNumber(row.open)),
+      high: round(parseNasdaqNumber(row.high)),
+      low: round(parseNasdaqNumber(row.low)),
+      close: round(parseNasdaqNumber(row.close)),
+      volume: parseNasdaqNumber(row.volume)
+    }))
+    .filter((row) => row.date && Number.isFinite(row.close))
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
 function inferNaverSymbol(stock, chartSymbol) {
   if (stock.naverSymbol) return stock.naverSymbol;
   const raw = String(stock.ticker || chartSymbol || "").trim();
@@ -128,7 +189,17 @@ function inferNaverSymbol(stock, chartSymbol) {
 }
 
 async function fetchYahooOne(stock, chartSymbol) {
-  const json = JSON.parse(await fetchText(buildChartUrl(chartSymbol)));
+  let json = null;
+  const errors = [];
+  for (const host of ["query1.finance.yahoo.com", "query2.finance.yahoo.com"]) {
+    try {
+      json = JSON.parse(await fetchText(buildChartUrl(chartSymbol, host)));
+      break;
+    } catch (error) {
+      errors.push(`${host}: ${error.message || error}`);
+    }
+  }
+  if (!json) throw new Error(errors.join("; "));
   const result = json?.chart?.result?.[0];
   if (!result) throw new Error("empty chart result");
   const history = normalizeYahooHistory(result);
@@ -142,6 +213,25 @@ async function fetchYahooOne(stock, chartSymbol) {
     currency: result.meta?.currency || stock.currency || null,
     exchangeName: result.meta?.exchangeName || null,
     instrumentType: result.meta?.instrumentType || null,
+    history,
+    error: null
+  };
+}
+
+async function fetchNasdaqOne(stock, chartSymbol) {
+  const json = JSON.parse(await fetchNasdaqText(buildNasdaqHistoricalUrl(chartSymbol)));
+  const rows = json?.data?.tradesTable?.rows || [];
+  const history = normalizeNasdaqHistory(rows);
+  if (history.length < 2) throw new Error(`insufficient Nasdaq history (${history.length})`);
+  return {
+    ticker: stock.ticker,
+    name: stock.name,
+    chartSymbol,
+    source: "nasdaq-historical",
+    sourceUrl: `https://www.nasdaq.com/market-activity/stocks/${encodeURIComponent(String(chartSymbol).toLowerCase())}/historical`,
+    currency: stock.currency || "USD",
+    exchangeName: "US",
+    instrumentType: stock.assetClass || null,
     history,
     error: null
   };
@@ -174,6 +264,7 @@ async function fetchOne(stock, fallbackByTicker) {
   try {
     return await fetchYahooOne(stock, chartSymbol);
   } catch (yahooErr) {
+    let naverErr = null;
     try {
       const naver = await fetchNaverOne(stock, chartSymbol);
       return {
@@ -181,8 +272,19 @@ async function fetchOne(stock, fallbackByTicker) {
         fallbackSource: "naver",
         fallbackReason: `Yahoo: ${yahooErr.message || yahooErr}`
       };
-    } catch (naverErr) {
-      const error = `Yahoo: ${yahooErr.message || yahooErr}; Naver: ${naverErr.message || naverErr}`;
+    } catch (error) {
+      naverErr = error;
+    }
+
+    try {
+      const nasdaq = await fetchNasdaqOne(stock, chartSymbol);
+      return {
+        ...nasdaq,
+        fallbackSource: "nasdaq",
+        fallbackReason: `Yahoo: ${yahooErr.message || yahooErr}; Naver: ${naverErr.message || naverErr}`
+      };
+    } catch (nasdaqErr) {
+      const error = `Yahoo: ${yahooErr.message || yahooErr}; Naver: ${naverErr.message || naverErr}; Nasdaq: ${nasdaqErr.message || nasdaqErr}`;
     if (fallback?.history?.length) {
       return {
         ...fallback,
@@ -200,7 +302,7 @@ async function fetchOne(stock, fallbackByTicker) {
       source: "Yahoo Finance v8 chart API",
       sourceUrl: `https://finance.yahoo.com/quote/${encodeURIComponent(chartSymbol)}`,
       currency: stock.currency || null,
-      history: [],
+        history: [],
         error
     };
     }
@@ -221,6 +323,7 @@ async function main() {
     const result = await fetchOne(stock, fallbackByTicker);
     const dt = Date.now() - t0;
     if (!result.error && result.fallbackSource === "naver") process.stdout.write(`naver ${result.history.length}d (${dt}ms); ${result.fallbackReason}\n`);
+    else if (!result.error && result.fallbackSource === "nasdaq") process.stdout.write(`nasdaq ${result.history.length}d (${dt}ms); ${result.fallbackReason}\n`);
     else if (result.error && result.fallbackUsed) process.stdout.write(`fallback ${result.history.length}d (${dt}ms): ${result.error}\n`);
     else if (result.error) process.stdout.write(`failed: ${result.error}\n`);
     else process.stdout.write(`ok ${result.history.length}d (${dt}ms)\n`);

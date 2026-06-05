@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T01:32:48.115Z",
+  "generatedAt": "2026-06-05T06:51:03.004Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "초기 관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, SRXH로 구성합니다.",
   "source": {
@@ -9,12 +9,12 @@
     "configPath": "config/watchlist-stocks.json",
     "snapshotGeneratedAt": "2026-06-05T01:31:05.719Z",
     "latestBriefingDate": "2026-06-05",
-    "priceHistoryGeneratedAt": "2026-06-05T01:32:47.949Z"
+    "priceHistoryGeneratedAt": "2026-06-05T06:50:54.145Z"
   },
   "macroBackdrop": {
     "reportDate": "2026-06-05",
     "title": "전통 대형주 견조 선별 강세, 10년물 4.47% · VIX 16.06",
-    "summary": "미국 증시는 강세 흐름으로 마감했다. S&P500지수가 +0.41%, 나스닥 종합지수가 -0.09%, 다우존스30 산업평균지수가 +1.73% 변동하며 다우지수 상대 강세 흐름이 나타났다. 주가 강세와 변동성 안정이 동반되면서 투자심리가 개선된 흐름이 나타났다. 미 국채 10년물 금리는 4.47%로 주가와 공존이 가능하나 추세적 밸류에이션 확장을 동시에 허용하기는 어려운 수준이다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.85%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 광의 달러지수(2026-05-29, 오래됨 5영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
+    "summary": "미국 증시는 S&P500지수 +0.41%, 나스닥 종합지수 -0.09%, 다우존스30 산업평균지수 +1.73%로 마감했다. 미 국채 10년물 금리는 4.47%를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 16.06로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.",
     "signals": [
       {
         "label": "S&P 500",
@@ -111,21 +111,21 @@
         "삼성전자·SK하이닉스 매매 흐름"
       ],
       "quote": {
-        "price": 8148.29,
-        "changePercent": -5.68,
+        "price": 8160.59,
+        "changePercent": -5.54,
         "currency": "pt",
         "source": "watchlist-prices"
       },
-      "price": 8148.29,
-      "changePercent": -5.68,
+      "price": 8160.59,
+      "changePercent": -5.54,
       "macroScore": 35,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 8148.29,
-        "percentChange": -5.68,
+        "close": 8160.59,
+        "percentChange": -5.54,
         "observationDate": "2026-06-05"
       },
       "technical": {
@@ -137,27 +137,27 @@
         "score": 93,
         "tone": "상방 우위",
         "toneClass": "positive",
-        "summary": "상방 우위 신호입니다. 20거래일 수익률 10.34%, RSI 52.6, 60일 추세 55.15% 기준으로 판단했습니다.",
+        "summary": "상방 우위 신호입니다. 20거래일 수익률 10.51%, RSI 52.9, 60일 추세 55.38% 기준으로 판단했습니다.",
         "indicators": {
-          "close": 8148.29,
-          "return1d": -5.68,
-          "return5d": -0.45,
-          "return20d": 10.34,
-          "return60d": 55.15,
-          "ma20": 7937.3605,
-          "ma60": 6585.4233,
-          "ma120": 5733.6418,
-          "rsi14": 52.6,
-          "macd": 493.3844,
-          "macdSignal": 485.3491,
-          "macdHistogram": 8.0353,
-          "dailyVolatility20d": 3.34,
-          "annualVolatility20d": 53.07,
-          "slope60d": 55.15,
-          "drawdown120d": -7.42,
+          "close": 8160.59,
+          "return1d": -5.54,
+          "return5d": -0.3,
+          "return20d": 10.51,
+          "return60d": 55.38,
+          "ma20": 7937.9755,
+          "ma60": 6585.6283,
+          "ma120": 5733.7443,
+          "rsi14": 52.9,
+          "macd": 494.3656,
+          "macdSignal": 485.5454,
+          "macdHistogram": 8.8202,
+          "dailyVolatility20d": 3.33,
+          "annualVolatility20d": 52.86,
+          "slope60d": 55.38,
+          "drawdown120d": -7.28,
           "support20d": 7053.84,
           "resistance20d": 8933.62,
-          "volumeRatio20d": 0.37
+          "volumeRatio20d": 0.69
         },
         "chart": {
           "points": [
@@ -1416,10 +1416,10 @@
             },
             {
               "date": "2026-06-05",
-              "close": 8148.29,
-              "ma20": 7937.3605,
-              "ma60": 6585.4233,
-              "volume": 232334
+              "close": 8160.59,
+              "ma20": 7937.9755,
+              "ma60": 6585.6283,
+              "volume": 446373
             }
           ]
         }
@@ -1457,17 +1457,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 1.34,
+            "expectedReturnPct": 1.38,
             "upProbabilityPct": 60,
-            "rangeLowPct": -5.45,
-            "rangeHighPct": 5.45
+            "rangeLowPct": -5.5,
+            "rangeHighPct": 5.5
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 7.84,
+            "expectedReturnPct": 8.01,
             "upProbabilityPct": 64,
-            "rangeLowPct": -14.34,
-            "rangeHighPct": 14.34
+            "rangeLowPct": -14.51,
+            "rangeHighPct": 14.51
           }
         ]
       },
@@ -1549,21 +1549,21 @@
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있습니다."
       ],
       "quote": {
-        "price": 87,
-        "changePercent": 10.13,
+        "price": 88,
+        "changePercent": 11.39,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 87,
-      "changePercent": 10.13,
-      "macroScore": 92,
+      "price": 88,
+      "changePercent": 11.39,
+      "macroScore": 91,
       "macroTone": "우호",
       "macroToneClass": "positive",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 8148.29,
-        "percentChange": -5.68,
+        "close": 8160.59,
+        "percentChange": -5.54,
         "observationDate": "2026-06-05"
       },
       "technical": {
@@ -1575,24 +1575,24 @@
         "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호입니다. 20거래일 수익률 -32.56%, RSI 40, 60일 추세 -72.29% 기준으로 판단했습니다.",
+        "summary": "하방 경계 신호입니다. 20거래일 수익률 -31.78%, RSI 40.7, 60일 추세 -71.97% 기준으로 판단했습니다.",
         "indicators": {
-          "close": 87,
-          "return1d": 10.13,
-          "return5d": -4.4,
-          "return20d": -32.56,
-          "return60d": -72.29,
-          "ma20": 102.55,
-          "ma60": 188.05,
-          "ma120": 327.5833,
-          "rsi14": 40,
-          "macd": -25.7108,
-          "macdSignal": -27.6459,
-          "macdHistogram": 1.9352,
-          "dailyVolatility20d": 7.09,
-          "annualVolatility20d": 112.53,
-          "slope60d": -72.29,
-          "drawdown120d": -87.93,
+          "close": 88,
+          "return1d": 11.39,
+          "return5d": -3.3,
+          "return20d": -31.78,
+          "return60d": -71.97,
+          "ma20": 102.6,
+          "ma60": 188.0667,
+          "ma120": 327.5917,
+          "rsi14": 40.7,
+          "macd": -25.631,
+          "macdSignal": -27.63,
+          "macdHistogram": 1.999,
+          "dailyVolatility20d": 7.2,
+          "annualVolatility20d": 114.28,
+          "slope60d": -71.97,
+          "drawdown120d": -87.79,
           "support20d": 74,
           "resistance20d": 133,
           "volumeRatio20d": 0.25
@@ -2854,9 +2854,9 @@
             },
             {
               "date": "2026-06-05",
-              "close": 87,
-              "ma20": 102.55,
-              "ma60": 188.05,
+              "close": 88,
+              "ma20": 102.6,
+              "ma60": 188.0667,
               "volume": 2147483647
             }
           ]
@@ -2895,17 +2895,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -4.64,
+            "expectedReturnPct": -4.53,
             "upProbabilityPct": 45,
-            "rangeLowPct": -12.85,
-            "rangeHighPct": 12.85
+            "rangeLowPct": -12.59,
+            "rangeHighPct": 12.59
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -25.56,
+            "expectedReturnPct": -24.95,
             "upProbabilityPct": 43,
-            "rangeLowPct": -36.56,
-            "rangeHighPct": 36.56
+            "rangeLowPct": -35.78,
+            "rangeHighPct": 35.78
           }
         ]
       },
@@ -2989,13 +2989,13 @@
         "저가주는 상장 유지 요건, 역분할, 희석성 자금조달 공시를 반드시 확인해야 합니다."
       ],
       "quote": {
-        "price": 0.138,
-        "changePercent": -8.24,
+        "price": 0.13,
+        "changePercent": 9.34,
         "currency": "USD",
-        "source": "watchlist-prices-fallback"
+        "source": "watchlist-prices"
       },
-      "price": 0.138,
-      "changePercent": -8.24,
+      "price": 0.13,
+      "changePercent": 9.34,
       "macroScore": 51,
       "macroTone": "중립",
       "macroToneClass": "neutral",
@@ -3008,135 +3008,37 @@
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-05-14",
+        "asOf": "2026-06-04",
         "source": "nasdaq-historical",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/srxh/historical",
         "historyLength": 251,
-        "score": 58,
+        "score": 61,
         "tone": "중립",
         "toneClass": "neutral",
-        "summary": "중립 신호입니다. 20거래일 수익률 8.07%, RSI 63.2, 60일 추세 2.6% 기준으로 판단했습니다.",
+        "summary": "중립 신호입니다. 20거래일 수익률 15.04%, RSI 45.7, 60일 추세 -0.99% 기준으로 판단했습니다.",
         "indicators": {
-          "close": 0.138,
-          "return1d": -8.24,
-          "return5d": 23.21,
-          "return20d": 8.07,
-          "return60d": 2.6,
-          "ma20": 0.1205,
-          "ma60": 0.1264,
-          "ma120": 0.1866,
-          "rsi14": 63.2,
-          "macd": 0.0008,
-          "macdSignal": -0.0025,
-          "macdHistogram": 0.0033,
-          "dailyVolatility20d": 6.57,
-          "annualVolatility20d": 104.29,
-          "slope60d": 2.6,
-          "drawdown120d": -76.33,
+          "close": 0.13,
+          "return1d": 9.34,
+          "return5d": 12.07,
+          "return20d": 15.04,
+          "return60d": -0.99,
+          "ma20": 0.1227,
+          "ma60": 0.1255,
+          "ma120": 0.1566,
+          "rsi14": 45.7,
+          "macd": -0.0003,
+          "macdSignal": -0.0009,
+          "macdHistogram": 0.0006,
+          "dailyVolatility20d": 8.06,
+          "annualVolatility20d": 128.01,
+          "slope60d": -0.99,
+          "drawdown120d": -71.8,
           "support20d": 0.1071,
           "resistance20d": 0.1693,
-          "volumeRatio20d": 4.37
+          "volumeRatio20d": 1.08
         },
         "chart": {
           "points": [
-            {
-              "date": "2025-08-27",
-              "close": 0.37,
-              "ma20": 0.3765,
-              "ma60": 0.5081,
-              "volume": 937301
-            },
-            {
-              "date": "2025-08-28",
-              "close": 0.3649,
-              "ma20": 0.3747,
-              "ma60": 0.5038,
-              "volume": 621897
-            },
-            {
-              "date": "2025-08-29",
-              "close": 0.4178,
-              "ma20": 0.3766,
-              "ma60": 0.4996,
-              "volume": 79546010
-            },
-            {
-              "date": "2025-09-02",
-              "close": 0.403,
-              "ma20": 0.3789,
-              "ma60": 0.4955,
-              "volume": 3453947
-            },
-            {
-              "date": "2025-09-03",
-              "close": 0.4,
-              "ma20": 0.3779,
-              "ma60": 0.4914,
-              "volume": 1144519
-            },
-            {
-              "date": "2025-09-04",
-              "close": 0.382,
-              "ma20": 0.3777,
-              "ma60": 0.4872,
-              "volume": 765208
-            },
-            {
-              "date": "2025-09-05",
-              "close": 0.375,
-              "ma20": 0.3782,
-              "ma60": 0.4835,
-              "volume": 808457
-            },
-            {
-              "date": "2025-09-08",
-              "close": 0.3557,
-              "ma20": 0.3784,
-              "ma60": 0.4795,
-              "volume": 1058184
-            },
-            {
-              "date": "2025-09-09",
-              "close": 0.336,
-              "ma20": 0.3763,
-              "ma60": 0.4754,
-              "volume": 698287
-            },
-            {
-              "date": "2025-09-10",
-              "close": 0.3015,
-              "ma20": 0.3747,
-              "ma60": 0.4713,
-              "volume": 2302254
-            },
-            {
-              "date": "2025-09-11",
-              "close": 0.304,
-              "ma20": 0.375,
-              "ma60": 0.4667,
-              "volume": 630680
-            },
-            {
-              "date": "2025-09-12",
-              "close": 0.306,
-              "ma20": 0.3768,
-              "ma60": 0.4625,
-              "volume": 239129
-            },
-            {
-              "date": "2025-09-15",
-              "close": 0.36,
-              "ma20": 0.3698,
-              "ma60": 0.4585,
-              "volume": 4238216
-            },
-            {
-              "date": "2025-09-16",
-              "close": 0.345,
-              "ma20": 0.366,
-              "ma60": 0.4548,
-              "volume": 871615
-            },
             {
               "date": "2025-09-17",
               "close": 0.346,
@@ -4298,6 +4200,104 @@
               "ma20": 0.1205,
               "ma60": 0.1264,
               "volume": 134168000
+            },
+            {
+              "date": "2026-05-15",
+              "close": 0.125,
+              "ma20": 0.1204,
+              "ma60": 0.1263,
+              "volume": 45313170
+            },
+            {
+              "date": "2026-05-18",
+              "close": 0.1246,
+              "ma20": 0.1203,
+              "ma60": 0.1263,
+              "volume": 47744020
+            },
+            {
+              "date": "2026-05-19",
+              "close": 0.115,
+              "ma20": 0.1201,
+              "ma60": 0.1262,
+              "volume": 34440150
+            },
+            {
+              "date": "2026-05-20",
+              "close": 0.1175,
+              "ma20": 0.12,
+              "ma60": 0.1261,
+              "volume": 19351620
+            },
+            {
+              "date": "2026-05-21",
+              "close": 0.129,
+              "ma20": 0.1206,
+              "ma60": 0.1259,
+              "volume": 24862710
+            },
+            {
+              "date": "2026-05-22",
+              "close": 0.127,
+              "ma20": 0.121,
+              "ma60": 0.1259,
+              "volume": 22678140
+            },
+            {
+              "date": "2026-05-26",
+              "close": 0.12,
+              "ma20": 0.121,
+              "ma60": 0.1258,
+              "volume": 29842210
+            },
+            {
+              "date": "2026-05-27",
+              "close": 0.118,
+              "ma20": 0.1211,
+              "ma60": 0.1258,
+              "volume": 32876620
+            },
+            {
+              "date": "2026-05-28",
+              "close": 0.116,
+              "ma20": 0.1212,
+              "ma60": 0.1258,
+              "volume": 38855610
+            },
+            {
+              "date": "2026-05-29",
+              "close": 0.1105,
+              "ma20": 0.121,
+              "ma60": 0.1256,
+              "volume": 39606720
+            },
+            {
+              "date": "2026-06-01",
+              "close": 0.119,
+              "ma20": 0.121,
+              "ma60": 0.1255,
+              "volume": 48471800
+            },
+            {
+              "date": "2026-06-02",
+              "close": 0.128,
+              "ma20": 0.1216,
+              "ma60": 0.1256,
+              "volume": 39647620
+            },
+            {
+              "date": "2026-06-03",
+              "close": 0.1189,
+              "ma20": 0.1219,
+              "ma60": 0.1256,
+              "volume": 30190210
+            },
+            {
+              "date": "2026-06-04",
+              "close": 0.13,
+              "ma20": 0.1227,
+              "ma60": 0.1255,
+              "volume": 46197760
             }
           ]
         }
@@ -4327,7 +4327,7 @@
         ]
       },
       "forecast": {
-        "score": 55,
+        "score": 57,
         "toneClass": "neutral",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
@@ -4335,17 +4335,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 2.1,
-            "upProbabilityPct": 53,
-            "rangeLowPct": -4.69,
-            "rangeHighPct": 4.69
+            "expectedReturnPct": 3.84,
+            "upProbabilityPct": 54,
+            "rangeLowPct": -7.01,
+            "rangeHighPct": 7.01
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 8.24,
-            "upProbabilityPct": 54,
-            "rangeLowPct": -12.07,
-            "rangeHighPct": 12.07
+            "expectedReturnPct": 15.21,
+            "upProbabilityPct": 56,
+            "rangeLowPct": -19.04,
+            "rangeHighPct": 19.04
           }
         ]
       },
