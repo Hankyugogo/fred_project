@@ -2,7 +2,9 @@
 // Output: data/market-supplements.json, consumed by build-briefing.mjs and fetch-macro-history.mjs.
 
 import { mkdir, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
 import path from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,6 +13,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT, "data", "market-supplements.json");
 const FETCH_TIMEOUT_MS = 30_000;
 const TREASURY_XML_BASE = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml";
+const execFileAsync = promisify(execFile);
 
 const treasuryCache = new Map();
 
@@ -21,6 +24,7 @@ const SYMBOLS = [
     group: "equities",
     yahoo: "^GSPC",
     stooq: "^spx",
+    naverWorldIndex: ".INX",
     format: "index",
     decimals: 2,
     replacementPolicy: "replace",
@@ -33,6 +37,7 @@ const SYMBOLS = [
     group: "equities",
     yahoo: "^IXIC",
     stooq: "^ndq",
+    naverWorldIndex: ".IXIC",
     format: "index",
     decimals: 2,
     replacementPolicy: "replace",
@@ -45,6 +50,7 @@ const SYMBOLS = [
     group: "equities",
     yahoo: "^DJI",
     stooq: "^dji",
+    naverWorldIndex: ".DJI",
     format: "index",
     decimals: 2,
     replacementPolicy: "replace",
@@ -56,6 +62,7 @@ const SYMBOLS = [
     label: "VIX",
     group: "volatility",
     yahoo: "^VIX",
+    naverWorldIndex: ".VIX",
     format: "index",
     decimals: 2,
     replacementPolicy: "replace",
@@ -91,6 +98,7 @@ const SYMBOLS = [
     group: "fx",
     yahoo: "KRW=X",
     stooq: "usdkrw",
+    naverExchange: "FX_USDKRW",
     format: "krw",
     decimals: 2,
     replacementPolicy: "replace",
@@ -103,6 +111,7 @@ const SYMBOLS = [
     group: "fx",
     yahoo: "JPY=X",
     stooq: "usdjpy",
+    naverDerivedUsdJpy: true,
     format: "index",
     decimals: 2,
     replacementPolicy: "replace",
@@ -192,6 +201,14 @@ function buildStooqQuoteUrl(symbol) {
   return `https://stooq.com/q/l/?${params}`;
 }
 
+function buildNaverWorldIndexUrl(symbol) {
+  return `https://api.stock.naver.com/index/${encodeURIComponent(symbol)}/basic`;
+}
+
+function buildNaverExchangeUrl(symbol) {
+  return `https://api.stock.naver.com/marketindex/exchange/${encodeURIComponent(symbol)}`;
+}
+
 function kstYearMonth(date = new Date()) {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Seoul",
@@ -238,6 +255,28 @@ async function fetchJson(url) {
   }
 }
 
+async function fetchJsonWithCurl(url) {
+  const { stdout } = await execFileAsync("curl", [
+    "-L",
+    "-s",
+    "--http1.1",
+    "-H",
+    "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+    "-H",
+    "Accept: application/json,text/plain,*/*",
+    url
+  ], {
+    timeout: FETCH_TIMEOUT_MS + 5000,
+    maxBuffer: 5 * 1024 * 1024
+  });
+
+  const text = stdout.trim();
+  if (!text) {
+    throw new Error("curl returned empty response");
+  }
+  return JSON.parse(text);
+}
+
 async function fetchText(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
@@ -261,10 +300,16 @@ async function fetchText(url) {
 async function fetchYahooChart(symbol) {
   const errors = [];
   for (const host of ["query1.finance.yahoo.com", "query2.finance.yahoo.com"]) {
+    const url = buildChartUrl(symbol, host);
     try {
-      return await fetchJson(buildChartUrl(symbol, host));
+      return await fetchJson(url);
     } catch (error) {
       errors.push(`${host}: ${error.message}`);
+    }
+    try {
+      return await fetchJsonWithCurl(url);
+    } catch (error) {
+      errors.push(`${host}/curl: ${error.message}`);
     }
   }
   throw new Error(errors.join("; "));
@@ -376,7 +421,7 @@ function parseCsvLine(line) {
 
 function parseNumber(value) {
   if (!value || value === "N/D") return null;
-  const numeric = Number(value.replace(/,/g, ""));
+  const numeric = Number(String(value).replace(/,/g, ""));
   return Number.isFinite(numeric) ? numeric : null;
 }
 
@@ -429,6 +474,124 @@ function normalizeStooqQuote(spec, csvText) {
   };
 }
 
+function normalizeNaverWorldIndex(spec, payload) {
+  const close = parseNumber(payload?.closePrice);
+  const previousInfo = (payload?.stockItemTotalInfos || []).find((item) => item.code === "lastClosePrice");
+  const previous = parseNumber(previousInfo?.value);
+  const change = parseNumber(payload?.compareToPreviousClosePrice);
+  const observationDate = typeof payload?.localTradedAt === "string"
+    ? payload.localTradedAt.slice(0, 10)
+    : null;
+
+  if (!observationDate || !Number.isFinite(close) || !Number.isFinite(previous)) {
+    throw new Error("invalid Naver world index response");
+  }
+
+  const latestValue = round(close * (spec.scale || 1), spec.decimals);
+  const previousValue = round(previous * (spec.scale || 1), spec.decimals);
+  const absoluteChange = Number.isFinite(change)
+    ? round(change * (spec.scale || 1), spec.decimals)
+    : latestValue === null || previousValue === null
+      ? null
+      : round(latestValue - previousValue, spec.decimals);
+  const percentChange = Number.isFinite(Number(payload?.fluctuationsRatio))
+    ? round(Number(payload.fluctuationsRatio), 4)
+    : previousValue === null || previousValue === 0 || absoluteChange === null
+      ? null
+      : round((absoluteChange / previousValue) * 100, 4);
+
+  return {
+    id: spec.id,
+    label: spec.label,
+    group: spec.group,
+    format: spec.format,
+    decimals: spec.decimals,
+    latestValue,
+    previousValue,
+    absoluteChange,
+    percentChange,
+    observationDate,
+    previousObservationDate: previousInfo?.keyDesc ? previousInfo.keyDesc.replace(/\.$/, "").replace(/\./g, "-") : null,
+    source: "Naver Finance world index API",
+    sourceSymbol: spec.naverWorldIndex,
+    sourceUrl: `https://m.stock.naver.com/worldstock/index/${encodeURIComponent(spec.naverWorldIndex)}`,
+    replacementPolicy: spec.replacementPolicy,
+    note: spec.note || null,
+    fetchedAt: new Date().toISOString()
+  };
+}
+
+function normalizeNaverExchangePayload(payload) {
+  const data = payload?.exchangeInfo || payload?.result || payload;
+  const close = parseNumber(data?.closePrice);
+  const rawChange = parseNumber(data?.fluctuations);
+  const sign = data?.fluctuationsType?.code === "5" ? -1 : 1;
+  const change = Number.isFinite(rawChange) ? sign * Math.abs(rawChange) : null;
+  const previous = Number.isFinite(close) && Number.isFinite(change) ? close - change : null;
+  const rawRatio = parseNumber(data?.fluctuationsRatio);
+  const percentChange = Number.isFinite(rawRatio) ? sign * Math.abs(rawRatio) : null;
+  const observationDate = typeof data?.localTradedAt === "string" ? data.localTradedAt.slice(0, 10) : null;
+
+  if (!observationDate || !Number.isFinite(close) || !Number.isFinite(previous)) {
+    throw new Error("invalid Naver exchange response");
+  }
+
+  return { close, previous, change, percentChange, observationDate, sourceSymbol: data?.reutersCode || null };
+}
+
+async function fetchNaverExchange(symbol) {
+  return normalizeNaverExchangePayload(await fetchJson(buildNaverExchangeUrl(symbol)));
+}
+
+function buildNaverExchangeSupplement(spec, quote, sourceSymbol) {
+  const latestValue = round(quote.close * (spec.scale || 1), spec.decimals);
+  const previousValue = round(quote.previous * (spec.scale || 1), spec.decimals);
+  const absoluteChange = latestValue === null || previousValue === null
+    ? null
+    : round(latestValue - previousValue, spec.decimals);
+  const percentChange = Number.isFinite(quote.percentChange)
+    ? round(quote.percentChange, 4)
+    : previousValue === null || previousValue === 0 || absoluteChange === null
+      ? null
+      : round((absoluteChange / previousValue) * 100, 4);
+
+  return {
+    id: spec.id,
+    label: spec.label,
+    group: spec.group,
+    format: spec.format,
+    decimals: spec.decimals,
+    latestValue,
+    previousValue,
+    absoluteChange,
+    percentChange,
+    observationDate: quote.observationDate,
+    previousObservationDate: null,
+    source: "Naver Finance exchange API",
+    sourceSymbol,
+    sourceUrl: `https://m.stock.naver.com/marketindex/exchange/${encodeURIComponent(sourceSymbol)}`,
+    replacementPolicy: spec.replacementPolicy,
+    note: spec.note || null,
+    fetchedAt: new Date().toISOString()
+  };
+}
+
+async function fetchNaverDerivedUsdJpy(spec) {
+  const [usdKrw, jpyKrw] = await Promise.all([
+    fetchNaverExchange("FX_USDKRW"),
+    fetchNaverExchange("FX_JPYKRW")
+  ]);
+  const close = usdKrw.close / (jpyKrw.close / 100);
+  const previous = usdKrw.previous / (jpyKrw.previous / 100);
+  const observationDate = usdKrw.observationDate < jpyKrw.observationDate ? usdKrw.observationDate : jpyKrw.observationDate;
+  return buildNaverExchangeSupplement(spec, {
+    close,
+    previous,
+    percentChange: previous === 0 ? null : ((close - previous) / previous) * 100,
+    observationDate
+  }, "FX_USDKRW/FX_JPYKRW");
+}
+
 function normalizeTreasuryYield(spec, rows) {
   const valid = rows
     .filter((row) => row.date && Number.isFinite(row[spec.treasuryField]))
@@ -470,7 +633,7 @@ function normalizeTreasuryYield(spec, rows) {
 }
 
 async function fetchSymbol(spec) {
-  const sourceLabel = [spec.treasuryField, spec.stooq, spec.yahoo].filter(Boolean).join("→");
+  const sourceLabel = [spec.treasuryField, spec.stooq, spec.naverWorldIndex, spec.naverExchange, spec.naverDerivedUsdJpy ? "FX_USDKRW/FX_JPYKRW" : null, spec.yahoo].filter(Boolean).join("→");
   process.stderr.write(`  - ${spec.id} (${sourceLabel})... `);
   const errors = [];
 
@@ -491,6 +654,36 @@ async function fetchSymbol(spec) {
       return normalized;
     } catch (error) {
       errors.push(`Stooq: ${error.message}`);
+    }
+  }
+
+  if (spec.naverWorldIndex) {
+    try {
+      const normalized = normalizeNaverWorldIndex(spec, await fetchJson(buildNaverWorldIndexUrl(spec.naverWorldIndex)));
+      process.stderr.write(`${normalized.latestValue} (${normalized.observationDate}, Naver)\n`);
+      return normalized;
+    } catch (error) {
+      errors.push(`Naver: ${error.message}`);
+    }
+  }
+
+  if (spec.naverExchange) {
+    try {
+      const normalized = buildNaverExchangeSupplement(spec, await fetchNaverExchange(spec.naverExchange), spec.naverExchange);
+      process.stderr.write(`${normalized.latestValue} (${normalized.observationDate}, Naver FX)\n`);
+      return normalized;
+    } catch (error) {
+      errors.push(`Naver FX: ${error.message}`);
+    }
+  }
+
+  if (spec.naverDerivedUsdJpy) {
+    try {
+      const normalized = await fetchNaverDerivedUsdJpy(spec);
+      process.stderr.write(`${normalized.latestValue} (${normalized.observationDate}, Naver FX derived)\n`);
+      return normalized;
+    } catch (error) {
+      errors.push(`Naver FX derived: ${error.message}`);
     }
   }
 

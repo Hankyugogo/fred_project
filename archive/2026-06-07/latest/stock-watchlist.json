@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-07T08:43:25.684Z",
+  "generatedAt": "2026-06-07T14:13:13.851Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "초기 관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, SRXH로 구성합니다.",
   "source": {
@@ -7,20 +7,20 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-06-07T08:41:34.119Z",
+    "snapshotGeneratedAt": "2026-06-07T14:13:01.750Z",
     "latestBriefingDate": "2026-06-07",
     "priceHistoryGeneratedAt": "2026-06-07T08:43:25.516Z"
   },
   "macroBackdrop": {
     "reportDate": "2026-06-07",
-    "title": "전통 대형주 견조 선별 강세, 10년물 4.55% · VIX 15.40",
-    "summary": "미국 증시가 강세 흐름을 보였으나 장기금리 부담도 동반됐다. S&P500지수가 +0.41%, 나스닥 종합지수가 -0.09%, 다우존스30 산업평균지수가 +1.73% 변동하며 다우지수 상대 강세 흐름이 나타났다. 주가지수가 상승했지만 장기금리 재상승이 동반되면서 추가 밸류에이션 확장보다는 기업 이익 모멘텀에 대한 검증이 더 중요해진 국면이다. 미 국채 10년물 금리는 4.55%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.93%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 달러/원 환율(2026-05-29, 오래됨 5영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
+    "title": "전통 대형주 견조 광범위 약세, 10년물 4.55% · VIX 21.51",
+    "summary": "미국 증시는 약세를 나타내며 방어 심리가 강해졌다. S&P500지수가 -2.64%, 나스닥 종합지수가 -4.18%, 다우존스30 산업평균지수가 -1.35% 변동하며 다우지수 상대 강세 흐름이 나타났다. 주가 약세에 변동성 확대가 더해지면서 방어적 자산 배분 흐름이 두드러졌다. 미 국채 10년물 금리는 4.55%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +0.93%p 높아 장기 자금 조달 부담이 남아 있다. 기준일이 가장 늦은 항목은 광의 달러지수(2026-05-29, 오래됨 5영업일)이다. 해당 시계열은 보충 시세와 함께 해석해야 한다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 합니다.",
     "signals": [
       {
         "label": "S&P 500",
-        "value": "7584.31",
-        "change": "+0.41%",
-        "tone": "up",
+        "value": "7383.74",
+        "change": "-2.64%",
+        "tone": "down",
         "note": "미국 위험자산 선호의 기준 지표입니다."
       },
       {
@@ -32,15 +32,15 @@
       },
       {
         "label": "VIX",
-        "value": "15.4",
-        "change": "-4.11%",
-        "tone": "up",
+        "value": "21.51",
+        "change": "+39.68%",
+        "tone": "down",
         "note": "변동성 확대 여부를 보여줍니다."
       },
       {
         "label": "달러/원",
-        "value": "1503.96원",
-        "change": "+0.54%",
+        "value": "1559.7원",
+        "change": "+1.68%",
         "tone": "down",
         "note": "외국인 매매와 환율 민감 업종의 핵심 변수입니다."
       }
@@ -118,7 +118,7 @@
       },
       "price": 8160.59,
       "changePercent": -5.54,
-      "macroScore": 32,
+      "macroScore": 0,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
@@ -1449,29 +1449,29 @@
         ]
       },
       "forecast": {
-        "score": 66,
-        "toneClass": "positive",
+        "score": 51,
+        "toneClass": "neutral",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과입니다. 코스피지수의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 합니다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 1.13,
-            "upProbabilityPct": 60,
+            "expectedReturnPct": -1.54,
+            "upProbabilityPct": 51,
             "rangeLowPct": -5.5,
             "rangeHighPct": 5.5
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 7.51,
-            "upProbabilityPct": 63,
+            "expectedReturnPct": 2.18,
+            "upProbabilityPct": 51,
             "rangeLowPct": -14.51,
             "rangeHighPct": 14.51
           }
         ]
       },
-      "macroSummary": "전통 대형주 견조 선별 강세, 10년물 4.55% · VIX 15.40. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대입니다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해집니다.",
+      "macroSummary": "전통 대형주 견조 광범위 약세, 10년물 4.55% · VIX 21.51. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대입니다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해집니다.",
       "riskFlags": [],
       "scenario": {
         "base": "코스피지수은 현재 매크로 배경과 가격 추세를 함께 확인하는 구간입니다.",
@@ -1556,9 +1556,9 @@
       },
       "price": 88,
       "changePercent": 11.39,
-      "macroScore": 87,
-      "macroTone": "우호",
-      "macroToneClass": "positive",
+      "macroScore": 34,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
@@ -2887,7 +2887,7 @@
         ]
       },
       "forecast": {
-        "score": 39,
+        "score": 15,
         "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
@@ -2895,21 +2895,21 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -4.86,
-            "upProbabilityPct": 43,
+            "expectedReturnPct": -9.28,
+            "upProbabilityPct": 29,
             "rangeLowPct": -12.59,
             "rangeHighPct": 12.59
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -25.61,
-            "upProbabilityPct": 41,
+            "expectedReturnPct": -34.45,
+            "upProbabilityPct": 22,
             "rangeLowPct": -35.78,
             "rangeHighPct": 35.78
           }
         ]
       },
-      "macroSummary": "전통 대형주 견조 선별 강세, 10년물 4.55% · VIX 15.40. 핵심 변수는 코스피 하락 압력과 장중 변동성입니다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔들 수 있습니다.",
+      "macroSummary": "전통 대형주 견조 광범위 약세, 10년물 4.55% · VIX 21.51. 핵심 변수는 코스피 하락 압력과 장중 변동성입니다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔들 수 있습니다.",
       "riskFlags": [
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있습니다.",
         "120거래일 고점 대비 낙폭이 커 변동성 관리가 필요합니다.",
@@ -2917,8 +2917,8 @@
       ],
       "scenario": {
         "base": "KODEX 200선물인버스2X은 현재 매크로 배경과 가격 추세를 함께 확인하는 구간입니다.",
-        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화될 수 있습니다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요합니다."
+        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생깁니다.",
+        "downside": "부담 요인이 이어질 경우 단기 지지선 이탈과 변동성 확대를 경계해야 합니다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아닙니다."
     },
@@ -2996,9 +2996,9 @@
       },
       "price": 0.1208,
       "changePercent": -7.08,
-      "macroScore": 45,
-      "macroTone": "중립",
-      "macroToneClass": "neutral",
+      "macroScore": 0,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": null,
       "technical": {
         "status": "ready",
@@ -4321,29 +4321,29 @@
         ]
       },
       "forecast": {
-        "score": 47,
-        "toneClass": "neutral",
+        "score": 27,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과입니다. SRx Health Solutions의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 합니다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 1.55,
-            "upProbabilityPct": 48,
+            "expectedReturnPct": -2.2,
+            "upProbabilityPct": 36,
             "rangeLowPct": -4.62,
             "rangeHighPct": 4.62
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 7.03,
-            "upProbabilityPct": 48,
+            "expectedReturnPct": -0.47,
+            "upProbabilityPct": 32,
             "rangeLowPct": -11.86,
             "rangeHighPct": 11.86
           }
         ]
       },
-      "macroSummary": "전통 대형주 견조 선별 강세, 10년물 4.55% · VIX 15.40. 핵심 변수는 거래량 지속성, 현금 소진 속도, 자금조달 조건, 사업 전환 관련 공시입니다. 대형 헬스케어 섹터보다 개별 이벤트와 유동성 변화가 주가를 더 크게 흔들 수 있습니다.",
+      "macroSummary": "전통 대형주 견조 광범위 약세, 10년물 4.55% · VIX 21.51. 핵심 변수는 거래량 지속성, 현금 소진 속도, 자금조달 조건, 사업 전환 관련 공시입니다. 대형 헬스케어 섹터보다 개별 이벤트와 유동성 변화가 주가를 더 크게 흔들 수 있습니다.",
       "riskFlags": [
         "마이크로캡은 유동성이 얕아 작은 주문에도 가격이 크게 움직일 수 있습니다.",
         "저가주는 상장 유지 요건, 역분할, 희석성 자금조달 공시를 반드시 확인해야 합니다.",
@@ -4352,7 +4352,7 @@
       "scenario": {
         "base": "SRx Health Solutions은 현재 매크로 배경과 가격 추세를 함께 확인하는 구간입니다.",
         "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생깁니다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요합니다."
+        "downside": "부담 요인이 이어질 경우 단기 지지선 이탈과 변동성 확대를 경계해야 합니다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아닙니다."
     }

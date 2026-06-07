@@ -150,9 +150,34 @@ function buildFields(snapshot, briefing, newsDigest) {
   const wti = pick(metrics, "DCOILWTICO");
   const newsBrief = sanitizeNewsBrief(newsDigest || briefing.newsBrief);
   const topNews = newsBrief.topItems?.[0];
+  const equityAverage = [sp.percentChange, nasdaq.percentChange, dow.percentChange]
+    .filter(Number.isFinite)
+    .reduce((sum, value, _, arr) => sum + (value / arr.length), 0);
+  const equityTone = equityAverage >= 0.15 ? "강세" : equityAverage <= -0.15 ? "약세" : "혼조";
+  const equityMoveText = equityTone === "강세"
+    ? "주가 강세와 금리 부담이 동시에 남은 장세"
+    : equityTone === "약세"
+      ? "주가 약세와 금리 부담이 동시에 남은 장세"
+      : "주가 혼조와 금리 부담이 동시에 남은 장세";
+  const vixAbove20 = Number.isFinite(vix.latestValue) && vix.latestValue >= 20;
+  const vixZone = vixAbove20 ? "20선 위" : "20선 아래";
+  const vixRiskText = vixAbove20
+    ? "변동성지수(VIX)가 20선을 넘어 단기 헤지 수요와 위험 회피를 경계해야 한다"
+    : "변동성지수(VIX)가 20선 아래에 있어 급격한 위험 회피는 제한적이다";
+  const vixIssueWhy = vixAbove20
+    ? "VIX가 20선 위로 올라서면 옵션 시장의 헤지 수요가 커졌다는 뜻이다. 주가 약세와 함께 나타나면 단기 방어 심리가 강화된 것으로 해석한다."
+    : "VIX가 20선 아래에 있으면 급격한 방어 심리는 제한적이다. 그러나 금리와 원자재 가격이 높은 구간에서는 작은 재료에도 헤지 수요가 다시 늘 수 있다.";
+  const techKoreaText = nasdaq.percentChange >= 0
+    ? "미국 기술주 강세가 반도체 대형주까지 이어지는지 확인한다"
+    : "미국 기술주 약세가 반도체 대형주 부담으로 이어지는지 확인한다";
+  const koreaMarketToneText = equityTone === "강세"
+    ? "미국 지수 강세와 한국 지수 보조 시세가 같은 방향을 가리킨다."
+    : equityTone === "약세"
+      ? "미국 지수 약세가 한국 지수 보조 시세와 엇갈릴 수 있어 한국장 반응을 별도로 확인해야 한다."
+      : "미국 지수 흐름이 혼조라 한국장 방향은 환율과 반도체 수급을 함께 확인해야 한다.";
 
   const title = fallbackTitle(snapshot, sp, nasdaq, ten, vix);
-  const overnightLead = `미국 증시는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다. 미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록해 주가 강세와 금리 부담이 동시에 남은 장세다. 변동성지수(VIX)는 ${fmt(vix.latestValue, 2)}로 20선 아래에 있어 급격한 위험 회피는 제한적이었다. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.`;
+  const overnightLead = `미국 증시는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다. 미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록해 ${equityMoveText}다. VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있어 ${vixRiskText}. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.`;
   const topThreeLines = [
     `미국 3대 지수는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다.`,
     `미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%, 2년물 금리는 ${fmt(two.latestValue, 2)}%이며 10년-2년 금리차는 ${fmt(spread.latestValue, 2)}%p를 기록했다.`,
@@ -163,25 +188,29 @@ function buildFields(snapshot, briefing, newsDigest) {
     {
       title: "미국 3대 지수 동반 움직임",
       whatHappened: `S&P500지수는 ${fmt(sp.latestValue, 2)}로 ${pct(sp.percentChange)} 움직였고, 나스닥 종합지수는 ${fmt(nasdaq.latestValue, 2)}로 ${pct(nasdaq.percentChange)} 변동했다. 다우존스30 산업평균지수는 ${fmt(dow.latestValue, 2)}로 ${pct(dow.percentChange)}를 기록했다.`,
-      whyMarketReacted: "주요 지수가 같은 방향으로 움직이면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 함께 오르는 구간에서는 상승의 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다.",
+      whyMarketReacted: equityTone === "약세"
+        ? "주요 지수가 같은 방향으로 밀리면 단기 위험 선호가 훼손됐다는 뜻이다. 특히 금리와 VIX가 동시에 높아질 때는 성장주와 고베타 업종의 부담이 커진다."
+        : "주요 지수가 같은 방향으로 움직이면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 함께 오르는 구간에서는 상승의 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다.",
       whatToWatch: `나스닥 종합지수 ${fmt(nasdaq.latestValue, 0)}선과 S&P500지수 ${fmt(sp.latestValue, 0)}선 유지 여부를 먼저 확인한다.`
     },
     {
       title: "장기금리 상단 재확인",
       whatHappened: `미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%로 전일 대비 ${bp(ten.absoluteChange)} 움직였다. 2년물은 ${fmt(two.latestValue, 2)}%, 10년-2년 금리차는 ${fmt(spread.latestValue, 2)}%p다.`,
-      whyMarketReacted: "장기금리 상승은 경기 기대와 기간 보상의 재평가를 반영한다. 동시에 성장주 평가에는 제약으로 작용하므로 주가 상승과 금리 상승이 공존하는 구간에서는 지수보다 업종 확산을 확인해야 한다.",
+      whyMarketReacted: "장기금리 상승은 경기 기대와 기간 보상의 재평가를 반영한다. 동시에 성장주 평가에는 제약으로 작용하므로 주가 움직임과 금리 상승이 공존하는 구간에서는 지수보다 업종 확산과 변동성을 함께 확인해야 한다.",
       whatToWatch: "미 10년물 4.70% 상향 돌파 여부와 4.50% 하향 안정 여부를 함께 본다."
     },
     {
-      title: "변동성은 20선 아래",
+      title: `변동성은 ${vixZone}`,
       whatHappened: `변동성지수(VIX)는 ${fmt(vix.latestValue, 2)}로 전일 대비 ${pct(vix.percentChange)} 움직였다.`,
-      whyMarketReacted: "VIX가 20선 아래에 있으면 급격한 방어 심리는 제한적이다. 그러나 금리와 원자재 가격이 높은 구간에서는 작은 재료에도 헤지 수요가 다시 늘 수 있다.",
-      whatToWatch: "VIX 20선 재돌파, 미 10년물 4.70% 부근 반응, 주요 지수의 장중 저점 이탈 여부를 함께 확인한다."
+      whyMarketReacted: vixIssueWhy,
+      whatToWatch: vixAbove20
+        ? "VIX 20선 아래 재진입 여부, 미 10년물 4.70% 부근 반응, 주요 지수의 장중 저점 회복 여부를 함께 확인한다."
+        : "VIX 20선 재돌파, 미 10년물 4.70% 부근 반응, 주요 지수의 장중 저점 이탈 여부를 함께 확인한다."
     },
     {
-      title: "한국시장 강세와 환율 기준일 지연",
+      title: "한국시장 반응과 환율 기준일 지연",
       whatHappened: `코스피 보조 시세는 ${fmt(kospi.latestValue, 2)}, 코스닥은 ${fmt(kosdaq.latestValue, 2)}로 집계됐다. 달러/원 FRED 시계열은 ${fmt(krw.latestValue, 2)}원, 기준일은 ${krw.observationDate || "-"}다.`,
-      whyMarketReacted: "미국 지수 강세와 한국 지수 보조 시세가 같은 방향을 가리킨다. 다만 원화 관련 FRED 데이터가 지연돼 외국인 매매와 환율 해석은 보수적으로 처리해야 한다.",
+      whyMarketReacted: `${koreaMarketToneText} 다만 원화 관련 FRED 데이터가 지연돼 외국인 매매와 환율 해석은 보수적으로 처리해야 한다.`,
       whatToWatch: "달러/원은 기준일 지연 상태이므로 1,480원과 1,500원을 보조 확인선으로 두고, 코스피 외국인 순매수 전환과 반도체 대형주의 상대 강도를 동시에 점검한다."
     },
     {
@@ -202,30 +231,32 @@ function buildFields(snapshot, briefing, newsDigest) {
     highlights: [
       `미 3대 지수 동행: S&P500 ${pct(sp.percentChange)}, 나스닥 ${pct(nasdaq.percentChange)}, 다우 ${pct(dow.percentChange)}.`,
       `미 10년물 ${fmt(ten.latestValue, 2)}%, 2년물 ${fmt(two.latestValue, 2)}%로 금리 상단 확인 필요.`,
-      `VIX ${fmt(vix.latestValue, 2)}로 20선 아래, 단기 위험 회피는 제한적.`,
+      `VIX ${fmt(vix.latestValue, 2)}로 ${vixZone}, ${vixAbove20 ? "단기 위험 회피 경계 필요" : "단기 위험 회피는 제한적"}.`,
       `달러/원·원자재 시계열은 기준일 지연으로 보조 참고에 한정.`
     ],
     keyIssues,
     marketSnapshot: {
       indices: `S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 3대 지수가 움직였다.`,
       rates: `미 10년물 ${fmt(ten.latestValue, 2)}%, 2년물 ${fmt(two.latestValue, 2)}%, 10년-2년 금리차 ${fmt(spread.latestValue, 2)}%p다.`,
-      volatility: `VIX는 ${fmt(vix.latestValue, 2)}로 20선 아래에 있다.`,
+      volatility: `VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다.`,
       sectors: "섹터별 상세 등락은 별도 보강 데이터가 없으면 단정하지 않는다. 기술주와 반도체는 나스닥 흐름을 통해 간접 확인한다.",
       fxCommodities: `달러/원은 FRED 기준 ${fmt(krw.latestValue, 2)}원, WTI는 ${fmt(wti.latestValue, 2)}달러다. 두 항목 모두 기준일 지연을 감안해 보조 참고로 제한한다.`
     },
     koreanCheckpoints: [
-      `코스피는 ${fmt(kospi.latestValue, 2)} 기준으로 미국 기술주 강세가 반도체 대형주까지 이어지는지 확인한다.`,
+      `코스피는 ${fmt(kospi.latestValue, 2)} 기준으로 ${techKoreaText}.`,
       `달러/원은 FRED 기준 ${fmt(krw.latestValue, 2)}원이며 데이터 기준일이 ${krw.observationDate || "-"}로 늦다. 1,480원과 1,500원을 한국시장 해석의 1차 범위로 둔다.`,
       `미 10년물 ${fmt(ten.latestValue, 2)}%가 4.70% 위로 확장되면 2차전지, 바이오, 인터넷/플랫폼 등 장기 성장 업종의 변동성 확대 가능성을 점검한다.`
     ],
     positioning: {
       mainScenario: {
-        view: "주가 강세는 인정하되 장기금리 상단을 함께 확인하는 중립적 위험자산 우위",
-        reasoning: `미국 3대 지수가 같은 방향으로 움직였고 VIX가 ${fmt(vix.latestValue, 2)}로 20선 아래에 있다. 다만 미 10년물 금리가 ${fmt(ten.latestValue, 2)}%까지 올라 금리 상단 확인이 필요하다.`,
-        pros: "지수 동반 상승, 나스닥 상대 강세, 코스피·코스닥 보조 시세 강세가 우호 요인이다.",
-        cons: "장기금리 상승, 환율 데이터 지연, 원자재 지표 지연이 판단의 제약 요인이다.",
-        triggers: [`나스닥 ${fmt(nasdaq.latestValue, 0)}선 유지`, "VIX 20선 이하", "미 10년물 4.70% 이하 안정"],
-        executionHint: "추격 매수보다 주도 업종의 장중 유지력과 금리 반응을 확인한 뒤 비중을 조절한다."
+        view: equityTone === "약세"
+          ? "주가 약세와 VIX 상승을 인정하고 금리 상단을 함께 확인하는 방어적 중립"
+          : "주가 강세는 인정하되 장기금리 상단을 함께 확인하는 중립적 위험자산 우위",
+        reasoning: `미국 3대 지수가 같은 방향으로 움직였고 VIX가 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다. 미 10년물 금리가 ${fmt(ten.latestValue, 2)}%까지 올라 금리 상단 확인이 필요하다.`,
+        pros: equityTone === "약세" ? "금리와 변동성의 방향이 명확해 방어 기준을 세우기 쉽다." : "지수 동반 상승, 나스닥 상대 강세, 코스피·코스닥 보조 시세 강세가 우호 요인이다.",
+        cons: "장기금리 상승, 변동성 확대, 환율 데이터 지연, 원자재 지표 지연이 판단의 제약 요인이다.",
+        triggers: [`나스닥 ${fmt(nasdaq.latestValue, 0)}선 회복`, vixAbove20 ? "VIX 20선 아래 재진입" : "VIX 20선 이하", "미 10년물 4.70% 이하 안정"],
+        executionHint: equityTone === "약세" ? "반등 추격보다 지수 저점 회복과 VIX 안정 확인 후 비중을 조절한다." : "추격 매수보다 주도 업종의 장중 유지력과 금리 반응을 확인한 뒤 비중을 조절한다."
       },
       altScenario: {
         condition: "미 10년물 4.70% 상향 돌파와 VIX 20선 재진입이 동시에 나타나는 경우",
@@ -236,18 +267,20 @@ function buildFields(snapshot, briefing, newsDigest) {
       }
     },
     commentary: [
-      `오늘 리포트의 핵심은 주가와 장기금리가 동시에 움직였다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 움직였지만 미 10년물 금리도 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장이 경기와 실적 기대를 반영하면서도 자금 조달 비용의 상단을 다시 시험하고 있음을 뜻한다.`,
-      `한국시장 관점에서는 미국 기술주 강세가 반도체와 성장 업종에 우호적이다. 다만 달러/원 FRED 시계열 기준일이 ${krw.observationDate || "-"}로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 ${fmt(kospi.latestValue, 2)}와 코스닥 ${fmt(kosdaq.latestValue, 2)}라는 보조 시세는 강세를 가리키지만, 환율 안정이 동반되지 않으면 상승 지속성은 약해질 수 있다.`,
-      `뉴스 흐름은 연준 의사록과 인플레이션 경로로 모인다. 당장 하루 가격을 결정하는 단일 재료보다 금리 경로와 금융 여건을 재평가하게 만드는 재료가 많다. 따라서 오늘의 결론은 강세 추종이 아니라 금리 상단, 환율, 주도 업종 확산 여부를 함께 확인하는 쪽에 가깝다.`
+      `오늘 리포트의 핵심은 주가와 장기금리가 동시에 부담으로 작용했다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 밀렸고 미 10년물 금리도 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장이 자금 조달 비용의 상단과 성장주 밸류에이션 부담을 다시 시험하고 있음을 뜻한다.`,
+      `한국시장 관점에서는 ${techKoreaText}. 달러/원 FRED 시계열 기준일이 ${krw.observationDate || "-"}로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 ${fmt(kospi.latestValue, 2)}와 코스닥 ${fmt(kosdaq.latestValue, 2)}라는 보조 시세는 참고하되, 미국 기술주 약세와 환율 안정 여부를 함께 봐야 한다.`,
+      `뉴스 흐름은 연준 의사록과 인플레이션 경로로 모인다. 당장 하루 가격을 결정하는 단일 재료보다 금리 경로와 금융 여건을 재평가하게 만드는 재료가 많다. 따라서 오늘의 결론은 반등 추격이 아니라 금리 상단, VIX 안정, 환율, 주도 업종 회복 여부를 함께 확인하는 쪽에 가깝다.`
     ],
     causalAnalysis: [
       {
-        title: "주가 강세와 금리 부담의 공존",
-        desc: `S&P500지수와 나스닥 종합지수가 동반 상승했지만 미 10년물 금리는 ${fmt(ten.latestValue, 2)}%에 머물렀다. 주가 강세는 위험 선호 회복을 뜻하지만, 장기금리가 높은 구간에서는 밸류에이션 확장이 제한된다. 따라서 다음 흐름은 지수 상승보다 주도 업종 확산과 금리 상단 안정 여부가 좌우한다.`
+        title: `${equityTone === "약세" ? "주가 약세" : "주가 강세"}와 금리 부담의 공존`,
+        desc: `S&P500지수와 나스닥 종합지수가 동반 ${equityTone === "약세" ? "하락" : "상승"}했고 미 10년물 금리는 ${fmt(ten.latestValue, 2)}%에 머물렀다. ${equityTone === "약세" ? "주가 약세는 위험 선호 훼손을 뜻한다." : "주가 강세는 위험 선호 회복을 뜻한다."} 장기금리가 높은 구간에서는 밸류에이션 확장이 제한된다. 따라서 다음 흐름은 지수 저점 회복과 금리 상단 안정 여부가 좌우한다.`
       },
       {
-        title: "변동성 안정의 조건",
-      desc: `VIX가 ${fmt(vix.latestValue, 2)}로 20선 아래에 있으면 단기 헤지 수요는 제한적이다. 다만 금리와 환율이 동시에 불안정해지면 낮은 변동성은 빠르게 되돌릴 수 있다. 한국시장에서는 반도체 주도력과 외국인 매매 흐름을 함께 확인해야 한다.`
+        title: vixAbove20 ? "변동성 확대 점검" : "변동성 안정의 조건",
+      desc: vixAbove20
+        ? `VIX가 ${fmt(vix.latestValue, 2)}로 20선 위에 있으면 단기 헤지 수요가 커진 상태다. 금리와 환율이 동시에 불안정해지면 변동성 확대가 한국시장에도 빠르게 전이될 수 있다. 한국시장에서는 반도체 주도력과 외국인 매매 흐름을 함께 확인해야 한다.`
+        : `VIX가 ${fmt(vix.latestValue, 2)}로 20선 아래에 있으면 단기 헤지 수요는 제한적이다. 다만 금리와 환율이 동시에 불안정해지면 낮은 변동성은 빠르게 되돌릴 수 있다. 한국시장에서는 반도체 주도력과 외국인 매매 흐름을 함께 확인해야 한다.`
       }
     ],
     forwardOutlook: [
@@ -262,10 +295,10 @@ function buildFields(snapshot, briefing, newsDigest) {
     ],
     timeframeInsights: {
       weekly: {
-        title: "주간 관점: 금리 상단 확인",
+        title: "주간 관점: 금리와 변동성 상단 확인",
         coreView: `이번 주 핵심은 미 10년물 ${fmt(ten.latestValue, 2)}% 부근을 시장이 흡수하는지 여부다.`,
-        whyItMatters: "주가와 금리가 함께 높아지면 상승의 질은 실적과 업종 확산에 더 의존한다. 금리 상단이 낮아지지 않으면 성장주 반등은 짧아질 수 있다.",
-        koreaImpact: "반도체는 나스닥 흐름에 우호적이지만 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다.",
+        whyItMatters: "주가가 약하고 금리·변동성이 높으면 성장주 반등은 짧아질 수 있다.",
+        koreaImpact: "반도체는 나스닥 약세에 민감하고, 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다.",
         watchLevels: ["미 10년물 4.70%", "VIX 20선", `나스닥 ${fmt(nasdaq.latestValue, 0)}선`]
       },
       monthly: {
@@ -292,19 +325,19 @@ function buildFields(snapshot, briefing, newsDigest) {
     },
     insightSections: {
       topStory: [
-        { title: "시장 판정", desc: `미 3대 지수는 동반 움직임을 보였고 VIX는 ${fmt(vix.latestValue, 2)}로 20선 아래에 있다.` },
+        { title: "시장 판정", desc: `미 3대 지수는 동반 움직임을 보였고 VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다.` },
         { title: "자료 제약", desc: "달러/원과 원자재 일부 시계열은 기준일이 늦어 보조 참고로 제한한다." }
       ],
       marketReaction: [
         { title: "지수와 금리", desc: `S&P500 ${pct(sp.percentChange)} / 나스닥 ${pct(nasdaq.percentChange)} / 미 10년물 ${fmt(ten.latestValue, 2)}%.` },
-        { title: "변동성", desc: `VIX ${fmt(vix.latestValue, 2)}로 단기 위험 회피는 제한적이다.` }
+        { title: "변동성", desc: `VIX ${fmt(vix.latestValue, 2)}로 ${vixAbove20 ? "단기 위험 회피 경계가 필요하다" : "단기 위험 회피는 제한적이다"}.` }
       ],
       watchNow: [
         { title: "확인 변수", desc: "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다." },
         { title: "한국 연결", desc: "반도체 대형주의 상대 강도와 외국인 매매 흐름 전환 여부가 중요하다." }
       ],
       positioning: [
-        { title: "기본", desc: "강세는 인정하되 금리 상단과 환율을 확인하는 중립적 위험자산 우위다." },
+        { title: "기본", desc: equityTone === "약세" ? "약세와 변동성 상승을 인정하고 금리 상단과 환율을 확인하는 방어적 중립이다." : "강세는 인정하되 금리 상단과 환율을 확인하는 중립적 위험자산 우위다." },
         { title: "대체", desc: "금리와 VIX가 동시에 오르면 방어적 포지션을 늘리는 쪽으로 전환한다." }
       ]
     },

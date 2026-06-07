@@ -13,8 +13,10 @@
 // 출력:    data/macro-history.json
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
 import { existsSync } from "node:fs";
 import path from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +26,7 @@ const CONFIG_PATH = path.join(ROOT, "config", "macro-indicators.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "macro-history.json");
 const SUPPLEMENTS_PATH = path.join(ROOT, "data", "market-supplements.json");
 const FETCH_TIMEOUT_MS = 30_000;
+const execFileAsync = promisify(execFile);
 
 // FRED observations endpoint
 const FRED_BASE = "https://api.stlouisfed.org/fred/series/observations";
@@ -62,8 +65,34 @@ async function fetchText(url) {
   }
 }
 
+async function fetchTextWithCurl(url) {
+  const { stdout } = await execFileAsync("curl", [
+    "-L",
+    "-s",
+    "--http1.1",
+    "-H",
+    "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+    "-H",
+    "Accept: application/json,text/plain,*/*",
+    url
+  ], {
+    timeout: FETCH_TIMEOUT_MS + 5000,
+    maxBuffer: 10 * 1024 * 1024
+  });
+
+  const text = stdout.trim();
+  if (!text) {
+    throw new Error("curl returned empty response");
+  }
+  return text;
+}
+
 async function fetchJson(url) {
-  return JSON.parse(await fetchText(url));
+  try {
+    return JSON.parse(await fetchText(url));
+  } catch (error) {
+    return JSON.parse(await fetchTextWithCurl(url));
+  }
 }
 
 function isoDate(epochSeconds) {

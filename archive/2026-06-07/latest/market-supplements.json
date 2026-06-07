@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-07T08:41:26.063Z",
+  "generatedAt": "2026-06-07T14:12:54.575Z",
   "source": "Yahoo Finance v8 chart API",
   "purpose": "FRED 지연 시 최신 시장 종가/대용 시세로 보강",
   "items": [
@@ -7,45 +7,77 @@
       "id": "SP500",
       "label": "S&P 500",
       "group": "equities",
-      "yahoo": "^GSPC",
-      "stooq": "^spx",
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EGSPC",
+      "format": "index",
+      "decimals": 2,
+      "latestValue": 7383.74,
+      "previousValue": 7584.31,
+      "absoluteChange": -200.57,
+      "percentChange": -2.64,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance world index API",
+      "sourceSymbol": ".INX",
+      "sourceUrl": "https://m.stock.naver.com/worldstock/index/.INX",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:18.668Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:43.593Z"
     },
     {
       "id": "NASDAQCOM",
       "label": "나스닥종합지수",
       "group": "equities",
-      "yahoo": "^IXIC",
-      "stooq": "^ndq",
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EIXIC",
+      "format": "index",
+      "decimals": 2,
+      "latestValue": 25709.43,
+      "previousValue": 26830.96,
+      "absoluteChange": -1121.53,
+      "percentChange": -4.18,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance world index API",
+      "sourceSymbol": ".IXIC",
+      "sourceUrl": "https://m.stock.naver.com/worldstock/index/.IXIC",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:19.440Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:43.971Z"
     },
     {
       "id": "DJIA",
       "label": "다우지수",
       "group": "equities",
-      "yahoo": "^DJI",
-      "stooq": "^dji",
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EDJI",
+      "format": "index",
+      "decimals": 2,
+      "latestValue": 50866.78,
+      "previousValue": 51561.93,
+      "absoluteChange": -695.15,
+      "percentChange": -1.35,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance world index API",
+      "sourceSymbol": ".DJI",
+      "sourceUrl": "https://m.stock.naver.com/worldstock/index/.DJI",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:20.269Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:44.239Z"
     },
     {
       "id": "VIXCLS",
       "label": "VIX",
       "group": "volatility",
-      "yahoo": "^VIX",
-      "stooq": null,
-      "sourceUrl": "https://finance.yahoo.com/quote/%5EVIX",
+      "format": "index",
+      "decimals": 2,
+      "latestValue": 21.51,
+      "previousValue": 15.4,
+      "absoluteChange": 6.11,
+      "percentChange": 39.68,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance world index API",
+      "sourceSymbol": ".VIX",
+      "sourceUrl": "https://m.stock.naver.com/worldstock/index/.VIX",
       "replacementPolicy": "replace",
-      "error": "Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:20.739Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:44.256Z"
     },
     {
       "id": "DGS2",
@@ -64,7 +96,7 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-06-07T08:41:20.857Z"
+      "fetchedAt": "2026-06-07T14:12:44.386Z"
     },
     {
       "id": "DGS10",
@@ -83,29 +115,45 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
-      "fetchedAt": "2026-06-07T08:41:20.857Z"
+      "fetchedAt": "2026-06-07T14:12:44.387Z"
     },
     {
       "id": "DEXKOUS",
       "label": "달러/원 환율",
       "group": "fx",
-      "yahoo": "KRW=X",
-      "stooq": "usdkrw",
-      "sourceUrl": "https://finance.yahoo.com/quote/KRW=X",
+      "format": "krw",
+      "decimals": 2,
+      "latestValue": 1559.7,
+      "previousValue": 1534,
+      "absoluteChange": 25.7,
+      "percentChange": 1.68,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance exchange API",
+      "sourceSymbol": "FX_USDKRW",
+      "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:21.702Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:44.688Z"
     },
     {
       "id": "DEXJPUS",
       "label": "달러/엔 환율",
       "group": "fx",
-      "yahoo": "JPY=X",
-      "stooq": "usdjpy",
-      "sourceUrl": "https://finance.yahoo.com/quote/JPY=X",
+      "format": "index",
+      "decimals": 2,
+      "latestValue": 160.31,
+      "previousValue": 159.99,
+      "absoluteChange": 0.32,
+      "percentChange": 0.1997,
+      "observationDate": "2026-06-05",
+      "previousObservationDate": null,
+      "source": "Naver Finance exchange API",
+      "sourceSymbol": "FX_USDKRW/FX_JPYKRW",
+      "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW%2FFX_JPYKRW",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:22.419Z"
+      "note": null,
+      "fetchedAt": "2026-06-07T14:12:45.010Z"
     },
     {
       "id": "DCOILWTICO",
@@ -115,8 +163,8 @@
       "stooq": "cl.f",
       "sourceUrl": "https://finance.yahoo.com/quote/CL=F",
       "replacementPolicy": "proxy",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:23.238Z"
+      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
+      "fetchedAt": "2026-06-07T14:12:48.191Z"
     },
     {
       "id": "DCOILBRENTEU",
@@ -126,8 +174,8 @@
       "stooq": null,
       "sourceUrl": "https://finance.yahoo.com/quote/BZ=F",
       "replacementPolicy": "proxy",
-      "error": "Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:23.709Z"
+      "error": "Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
+      "fetchedAt": "2026-06-07T14:12:49.519Z"
     },
     {
       "id": "GOLD",
@@ -137,8 +185,8 @@
       "stooq": "gc.f",
       "sourceUrl": "https://finance.yahoo.com/quote/GC=F",
       "replacementPolicy": "proxy",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:24.467Z"
+      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
+      "fetchedAt": "2026-06-07T14:12:51.573Z"
     },
     {
       "id": "COPPER",
@@ -148,8 +196,8 @@
       "stooq": "hg.f",
       "sourceUrl": "https://finance.yahoo.com/quote/HG=F",
       "replacementPolicy": "proxy",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:25.244Z"
+      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
+      "fetchedAt": "2026-06-07T14:12:53.023Z"
     },
     {
       "id": "BTC",
@@ -159,8 +207,8 @@
       "stooq": "btcusd",
       "sourceUrl": "https://finance.yahoo.com/quote/BTC-USD",
       "replacementPolicy": "replace",
-      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com: HTTP 429",
-      "fetchedAt": "2026-06-07T08:41:26.063Z"
+      "error": "Stooq: Stooq returned N/D; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
+      "fetchedAt": "2026-06-07T14:12:54.575Z"
     }
   ]
 }
