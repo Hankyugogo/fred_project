@@ -147,9 +147,27 @@ function checkKospiGrounding(text, stockWatchlist, issues) {
   }
 }
 
+function flattenSnapshotItems(snapshot) {
+  return (snapshot?.groups || []).flatMap((group) => group.items || []);
+}
+
+function hasFreshSupplement(item) {
+  const supplementary = item?.supplementary;
+  if (!supplementary) return false;
+  if (!Number.isFinite(Number(supplementary.value))) return false;
+  if (!supplementary.observationDate) return false;
+  return String(supplementary.observationDate) > String(item?.observationDate || "");
+}
+
 function checkDataFreshnessFloor(snapshot, issues) {
   const quality = snapshot?.analysis?.dataQuality;
   if (!quality) return;
+  const coreIds = new Set(["SP500", "NASDAQCOM", "DJIA", "DGS2", "DGS10", "VIXCLS"]);
+  const contextStaleWithoutSupplement = flattenSnapshotItems(snapshot)
+    .filter((item) => !coreIds.has(item.id))
+    .filter((item) => !item.derived)
+    .filter((item) => item?.freshness?.status === "stale")
+    .filter((item) => !hasFreshSupplement(item));
 
   if (quality.publicationStatus === "hold" || quality.coreStaleCount > 0) {
     issues.push("핵심 판단 지표가 오래돼 자동 발행 보류 상태입니다.");
@@ -163,8 +181,8 @@ function checkDataFreshnessFloor(snapshot, issues) {
     issues.push(`핵심 판단 지표 ${quality.coreDelayedCount}건이 지연돼 보강 시세 확인 전 발행하기 어렵습니다.`);
   }
 
-  if ((quality.contextStaleCount || 0) >= 2) {
-    issues.push(`보조 해석용 시계열 ${quality.contextStaleCount}건이 오래돼 보고서 해석 범위를 과도하게 제한합니다.`);
+  if (contextStaleWithoutSupplement.length >= 2) {
+    issues.push(`보조 해석용 시계열 ${contextStaleWithoutSupplement.length}건이 오래돼 보고서 해석 범위를 과도하게 제한합니다.`);
   }
 }
 
