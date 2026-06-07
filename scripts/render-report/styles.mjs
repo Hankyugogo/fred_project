@@ -58,11 +58,14 @@ a{color:inherit;text-decoration:none}
 .masthead .brand .logo{width:34px;height:34px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;letter-spacing:-.02em;transform:translateY(4px)}
 .masthead .brand h1.wordmark{font-family:"Source Serif 4",serif;font-weight:900;font-size:22px;letter-spacing:-.01em;margin:0}
 .masthead .brand .sub{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-left:6px}
-.masthead .meta{display:flex;gap:22px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.masthead .meta{display:flex;gap:12px 22px;flex-wrap:wrap;justify-content:flex-end;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .masthead .meta b{color:var(--ink);font-weight:700}
 .kicker{display:inline-flex;gap:12px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
 .kicker .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}
 .kicker .sep{color:var(--rule-soft)}
+.calendar-strip{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;margin:-4px 0 22px;padding:10px 12px;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.calendar-strip span:first-child{color:var(--ink);font-weight:700}
+.calendar-strip span:last-child{font-family:"Noto Sans KR";letter-spacing:0;text-transform:none;color:var(--muted)}
 .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:end}
 h1.hero{font-family:"Source Serif 4",serif;font-weight:800;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:1;letter-spacing:-.025em;margin:0 0 18px;word-break:keep-all;text-wrap:balance}
 h1.hero em{font-style:normal;color:var(--accent)}

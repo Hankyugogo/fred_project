@@ -60,7 +60,7 @@ jobs:
         run: |
           git config user.name "daily-report-bot"
           git config user.email "daily-report-bot@example.com"
-          git add data posts reports report.html
+          git add data posts reports archive report.html
           git diff --cached --quiet || git commit -m "Update daily economy report"
           git push
 
@@ -69,6 +69,7 @@ jobs:
           mkdir -p public
           cp index.html settings.html app.js settings.js styles.css favicon.svg report.html public/
           cp -R config data posts reports public/
+          if [ -d archive ]; then cp -R archive public/; fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

@@ -8,6 +8,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { applyPreferredTermsDeep, applyPreferredTermsToText, loadPreferredReplacements } from "./editorial-copy.mjs";
+import { formatReportCalendarLine } from "./lib/report-calendar.mjs";
 
 import { callGeminiJson } from "./lib/gemini-client.mjs";
 
@@ -914,6 +915,12 @@ function buildFinalMarkdown(reportDate, payload, snapshot, news) {
   lines.push(`# ${payload.title || "데일리 마감 브리핑"}`);
   lines.push("");
   lines.push(`*${reportDate} KST · 미국 증시 데일리 매크로 브리핑*`);
+  if (snapshot.reportCalendar) {
+    lines.push(formatReportCalendarLine(snapshot.reportCalendar));
+    if (snapshot.reportCalendar.note) {
+      lines.push(snapshot.reportCalendar.note);
+    }
+  }
   if (payload.headline) {
     lines.push("");
     lines.push(`> ${payload.headline}`);

@@ -5,8 +5,9 @@
 //
 // Usage:
 //   node scripts/render-report.mjs                          # latest briefing → report.html
-//   node scripts/render-report.mjs --date 2026-05-06        # specific date
+//   node scripts/render-report.mjs --date 2026-05-06        # specific date (uses archive/YYYY-MM-DD/latest)
 //   REPORT_DATE_OVERRIDE=2026-05-06 node scripts/render-report.mjs
+//   node scripts/render-report.mjs --date 2026-05-06 --allow-current-data
 //
 // Optional data (gracefully missing):
 //   data/macro-history.json    — 5y daily series → enables 1주/1개월/1년 비교
@@ -37,6 +38,7 @@ const BRIEFINGS_PATH = path.join(ROOT, "data", "briefings.json");
 const MACRO_HISTORY_PATH = path.join(ROOT, "data", "macro-history.json");
 const STOCK_WATCHLIST_PATH = path.join(ROOT, "data", "stock-watchlist.json");
 const REPORTS_DIR = path.join(ROOT, "reports");
+const ARCHIVE_DIR = path.join(ROOT, "archive");
 const LATEST_REPORT_PATH = path.join(ROOT, "report.html");
 const REPORT_DATE_OVERRIDE = process.env.REPORT_DATE_OVERRIDE;
 
@@ -60,6 +62,10 @@ async function readJSON(file) {
 async function readJSONOptional(file) {
   if (!existsSync(file)) return null;
   try { return JSON.parse(await readFile(file, "utf8")); } catch { return null; }
+}
+
+function archivedPath(reportDate, filename) {
+  return path.join(ARCHIVE_DIR, reportDate, "latest", filename);
 }
 
 function escapeForTitle(v) {
@@ -104,14 +110,31 @@ ${renderColophon(snapshot, briefing)}
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  const explicitDate = args.date || REPORT_DATE_OVERRIDE || null;
 
-  const snapshot = await readJSON(SNAPSHOT_PATH);
-  const briefings = await readJSON(BRIEFINGS_PATH);
-  const macroHistory = await readJSONOptional(MACRO_HISTORY_PATH);
-  const stockWatchlist = await readJSONOptional(STOCK_WATCHLIST_PATH);
+  let snapshot = await readJSON(SNAPSHOT_PATH);
+  let briefings = await readJSON(BRIEFINGS_PATH);
+  let macroHistory = await readJSONOptional(MACRO_HISTORY_PATH);
+  let stockWatchlist = await readJSONOptional(STOCK_WATCHLIST_PATH);
 
-  const targetDate = args.date || REPORT_DATE_OVERRIDE || snapshot.reportDate || briefings[0]?.date;
-  const briefing = briefings.find((b) => b.date === targetDate) || briefings[0];
+  const targetDate = explicitDate || snapshot.reportDate || briefings[0]?.date;
+  let archivedBriefing = null;
+  if (explicitDate) {
+    const archivedSnapshot = await readJSONOptional(archivedPath(targetDate, "market-snapshot.json"));
+    if (!archivedSnapshot && !args["allow-current-data"]) {
+      throw new Error(`[render-report] archive/${targetDate}/latest/market-snapshot.json 없음 — 과거 날짜를 최신 data와 섞어 렌더링하지 않습니다. 기존 HTML을 보려면 reports/${targetDate}.html을 열고, 강제 렌더링은 --allow-current-data를 붙이세요.`);
+    }
+    if (archivedSnapshot) {
+      snapshot = archivedSnapshot;
+      briefings = await readJSONOptional(archivedPath(targetDate, "briefings.json")) || briefings;
+      archivedBriefing = await readJSONOptional(archivedPath(targetDate, "briefing.json"));
+      macroHistory = await readJSONOptional(archivedPath(targetDate, "macro-history.json")) || macroHistory;
+      stockWatchlist = await readJSONOptional(archivedPath(targetDate, "stock-watchlist.json")) || stockWatchlist;
+      console.log(`[render-report] using archive/${targetDate}/latest`);
+    }
+  }
+
+  const briefing = archivedBriefing || briefings.find((b) => b.date === targetDate) || briefings[0];
   if (!briefing) throw new Error("No briefing record found. Run publish first.");
 
   if (!macroHistory) {

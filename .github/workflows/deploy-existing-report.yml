@@ -17,6 +17,7 @@ on:
       - "data/**"
       - "posts/**"
       - "reports/**"
+      - "archive/**"
       - "report.html"
 
 permissions:
@@ -54,6 +55,7 @@ jobs:
           mkdir -p public
           cp index.html settings.html app.js settings.js styles.css favicon.svg report.html public/
           cp -R config data posts reports public/
+          if [ -d archive ]; then cp -R archive public/; fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

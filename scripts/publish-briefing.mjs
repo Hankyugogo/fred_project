@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { applyPreferredTermsDeep, applyPreferredTermsToText, loadPreferredReplacements } from "./editorial-copy.mjs";
+import { formatReportCalendarLine } from "./lib/report-calendar.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -856,6 +857,12 @@ function buildMarkdown(snapshot, reportDate, record, analysis) {
   const lines = [];
 
   lines.push(`FRED 기반 데이터 브리핑 (${reportDate} KST)`);
+  if (snapshot.reportCalendar) {
+    lines.push(formatReportCalendarLine(snapshot.reportCalendar));
+    if (snapshot.reportCalendar.note) {
+      lines.push(snapshot.reportCalendar.note);
+    }
+  }
   lines.push("");
   lines.push(record.title);
   lines.push("");

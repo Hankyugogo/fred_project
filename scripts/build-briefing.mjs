@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { applyPreferredTermsDeep, loadPreferredReplacements } from "./editorial-copy.mjs";
+import { buildReportCalendar } from "./lib/report-calendar.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -983,6 +984,7 @@ function buildPayload(config, series, derived, generatedAt, reportDate, options 
     : series.some((item) => item.mode === "fred-api") ? "fred-api" : "demo";
   const freshnessSummary = summarizeFreshness(series, reportDate);
   const analysis = buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate);
+  const reportCalendar = buildReportCalendar(series, reportDate, generatedAt, config.defaults?.reportTimeZone || "Asia/Seoul");
   const freshnessNote = freshnessSummary.staleCount > 0
     ? `오래된 시계열 ${freshnessSummary.staleCount}건과 지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 카드의 기준일을 함께 보고 해석해야 합니다.`
     : freshnessSummary.delayedCount > 0
@@ -999,6 +1001,7 @@ function buildPayload(config, series, derived, generatedAt, reportDate, options 
     source: config.source,
     headline: analysis.title,
     subheadline: analysis.deck,
+    reportCalendar,
     highlights: buildHighlights(analysis),
     analysis,
     freshnessSummary,

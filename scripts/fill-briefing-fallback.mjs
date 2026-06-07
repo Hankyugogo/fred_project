@@ -5,6 +5,8 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { formatReportCalendarLine } from "./lib/report-calendar.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
@@ -312,11 +314,17 @@ function buildFields(snapshot, briefing, newsDigest) {
   };
 }
 
-function buildMarkdown(reportDate, fields) {
+function buildMarkdown(reportDate, fields, snapshot) {
   const lines = [];
   lines.push(`# ${fields.title}`);
   lines.push("");
   lines.push(`*${reportDate} KST · 미국 증시 데일리 매크로 브리핑*`);
+  if (snapshot?.reportCalendar) {
+    lines.push(formatReportCalendarLine(snapshot.reportCalendar));
+    if (snapshot.reportCalendar.note) {
+      lines.push(snapshot.reportCalendar.note);
+    }
+  }
   lines.push("");
   lines.push("## 오버나잇 리드");
   lines.push(fields.overnightLead);
@@ -404,7 +412,7 @@ async function main() {
 
   await writeFile(BRIEFINGS_PATH, `${JSON.stringify(briefings, null, 2)}\n`, "utf8");
   await mkdir(POSTS_DIR, { recursive: true });
-  await writeFile(path.join(POSTS_DIR, `${reportDate}.md`), buildMarkdown(reportDate, fields), "utf8");
+  await writeFile(path.join(POSTS_DIR, `${reportDate}.md`), buildMarkdown(reportDate, fields, snapshot), "utf8");
   console.log(`[fill-briefing-fallback] updated ${reportDate} briefing sections`);
 }
 

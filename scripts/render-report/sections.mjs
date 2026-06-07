@@ -9,6 +9,7 @@ import {
   historyById, pctChangeOver, absChangeOver, PERIODS, formatPeriodChange,
   buildLineChart, closes
 } from "./utils.mjs";
+import { formatReportCalendarLine } from "../lib/report-calendar.mjs";
 
 /* ─────────────────────── TAPE (top ticker bar) ─────────────────────── */
 
@@ -53,6 +54,7 @@ function deriveHeadline(snapshot, briefing) {
 
 export function renderMasthead(snapshot, briefing) {
   const dateLabel = briefing?.date || snapshot.reportDate || "";
+  const calendar = snapshot?.reportCalendar || null;
   const dowKrShort = dowKr(dateLabel);
   const dowE = dowEn(dateLabel);
   const issueNum = (() => {
@@ -101,10 +103,16 @@ export function renderMasthead(snapshot, briefing) {
       <div class="meta">
         <span><b>${escapeHtml(issueNum)}</b></span>
         <span>${escapeHtml(dateLabel)} <b>${escapeHtml(dowKrShort)}/${escapeHtml(dowE)}</b></span>
+        <span>US EQUITY <b>${escapeHtml(calendar?.usEquityReferenceDate || "—")}</b></span>
+        <span>KOREA <b>${escapeHtml(calendar?.koreaMarketReferenceDate || "—")}</b></span>
         <span>KOREA STANDARD TIME</span>
       </div>
     </div>
     <span class="kicker"><span class="dot"></span>오늘의 마켓 브리핑<span class="sep">·</span>FRED + 연관 데이터<span class="sep">·</span>일간 정기 발행</span>
+    ${calendar ? `<div class="calendar-strip">
+      <span>${escapeHtml(formatReportCalendarLine(calendar))}</span>
+      <span>${escapeHtml(calendar.note || "")}</span>
+    </div>` : ""}
     <div class="hero-grid">
       <div>
         <h1 class="hero">${headlineHtml}</h1>
@@ -975,6 +983,7 @@ export function renderEssay(briefing) {
 
 export function renderFreshness(snapshot) {
   const summary = snapshot?.freshnessSummary;
+  const calendar = snapshot?.reportCalendar || null;
   const items = summary?.items || [];
   if (!items.length) return "";
 
@@ -984,6 +993,7 @@ export function renderFreshness(snapshot) {
       <span><span class="chip delayed" style="margin-right:6px">지연</span>${summary.delayedCount ?? 0}건</span>
       <span><span class="chip stale" style="margin-right:6px">오래됨</span>${summary.staleCount ?? 0}건</span>
       <span style="margin-left:auto">기준일 ${escapeHtml(summary.reportDate || "")}</span>
+      ${calendar?.usEquityReferenceDate ? `<span>미국 주식 ${escapeHtml(calendar.usEquityReferenceDate)}</span>` : ""}
     </div>`;
 
   return `<section class="section"><div class="shell">
@@ -1011,6 +1021,7 @@ export function renderFreshness(snapshot) {
 /* ─────────────────────── COLOPHON ─────────────────────── */
 
 export function renderColophon(snapshot, briefing) {
+  const calendar = snapshot?.reportCalendar || null;
   return `<footer class="colophon"><div class="shell">
     <div class="row">
       <span><b>FRED Market Briefing</b> · 자동 생성 데일리 브리핑</span>
@@ -1019,6 +1030,8 @@ export function renderColophon(snapshot, briefing) {
     <div class="row">
       <span>발행: ${escapeHtml(formatDateTimeKST(snapshot.generatedAt))} KST</span>
       <span>리포트 일자: ${escapeHtml(briefing?.date || snapshot.reportDate || "—")}</span>
+      ${calendar?.usEquityReferenceDate ? `<span>미국 주식 기준일: ${escapeHtml(calendar.usEquityReferenceDate)}</span>` : ""}
+      ${calendar?.koreaMarketReferenceDate ? `<span>한국 시장 기준일: ${escapeHtml(calendar.koreaMarketReferenceDate)}</span>` : ""}
       <span>모드: ${escapeHtml(snapshot.mode || "fred")}</span>
     </div>
     <div class="row">

@@ -9,6 +9,8 @@
 - `report.html`: 최신 금융 리포트형 HTML
 - `reports/YYYY-MM-DD.html`: 날짜별 독립 HTML 리포트
 - `posts/YYYY-MM-DD.md`: 날짜별 Markdown 브리핑 본문
+- `archive/YYYY-MM-DD/latest/`: 해당 일자의 최신 생성본 원본 JSON·Markdown·HTML
+- `archive/YYYY-MM-DD/runs/RUN_ID/`: 같은 날짜를 다시 생성했을 때 남기는 실행별 보존본
 - `data/briefings.json`: 웹 대시보드가 읽는 브리핑 인덱스
 - `data/market-snapshot.json`: FRED 기반 지표 스냅샷
 - `data/news-digest.json`: 공개 뉴스/RSS 수집 결과
@@ -44,10 +46,25 @@ npm run admin
 - `npm run fetch:macro`: 다기간 비교용 매크로 시계열 생성
 - `npm run rewrite:llm`: 최신 브리핑을 LLM으로 재작성
 - `npm run report:html`: 최신 브리핑을 금융 리포트형 HTML로 렌더링
+- `npm run archive:report`: 최신 리포트의 원본 JSON·Markdown·HTML을 날짜별 아카이브로 보존
 - `npm run publish:full`: 전체 자동 생성 파이프라인 실행
 - `npm run check:copy`: 공개 산출물의 금칙/치환 대상 표현 점검
 - `npm run fix:copy`: 공개 산출물에 문구 치환 규칙 일괄 적용
 - `npm run admin`: 로컬 관리자 서버 실행. 옵션 페이지에서 `config/watchlist-stocks.json` 저장과 관심종목 분석 재생성 수행
+
+## 날짜와 아카이브 기준
+
+리포트의 `reportDate`는 한국시간(KST) 발행일입니다. 미국 주식 기준일은 별도로 `reportCalendar.usEquityReferenceDate`에 저장하며, HTML 마스트헤드와 Markdown 본문 상단에 함께 표시합니다. 예를 들어 6월 5일 한국 오전에 만든 리포트는 미국 6월 5일 정규장 마감 전이므로 미국 주식 기준일이 6월 4일로 표시될 수 있습니다.
+
+`report.html`은 최신본이라 매번 덮어씁니다. `reports/YYYY-MM-DD.html`과 `posts/YYYY-MM-DD.md`는 날짜별 파일이지만 같은 날짜를 다시 생성하면 최신 내용으로 바뀝니다. 이전 실행본은 `archive/YYYY-MM-DD/runs/RUN_ID/`에 남고, 재렌더링용 최신 원본은 `archive/YYYY-MM-DD/latest/`에 저장됩니다.
+
+과거 날짜를 다시 HTML로 렌더링하려면 해당 날짜 아카이브가 있어야 합니다.
+
+```bash
+node --env-file-if-exists=.env scripts/render-report.mjs --date 2026-06-05
+```
+
+아카이브가 없는 날짜는 최신 `data/*.json`과 섞이지 않도록 렌더링을 중단합니다. 기존 결과를 볼 때는 `reports/YYYY-MM-DD.html`을 직접 열면 됩니다.
 
 ## 관심종목 옵션
 
