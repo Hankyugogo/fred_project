@@ -124,6 +124,7 @@ const SYMBOLS = [
     group: "commodities",
     yahoo: "CL=F",
     stooq: "cl.f",
+    naverMarketIndex: { category: "energy", symbol: "CLcv1" },
     format: "usd",
     decimals: 2,
     replacementPolicy: "proxy",
@@ -136,6 +137,7 @@ const SYMBOLS = [
     label: "브렌트유",
     group: "commodities",
     yahoo: "BZ=F",
+    naverMarketIndex: { category: "energy", symbol: "LCOcv1" },
     format: "usd",
     decimals: 2,
     replacementPolicy: "proxy",
@@ -148,6 +150,7 @@ const SYMBOLS = [
     group: "commodities",
     yahoo: "GC=F",
     stooq: "gc.f",
+    naverMarketIndex: { category: "metals", symbol: "GCcv1" },
     format: "usd",
     decimals: 2,
     replacementPolicy: "proxy",
@@ -160,9 +163,11 @@ const SYMBOLS = [
     group: "commodities",
     yahoo: "HG=F",
     stooq: "hg.f",
+    naverMarketIndex: { category: "metals", symbol: "HGcv1" },
     format: "usd",
     decimals: 2,
     scale: 0.01,
+    naverMarketScale: 1,
     replacementPolicy: "proxy",
     note: "Stooq HG.F는 센트 단위로 제공되어 0.01 스케일을 적용한다.",
     sourceUrl: "https://finance.yahoo.com/quote/HG=F",
@@ -207,6 +212,10 @@ function buildNaverWorldIndexUrl(symbol) {
 
 function buildNaverExchangeUrl(symbol) {
   return `https://api.stock.naver.com/marketindex/exchange/${encodeURIComponent(symbol)}`;
+}
+
+function buildNaverMarketIndexUrl({ category, symbol }) {
+  return `https://api.stock.naver.com/marketindex/${encodeURIComponent(category)}/${encodeURIComponent(symbol)}`;
 }
 
 function kstYearMonth(date = new Date()) {
@@ -521,6 +530,54 @@ function normalizeNaverWorldIndex(spec, payload) {
   };
 }
 
+function normalizeNaverMarketIndex(spec, payload) {
+  const close = parseNumber(payload?.closePrice);
+  const previousInfo = (payload?.marketIndexTotalInfos || []).find((item) => item.code === "lastClosePrice");
+  const rawChange = parseNumber(payload?.fluctuations);
+  const previous = parseNumber(previousInfo?.value);
+  const scale = spec.naverMarketScale || 1;
+  const observationDate = typeof payload?.localTradedAt === "string"
+    ? payload.localTradedAt.slice(0, 10)
+    : null;
+
+  if (!observationDate || !Number.isFinite(close) || !Number.isFinite(previous)) {
+    throw new Error("invalid Naver market index response");
+  }
+
+  const latestValue = round(close * scale, spec.decimals);
+  const previousValue = round(previous * scale, spec.decimals);
+  const absoluteChange = Number.isFinite(rawChange)
+    ? round(rawChange * scale, spec.decimals)
+    : latestValue === null || previousValue === null
+      ? null
+      : round(latestValue - previousValue, spec.decimals);
+  const percentChange = Number.isFinite(Number(payload?.fluctuationsRatio))
+    ? round(Number(payload.fluctuationsRatio), 4)
+    : previousValue === null || previousValue === 0 || absoluteChange === null
+      ? null
+      : round((absoluteChange / previousValue) * 100, 4);
+
+  return {
+    id: spec.id,
+    label: spec.label,
+    group: spec.group,
+    format: spec.format,
+    decimals: spec.decimals,
+    latestValue,
+    previousValue,
+    absoluteChange,
+    percentChange,
+    observationDate,
+    previousObservationDate: null,
+    source: "Naver Finance market index API",
+    sourceSymbol: payload?.reutersCode || spec.naverMarketIndex?.symbol || null,
+    sourceUrl: payload?.endUrl || `https://m.stock.naver.com/marketindex/${encodeURIComponent(spec.naverMarketIndex.category)}/${encodeURIComponent(spec.naverMarketIndex.symbol)}`,
+    replacementPolicy: spec.replacementPolicy,
+    note: spec.note || null,
+    fetchedAt: new Date().toISOString()
+  };
+}
+
 function normalizeNaverExchangePayload(payload) {
   const data = payload?.exchangeInfo || payload?.result || payload;
   const close = parseNumber(data?.closePrice);
@@ -633,7 +690,15 @@ function normalizeTreasuryYield(spec, rows) {
 }
 
 async function fetchSymbol(spec) {
-  const sourceLabel = [spec.treasuryField, spec.stooq, spec.naverWorldIndex, spec.naverExchange, spec.naverDerivedUsdJpy ? "FX_USDKRW/FX_JPYKRW" : null, spec.yahoo].filter(Boolean).join("→");
+  const sourceLabel = [
+    spec.treasuryField,
+    spec.stooq,
+    spec.naverWorldIndex,
+    spec.naverMarketIndex ? `${spec.naverMarketIndex.category}/${spec.naverMarketIndex.symbol}` : null,
+    spec.naverExchange,
+    spec.naverDerivedUsdJpy ? "FX_USDKRW/FX_JPYKRW" : null,
+    spec.yahoo
+  ].filter(Boolean).join("→");
   process.stderr.write(`  - ${spec.id} (${sourceLabel})... `);
   const errors = [];
 
@@ -664,6 +729,16 @@ async function fetchSymbol(spec) {
       return normalized;
     } catch (error) {
       errors.push(`Naver: ${error.message}`);
+    }
+  }
+
+  if (spec.naverMarketIndex) {
+    try {
+      const normalized = normalizeNaverMarketIndex(spec, await fetchJson(buildNaverMarketIndexUrl(spec.naverMarketIndex)));
+      process.stderr.write(`${normalized.latestValue} (${normalized.observationDate}, Naver market index)\n`);
+      return normalized;
+    } catch (error) {
+      errors.push(`Naver market index: ${error.message}`);
     }
   }
 

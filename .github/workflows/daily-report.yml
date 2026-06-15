@@ -3,8 +3,11 @@ name: Daily Economy Report
 on:
   workflow_dispatch:
   schedule:
-    # 08:15 KST. GitHub Actions uses UTC.
-    - cron: "15 23 * * *"
+    # Primary: 06:07 KST. Backup: 09:07 KST. GitHub Actions uses UTC.
+    # Scheduled runs can be delayed or dropped under GitHub Actions load, so keep
+    # a same-day backup and skip it when the primary has already published.
+    - cron: "7 21 * * *"
+    - cron: "7 0 * * *"
 
 permissions:
   contents: write
@@ -33,12 +36,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check whether today's report already exists
+        id: report_guard
+        shell: bash
+        run: |
+          report_date="$(TZ=Asia/Seoul date +%F)"
+          echo "report_date=${report_date}" >> "$GITHUB_OUTPUT"
+          if [[ "${{ github.event_name }}" == "schedule" && -f "reports/${report_date}.html" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Report ${report_date} already exists; skipping scheduled duplicate."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Node
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         uses: actions/setup-node@v4
         with:
           node-version: "22"
 
       - name: Generate report
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         run: npm run publish:full-rich
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
@@ -46,17 +64,20 @@ jobs:
           STRICT_REWRITE_VALIDATION: "1"
 
       - name: Validate generated report
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         run: |
           npm run check:quality
           npm run check:copy
 
       - name: Build notification payload
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         id: payload
         run: node scripts/notify-build-payload.mjs
         env:
           PAGES_BASE_URL: ${{ env.PAGES_BASE_URL }}
 
       - name: Commit generated report
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         run: |
           git config user.name "daily-report-bot"
           git config user.email "daily-report-bot@example.com"
@@ -65,6 +86,7 @@ jobs:
           git push
 
       - name: Build Pages artifact
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         run: |
           mkdir -p public
           cp index.html settings.html app.js settings.js styles.css favicon.svg report.html public/
@@ -72,19 +94,22 @@ jobs:
           if [ -d archive ]; then cp -R archive public/; fi
 
       - name: Configure GitHub Pages
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
 
       - name: Deploy to GitHub Pages
+        if: ${{ steps.report_guard.outputs.skip != 'true' }}
         id: deployment
         uses: actions/deploy-pages@v4
 
       - name: Send email notification
-        if: ${{ env.EMAIL_USERNAME != '' && env.EMAIL_APP_PASSWORD != '' && env.EMAIL_TO != '' }}
+        if: ${{ steps.report_guard.outputs.skip != 'true' && env.EMAIL_USERNAME != '' && env.EMAIL_APP_PASSWORD != '' && env.EMAIL_TO != '' }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -103,7 +128,7 @@ jobs:
           attachments: report.html
 
       - name: Send Telegram notification
-        if: ${{ env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != '' }}
+        if: ${{ steps.report_guard.outputs.skip != 'true' && env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != '' }}
         env:
           SUMMARY_MD: ${{ steps.payload.outputs.summary_md }}
           REPORT_DATE: ${{ steps.payload.outputs.report_date }}
