@@ -175,6 +175,14 @@ function buildFields(snapshot, briefing, newsDigest) {
     : equityTone === "약세"
       ? "미국 지수 약세가 한국 지수 보조 시세와 엇갈릴 수 있어 한국장 반응을 별도로 확인해야 한다."
       : "미국 지수 흐름이 혼조라 한국장 방향은 환율과 반도체 수급을 함께 확인해야 한다.";
+  const commentaryOpening = equityTone === "강세"
+    ? `오늘 리포트의 핵심은 주가 강세와 장기금리 부담이 공존했다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 올랐고 미 10년물 금리도 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장의 위험 선호가 살아 있지만 자금 조달 비용의 상단도 함께 확인해야 하는 국면임을 뜻한다.`
+    : equityTone === "약세"
+      ? `오늘 리포트의 핵심은 주가 약세와 장기금리 부담이 동시에 나타났다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 밀렸고 미 10년물 금리도 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장이 자금 조달 비용의 상단과 성장주 밸류에이션 부담을 다시 시험하고 있음을 뜻한다.`
+      : `오늘 리포트의 핵심은 지수 흐름이 혼조인 가운데 장기금리 부담이 남아 있다는 점이다. S&P500지수, 나스닥 종합지수, 다우존스30 산업평균지수의 방향성이 완전히 같지 않고 미 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장이 주도 업종과 금리 상단을 동시에 확인하는 국면임을 뜻한다.`;
+  const commentaryKoreaFollowThrough = nasdaq.percentChange >= 0
+    ? "미국 기술주 강세가 이어지는지와 환율 안정 여부를 함께 봐야 한다."
+    : "미국 기술주 약세가 이어지는지와 환율 안정 여부를 함께 봐야 한다.";
 
   const title = fallbackTitle(snapshot, sp, nasdaq, ten, vix);
   const overnightLead = `미국 증시는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다. 미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록해 ${equityMoveText}다. VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있어 ${vixRiskText}. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.`;
@@ -267,8 +275,8 @@ function buildFields(snapshot, briefing, newsDigest) {
       }
     },
     commentary: [
-      `오늘 리포트의 핵심은 주가와 장기금리가 동시에 부담으로 작용했다는 점이다. S&P500지수와 나스닥 종합지수, 다우존스30 산업평균지수가 같은 방향으로 밀렸고 미 10년물 금리도 ${fmt(ten.latestValue, 2)}%를 기록했다. 이는 시장이 자금 조달 비용의 상단과 성장주 밸류에이션 부담을 다시 시험하고 있음을 뜻한다.`,
-      `한국시장 관점에서는 ${techKoreaText}. 달러/원 FRED 시계열 기준일이 ${krw.observationDate || "-"}로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 ${fmt(kospi.latestValue, 2)}와 코스닥 ${fmt(kosdaq.latestValue, 2)}라는 보조 시세는 참고하되, 미국 기술주 약세와 환율 안정 여부를 함께 봐야 한다.`,
+      commentaryOpening,
+      `한국시장 관점에서는 ${techKoreaText}. 달러/원 FRED 시계열 기준일이 ${krw.observationDate || "-"}로 늦어 외환 해석은 보조 시세와 함께 확인해야 한다. 코스피 ${fmt(kospi.latestValue, 2)}와 코스닥 ${fmt(kosdaq.latestValue, 2)}라는 보조 시세는 참고하되, ${commentaryKoreaFollowThrough}`,
       `뉴스 흐름은 연준 의사록과 인플레이션 경로로 모인다. 당장 하루 가격을 결정하는 단일 재료보다 금리 경로와 금융 여건을 재평가하게 만드는 재료가 많다. 따라서 오늘의 결론은 반등 추격이 아니라 금리 상단, VIX 안정, 환율, 주도 업종 회복 여부를 함께 확인하는 쪽에 가깝다.`
     ],
     causalAnalysis: [
@@ -297,8 +305,12 @@ function buildFields(snapshot, briefing, newsDigest) {
       weekly: {
         title: "주간 관점: 금리와 변동성 상단 확인",
         coreView: `이번 주 핵심은 미 10년물 ${fmt(ten.latestValue, 2)}% 부근을 시장이 흡수하는지 여부다.`,
-        whyItMatters: "주가가 약하고 금리·변동성이 높으면 성장주 반등은 짧아질 수 있다.",
-        koreaImpact: "반도체는 나스닥 약세에 민감하고, 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다.",
+        whyItMatters: equityTone === "강세"
+          ? "주가가 강해도 금리·변동성이 다시 높아지면 성장주 상승 탄력은 짧아질 수 있다."
+          : "주가가 약하고 금리·변동성이 높으면 성장주 반등은 짧아질 수 있다.",
+        koreaImpact: nasdaq.percentChange >= 0
+          ? "반도체는 나스닥 강세의 지속 여부에 민감하고, 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다."
+          : "반도체는 나스닥 약세에 민감하고, 2차전지·바이오·인터넷/플랫폼은 금리 부담에 더 민감하다.",
         watchLevels: ["미 10년물 4.70%", "VIX 20선", `나스닥 ${fmt(nasdaq.latestValue, 0)}선`]
       },
       monthly: {
