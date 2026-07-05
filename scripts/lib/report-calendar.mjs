@@ -61,12 +61,12 @@ export function buildReportCalendar(series, reportDate, generatedAt, reportTimeZ
       : "unknown";
 
   const note = usEquityStatus === "prior-session" && isWeekend(reportDate)
-    ? `한국시간 ${reportDate} 발행본의 미국 주식 기준일은 ${usEquityReferenceDate}입니다. 주말·휴장 또는 공급자 갱신 지연 때는 개별 지표 관측일을 함께 확인해야 합니다.`
+    ? `한국시간 ${reportDate} 발행본의 미국 주식 기준일은 ${usEquityReferenceDate}다. 주말·휴장 또는 공급자 갱신 지연 때는 개별 지표 관측일을 함께 확인해야 한다.`
     : usEquityStatus === "prior-session"
-      ? `한국시간 ${reportDate} 발행본의 미국 주식 기준일은 ${usEquityReferenceDate}입니다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정됩니다.`
+      ? `한국시간 ${reportDate} 발행본의 미국 주식 기준일은 ${usEquityReferenceDate}다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정된다.`
     : usEquityStatus === "same-date"
-      ? `미국 주식 기준일과 리포트 일자가 모두 ${reportDate}입니다.`
-      : "미국 주식 기준일을 확정할 수 없어 개별 지표의 관측일을 함께 확인해야 합니다.";
+      ? `미국 주식 기준일과 리포트 일자가 모두 ${reportDate}다.`
+      : "미국 주식 기준일을 확정할 수 없어 개별 지표의 관측일을 함께 확인해야 한다.";
 
   return {
     reportDate,

@@ -121,7 +121,7 @@ export function renderMasthead(snapshot, briefing) {
       <aside class="hero-side" aria-label="오늘의 주요 변동폭">
         <h4><span>오늘의 주요 변동</span><span>TOP 5</span></h4>
         ${sideRows || `<p style="font-family:'Noto Sans KR';font-size:12px;color:var(--muted);margin:0">데이터 없음</p>`}
-        <p class="note">변동폭 절대값 기준. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 환산해 비교합니다.</p>
+        <p class="note">변동폭 절대값 기준. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 환산해 비교한다.</p>
       </aside>
     </div>
   </div></header>`;
@@ -202,7 +202,7 @@ export function renderIndexMatrix(snapshot, briefing, macroHistory) {
       <div class="num"><span class="bar"></span>§ 01</div>
       <div>
         <h2>오늘의 시장 지표</h2>
-        <p class="lede">미국 주식·금리·변동성·환율 네 축의 종가, 그리고 전일·1주·1개월·1년 대비 변동을 함께 봅니다. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 표기합니다.</p>
+        <p class="lede">미국 주식·금리·변동성·환율 네 축의 종가, 그리고 전일·1주·1개월·1년 대비 변동을 함께 본다. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 표기한다.</p>
       </div>
     </div>
     <div class="matrix">${cells}</div>
@@ -227,7 +227,7 @@ function readVerdicts(snapshot) {
     title: "주식",
     label: !sp ? "—" : (eqUp && eqStrong) ? "상승 흐름" : (!eqUp && eqStrong) ? "조정 흐름" : "박스권",
     text: sp
-      ? `S&P 500이 ${signed(sp.percentChange, 2)}%로 ${formatValue(sp)}에 마감했습니다. ${eqUp ? "위험선호가 우위인 환경입니다." : "차익실현 압력이 우위인 환경입니다."}`
+      ? `S&P500지수가 ${signed(sp.percentChange, 2)}%로 ${formatValue(sp)}에 마감했다. ${eqUp ? "위험자산 선호가 우위인 환경이다." : "차익실현 압력이 우위인 환경이다."}`
       : "데이터 없음",
     evidence: sp ? `S&P 500 ${formatValue(sp)} · ${signed(sp.percentChange, 2)}%` : "—",
     tone: !sp ? "" : eqUp ? "" : "warn"
@@ -240,7 +240,7 @@ function readVerdicts(snapshot) {
     title: "금리",
     label: !ten || !two ? "—" : sameDir ? (tenUp ? "장·단기 동반 상승" : "장·단기 동반 하락") : "장·단기 엇갈림",
     text: ten && two
-      ? `2년물 ${bp(two.absoluteChange)}, 10년물 ${bp(ten.absoluteChange)}. ${tenUp ? "할인율(미래 현금흐름을 현재가치로 깎는 비율)이 높아져 성장주에 부담입니다." : "할인율이 낮아져 듀레이션이 긴 자산에 우호적입니다."}`
+      ? `2년물 ${bp(two.absoluteChange)}, 10년물 ${bp(ten.absoluteChange)}. ${tenUp ? "할인율(미래 현금흐름을 현재가치로 깎는 비율)이 높아져 성장주에 부담이다." : "할인율이 낮아져 듀레이션이 긴 자산에 우호적이다."}`
       : "데이터 없음",
     evidence: ten && two ? `2Y ${fmtNum(two.latestValue, 2)}% · 10Y ${fmtNum(ten.latestValue, 2)}%` : "—",
     tone: !ten ? "" : tenUp ? "warn" : ""
@@ -254,8 +254,8 @@ function readVerdicts(snapshot) {
     label: !vix ? "—" : eqAndVixUp ? "주가↑인데 VIX↑" : vixUp ? "위험회피 심화" : "안도 분위기",
     text: vix
       ? eqAndVixUp
-        ? `VIX ${fmtNum(vix.latestValue, 2)}로 ${signed(vix.percentChange, 2)}%. 주가가 오르면 보통 VIX는 내려가지만 오늘은 함께 올라, 시장이 끌어올리면서도 하락 대비 옵션을 함께 사고 있다는 뜻입니다.`
-        : `VIX ${fmtNum(vix.latestValue, 2)}. 옵션 시장은 ${vixUp ? "변동성 확대를 베팅" : "변동성 축소에 베팅"} 중입니다.`
+        ? `VIX ${fmtNum(vix.latestValue, 2)}로 ${signed(vix.percentChange, 2)}%. 주가가 오르면 보통 VIX는 내려가지만 오늘은 함께 올라, 상승을 따라가면서도 하락 대비 옵션 수요가 남았다는 뜻이다.`
+        : `VIX ${fmtNum(vix.latestValue, 2)}. 옵션 시장은 ${vixUp ? "변동성 확대" : "변동성 축소"}에 무게를 둔다.`
       : "데이터 없음",
     evidence: vix ? `VIX ${fmtNum(vix.latestValue, 2)} · ${signed(vix.percentChange, 2)}%` : "—",
     tone: !vix ? "" : eqAndVixUp ? "warn" : vixUp ? "bear" : ""
@@ -269,7 +269,7 @@ function readVerdicts(snapshot) {
     title: "달러",
     label: !dxy && !krw ? "—" : fxAligned ? (dxyUp ? "달러 강세" : "달러 약세") : "방향성 혼재",
     text: dxy || krw
-      ? `${dxy ? `DXY ${signed(dxy.percentChange, 2)}%` : ""}${dxy && krw ? ", " : ""}${krw ? `USD/KRW ${signed(krw.percentChange, 2)}%` : ""}. ${fxAligned ? (dxyUp ? "원화 약세 압력이 동시에 들어옵니다." : "원화 강세 흐름과 일치합니다.") : "두 지표 방향이 어긋나거나 강도가 달라 한쪽 동인이 더 큰 영향을 미친다고 해석됩니다."}`
+      ? `${dxy ? `DXY ${signed(dxy.percentChange, 2)}%` : ""}${dxy && krw ? ", " : ""}${krw ? `USD/KRW ${signed(krw.percentChange, 2)}%` : ""}. ${fxAligned ? (dxyUp ? "원화 약세 압력이 동시에 들어온다." : "원화 강세 흐름과 일치한다.") : "두 지표 방향이 어긋나거나 강도가 달라 한쪽 동인이 더 큰 영향을 미친다고 해석한다."}`
       : "데이터 없음",
     evidence: dxy && krw ? `DXY ${fmtNum(dxy.latestValue, 2)} · KRW ${fmtNum(krw.latestValue, 2)}` : "—",
     tone: ""
@@ -285,7 +285,7 @@ export function renderVerdicts(snapshot) {
       <div class="num"><span class="bar"></span>§ 02</div>
       <div>
         <h2>오늘의 시장 신호 / 4축 요약</h2>
-        <p class="lede">주식·금리·변동성·달러를 각각 하나의 문장으로 요약합니다. 평소와 다른 패턴이 보이는 항목에는 "주가↑인데 VIX↑"처럼 그 의미를 함께 적었습니다.</p>
+        <p class="lede">주식·금리·변동성·달러를 각각 하나의 문장으로 요약한다. 평소와 다른 패턴이 보이는 항목에는 "주가↑인데 VIX↑"처럼 의미를 함께 적었다.</p>
       </div>
     </div>
     <div class="verdicts">
@@ -494,9 +494,9 @@ function renderSpreadVsNasdaq(macroHistory) {
       <text x="${(w - padR + 8).toFixed(1)}" y="${(padT - 12).toFixed(1)}" text-anchor="start" font-family="JetBrains Mono" font-size="9" fill="var(--accent-2)" font-weight="700">나스닥 →</text>
     </svg>
     <p class="explain">
-      <b>스프레드(녹색, 좌축)</b>가 0bp 아래로 내려가면 <b>장단기 역전</b>으로 경기 둔화 신호 — 음영 처리한 구간이 역전 시기입니다.
+      <b>스프레드(녹색, 좌축)</b>가 0bp 아래로 내려가면 <b>장단기 역전</b>으로 경기 둔화 신호다. 음영 처리한 구간이 역전 시기다.
       <b>나스닥(주황색, 우축)</b>과 겹쳐 보면 두 지표가 같은 방향으로 움직이는지, 반대로 움직이는지 한눈에 비교할 수 있습니다.
-      5년 데이터 기준 두 시계열의 상관계수는 <b>${corrPct}%</b>로 <b>${corrLabel} ${corrDir} 상관</b>관계입니다.
+      5년 데이터 기준 두 시계열의 상관계수는 <b>${corrPct}%</b>로 <b>${corrLabel} ${corrDir} 상관</b>관계다.
     </p>
   </div>`;
 }
@@ -511,7 +511,7 @@ export function renderIssues(briefing) {
       <div class="num"><span class="bar"></span>§ 04</div>
       <div>
         <h2>오늘의 핵심 이슈</h2>
-        <p class="lede">데이터 한 줄로 끝낼 수 없는 이슈를 풀어 적습니다. <em>WHAT</em> 어떤 사실인지, <em>WHY</em> 왜 시장이 그렇게 반응했는지, <em>WATCH</em> 앞으로 무엇을 봐야 하는지로 나눕니다.</p>
+        <p class="lede">데이터 한 줄로 끝낼 수 없는 이슈를 풀어 적는다. <em>WHAT</em> 어떤 사실인지, <em>WHY</em> 왜 시장이 그렇게 반응했는지, <em>WATCH</em> 앞으로 무엇을 봐야 하는지로 나눈다.</p>
       </div>
     </div>
     <div class="issues">
@@ -591,7 +591,7 @@ export function renderTimeline(snapshot, briefing) {
       <div class="num"><span class="bar"></span>§ 06</div>
       <div>
         <h2>다가오는 일정 · 한국 시장 체크포인트</h2>
-        <p class="lede">앞으로 시장을 흔들 수 있는 미국 경제 일정과, 한국 시장 관점에서 봐야 할 임계 수준을 묶어 적습니다.</p>
+        <p class="lede">앞으로 시장을 흔들 수 있는 미국 경제 일정과, 한국 시장 관점에서 봐야 할 임계 수준을 묶어 적는다.</p>
       </div>
     </div>
     <div class="data-grid">
@@ -654,14 +654,14 @@ export function renderPositioning(briefing) {
       <div class="num"><span class="bar"></span>§ 07</div>
       <div>
         <h2>참고 포지셔닝 · 시나리오</h2>
-        <p class="lede">위 4축 신호와 일정을 종합해 가상의 멀티에셋 포트폴리오가 취할 만한 자세를 적습니다. 실제 매매 권유가 아니라 사고의 출발점입니다.</p>
+        <p class="lede">위 4축 신호와 일정을 종합해 가상의 멀티에셋 포트폴리오가 취할 만한 자세를 정리한다. 실제 매매 권유가 아니라 사고의 출발점이다.</p>
       </div>
     </div>
     <div class="pos-grid">
       ${renderCard(main, false)}
       ${renderCard(alt, true)}
     </div>
-    ${briefing?.complianceNote ? `<p class="compliance">${escapeHtml(briefing.complianceNote)}</p>` : `<p class="compliance">본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있습니다.</p>`}
+    ${briefing?.complianceNote ? `<p class="compliance">${escapeHtml(briefing.complianceNote)}</p>` : `<p class="compliance">본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않는다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있다.</p>`}
   </div></section>`;
 }
 
@@ -972,7 +972,7 @@ export function renderEssay(briefing) {
       <div class="num"><span class="bar"></span>§ 08</div>
       <div>
         <h2>오늘의 시장 해설</h2>
-        <p class="lede">데이터를 잇는 흐름과 맥락을 풀어 적습니다.</p>
+        <p class="lede">데이터를 잇는 흐름과 맥락을 풀어 적는다.</p>
       </div>
     </div>
     <div class="essay">${html}</div>
@@ -1001,7 +1001,7 @@ export function renderFreshness(snapshot) {
       <div class="num"><span class="bar"></span>§ 10</div>
       <div>
         <h2>데이터 업데이트 현황</h2>
-        <p class="lede">각 지표가 언제 마감된 데이터를 사용했는지 표시합니다. <span class="chip fresh">최신</span>은 당일, <span class="chip delayed">지연</span>은 1영업일, <span class="chip stale">오래됨</span>은 그 이상입니다.</p>
+        <p class="lede">각 지표가 언제 마감된 데이터를 사용했는지 표시한다. <span class="chip fresh">최신</span>은 당일, <span class="chip delayed">지연</span>은 1영업일, <span class="chip stale">오래됨</span>은 그 이상이다.</p>
       </div>
     </div>
     ${summaryBar}
@@ -1035,7 +1035,7 @@ export function renderColophon(snapshot, briefing) {
       <span>모드: ${escapeHtml(snapshot.mode || "fred")}</span>
     </div>
     <div class="row">
-      <span>${escapeHtml(briefing?.complianceNote || "본 자료는 정보 제공 목적이며, 어떠한 투자 권유도 포함하지 않습니다. 데이터 정확성은 원자료를 우선합니다.")}</span>
+      <span>${escapeHtml(briefing?.complianceNote || "본 자료는 정보 제공 목적이며, 어떠한 투자 권유도 포함하지 않는다. 데이터 정확성은 원자료를 우선한다.")}</span>
     </div>
   </div></footer>`;
 }

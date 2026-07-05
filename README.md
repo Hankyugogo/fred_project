@@ -11,7 +11,9 @@
 - `posts/YYYY-MM-DD.md`: 날짜별 Markdown 브리핑 본문
 - `archive/YYYY-MM-DD/latest/`: 해당 일자의 최신 생성본 원본 JSON·Markdown·HTML
 - `archive/YYYY-MM-DD/runs/RUN_ID/`: 같은 날짜를 다시 생성했을 때 남기는 실행별 보존본
+- `archive/YYYY-MM-DD/validations/`: 이후 실제값으로 재점검한 검증 이력
 - `data/briefings.json`: 웹 대시보드가 읽는 브리핑 인덱스
+- `data/outcome-validations.json`: 날짜별 사후 검증 요약 인덱스
 - `data/market-snapshot.json`: FRED 기반 지표 스냅샷
 - `data/news-digest.json`: 공개 뉴스/RSS 수집 결과
 - `data/stock-watchlist.json`: 관심종목 매크로·기술 분석 데이터
@@ -47,6 +49,7 @@ npm run admin
 - `npm run rewrite:llm`: 최신 브리핑을 LLM으로 재작성
 - `npm run report:html`: 최신 브리핑을 금융 리포트형 HTML로 렌더링
 - `npm run archive:report`: 최신 리포트의 원본 JSON·Markdown·HTML을 날짜별 아카이브로 보존
+- `npm run verify:outcomes`: 아카이브된 리포트 판단을 이후 실제 지표 흐름과 대조
 - `npm run publish:full`: 전체 자동 생성 파이프라인 실행
 - `npm run check:copy`: 공개 산출물의 금칙/치환 대상 표현 점검
 - `npm run fix:copy`: 공개 산출물에 문구 치환 규칙 일괄 적용
@@ -56,7 +59,7 @@ npm run admin
 
 리포트의 `reportDate`는 한국시간(KST) 발행일입니다. 미국 주식 기준일은 별도로 `reportCalendar.usEquityReferenceDate`에 저장하며, HTML 마스트헤드와 Markdown 본문 상단에 함께 표시합니다. 예를 들어 6월 5일 한국 오전에 만든 리포트는 미국 6월 5일 정규장 마감 전이므로 미국 주식 기준일이 6월 4일로 표시될 수 있습니다.
 
-`report.html`은 최신본이라 매번 덮어씁니다. `reports/YYYY-MM-DD.html`과 `posts/YYYY-MM-DD.md`는 날짜별 파일이지만 같은 날짜를 다시 생성하면 최신 내용으로 바뀝니다. 이전 실행본은 `archive/YYYY-MM-DD/runs/RUN_ID/`에 남고, 재렌더링용 최신 원본은 `archive/YYYY-MM-DD/latest/`에 저장됩니다.
+`report.html`은 최신본이라 매번 덮어씁니다. `reports/YYYY-MM-DD.html`과 `posts/YYYY-MM-DD.md`는 날짜별 파일이지만 같은 날짜를 다시 생성하면 최신 내용으로 바뀝니다. 이전 실행본은 `archive/YYYY-MM-DD/runs/RUN_ID/`에 남고, 재렌더링용 최신 원본은 `archive/YYYY-MM-DD/latest/`에 저장됩니다. 사후 검증은 `archive/YYYY-MM-DD/validations/VALIDATION_RUN_ID.json`에 누적되고, 해당 일자의 최신 검증본은 `archive/YYYY-MM-DD/latest/outcome-validation.json`에 저장됩니다.
 
 과거 날짜를 다시 HTML로 렌더링하려면 해당 날짜 아카이브가 있어야 합니다.
 
@@ -65,6 +68,18 @@ node --env-file-if-exists=.env scripts/render-report.mjs --date 2026-06-05
 ```
 
 아카이브가 없는 날짜는 최신 `data/*.json`과 섞이지 않도록 렌더링을 중단합니다. 기존 결과를 볼 때는 `reports/YYYY-MM-DD.html`을 직접 열면 됩니다.
+
+## 사후 검증
+
+검증은 리포트의 정성 문장을 임의로 맞다/틀리다로 단정하지 않고, 당시 리포트가 남긴 주식·금리·변동성 판단축을 이후 1거래 세션과 5거래 세션 실제값과 비교합니다. `fetch:macro`로 갱신된 `data/macro-history.json`을 기준으로 삼습니다.
+
+```bash
+npm run fetch:macro
+npm run verify:outcomes:all
+node --env-file-if-exists=.env scripts/verify-outcomes.mjs --date 2026-06-10
+```
+
+검증 결과는 방향성 후속 확인용입니다. 실제 투자 성과 백테스트가 아니며, 당시 보고서의 리스크 프레이밍이 이후 데이터와 얼마나 정렬됐는지를 기록합니다.
 
 ## 관심종목 옵션
 
@@ -100,11 +115,12 @@ FRED 시리즈:
 
 동작 순서:
 
-1. 매일 08:15 KST에 `npm run publish:full` 실행
-2. `data`, `posts`, `reports`, `report.html` 생성물 커밋·푸시
-3. `index.html`, `settings.html`, `app.js`, `settings.js`, `styles.css`, `report.html`, `config`, `data`, `posts`, `reports`를 GitHub Pages artifact로 업로드
-4. GitHub Pages로 배포
-5. Secrets가 있으면 이메일과 텔레그램 알림 전송
+1. 매일 06:07 KST에 1차 실행, 09:07 KST에 예비 실행
+2. `npm run publish:full-rich`로 수집·생성·렌더링·아카이브·사후 검증 실행
+3. `data`, `posts`, `reports`, `archive`, `report.html` 생성물 커밋·푸시
+4. `index.html`, `settings.html`, `app.js`, `settings.js`, `styles.css`, `report.html`, `config`, `data`, `posts`, `reports`, `archive`를 GitHub Pages artifact로 업로드
+5. GitHub Pages로 배포
+6. Secrets가 있으면 이메일과 텔레그램 알림 전송
 
 필수 repository secrets:
 

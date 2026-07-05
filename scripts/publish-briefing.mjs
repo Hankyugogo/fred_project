@@ -93,6 +93,25 @@ function formatNewsDate(value) {
   }).format(date);
 }
 
+function displayNewsTitle(item, fallback = "주요 뉴스") {
+  return item?.koreanTitle || item?.categoryLabel || fallback;
+}
+
+function displayNewsSource(item) {
+  return item?.sourceKorean || item?.source || "출처 확인";
+}
+
+function normalizePublicText(text) {
+  return String(text || "")
+    .replace(/해야 합니다/g, "해야 한다")
+    .replace(/확인합니다/g, "확인한다")
+    .replace(/잡혔습니다/g, "잡혔다")
+    .replace(/작성했습니다/g, "작성했다")
+    .replace(/제한했습니다/g, "제한했다")
+    .replace(/입니다/g, "이다")
+    .replace(/습니다/g, "다");
+}
+
 function getGroup(snapshot, groupId) {
   return snapshot.groups.find((group) => group.id === groupId);
 }
@@ -191,7 +210,7 @@ function classifyCurve(curve) {
     return {
       label: "판단 보류",
       direction: "확인 필요",
-      desc: "곡선 데이터를 확인하지 못했습니다."
+      desc: "곡선 데이터를 확인하지 못했다."
     };
   }
 
@@ -286,25 +305,33 @@ function buildEquityProfile(snapshot) {
     tone = "약세";
   }
 
-  let leadershipLabel = "광범위한 동행";
-  let leadershipDesc = "세 지수의 방향이 비교적 같은 축으로 움직였습니다.";
-  let leadershipShort = "광범위한 동행";
+  let leadershipLabel = tone === "강세"
+    ? "3대 지수 동반 상승"
+    : tone === "약세"
+      ? "3대 지수 동반 하락"
+      : "지수별 방향 혼조";
+  let leadershipDesc = tone === "강세"
+    ? "S&P500, 나스닥, 다우가 모두 오르며 매수세가 지수 전반으로 확산됐다."
+    : tone === "약세"
+      ? "S&P500, 나스닥, 다우가 모두 밀리며 위험 회피 심리가 지수 전반에 반영됐다."
+      : "지수별 방향이 엇갈려 업종과 종목별 차별화가 두드러졌다.";
+  let leadershipShort = tone === "혼조" ? "미 증시 혼조" : "미 증시 동반";
 
   const nasdaq = getItem(snapshot, "NASDAQCOM");
   const sp = getItem(snapshot, "SP500");
   const dow = getItem(snapshot, "DJIA");
 
   if ((nasdaq?.percentChange ?? 0) - Math.max(sp?.percentChange ?? 0, dow?.percentChange ?? 0) > 0.35) {
-    leadershipLabel = "성장주 주도";
-    leadershipDesc = `나스닥이 ${formatPercent(nasdaq?.percentChange, 2)}를 기록하며 대형 성장주가 상대적으로 견조했습니다.`;
+    leadershipLabel = tone === "강세" ? "나스닥 주도 강세" : "나스닥 상대 강세";
+    leadershipDesc = `나스닥이 ${formatPercent(nasdaq?.percentChange, 2)}를 기록하며 대형 성장주가 상대적으로 강했다.`;
     leadershipShort = "나스닥 주도";
   } else if ((dow?.percentChange ?? 0) - Math.max(sp?.percentChange ?? 0, nasdaq?.percentChange ?? 0) > 0.35) {
     leadershipLabel = "다우지수 상대 강세";
-    leadershipDesc = `다우지수가 ${formatPercent(dow?.percentChange, 2)}를 기록하며 전통 대형주가 상대적으로 견조했습니다.`;
+    leadershipDesc = `다우지수가 ${formatPercent(dow?.percentChange, 2)}를 기록하며 전통 대형주가 상대적으로 강했다.`;
     leadershipShort = "다우지수 견조";
   } else if (leader && laggard && Math.abs((leader.percentChange ?? 0) - (laggard.percentChange ?? 0)) > 0.5) {
     leadershipLabel = `${leader.label} 상대 강세`;
-    leadershipDesc = `${leader.label} ${formatPercent(leader.percentChange, 2)}가 가장 강했고, ${laggard.label} ${formatPercent(laggard.percentChange, 2)}가 가장 약했습니다.`;
+    leadershipDesc = `${leader.label}가 ${formatPercent(leader.percentChange, 2)}로 가장 강했고, ${laggard.label}는 ${formatPercent(laggard.percentChange, 2)}에 그쳤다.`;
     leadershipShort = `${leader.label} 견조`;
   }
 
@@ -542,8 +569,8 @@ function buildNewsBrief(newsDigest) {
   const themes = (newsDigest.themes || []).slice(0, 4).map((theme) => ({
     category: theme.category,
     label: theme.label,
-    summary: theme.summary,
-    koreanSummary: theme.koreanSummary || null,
+    summary: normalizePublicText(theme.koreanSummary || theme.summary),
+    koreanSummary: theme.koreanSummary ? normalizePublicText(theme.koreanSummary) : null,
     items: (theme.items || []).slice(0, 3).map((item) => ({
       title: item.title,
       koreanTitle: item.koreanTitle || null,
@@ -558,8 +585,8 @@ function buildNewsBrief(newsDigest) {
   return {
     generatedAt: newsDigest.generatedAt,
     reportDate: newsDigest.reportDate,
-    editorialSummary: newsDigest.editorialSummary,
-    koreanEditorialSummary: newsDigest.koreanEditorialSummary || null,
+    editorialSummary: normalizePublicText(newsDigest.koreanEditorialSummary || newsDigest.editorialSummary),
+    koreanEditorialSummary: newsDigest.koreanEditorialSummary ? normalizePublicText(newsDigest.koreanEditorialSummary) : null,
     sourceHealth: newsDigest.sourceHealth,
     themes,
     topItems
@@ -591,7 +618,7 @@ function buildAnalysis(snapshot) {
     ? "정책금리와 시장금리의 상대 위치는 확인되지 않았다."
     : `미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 ${formatPercentPoint(tenYearProfile.policyGap, 2)} 높아 장기 자금 조달 부담이 남아 있다.`;
 
-  const observedSummary = `${riskRegime.lead} S&P500지수가 ${formatPercent(sp?.percentChange, 2)}, 나스닥 종합지수가 ${formatPercent(nasdaq?.percentChange, 2)}, 다우존스30 산업평균지수가 ${formatPercent(dow?.percentChange, 2)} 변동하며 ${equityProfile.leadershipLabel} 흐름이 나타났다.`;
+  const observedSummary = `${riskRegime.lead} S&P500지수는 ${formatPercent(sp?.percentChange, 2)}, 나스닥 종합지수는 ${formatPercent(nasdaq?.percentChange, 2)}, 다우존스30 산업평균지수는 ${formatPercent(dow?.percentChange, 2)}를 기록했다. ${equityProfile.leadershipDesc}`;
   const ratesSummary = `미 국채 10년물 금리는 ${formatValue(tenYear)}, 2년물 금리는 ${formatValue(twoYear)}, 장단기 금리차는 ${formatPercentPoint(curve?.latestValue, 2)}를 기록하며 ${curveProfile.label} 구간을 유지했다.`;
   const crossAssetSummary = `변동성지수(VIX)는 ${formatValue(vix)}로 ${vixProfile.label} 흐름을 보였다. ${fxProfile.summary} ${oilProfile.summary}`;
   const interpretationSummary = `${riskRegime.desc} ${tenYearProfile.desc} ${policyGapLine}`;
@@ -655,20 +682,43 @@ function buildTitle(snapshot, analysis) {
     : analysis.tenYearProfile.direction === "하락"
       ? "장기금리 완화"
       : "장기금리 정체";
+  const equityPhrase = buildEquityTitlePhrase(analysis.equityProfile);
 
   if (analysis.riskRegime.id === "risk-on-rate-pressure") {
-    return `${analysis.equityProfile.leadershipShort} 강세, ${ratePhrase} 부담 점검`;
+    return `${equityPhrase}, ${ratePhrase} 부담`;
   }
 
   if (analysis.riskRegime.id === "risk-on") {
-    return `${analysis.equityProfile.leadershipShort} 강세, 변동성 안정`;
+    return `${equityPhrase}, 변동성 안정`;
   }
 
   if (analysis.riskRegime.id === "risk-off") {
-    return `방어 심리 강화, ${analysis.equityProfile.leadershipShort} · 변동성 확대 점검`;
+    return `${equityPhrase}, 변동성 확대`;
   }
 
-  return `${analysis.riskRegime.shortLabel}, ${analysis.equityProfile.leadershipShort} · ${ratePhrase} 점검`;
+  return `${equityPhrase}, ${ratePhrase} 점검`;
+}
+
+function buildEquityTitlePhrase(equityProfile) {
+  const label = equityProfile.leadershipLabel || "";
+  const tone = equityProfile.tone;
+
+  if (tone === "강세") {
+    if (label.includes("나스닥")) return "나스닥 주도 강세";
+    if (label.includes("다우")) return "다우 상대 강세";
+    if (label.includes("상대 강세")) return label;
+    return "미 증시 동반 강세";
+  }
+
+  if (tone === "약세") {
+    if (label.includes("나스닥")) return "나스닥 선방에도 지수 약세";
+    if (label.includes("다우")) return "다우 방어에도 지수 약세";
+    return "미 증시 동반 약세";
+  }
+
+  if (label.includes("나스닥")) return "나스닥 상대 강세, 지수 혼조";
+  if (label.includes("다우")) return "다우 상대 강세, 지수 혼조";
+  return "미 증시 혼조";
 }
 
 function buildOvernightLead(snapshot, analysis, newsBrief) {
@@ -708,7 +758,7 @@ function buildInsightSections(snapshot, analysis, newsBrief) {
   if (newsBrief?.sourceHealth) {
     watchNow.push({
       title: "뉴스 출처 상태",
-      desc: `수집 성공 ${newsBrief.sourceHealth.okCount}개, 실패 ${newsBrief.sourceHealth.failedCount}개입니다. 실패 출처는 리포트 하단에서 따로 확인합니다.`
+      desc: `수집 성공 ${newsBrief.sourceHealth.okCount}개, 실패 ${newsBrief.sourceHealth.failedCount}개다. 실패 출처는 리포트 하단에서 따로 확인한다.`
     });
   }
 
@@ -878,7 +928,7 @@ function buildMarkdown(snapshot, reportDate, record, analysis) {
   lines.push("## 오늘의 시장 흐름");
   lines.push(`### 시장 분위기`);
   lines.push(`- ${analysis.riskRegime.desc}`);
-  lines.push(`- 평균 지수 등락률은 ${signed(analysis.equityProfile.averageMove, 2)}%이며, 주도 축은 ${analysis.equityProfile.leadershipLabel}입니다.`);
+  lines.push(`- 평균 지수 등락률은 ${signed(analysis.equityProfile.averageMove, 2)}%이며, 주도 흐름은 ${analysis.equityProfile.leadershipLabel}이다.`);
   lines.push("");
   lines.push("### 금리와 곡선");
   lines.push(`- ${analysis.ratesSummary}`);
@@ -914,14 +964,14 @@ function buildMarkdown(snapshot, reportDate, record, analysis) {
 
   lines.push("## 주요 뉴스와 이벤트");
   if (!newsBrief || newsBrief.topItems.length === 0) {
-    lines.push("- 수집 가능한 뉴스가 부족해 이번 본문은 지표 해설 중심으로 작성했습니다.");
+    lines.push("- 수집 가능한 뉴스가 부족해 이번 본문은 지표 해설 중심으로 작성했다.");
   } else {
     lines.push(`- ${newsBrief.editorialSummary}`);
     newsBrief.themes.forEach((theme) => {
       lines.push(`### ${theme.label}`);
       lines.push(`- ${theme.summary}`);
       theme.items.forEach((item) => {
-        lines.push(`- ${item.title} (${item.source}, ${formatNewsDate(item.publishedAt)})`);
+        lines.push(`- ${displayNewsTitle(item, theme.label)} (${displayNewsSource(item)}, ${formatNewsDate(item.publishedAt)})`);
       });
       lines.push("");
     });
@@ -951,7 +1001,7 @@ function buildMarkdown(snapshot, reportDate, record, analysis) {
     lines.push("");
   });
   lines.push("## 메모와 소스");
-  lines.push("- 본문은 FRED 시계열의 관찰값과 공개 RSS/뉴스 검색 헤드라인을 바탕으로 자동 생성한 데이터 해설입니다.");
+  lines.push("- 본문은 FRED 시계열의 관찰값과 공개 RSS/뉴스 검색 헤드라인을 바탕으로 자동 생성한 데이터 해설이다.");
   if (newsBrief?.sourceHealth) {
     lines.push(`- 뉴스 수집 상태: 성공 ${newsBrief.sourceHealth.okCount}개, 실패 ${newsBrief.sourceHealth.failedCount}개.`);
   }

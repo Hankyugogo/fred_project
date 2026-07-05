@@ -95,6 +95,9 @@ function sanitizeNewsBrief(news) {
       sourceHealth: null
     };
   }
+  const editorialSummary = normalizeFallbackText(
+    news.koreanEditorialSummary || news.editorialSummary || "뉴스 요약은 지표와 함께 보조적으로 해석한다."
+  );
   const topItems = (news.topItems || []).filter(isSafeNewsItem).slice(0, 8);
   const themes = (news.themes || [])
     .map((theme) => {
@@ -114,7 +117,7 @@ function sanitizeNewsBrief(news) {
     .slice(0, 5);
 
   return {
-    koreanEditorialSummary: news.koreanEditorialSummary || news.editorialSummary || "뉴스 요약은 지표와 함께 보조적으로 해석한다.",
+    koreanEditorialSummary: editorialSummary,
     topItems,
     themes,
     sourceHealth: news.sourceHealth || null,
@@ -125,9 +128,20 @@ function sanitizeNewsBrief(news) {
   };
 }
 
+function normalizeFallbackText(text) {
+  return String(text || "")
+    .replace(/해야 합니다/g, "해야 한다")
+    .replace(/확인합니다/g, "확인한다")
+    .replace(/잡혔습니다/g, "잡혔다")
+    .replace(/작성했습니다/g, "작성했다")
+    .replace(/제한했습니다/g, "제한했다")
+    .replace(/입니다/g, "이다")
+    .replace(/습니다/g, "다");
+}
+
 function fallbackTitle(snapshot, sp, nasdaq, ten, vix) {
   if (sp.percentChange > 0 && nasdaq.percentChange > 0) {
-    return `광범위한 동행 강세, 장기금리 ${fmt(ten.latestValue, 2)}% 부담 점검`;
+    return `미 증시 동반 강세, 장기금리 ${fmt(ten.latestValue, 2)}% 부담 점검`;
   }
   if (sp.percentChange < 0 && nasdaq.percentChange < 0) {
     return `미 증시 동반 약세, 금리와 변동성 부담 점검`;
@@ -161,12 +175,24 @@ function buildFields(snapshot, briefing, newsDigest) {
       : "주가 혼조와 금리 부담이 동시에 남은 장세";
   const vixAbove20 = Number.isFinite(vix.latestValue) && vix.latestValue >= 20;
   const vixZone = vixAbove20 ? "20선 위" : "20선 아래";
-  const vixRiskText = vixAbove20
-    ? "변동성지수(VIX)가 20선을 넘어 단기 헤지 수요와 위험 회피를 경계해야 한다"
-    : "변동성지수(VIX)가 20선 아래에 있어 급격한 위험 회피는 제한적이다";
+  const vixLeadSentence = vixAbove20
+    ? `VIX는 ${fmt(vix.latestValue, 2)}로 20선을 웃돌아 단기 위험 회피 경계가 남았다.`
+    : `VIX는 ${fmt(vix.latestValue, 2)}로 20선을 밑돌며 단기 위험 회피 압력은 제한됐다.`;
   const vixIssueWhy = vixAbove20
     ? "VIX가 20선 위로 올라서면 옵션 시장의 헤지 수요가 커졌다는 뜻이다. 주가 약세와 함께 나타나면 단기 방어 심리가 강화된 것으로 해석한다."
     : "VIX가 20선 아래에 있으면 급격한 방어 심리는 제한적이다. 그러나 금리와 원자재 가격이 높은 구간에서는 작은 재료에도 헤지 수요가 다시 늘 수 있다.";
+  const indexDirectionText = equityTone === "강세"
+    ? "3대 지수가 모두 상승했다"
+    : equityTone === "약세"
+      ? "3대 지수가 모두 하락했다"
+      : "3대 지수의 방향이 엇갈렸다";
+  const indexIssueTitle = equityTone === "강세"
+    ? "미국 3대 지수 동반 상승"
+    : equityTone === "약세"
+      ? "미국 3대 지수 동반 하락"
+      : "미국 3대 지수 혼조";
+  const policyNewsTitle = topNews?.koreanTitle || "연준·정책 관련 뉴스";
+  const policyNewsSource = topNews?.sourceKorean || topNews?.source || "주요 출처";
   const techKoreaText = nasdaq.percentChange >= 0
     ? "미국 기술주 강세가 반도체 대형주까지 이어지는지 확인한다"
     : "미국 기술주 약세가 반도체 대형주 부담으로 이어지는지 확인한다";
@@ -185,7 +211,7 @@ function buildFields(snapshot, briefing, newsDigest) {
     : "미국 기술주 약세가 이어지는지와 환율 안정 여부를 함께 봐야 한다.";
 
   const title = fallbackTitle(snapshot, sp, nasdaq, ten, vix);
-  const overnightLead = `미국 증시는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다. 미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록해 ${equityMoveText}다. VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있어 ${vixRiskText}. 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 인과보다 보조 참고로만 다룬다.`;
+  const overnightLead = `미국 증시는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다. 미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%를 기록해 ${equityMoveText}다. ${vixLeadSentence} 다만 달러/원과 원자재 일부 시계열은 기준일이 늦어 핵심 판단에서 해석 범위를 제한한다.`;
   const topThreeLines = [
     `미국 3대 지수는 S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 마감했다.`,
     `미 국채 10년물 금리는 ${fmt(ten.latestValue, 2)}%, 2년물 금리는 ${fmt(two.latestValue, 2)}%이며 10년-2년 금리차는 ${fmt(spread.latestValue, 2)}%p를 기록했다.`,
@@ -194,11 +220,13 @@ function buildFields(snapshot, briefing, newsDigest) {
 
   const keyIssues = [
     {
-      title: "미국 3대 지수 동반 움직임",
+      title: indexIssueTitle,
       whatHappened: `S&P500지수는 ${fmt(sp.latestValue, 2)}로 ${pct(sp.percentChange)} 움직였고, 나스닥 종합지수는 ${fmt(nasdaq.latestValue, 2)}로 ${pct(nasdaq.percentChange)} 변동했다. 다우존스30 산업평균지수는 ${fmt(dow.latestValue, 2)}로 ${pct(dow.percentChange)}를 기록했다.`,
       whyMarketReacted: equityTone === "약세"
         ? "주요 지수가 같은 방향으로 밀리면 단기 위험 선호가 훼손됐다는 뜻이다. 특히 금리와 VIX가 동시에 높아질 때는 성장주와 고베타 업종의 부담이 커진다."
-        : "주요 지수가 같은 방향으로 움직이면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 함께 오르는 구간에서는 상승의 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다.",
+        : equityTone === "강세"
+          ? "주요 지수가 함께 오르면 단기 위험 선호가 회복됐다는 뜻이다. 다만 금리도 높은 구간에서는 상승 지속성이 기업 이익과 주도 업종 확산에 더 크게 좌우된다."
+          : "지수 방향이 엇갈리면 시장이 업종별 재료를 차별적으로 반영하고 있다는 뜻이다. 금리 부담이 남아 있어 지수 전체보다 주도 업종의 폭을 먼저 확인해야 한다.",
       whatToWatch: `나스닥 종합지수 ${fmt(nasdaq.latestValue, 0)}선과 S&P500지수 ${fmt(sp.latestValue, 0)}선 유지 여부를 먼저 확인한다.`
     },
     {
@@ -224,7 +252,7 @@ function buildFields(snapshot, briefing, newsDigest) {
     {
       title: "정책 뉴스는 연준 의사록과 인플레이션 경로에 집중",
       whatHappened: topNews
-        ? `뉴스 우선순위는 ${topNews.sourceKorean || topNews.source || "주요 출처"}의 '${topNews.koreanTitle || topNews.title}'가 가장 높게 잡혔다.`
+        ? `뉴스 우선순위는 ${policyNewsSource}의 '${policyNewsTitle}'가 가장 높게 잡혔다.`
         : "뉴스 수집은 정책/연준, 매크로 지표, 시장 반응 항목을 중심으로 분류됐다.",
       whyMarketReacted: "연준 의사록과 물가 관련 뉴스는 하루 가격보다 향후 금리 경로와 금융 여건을 재평가하게 만드는 재료다.",
       whatToWatch: "다음 연준 발언에서 물가 목표, 추가 긴축 가능성, 금융 여건 평가 문구가 반복되는지 확인한다."
@@ -237,18 +265,18 @@ function buildFields(snapshot, briefing, newsDigest) {
     overnightLead,
     topThreeLines,
     highlights: [
-      `미 3대 지수 동행: S&P500 ${pct(sp.percentChange)}, 나스닥 ${pct(nasdaq.percentChange)}, 다우 ${pct(dow.percentChange)}.`,
-      `미 10년물 ${fmt(ten.latestValue, 2)}%, 2년물 ${fmt(two.latestValue, 2)}%로 금리 상단 확인 필요.`,
-      `VIX ${fmt(vix.latestValue, 2)}로 ${vixZone}, ${vixAbove20 ? "단기 위험 회피 경계 필요" : "단기 위험 회피는 제한적"}.`,
-      `달러/원·원자재 시계열은 기준일 지연으로 보조 참고에 한정.`
+      `미 3대 지수 ${equityTone === "강세" ? "동반 상승" : equityTone === "약세" ? "동반 하락" : "혼조"}: S&P500 ${pct(sp.percentChange)}, 나스닥 ${pct(nasdaq.percentChange)}, 다우 ${pct(dow.percentChange)}.`,
+      `미 10년물 ${fmt(ten.latestValue, 2)}%, 2년물 ${fmt(two.latestValue, 2)}%로 금리 상단 재확인.`,
+      `VIX ${fmt(vix.latestValue, 2)}로 ${vixZone}, ${vixAbove20 ? "단기 위험 회피 경계" : "단기 위험 회피 제한"}.`,
+      "달러/원·원자재 시계열은 기준일 지연으로 해석 범위를 제한."
     ],
     keyIssues,
     marketSnapshot: {
-      indices: `S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 3대 지수가 움직였다.`,
+      indices: `S&P500지수 ${pct(sp.percentChange)}, 나스닥 종합지수 ${pct(nasdaq.percentChange)}, 다우존스30 산업평균지수 ${pct(dow.percentChange)}로 ${indexDirectionText}.`,
       rates: `미 10년물 ${fmt(ten.latestValue, 2)}%, 2년물 ${fmt(two.latestValue, 2)}%, 10년-2년 금리차 ${fmt(spread.latestValue, 2)}%p다.`,
       volatility: `VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다.`,
       sectors: "섹터별 상세 등락은 별도 보강 데이터가 없으면 단정하지 않는다. 기술주와 반도체는 나스닥 흐름을 통해 간접 확인한다.",
-      fxCommodities: `달러/원은 FRED 기준 ${fmt(krw.latestValue, 2)}원, WTI는 ${fmt(wti.latestValue, 2)}달러다. 두 항목 모두 기준일 지연을 감안해 보조 참고로 제한한다.`
+      fxCommodities: `달러/원은 FRED 기준 ${fmt(krw.latestValue, 2)}원, WTI는 ${fmt(wti.latestValue, 2)}달러다. 두 항목 모두 기준일 지연을 감안해 해석 범위를 제한한다.`
     },
     koreanCheckpoints: [
       `코스피는 ${fmt(kospi.latestValue, 2)} 기준으로 ${techKoreaText}.`,
@@ -258,9 +286,9 @@ function buildFields(snapshot, briefing, newsDigest) {
     positioning: {
       mainScenario: {
         view: equityTone === "약세"
-          ? "주가 약세와 VIX 상승을 인정하고 금리 상단을 함께 확인하는 방어적 중립"
-          : "주가 강세는 인정하되 장기금리 상단을 함께 확인하는 중립적 위험자산 우위",
-        reasoning: `미국 3대 지수가 같은 방향으로 움직였고 VIX가 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다. 미 10년물 금리가 ${fmt(ten.latestValue, 2)}%까지 올라 금리 상단 확인이 필요하다.`,
+          ? "주가 약세와 VIX 상승을 반영한 방어적 중립"
+          : "주가 강세에도 장기금리 부담 탓에 위험자산 선호는 제한적",
+        reasoning: `미국 3대 지수는 ${equityTone === "강세" ? "같은 방향으로 올랐고" : equityTone === "약세" ? "같은 방향으로 밀렸고" : "방향이 엇갈렸고"} VIX가 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다. 미 10년물 금리가 ${fmt(ten.latestValue, 2)}%를 기록해 금리 상단을 재확인하는 국면이다.`,
         pros: equityTone === "약세" ? "금리와 변동성의 방향이 명확해 방어 기준을 세우기 쉽다." : "지수 동반 상승, 나스닥 상대 강세, 코스피·코스닥 보조 시세 강세가 우호 요인이다.",
         cons: "장기금리 상승, 변동성 확대, 환율 데이터 지연, 원자재 지표 지연이 판단의 제약 요인이다.",
         triggers: [`나스닥 ${fmt(nasdaq.latestValue, 0)}선 회복`, vixAbove20 ? "VIX 20선 아래 재진입" : "VIX 20선 이하", "미 10년물 4.70% 이하 안정"],
@@ -314,8 +342,8 @@ function buildFields(snapshot, briefing, newsDigest) {
         watchLevels: ["미 10년물 4.70%", "VIX 20선", `나스닥 ${fmt(nasdaq.latestValue, 0)}선`]
       },
       monthly: {
-        title: "월간 관점: 환율 확인 필요",
-        coreView: "달러/원 시계열은 기준일이 늦어 월간 외국인 매매 흐름 판단은 보조 시세 확인이 필요하다.",
+        title: "월간 관점: 환율 기준일 확인",
+        coreView: "달러/원 시계열은 기준일이 늦어 월간 외국인 매매 흐름 판단에는 보조 시세를 함께 써야 한다.",
         whyItMatters: "환율이 안정되지 않으면 한국 증시의 상승 지속성은 약해진다. 미국 지수 강세가 있어도 원화 약세가 동반되면 외국인 매매가 흔들릴 수 있다.",
         koreaImpact: "자동차·조선은 환율 방어력이 있지만 바이오·인터넷/플랫폼은 금리와 환율 동반 상승에 취약하다.",
         watchLevels: ["달러/원 기준일 지연 해소 후 1,480원", "달러/원 기준일 지연 해소 후 1,500원", "코스피 외국인 순매수 전환"]
@@ -337,8 +365,8 @@ function buildFields(snapshot, briefing, newsDigest) {
     },
     insightSections: {
       topStory: [
-        { title: "시장 판정", desc: `미 3대 지수는 동반 움직임을 보였고 VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다.` },
-        { title: "자료 제약", desc: "달러/원과 원자재 일부 시계열은 기준일이 늦어 보조 참고로 제한한다." }
+        { title: "시장 판정", desc: `미 3대 지수는 ${equityTone === "강세" ? "동반 상승했고" : equityTone === "약세" ? "동반 하락했고" : "방향이 엇갈렸고"} VIX는 ${fmt(vix.latestValue, 2)}로 ${vixZone}에 있다.` },
+        { title: "자료 제약", desc: "달러/원과 원자재 일부 시계열은 기준일이 늦어 해석 범위를 제한한다." }
       ],
       marketReaction: [
         { title: "지수와 금리", desc: `S&P500 ${pct(sp.percentChange)} / 나스닥 ${pct(nasdaq.percentChange)} / 미 10년물 ${fmt(ten.latestValue, 2)}%.` },
@@ -349,13 +377,13 @@ function buildFields(snapshot, briefing, newsDigest) {
         { title: "한국 연결", desc: "반도체 대형주의 상대 강도와 외국인 매매 흐름 전환 여부가 중요하다." }
       ],
       positioning: [
-        { title: "기본", desc: equityTone === "약세" ? "약세와 변동성 상승을 인정하고 금리 상단과 환율을 확인하는 방어적 중립이다." : "강세는 인정하되 금리 상단과 환율을 확인하는 중립적 위험자산 우위다." },
+        { title: "기본", desc: equityTone === "약세" ? "약세와 변동성 상승을 인정하고 금리 상단과 환율을 확인하는 방어적 중립이다." : "주가 강세가 확인됐지만 금리 상단과 환율 부담 탓에 위험자산 선호는 제한적이다." },
         { title: "대체", desc: "금리와 VIX가 동시에 오르면 방어적 포지션을 늘리는 쪽으로 전환한다." }
       ]
     },
     tags: ["미국증시", "금리", "VIX", "코스피", "환율확인", "데이터품질"],
     newsBrief,
-    complianceNote: "본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있습니다."
+    complianceNote: "본 자료는 정보 제공 목적이며 특정 종목의 매수·매도를 권유하지 않는다. 투자 판단과 그 결과에 대한 책임은 투자자에게 있다."
   };
 }
 
@@ -431,7 +459,7 @@ function buildMarkdown(reportDate, fields, snapshot) {
   });
   lines.push("---");
   lines.push("");
-  lines.push("> **고지** — 본 브리핑은 자동 수집된 공개 자료에 기반한 정보 제공 콘텐츠이며 투자자문이 아닙니다. 모든 매수·매도 결정은 투자자 본인의 판단과 책임으로 이뤄져야 합니다.");
+  lines.push("> **고지** — 본 브리핑은 자동 수집된 공개 자료에 기반한 정보 제공 콘텐츠이며 투자자문이 아니다. 모든 매수·매도 결정은 투자자 본인의 판단과 책임으로 이뤄져야 한다.");
   return `${lines.join("\n")}\n`;
 }
 

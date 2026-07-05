@@ -10,6 +10,12 @@ const STYLE_PATH = path.join(ROOT, "config", "editorial-style.json");
 const PUBLIC_PATTERNS = [
   "data/briefings.json",
   "data/market-snapshot.json",
+  "data/stock-watchlist.json",
+  "data/outcome-validations.json",
+  "archive/*/latest/briefing.json",
+  "archive/*/latest/briefings.json",
+  "archive/*/latest/report.html",
+  "archive/*/latest/outcome-validation.json",
   "posts/*.md",
   "report.html",
   "reports/*.html"
@@ -25,7 +31,11 @@ async function expand(pattern) {
 
 async function main() {
   const style = JSON.parse(await readFile(STYLE_PATH, "utf8"));
-  const bannedTerms = (style.preferredTerms || []).map((item) => item.avoid).filter(Boolean);
+  const bannedTerms = [...new Set([
+    ...(style.preferredTerms || []).map((item) => item.avoid).filter(Boolean),
+    "3대 지수 동반 흐름",
+    "동반 흐름"
+  ])];
   const files = (await Promise.all(PUBLIC_PATTERNS.map(expand))).flat();
   const findings = [];
 

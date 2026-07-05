@@ -10,6 +10,12 @@ const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_PATTERNS = [
   "data/briefings.json",
   "data/market-snapshot.json",
+  "data/stock-watchlist.json",
+  "data/outcome-validations.json",
+  "archive/*/latest/briefing.json",
+  "archive/*/latest/briefings.json",
+  "archive/*/latest/report.html",
+  "archive/*/latest/outcome-validation.json",
   "posts/*.md",
   "report.html",
   "reports/*.html"

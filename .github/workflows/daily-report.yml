@@ -42,9 +42,9 @@ jobs:
         run: |
           report_date="$(TZ=Asia/Seoul date +%F)"
           echo "report_date=${report_date}" >> "$GITHUB_OUTPUT"
-          if [[ "${{ github.event_name }}" == "schedule" && -f "reports/${report_date}.html" ]]; then
+          if [[ "${{ github.event_name }}" == "schedule" && -f "reports/${report_date}.html" && -f "archive/${report_date}/latest/manifest.json" ]]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Report ${report_date} already exists; skipping scheduled duplicate."
+            echo "Report ${report_date} and archive manifest already exist; skipping scheduled duplicate."
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi

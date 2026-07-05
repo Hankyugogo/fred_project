@@ -592,11 +592,12 @@ async function init() {
   renderAdminControls();
   await detectAdminApi();
   await loadAnalysisStatus();
-  if (!state.admin.available && loadBrowserConfig()) return;
   try {
     await loadDefaultConfig();
   } catch {
-    loadConfig(structuredClone(DEFAULT_CONFIG), "새 설정");
+    if (!loadBrowserConfig()) {
+      loadConfig(structuredClone(DEFAULT_CONFIG), "새 설정");
+    }
   }
 }
 

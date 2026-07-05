@@ -535,19 +535,19 @@ function assessDataQuality(series, reportDate) {
   const warnings = [];
 
   if (coreStaleCount > 0) {
-    warnings.push(`핵심 판단 지표 ${coreStaleCount}건의 기준일이 오래돼 자동 해석의 강도를 낮춰야 합니다.`);
+    warnings.push(`핵심 판단 지표 ${coreStaleCount}건의 기준일이 오래돼 자동 해석의 강도를 낮춰야 한다.`);
   }
 
   if (coreDelayedCount > 0) {
-    warnings.push(`핵심 판단 지표 ${coreDelayedCount}건의 기준일이 지연돼 당일 해석 강도를 낮춰야 합니다.`);
+    warnings.push(`핵심 판단 지표 ${coreDelayedCount}건의 기준일이 지연돼 당일 해석 강도를 낮춰야 한다.`);
   }
 
   if (contextStaleCount > 0) {
-    warnings.push(`보조 해석용 시계열 ${contextStaleCount}건은 오래돼 핵심 서술에서 제외했습니다.`);
+    warnings.push(`보조 해석용 시계열 ${contextStaleCount}건은 오래돼 핵심 서술에서 제외했다.`);
   }
 
   if (contextDelayedCount > 0) {
-    warnings.push(`보조 해석용 시계열 ${contextDelayedCount}건은 지연 상태라 방향 확인용으로만 사용했습니다.`);
+    warnings.push(`보조 해석용 시계열 ${contextDelayedCount}건은 지연 상태라 방향 확인용으로만 사용했다.`);
   }
 
   return {
@@ -582,38 +582,36 @@ function buildEquitySignal(byId) {
   const nasdaq = byId.NASDAQCOM;
   const dow = byId.DJIA;
   const averageMove = average(equities.map((item) => item.percentChange ?? 0)) ?? 0;
-  let headline = "혼조";
-  let description = "지수 간 방향이 엇갈려 추세 확인보다 종목·섹터 선별이 중요합니다.";
+  let headline = "지수 혼조";
+  let description = "지수 간 방향이 엇갈려 업종과 종목별 차별화가 두드러졌다.";
 
   if (positive === equities.length) {
-    headline = "광범위 강세";
-    description = "3대 지수가 모두 올라 투자심리가 시장 전반에서 개선됐습니다.";
+    headline = "동반 강세";
+    description = "3대 지수가 모두 오르며 매수세가 시장 전반으로 확산됐다.";
   } else if (negative === equities.length) {
-    headline = "광범위 약세";
-    description = "3대 지수가 동반 하락해 방어 심리가 시장 전반에서 커졌습니다.";
+    headline = "동반 약세";
+    description = "3대 지수가 모두 하락하며 위험 회피 심리가 시장 전반에 반영됐다.";
   } else if (positive > negative) {
-    headline = "선별 강세";
-    description = "상승 종목이 우세하지만 지수 간 온도차가 남아 있어 추세 확인은 더 필요합니다.";
+    headline = "상승 우위 혼조";
+    description = "상승 지수가 우세했지만 지수 간 온도차가 남아 업종별 차별화가 이어졌다.";
   } else if (negative > positive) {
-    headline = "선별 약세";
-    description = "하락 종목이 우세해 방어적 해석이 필요하지만 일방적인 투매로 보기에는 확인이 부족합니다.";
+    headline = "하락 우위 혼조";
+    description = "하락 지수가 우세했지만 일방적인 투매보다 종목별 차별화 흐름에 가까웠다.";
   }
 
-  let leadership = "지수 전반 동행";
+  let leadership = "3대 지수 동반";
   if (leader?.id === "NASDAQCOM" && (leader.percentChange - (sp?.percentChange ?? leader.percentChange)) >= 0.5) {
     leadership = "기술주 주도";
   } else if (leader?.id === "DJIA" && (leader.percentChange - (sp?.percentChange ?? leader.percentChange)) >= 0.4) {
-    leadership = "전통 대형주 견조";
+    leadership = "다우 상대 강세";
   } else if (leader?.id === "SP500" && Math.abs((nasdaq?.percentChange ?? 0) - (dow?.percentChange ?? 0)) <= 0.35) {
-    leadership = "대형주 전반 동행";
+    leadership = "대형주 동반";
   }
 
-  const label = leadership === "지수 전반 동행" || leadership === "대형주 전반 동행"
-    ? headline
-    : `${leadership} ${headline}`;
+  const label = formatEquitySignalLabel(leadership, headline);
   const evidence = equities.map((item) => `${item.label} ${signed(item.percentChange)}%`).join(", ");
   const leaderLine = leader && laggard
-    ? `${leader.label}가 ${signed(leader.percentChange)}%로 상대 강도가 가장 높았고, ${laggard.label}는 ${signed(laggard.percentChange)}%였습니다.`
+    ? `${leader.label}가 ${signed(leader.percentChange)}%로 가장 강했고, ${laggard.label}는 ${signed(laggard.percentChange)}%에 그쳤다.`
     : "";
 
   return {
@@ -625,6 +623,22 @@ function buildEquitySignal(byId) {
     negative,
     leaderId: leader?.id || null
   };
+}
+
+function formatEquitySignalLabel(leadership, headline) {
+  if (leadership === "기술주 주도") {
+    if (headline === "동반 강세") return "나스닥 주도 강세";
+    if (headline === "하락 우위 혼조") return "나스닥 선방에도 하락 우위";
+    return "나스닥 상대 강세";
+  }
+
+  if (leadership === "다우 상대 강세") {
+    if (headline === "동반 강세") return "다우 상대 강세";
+    if (headline === "하락 우위 혼조") return "다우 방어에도 하락 우위";
+    return "다우 상대 강세, 지수 혼조";
+  }
+
+  return headline;
 }
 
 function buildRateSignal(byId, curve) {
@@ -639,24 +653,24 @@ function buildRateSignal(byId, curve) {
   const up2 = twoYear.absoluteChange >= 0.03;
   const down2 = twoYear.absoluteChange <= -0.03;
   let label = "금리 방향 혼재";
-  let description = "장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 봐야 합니다.";
+  let description = "장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 확인해야 한다.";
   let direction = "mixed";
 
   if (up10 && up2) {
-    label = "금리 상방 재가격";
-    description = "장단기 금리가 함께 올라 금리 부담이 커졌습니다.";
+    label = "금리 상승 압력";
+    description = "장단기 금리가 함께 오르며 주식시장 금리 부담이 커졌다.";
     direction = "up";
   } else if (down10 && down2) {
     label = "금리 하향 안정";
-    description = "장단기 금리가 함께 내려 밸류에이션 부담이 완화됐습니다.";
+    description = "장단기 금리가 함께 내려 주가 밸류에이션 부담이 완화됐다.";
     direction = "down";
   } else if (tenYear.absoluteChange > 0 && twoYear.absoluteChange <= 0) {
     label = "장단기 금리차 확대";
-    description = "장기물 금리가 상대적으로 높아져 장기 금리 부담이 다시 부각됐습니다.";
+    description = "장기물 금리가 상대적으로 높아져 금리 부담이 다시 부각됐다.";
     direction = "mixed";
   } else if (tenYear.absoluteChange < 0 && twoYear.absoluteChange >= 0) {
     label = "장기금리 완화";
-    description = "장기물 금리가 눌리며 성장·인플레이션 기대가 일부 진정됐습니다.";
+    description = "장기물 금리가 눌리며 성장·인플레이션 기대가 일부 진정됐다.";
     direction = "down";
   }
 
@@ -676,26 +690,26 @@ function buildVolatilitySignal(byId, equitySignal) {
   }
 
   let label = "변동성 중립";
-  let description = "변동성 지표만으로는 주가 방향을 강하게 확인하기 어렵습니다.";
+  let description = "변동성 지표만으로는 주가 방향을 강하게 확인하기 어렵다.";
   let conflicted = false;
   let confirmation = "neutral";
 
   if (vix.absoluteChange <= -0.5 && equitySignal.averageMove >= 0) {
     label = "투자심리 개선 확인";
-    description = "주가 상승을 VIX 하락이 확인해 단기 심리는 비교적 안정적이었습니다.";
+    description = "주가 상승과 VIX 하락이 맞물리며 단기 투자심리가 안정됐다.";
     confirmation = "supportive";
   } else if (vix.absoluteChange >= 0.5 && equitySignal.averageMove > 0) {
     label = "헤지 수요 잔존";
-    description = "주가가 올랐지만 VIX도 함께 올라 상승 흐름의 지속성은 더 확인할 필요가 있습니다.";
+    description = "주가는 올랐지만 VIX도 함께 상승해 상승세의 지속성은 확인이 필요하다.";
     conflicted = true;
     confirmation = "conflicted";
   } else if (vix.absoluteChange >= 0.5 && equitySignal.averageMove <= 0) {
     label = "방어 심리 확인";
-    description = "주가 약세에 변동성 상승이 겹쳐 전형적인 방어 흐름이었습니다.";
+    description = "주가 약세에 변동성 상승이 겹치며 방어적 흐름이 강화됐다.";
     confirmation = "risk-off";
   } else if (vix.absoluteChange <= -0.5 && equitySignal.averageMove < 0) {
     label = "변동성 둔화";
-    description = "지수는 약했지만 VIX가 내려 단기 공포 심리로 볼 정도는 아니었습니다.";
+    description = "지수는 약했지만 VIX가 내려 단기 공포 심리는 제한됐다.";
     conflicted = true;
     confirmation = "conflicted";
   }
@@ -717,7 +731,7 @@ function buildDollarSignal(byId) {
   if (usable.length === 0) {
     return {
       label: "환율 신호 제외",
-      description: "달러 관련 시계열이 오래돼 당일 핵심 해석에서는 제외했습니다.",
+      description: "달러 관련 시계열이 오래돼 당일 핵심 해석에서는 제외했다.",
       evidence: null,
       usable: false
     };
@@ -729,14 +743,14 @@ function buildDollarSignal(byId) {
   ].filter((value) => value !== null && value !== undefined && !Number.isNaN(value));
   const direction = average(dollarMoves) ?? 0;
   let label = "달러 신호 혼재";
-  let description = "달러 방향성은 있으나 환율과 달러지수가 같은 강도로 확인되지는 않았습니다.";
+  let description = "달러 방향성은 있으나 환율과 달러지수가 같은 강도로 확인되지는 않았다.";
 
   if (direction >= 0.15) {
     label = "달러 강세";
-    description = "달러 강세 압력이 유지돼 신흥시장과 원화 체감에는 부담 요인입니다.";
+    description = "달러 강세 압력이 유지돼 신흥시장과 원화에는 부담 요인이다.";
   } else if (direction <= -0.15) {
     label = "달러 완화";
-    description = "달러 강세 압력이 누그러져 위험자산에는 부담이 다소 완화됐습니다.";
+    description = "달러 강세 압력이 누그러져 위험자산 부담이 완화됐다.";
   }
 
   const parts = [];
@@ -766,21 +780,21 @@ function buildOilSignal(byId) {
   if (!isNarrativeUsable(wti)) {
     return {
       label: "유가 신호 제외",
-      description: `${wti.label} 기준일이 ${wti.observationDate}로 오래돼 당일 핵심 해석에서는 제외했습니다.`,
+      description: `${wti.label} 기준일이 ${wti.observationDate}로 오래돼 당일 핵심 해석에서는 제외했다.`,
       evidence: `${wti.label} ${wti.observationDate}`,
       usable: false
     };
   }
 
   let label = "유가 안정";
-  let description = "원자재 변동이 크지 않아 인플레이션 해석을 과도하게 바꿀 정도는 아니었습니다.";
+  let description = "원자재 변동이 크지 않아 인플레이션 해석을 과도하게 바꿀 정도는 아니다.";
 
   if ((wti.percentChange ?? 0) >= 2) {
     label = "유가 반등";
-    description = "유가가 크게 올라 인플레이션 재자극 가능성을 함께 봐야 합니다.";
+    description = "유가가 크게 올라 인플레이션 재자극 가능성을 함께 확인해야 한다.";
   } else if ((wti.percentChange ?? 0) <= -2) {
     label = "유가 하락";
-    description = "유가가 내려 단기 인플레이션 부담은 다소 완화됐습니다.";
+    description = "유가가 내려 단기 인플레이션 부담은 완화됐다.";
   }
 
   return {
@@ -797,39 +811,39 @@ function buildPositioningSignals(equitySignal, rateSignal, volatilitySignal, dat
   if (equitySignal.positive > equitySignal.negative && rateSignal?.direction === "down" && volatilitySignal?.confirmation === "supportive") {
     items.push({
       title: "주가 밸류에이션 확장 우호",
-      desc: "주가 강세에 금리 하락과 VIX 하락이 동반돼 성장주·듀레이션 자산 해석에 우호적입니다."
+      desc: "주가 강세에 금리 하락과 VIX 하락이 동반돼 성장주와 장기 듀레이션 자산에 우호적인 환경이 조성됐다."
     });
   } else if (equitySignal.positive > equitySignal.negative && rateSignal?.direction === "up") {
     items.push({
       title: "상승 지속성 점검",
-      desc: "주가가 강해도 금리 부담이 남아 있어 추격 매수보다 상승 폭의 질을 먼저 확인하는 편이 낫습니다."
+      desc: "주가가 강해도 금리 부담이 남아 있어 상승 종목 수와 주도 업종의 확산 여부를 먼저 확인해야 한다."
     });
   } else if (equitySignal.negative > equitySignal.positive && rateSignal?.direction === "down") {
     items.push({
       title: "방어주·채권 선호",
-      desc: "주가 약세와 금리 하락이 함께 나타나면 방어적 자산 선호가 강화됐을 가능성이 큽니다."
+      desc: "주가 약세와 금리 하락이 함께 나타나면 방어주와 채권 선호가 강화된 흐름으로 해석된다."
     });
   } else {
     items.push({
-      title: "방향보다 확인",
-      desc: "지수·금리·변동성 신호가 완전히 정렬되지 않아 섣부른 추세 추종보다 확인 매매가 적절합니다."
+      title: "추세 확인 우선",
+      desc: "지수·금리·변동성 신호가 엇갈려 단기 추세를 단정하기 어렵다."
     });
   }
 
   if (dataQuality.confidence === "low") {
     items.push({
-      title: "판단 강도 낮추기",
-      desc: "오래된 시계열이 남아 있어 공격적 해석보다 관찰 비중을 높이는 편이 안전합니다."
+      title: "판단 강도 제한",
+      desc: "오래된 시계열이 남아 있어 공격적 해석보다 관찰 비중을 높여야 한다."
     });
   } else if (dataQuality.confidence === "medium") {
     items.push({
       title: "보조 데이터 분리",
-      desc: "핵심 지표는 활용 가능하지만 보조 자산 데이터는 뉴스나 실시간 호가와 교차 확인하는 편이 좋습니다."
+      desc: "핵심 지표는 활용 가능하지만 보조 자산 데이터는 뉴스와 실시간 호가로 교차 확인해야 한다."
     });
   } else {
     items.push({
       title: "데이터 상태 양호",
-      desc: "핵심 판단축은 허용 범위 안에 있어 당일 시장 톤을 읽는 데 큰 제약이 없습니다."
+      desc: "핵심 판단축은 허용 범위 안에 있어 당일 시장 흐름을 읽는 데 큰 제약이 없다."
     });
   }
 
@@ -861,7 +875,7 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
   if (equitySignal.positive > 0 && equitySignal.negative > 0) {
     risks.push({
       title: "지수 확인 제한",
-      desc: "상승 지수와 하락 지수가 함께 있어 장세 해석을 한 방향으로 단정하기 어렵습니다.",
+      desc: "상승 지수와 하락 지수가 함께 있어 장세 해석을 한 방향으로 단정하기 어렵다.",
       severity: "medium"
     });
   }
@@ -869,7 +883,7 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
   if (volatilitySignal?.conflicted) {
     risks.push({
       title: "변동성 확인 불일치",
-      desc: "주가 방향과 VIX 방향이 어긋나 단기 추세의 지속성을 단정하기 어렵습니다.",
+      desc: "주가 방향과 VIX 방향이 어긋나 단기 추세의 지속성을 단정하기 어렵다.",
       severity: "medium"
     });
   }
@@ -877,18 +891,18 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
   if (!oilSignal?.usable) {
     risks.push({
       title: "원자재 신호 제외",
-      desc: oilSignal?.description || "유가 데이터가 오래돼 당일 해석에서 제외했습니다.",
+      desc: oilSignal?.description || "유가 데이터가 오래돼 당일 해석에서 제외했다.",
       severity: "medium"
     });
   }
 
   const qualityLine = dataQuality.publicationStatus === "ready"
-    ? "주요 지표의 기준일은 보고서 작성에 무리가 없는 수준입니다."
+    ? "주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다."
     : dataQuality.publicationStatus === "caution"
-      ? "주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했습니다."
-      : "핵심 지표의 기준일이 늦어 자동 발행 전 추가 확인이 필요합니다.";
+      ? "주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했다."
+      : "핵심 지표의 기준일이 늦어 자동 발행 전 추가 확인이 필요하다.";
   const leadParts = [
-    `${equitySignal.label} 흐름입니다.`,
+    `${equitySignal.label} 흐름이다.`,
     rateSignal ? `${rateSignal.description}` : null,
     volatilitySignal ? `${volatilitySignal.description}` : null,
     qualityLine
@@ -896,9 +910,9 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
   const title = `${equitySignal.label}, 10년물 ${byId.DGS10 ? byId.DGS10.latestValue.toFixed(2) : "N/A"}% · VIX ${byId.VIXCLS ? byId.VIXCLS.latestValue.toFixed(2) : "N/A"}`;
   const deck = `${sourceLabel} · ${dataQuality.confidenceLabel} · ${dataQuality.publicationLabel}`;
   const highlights = [
-    `오늘의 요약: ${equitySignal.label}. ${rateSignal ? rateSignal.label : "금리 판단 보류"}, ${volatilitySignal ? volatilitySignal.label : "변동성 확인 보류"} 조합입니다.`,
+    `오늘의 요약: ${equitySignal.label}. ${rateSignal ? rateSignal.label : "금리 판단 보류"}, ${volatilitySignal ? volatilitySignal.label : "변동성 확인 보류"} 조합이다.`,
     `핵심 근거: ${equitySignal.evidence}${rateSignal ? ` / ${rateSignal.evidence}` : ""}${volatilitySignal ? ` / ${volatilitySignal.evidence}` : ""}.`,
-    `해석 유의: ${dataQuality.warnings[0] || "주요 지표 기준일은 보고서 작성에 무리가 없는 상태입니다."}`
+    `해석 유의: ${dataQuality.warnings[0] || "주요 지표 기준일은 보고서 작성에 무리가 없는 상태다."}`
   ];
   const facts = [
     `지수: ${equitySignal.evidence}`,
@@ -926,17 +940,17 @@ function buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate) {
       },
       {
         title: "보조 자산 확인",
-        desc: [volatilitySignal?.evidence, dollarSignal.evidence, oilSignal?.usable ? oilSignal.evidence : null].filter(Boolean).join(" / ") || "보조 자산 데이터가 부족합니다."
+        desc: [volatilitySignal?.evidence, dollarSignal.evidence, oilSignal?.usable ? oilSignal.evidence : null].filter(Boolean).join(" / ") || "보조 자산 데이터가 부족하다."
       }
     ],
     watchNow: [
       {
         title: "가장 큰 제약",
-        desc: dataQuality.warnings[0] || "핵심 시계열 기준일은 허용 범위 안에 있습니다."
+        desc: dataQuality.warnings[0] || "핵심 시계열 기준일은 허용 범위 안에 있다."
       },
       {
         title: "추가 확인 포인트",
-        desc: risks[1]?.desc || (dollarSignal.usable ? dollarSignal.description : oilSignal?.description || "추가 경고는 없습니다.")
+        desc: risks[1]?.desc || (dollarSignal.usable ? dollarSignal.description : oilSignal?.description || "추가 경고는 없다.")
       }
     ],
     positioning
@@ -986,12 +1000,12 @@ function buildPayload(config, series, derived, generatedAt, reportDate, options 
   const analysis = buildNarrativeAnalysis(series, derived, freshnessSummary, reportDate);
   const reportCalendar = buildReportCalendar(series, reportDate, generatedAt, config.defaults?.reportTimeZone || "Asia/Seoul");
   const freshnessNote = freshnessSummary.staleCount > 0
-    ? `오래된 시계열 ${freshnessSummary.staleCount}건과 지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 카드의 기준일을 함께 보고 해석해야 합니다.`
+    ? `오래된 시계열 ${freshnessSummary.staleCount}건과 지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 카드의 기준일을 함께 보고 해석해야 한다.`
     : freshnessSummary.delayedCount > 0
-      ? `지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 일부 값은 당일 실시간 해석보다 전일 컨텍스트에 가깝습니다.`
-      : "현재 선택한 핵심 시리즈는 모두 허용한 최신 범위 안에 들어왔습니다.";
+      ? `지연 시계열 ${freshnessSummary.delayedCount}건이 있어, 일부 값은 당일 실시간 해석보다 전일 컨텍스트에 가깝다.`
+      : "현재 선택한 핵심 시리즈는 모두 허용한 최신 범위 안에 들어왔다.";
   const marketReplacementNote = options.marketReplacements?.length
-    ? `FRED 기준일이 늦은 ${options.marketReplacements.length}개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했습니다.`
+    ? `FRED 기준일이 늦은 ${options.marketReplacements.length}개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했다.`
     : null;
 
   return {
@@ -1010,9 +1024,9 @@ function buildPayload(config, series, derived, generatedAt, reportDate, options 
       analysis.qualityLine,
       freshnessNote,
       marketReplacementNote,
-      "핵심 시계열은 FRED API의 fred/series/observations 엔드포인트를 기준으로 가져옵니다.",
-      "주식지수와 변동성 계열 일부는 FRED 안에서도 원 데이터 공급자의 별도 저작권/사용 조건이 붙을 수 있으니 공개 배포 전 각 시리즈 노트를 확인해야 합니다.",
-      "뉴스·실적·정책 이벤트를 붙이지 않은 규칙 기반 해석이므로, 원인 설명은 실시간 헤드라인과 함께 교차 확인해야 합니다."
+      "핵심 시계열은 FRED API의 fred/series/observations 엔드포인트를 기준으로 가져온다.",
+      "주식지수와 변동성 계열 일부는 FRED 안에서도 원 데이터 공급자의 별도 저작권/사용 조건이 붙을 수 있으니 공개 배포 전 각 시리즈 노트를 확인해야 한다.",
+      "뉴스·실적·정책 이벤트를 붙이지 않은 규칙 기반 해석이므로, 원인 설명은 실시간 헤드라인과 함께 교차 확인해야 한다."
     ].filter(Boolean),
     groups
   };

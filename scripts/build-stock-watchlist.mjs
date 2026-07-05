@@ -52,6 +52,20 @@ function clamp(value, min = 0, max = 100) {
   return Math.max(min, Math.min(max, value));
 }
 
+function hasHangulFinalConsonant(text) {
+  const chars = [...String(text || "")].reverse();
+  const hangul = chars.find((char) => {
+    const code = char.charCodeAt(0);
+    return code >= 0xac00 && code <= 0xd7a3;
+  });
+  if (!hangul) return false;
+  return ((hangul.charCodeAt(0) - 0xac00) % 28) !== 0;
+}
+
+function topicParticle(text) {
+  return hasHangulFinalConsonant(text) ? "은" : "는";
+}
+
 function movingAverage(history, index, window) {
   const slice = history.slice(Math.max(0, index - window + 1), index + 1).map((row) => row.close);
   return round(avg(slice), 4);
@@ -100,7 +114,7 @@ function calcTechnical(priceItem) {
       score: null,
       tone: "확인 필요",
       toneClass: "neutral",
-      summary: "기술적 분석에 필요한 가격 이력이 부족합니다.",
+      summary: "기술적 분석에 필요한 가격 이력이 부족하다.",
       indicators: {},
       chart: { points: history }
     };
@@ -143,7 +157,7 @@ function calcTechnical(priceItem) {
 
   const tone = score >= 68 ? "상방 우위" : score <= 38 ? "하방 경계" : "중립";
   const toneClass = score >= 68 ? "positive" : score <= 38 ? "negative" : "neutral";
-  const summary = `${tone} 신호입니다. 20거래일 수익률 ${round(ret20, 2)}%, RSI ${round(rsi14, 1)}, 60일 추세 ${round(slope60d, 2)}% 기준으로 판단했습니다.`;
+  const summary = `${tone} 신호다. 20거래일 수익률 ${round(ret20, 2)}%, RSI ${round(rsi14, 1)}, 60일 추세 ${round(slope60d, 2)}% 기준으로 판단했다.`;
 
   const chartPoints = history.slice(-180).map((row, index, rows) => {
     const originalIndex = history.length - rows.length + index;
@@ -224,35 +238,35 @@ function buildMacroBackdrop(snapshot, latestBriefing) {
       value: Number.isFinite(spxValue) ? `${round(spxValue, 2)}` : "N/A",
       change: Number.isFinite(spx.percentChange) ? `${spx.percentChange > 0 ? "+" : ""}${round(spx.percentChange, 2)}%` : "N/A",
       tone: spx.percentChange > 0 ? "up" : spx.percentChange < 0 ? "down" : "flat",
-      note: "미국 위험자산 선호의 기준 지표입니다."
+      note: "미국 위험자산 선호의 기준 지표다."
     },
     ust10 && {
       label: "미 국채 10년물",
       value: Number.isFinite(ust10Value) ? `${round(ust10Value, 2)}%` : "N/A",
       change: Number.isFinite(ust10.absoluteChange) ? `${ust10.absoluteChange > 0 ? "+" : ""}${Math.round(ust10.absoluteChange * 100)}bp` : "N/A",
       tone: ust10.absoluteChange > 0 ? "down" : ust10.absoluteChange < 0 ? "up" : "flat",
-      note: "성장주와 한국 증시 할인율을 좌우합니다."
+      note: "성장주와 한국 증시 할인율을 좌우한다."
     },
     vix && {
       label: "VIX",
       value: Number.isFinite(vixValue) ? `${round(vixValue, 2)}` : "N/A",
       change: Number.isFinite(vix.percentChange) ? `${vix.percentChange > 0 ? "+" : ""}${round(vix.percentChange, 2)}%` : "N/A",
       tone: vix.percentChange > 0 ? "down" : vix.percentChange < 0 ? "up" : "flat",
-      note: "변동성 확대 여부를 보여줍니다."
+      note: "변동성 확대 여부를 보여준다."
     },
     krw && {
       label: "달러/원",
       value: Number.isFinite(krwValue) ? `${round(krwValue, 2)}원` : "N/A",
       change: Number.isFinite(krw.percentChange) ? `${krw.percentChange > 0 ? "+" : ""}${round(krw.percentChange, 2)}%` : "N/A",
       tone: krw.percentChange > 0 ? "down" : krw.percentChange < 0 ? "up" : "flat",
-      note: "외국인 매매와 환율 민감 업종의 핵심 변수입니다."
+      note: "외국인 매매와 환율 민감 업종의 핵심 변수다."
     }
   ].filter(Boolean);
 
   return {
     reportDate: snapshot?.reportDate || latestBriefing?.date || null,
     title: snapshot?.headline || latestBriefing?.title || "시장 배경 확인",
-    summary: latestBriefing?.overnightLead || snapshot?.subheadline || snapshot?.analysis?.lead || "시장 배경 요약이 없습니다.",
+    summary: latestBriefing?.overnightLead || snapshot?.subheadline || snapshot?.analysis?.lead || "시장 배경 요약이 없다.",
     signals
   };
 }
@@ -316,12 +330,12 @@ function buildForecast(stock, technical, macroScore) {
   const bias = Number.isFinite(macroScore) ? (macroScore - 50) / 12 : 0;
   const score = Math.round(clamp(((technical?.score ?? 50) * 0.55) + ((macroScore ?? 50) * 0.45)));
   const toneClass = score >= 65 ? "positive" : score <= 40 ? "negative" : "neutral";
-  const summary = `기술 점수와 매크로 점수를 결합한 정량 점검 결과입니다. ${stock.name}의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 합니다.`;
+  const summary = `기술 점수와 매크로 점수를 결합한 정량 점검 결과다. ${stock.name}의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.`;
   return {
     score,
     toneClass,
     confidence: technical?.status === "ready" ? "보통" : "낮음",
-    confidenceNote: "가격 이력과 일일 매크로 스냅샷만 반영합니다.",
+    confidenceNote: "가격 이력과 일일 매크로 스냅샷만 반영한다.",
     summary,
     horizons: [
       {
@@ -344,13 +358,13 @@ function buildForecast(stock, technical, macroScore) {
 
 function buildScenario(stock, tone) {
   return {
-    base: `${stock.name}은 현재 매크로 배경과 가격 추세를 함께 확인하는 구간입니다.`,
+    base: `${stock.name}${topicParticle(stock.name)} 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.`,
     upside: tone.macroToneClass === "positive"
-      ? "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화될 수 있습니다."
-      : "금리·환율·변동성 부담이 완화되면 반등 여지가 생깁니다.",
+      ? "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다."
+      : "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
     downside: tone.macroToneClass === "negative"
-      ? "부담 요인이 이어질 경우 단기 지지선 이탈과 변동성 확대를 경계해야 합니다."
-      : "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요합니다."
+      ? "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
+      : "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
   };
 }
 
@@ -358,9 +372,9 @@ function buildRiskFlags(stock, technical) {
   const flags = [...(stock.risks || [])];
   const rsi = technical?.indicators?.rsi14;
   const dd = technical?.indicators?.drawdown120d;
-  if (Number.isFinite(rsi) && rsi > 75) flags.push("RSI 과열 구간이라 단기 속도 조절 가능성을 확인해야 합니다.");
-  if (Number.isFinite(dd) && dd < -25) flags.push("120거래일 고점 대비 낙폭이 커 변동성 관리가 필요합니다.");
-  if (stock.inverseMultiplier) flags.push("레버리지·인버스 상품은 장기 보유 시 경로 의존성과 복리 효과를 반드시 확인해야 합니다.");
+  if (Number.isFinite(rsi) && rsi > 75) flags.push("RSI 과열 구간이라 단기 속도 조절 가능성을 확인해야 한다.");
+  if (Number.isFinite(dd) && dd < -25) flags.push("120거래일 고점 대비 낙폭이 커 변동성 관리가 필요하다.");
+  if (stock.inverseMultiplier) flags.push("레버리지·인버스 상품은 장기 보유 시 경로 의존성과 복리 효과를 반드시 확인해야 한다.");
   return [...new Set(flags)];
 }
 
@@ -428,7 +442,7 @@ async function main() {
     },
     macroBackdrop,
     stocks,
-    disclaimer: config.disclaimer || "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아닙니다."
+    disclaimer: config.disclaimer || "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
   };
 
   const replacements = await loadPreferredReplacements(ROOT);
