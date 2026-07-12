@@ -21,6 +21,7 @@ const STYLE_PATH = path.join(ROOT, "config", "editorial-style.json");
 const BRIEFINGS_PATH = path.join(ROOT, "data", "briefings.json");
 const STOCK_WATCHLIST_PATH = path.join(ROOT, "data", "stock-watchlist.json");
 const WATCHLIST_PRICES_PATH = path.join(ROOT, "data", "watchlist-prices.json");
+const OUTCOME_VALIDATIONS_PATH = path.join(ROOT, "data", "outcome-validations.json");
 const POSTS_DIR = path.join(ROOT, "posts");
 
 // gemini-2.5-flash by default — free tier 1500 req/day, 60 RPM.
@@ -536,7 +537,38 @@ const REWRITE_RESPONSE_SCHEMA = {
   ]
 };
 
-function buildPrompt(market, news, korea, draft, freshness) {
+// Compact summary of recent post-hoc outcome validations, injected into the
+// prompt so the model calibrates directional confidence against its own record.
+function buildTrackRecordContext(validations, reportDate) {
+  const results = Array.isArray(validations?.results) ? validations.results : [];
+  const resolved = results
+    .filter((r) => r.reportDate && r.reportDate < reportDate)
+    .filter((r) => r.overall?.status === "complete" || r.overall?.status === "partial")
+    .sort((a, b) => a.reportDate.localeCompare(b.reportDate))
+    .slice(-10);
+  if (!resolved.length) return null;
+
+  const counts = { confirmed: 0, mixed: 0, miss: 0 };
+  resolved.forEach((r) => {
+    if (counts[r.overall.classification] !== undefined) counts[r.overall.classification] += 1;
+  });
+  const avgScore = Math.round(resolved.reduce((sum, r) => sum + (Number(r.overall.score) || 0), 0) / resolved.length);
+
+  return {
+    windowSize: resolved.length,
+    confirmedCount: counts.confirmed,
+    mixedCount: counts.mixed,
+    missCount: counts.miss,
+    averageAlignmentScore: avgScore,
+    recent: resolved.slice(-5).map((r) => ({
+      reportDate: r.reportDate,
+      classification: r.overall.classification,
+      score: Math.round(Number(r.overall.score) || 0)
+    }))
+  };
+}
+
+function buildPrompt(market, news, korea, draft, freshness, trackRecord) {
   const sections = [];
   sections.push("아래 입력만으로 오늘자 미국 시장 마감 브리핑을 조선비즈 마감시황 톤의 한국어로 작성한다.");
   sections.push("");
@@ -574,6 +606,16 @@ function buildPrompt(market, news, korea, draft, freshness) {
     sections.push("- publicationStatus가 hold이면 단정적 투자 판단과 강한 방향성 제목을 피하고 추가 확인 필요를 명시한다.");
     sections.push("```json");
     sections.push(JSON.stringify(market.dataQuality, null, 2));
+    sections.push("```");
+    sections.push("");
+  }
+  if (trackRecord) {
+    sections.push("【사후 검증 트랙레코드 (직전 리포트들의 방향 판단 대 실제)】");
+    sections.push("- 이전 리포트의 주식·금리·변동성 방향 판단을 이후 1·5거래 세션 실제값과 대조한 결과다. confirmed=정렬, mixed=혼재, miss=어긋남.");
+    sections.push("- miss·mixed 비중이 절반을 넘으면 단정적 방향 서술을 줄이고, positioning.mainScenario와 whatToWatch에서 판단이 틀렸을 때의 확인 지점(무효화 조건)을 명시한다.");
+    sections.push("- 이 수치는 어조 조절용 내부 참고다. 본문에 트랙레코드 수치를 직접 인용하지 않는다.");
+    sections.push("```json");
+    sections.push(JSON.stringify(trackRecord, null, 2));
     sections.push("```");
     sections.push("");
   }
@@ -1015,12 +1057,13 @@ async function main() {
   }
   const reportDate = snapshot.reportDate;
 
-  const [digest, style, briefings, draft, stockWatchlist] = await Promise.all([
+  const [digest, style, briefings, draft, stockWatchlist, outcomeValidations] = await Promise.all([
     readJson(DIGEST_PATH),
     readJson(STYLE_PATH, {}),
     readJson(BRIEFINGS_PATH, []),
     readDraftMarkdown(reportDate),
-    readJson(STOCK_WATCHLIST_PATH)
+    readJson(STOCK_WATCHLIST_PATH),
+    readJson(OUTCOME_VALIDATIONS_PATH)
   ]);
 
   const market = extractMarketData(snapshot);
@@ -1031,10 +1074,14 @@ async function main() {
     console.warn("   해결: rewrite:llm 이전에 npm run build:stocks:full를 먼저 실행하도록 publish:full 순서를 조정하세요.");
   }
   const freshness = snapshot.freshnessSummary;
+  const trackRecord = buildTrackRecordContext(outcomeValidations, reportDate);
+  if (trackRecord) {
+    console.log(`사후 검증 트랙레코드 주입: 최근 ${trackRecord.windowSize}회 (정렬 ${trackRecord.confirmedCount} / 혼재 ${trackRecord.mixedCount} / 어긋남 ${trackRecord.missCount})`);
+  }
 
   console.log(`Gemini 본문 리라이트 시작 (${reportDate}, 모델: ${REWRITE_MODEL})...`);
   const { json: rawJson } = await callGeminiJson({
-    prompt: buildPrompt(market, news, korea, draft, freshness),
+    prompt: buildPrompt(market, news, korea, draft, freshness, trackRecord),
     systemInstruction: buildSystemInstruction(style),
     model: REWRITE_MODEL,
     temperature: 0.4,

@@ -26,7 +26,8 @@ import { reportStyles } from "./render-report/styles.mjs";
 import {
   renderTape, renderMasthead, renderIndexMatrix, renderVerdicts,
   renderDataAndCurve, renderIssues, renderSectors, renderTimeline,
-  renderPositioning, renderEssay, renderWatchlist, renderFreshness, renderColophon
+  renderPositioning, renderEssay, renderWatchlist, renderFreshness,
+  renderTrackRecord, renderColophon
 } from "./render-report/sections.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,6 +38,7 @@ const SNAPSHOT_PATH = path.join(ROOT, "data", "market-snapshot.json");
 const BRIEFINGS_PATH = path.join(ROOT, "data", "briefings.json");
 const MACRO_HISTORY_PATH = path.join(ROOT, "data", "macro-history.json");
 const STOCK_WATCHLIST_PATH = path.join(ROOT, "data", "stock-watchlist.json");
+const OUTCOME_VALIDATIONS_PATH = path.join(ROOT, "data", "outcome-validations.json");
 const REPORTS_DIR = path.join(ROOT, "reports");
 const ARCHIVE_DIR = path.join(ROOT, "archive");
 const LATEST_REPORT_PATH = path.join(ROOT, "report.html");
@@ -72,7 +74,7 @@ function escapeForTitle(v) {
   return String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function buildHtml({ snapshot, briefing, macroHistory, stockWatchlist }) {
+function buildHtml({ snapshot, briefing, macroHistory, stockWatchlist, outcomeValidations }) {
   const title = briefing?.title
     ? `${briefing.title} · ${briefing.date} | FRED Market Briefing`
     : `FRED Market Briefing · ${snapshot.reportDate || ""}`;
@@ -102,6 +104,7 @@ ${renderPositioning(briefing)}
 ${renderEssay(briefing)}
 ${renderWatchlist(stockWatchlist)}
 ${renderFreshness(snapshot)}
+${renderTrackRecord(outcomeValidations, briefing)}
 </main>
 ${renderColophon(snapshot, briefing)}
 </body>
@@ -116,6 +119,7 @@ async function main() {
   let briefings = await readJSON(BRIEFINGS_PATH);
   let macroHistory = await readJSONOptional(MACRO_HISTORY_PATH);
   let stockWatchlist = await readJSONOptional(STOCK_WATCHLIST_PATH);
+  const outcomeValidations = await readJSONOptional(OUTCOME_VALIDATIONS_PATH);
 
   const targetDate = explicitDate || snapshot.reportDate || briefings[0]?.date;
   let archivedBriefing = null;
@@ -145,7 +149,7 @@ async function main() {
   }
 
   const replacements = await loadPreferredReplacements(ROOT);
-  const html = applyPreferredTermsToText(buildHtml({ snapshot, briefing, macroHistory, stockWatchlist }), replacements);
+  const html = applyPreferredTermsToText(buildHtml({ snapshot, briefing, macroHistory, stockWatchlist, outcomeValidations }), replacements);
   const reportPath = path.join(REPORTS_DIR, `${briefing.date}.html`);
   await mkdir(REPORTS_DIR, { recursive: true });
   await writeFile(reportPath, html, "utf8");

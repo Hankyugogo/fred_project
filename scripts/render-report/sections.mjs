@@ -1018,6 +1018,75 @@ export function renderFreshness(snapshot) {
   </div></section>`;
 }
 
+/* ─────────────────────── §11 TRACK RECORD ─────────────────────── */
+
+function trackRecordChip(classification) {
+  if (classification === "confirmed") return { cls: "fresh", label: "정렬" };
+  if (classification === "mixed") return { cls: "delayed", label: "혼재" };
+  if (classification === "miss") return { cls: "stale", label: "어긋남" };
+  return { cls: "", label: "대기" };
+}
+
+function trackRecordHorizonCell(result, horizonSessions) {
+  const horizon = (result.horizons || []).find((h) => h.horizonSessions === horizonSessions);
+  if (!horizon || horizon.status !== "complete") return `<span class="chip">대기</span>`;
+  const chip = trackRecordChip(horizon.classification);
+  return `<span class="chip ${chip.cls}">${escapeHtml(chip.label)}</span>`;
+}
+
+export function renderTrackRecord(outcomeValidations, briefing) {
+  const reportDate = briefing?.date || null;
+  const results = Array.isArray(outcomeValidations?.results) ? outcomeValidations.results : [];
+  const resolved = results
+    .filter((r) => r.reportDate && (!reportDate || r.reportDate < reportDate))
+    .filter((r) => r.overall?.status === "complete" || r.overall?.status === "partial")
+    .sort((a, b) => a.reportDate.localeCompare(b.reportDate))
+    .slice(-10);
+  if (!resolved.length) return "";
+
+  const counts = { confirmed: 0, mixed: 0, miss: 0 };
+  resolved.forEach((r) => {
+    if (counts[r.overall.classification] !== undefined) counts[r.overall.classification] += 1;
+  });
+  const avgScore = Math.round(resolved.reduce((sum, r) => sum + (Number(r.overall.score) || 0), 0) / resolved.length);
+
+  const summaryBar = `
+    <div style="display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--muted);margin:0 0 18px;flex-wrap:wrap">
+      <span><span class="chip fresh" style="margin-right:6px">정렬</span>${counts.confirmed}회</span>
+      <span><span class="chip delayed" style="margin-right:6px">혼재</span>${counts.mixed}회</span>
+      <span><span class="chip stale" style="margin-right:6px">어긋남</span>${counts.miss}회</span>
+      <span style="margin-left:auto">최근 ${resolved.length}회 평균 정렬 점수 ${avgScore}/100</span>
+    </div>`;
+
+  const rows = resolved.slice().reverse().map((r) => {
+    const overallChip = trackRecordChip(r.overall.classification);
+    return `<tr>
+      <td class="obs">${escapeHtml(r.reportDate)}</td>
+      <td class="lbl-ko">${escapeHtml(r.briefingTitle || "—")}</td>
+      <td>${trackRecordHorizonCell(r, 1)}</td>
+      <td>${trackRecordHorizonCell(r, 5)}</td>
+      <td class="num">${escapeHtml(String(Math.round(Number(r.overall.score) || 0)))}</td>
+      <td><span class="chip ${overallChip.cls}">${escapeHtml(overallChip.label)}</span></td>
+    </tr>`;
+  }).join("");
+
+  return `<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 11</div>
+      <div>
+        <h2>지난 판단 사후 검증</h2>
+        <p class="lede">앞선 리포트가 남긴 주식·금리·변동성 판단축을 이후 1·5거래 세션 실제 지표와 대조한 기록이다. 방향 정렬 여부를 확인하는 자료이며 투자 성과 백테스트가 아니다.</p>
+      </div>
+    </div>
+    ${summaryBar}
+    <table class="data-table">
+      <caption>OUTCOME VALIDATION · LAST ${resolved.length} REPORTS</caption>
+      <thead><tr><th>리포트 일자</th><th>당시 제목</th><th>1세션</th><th>5세션</th><th class="num">점수</th><th>종합</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div></section>`;
+}
+
 /* ─────────────────────── COLOPHON ─────────────────────── */
 
 export function renderColophon(snapshot, briefing) {
