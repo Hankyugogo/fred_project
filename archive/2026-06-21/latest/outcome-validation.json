@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "reportDate": "2026-06-21",
+  "briefingTitle": "미 증시 동반 강세, 장기금리 4.46% 부담 점검",
+  "sourceRunId": "20260620T222129863Z",
+  "sourceGeneratedAt": "2026-06-20T22:18:49.186Z",
+  "validatedAt": "2026-07-12T12:50:25.202Z",
+  "validationRunId": "20260712T125025164Z",
+  "basis": {
+    "macroHistoryGeneratedAt": "2026-07-12T12:50:16.494Z",
+    "macroHistoryRange": "~14mo",
+    "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
+  },
+  "overall": {
+    "status": "complete",
+    "score": 33.3,
+    "classification": "miss"
+  },
+  "horizons": [
+    {
+      "horizonSessions": 1,
+      "status": "complete",
+      "score": 33.3,
+      "classification": "miss",
+      "hitCount": 0,
+      "partialCount": 2,
+      "missCount": 1,
+      "checks": [
+        {
+          "id": "equity-follow-through",
+          "label": "주식 방향성",
+          "expected": "up",
+          "actual": "down",
+          "result": "miss"
+        },
+        {
+          "id": "rate-follow-through",
+          "label": "금리 방향성",
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
+        },
+        {
+          "id": "volatility-follow-through",
+          "label": "변동성 방향성",
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
+        }
+      ],
+      "observations": {
+        "SP500": {
+          "id": "SP500",
+          "label": "S&P 500",
+          "baseDate": "2026-06-18",
+          "baseValue": 7500.58,
+          "targetDate": "2026-06-22",
+          "actualValue": 7472.79,
+          "horizonSessions": 1,
+          "absoluteChange": -27.79,
+          "percentChange": -0.3705,
+          "status": "complete"
+        },
+        "NASDAQCOM": {
+          "id": "NASDAQCOM",
+          "label": "나스닥종합지수",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "targetDate": "2026-06-22",
+          "actualValue": 26166.6,
+          "horizonSessions": 1,
+          "absoluteChange": -351.33,
+          "percentChange": -1.3249,
+          "status": "complete"
+        },
+        "DJIA": {
+          "id": "DJIA",
+          "label": "다우지수",
+          "baseDate": "2026-06-18",
+          "baseValue": 51564.7,
+          "targetDate": "2026-06-22",
+          "actualValue": 51712.71,
+          "horizonSessions": 1,
+          "absoluteChange": 148.01,
+          "percentChange": 0.287,
+          "status": "complete"
+        },
+        "DGS10": {
+          "id": "DGS10",
+          "label": "미 국채 10년물",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "targetDate": "2026-06-22",
+          "actualValue": 4.51,
+          "horizonSessions": 1,
+          "absoluteChange": 0.05,
+          "percentChange": 1.1211,
+          "status": "complete"
+        },
+        "DGS2": {
+          "id": "DGS2",
+          "label": "미 국채 2년물",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.19,
+          "targetDate": "2026-06-22",
+          "actualValue": 4.24,
+          "horizonSessions": 1,
+          "absoluteChange": 0.05,
+          "percentChange": 1.1933,
+          "status": "complete"
+        },
+        "VIXCLS": {
+          "id": "VIXCLS",
+          "label": "VIX",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "targetDate": "2026-06-22",
+          "actualValue": 17.28,
+          "horizonSessions": 1,
+          "absoluteChange": 0.5,
+          "percentChange": 2.9797,
+          "status": "complete"
+        },
+        "DEXKOUS": {
+          "id": "DEXKOUS",
+          "label": "달러/원 환율",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "targetDate": "2026-06-22",
+          "actualValue": 1537.86,
+          "horizonSessions": 1,
+          "absoluteChange": 4.86,
+          "percentChange": 0.317,
+          "status": "complete"
+        },
+        "DCOILWTICO": {
+          "id": "DCOILWTICO",
+          "label": "WTI 유가",
+          "baseDate": "2026-06-19",
+          "baseValue": 76.54,
+          "targetDate": "2026-06-22",
+          "actualValue": 78.94,
+          "horizonSessions": 1,
+          "absoluteChange": 2.4,
+          "percentChange": 3.1356,
+          "status": "complete"
+        }
+      },
+      "watchLevels": [
+        {
+          "text": "미 10년물 4.70%",
+          "id": "DGS10",
+          "thresholds": [
+            4.7
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
+          "touchedThresholds": []
+        },
+        {
+          "text": "VIX 20선",
+          "id": "VIXCLS",
+          "thresholds": [
+            20
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-22",
+          "min": 17.28,
+          "max": 17.28,
+          "touchedThresholds": []
+        },
+        {
+          "text": "나스닥 26,518선",
+          "id": "NASDAQCOM",
+          "thresholds": [
+            26518
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "checkedThroughDate": "2026-06-22",
+          "min": 26166.6,
+          "max": 26166.6,
+          "touchedThresholds": []
+        },
+        {
+          "text": "달러/원 기준일 지연 해소 후 1,480원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1480
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-22",
+          "min": 1537.86,
+          "max": 1537.86,
+          "touchedThresholds": []
+        },
+        {
+          "text": "달러/원 기준일 지연 해소 후 1,500원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1500
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-22",
+          "min": 1537.86,
+          "max": 1537.86,
+          "touchedThresholds": []
+        },
+        {
+          "text": "코스피 외국인 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.50~4.70%",
+          "id": "DGS10",
+          "thresholds": [
+            4.5,
+            4.7
+          ],
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
+        },
+        {
+          "text": "나스닥 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "한국 반도체 대형주 매매 흐름",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.00~4.50%",
+          "id": "DGS10",
+          "thresholds": [
+            4,
+            4.5
+          ],
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
+        },
+        {
+          "text": "연준 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러 방향성",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다.",
+          "id": "VIXCLS",
+          "thresholds": [
+            20
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-22",
+          "min": 17.28,
+          "max": 17.28,
+          "touchedThresholds": []
+        }
+      ]
+    },
+    {
+      "horizonSessions": 5,
+      "status": "complete",
+      "score": 33.3,
+      "classification": "miss",
+      "hitCount": 0,
+      "partialCount": 2,
+      "missCount": 1,
+      "checks": [
+        {
+          "id": "equity-follow-through",
+          "label": "주식 방향성",
+          "expected": "up",
+          "actual": "down",
+          "result": "miss"
+        },
+        {
+          "id": "rate-follow-through",
+          "label": "금리 방향성",
+          "expected": "mixed",
+          "actual": "down",
+          "result": "partial"
+        },
+        {
+          "id": "volatility-follow-through",
+          "label": "변동성 방향성",
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
+        }
+      ],
+      "observations": {
+        "SP500": {
+          "id": "SP500",
+          "label": "S&P 500",
+          "baseDate": "2026-06-18",
+          "baseValue": 7500.58,
+          "targetDate": "2026-06-26",
+          "actualValue": 7354.02,
+          "horizonSessions": 5,
+          "absoluteChange": -146.56,
+          "percentChange": -1.954,
+          "status": "complete"
+        },
+        "NASDAQCOM": {
+          "id": "NASDAQCOM",
+          "label": "나스닥종합지수",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "targetDate": "2026-06-26",
+          "actualValue": 25297.62,
+          "horizonSessions": 5,
+          "absoluteChange": -1220.31,
+          "percentChange": -4.6018,
+          "status": "complete"
+        },
+        "DJIA": {
+          "id": "DJIA",
+          "label": "다우지수",
+          "baseDate": "2026-06-18",
+          "baseValue": 51564.7,
+          "targetDate": "2026-06-26",
+          "actualValue": 51876.11,
+          "horizonSessions": 5,
+          "absoluteChange": 311.41,
+          "percentChange": 0.6039,
+          "status": "complete"
+        },
+        "DGS10": {
+          "id": "DGS10",
+          "label": "미 국채 10년물",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "targetDate": "2026-06-26",
+          "actualValue": 4.38,
+          "horizonSessions": 5,
+          "absoluteChange": -0.08,
+          "percentChange": -1.7937,
+          "status": "complete"
+        },
+        "DGS2": {
+          "id": "DGS2",
+          "label": "미 국채 2년물",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.19,
+          "targetDate": "2026-06-26",
+          "actualValue": 4.07,
+          "horizonSessions": 5,
+          "absoluteChange": -0.12,
+          "percentChange": -2.864,
+          "status": "complete"
+        },
+        "VIXCLS": {
+          "id": "VIXCLS",
+          "label": "VIX",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "targetDate": "2026-06-26",
+          "actualValue": 18.41,
+          "horizonSessions": 5,
+          "absoluteChange": 1.63,
+          "percentChange": 9.7139,
+          "status": "complete"
+        },
+        "DEXKOUS": {
+          "id": "DEXKOUS",
+          "label": "달러/원 환율",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "targetDate": "2026-06-26",
+          "actualValue": 1533.44,
+          "horizonSessions": 5,
+          "absoluteChange": 0.44,
+          "percentChange": 0.0287,
+          "status": "complete"
+        },
+        "DCOILWTICO": {
+          "id": "DCOILWTICO",
+          "label": "WTI 유가",
+          "baseDate": "2026-06-19",
+          "baseValue": 76.54,
+          "targetDate": "2026-06-26",
+          "actualValue": 70.3,
+          "horizonSessions": 5,
+          "absoluteChange": -6.24,
+          "percentChange": -8.1526,
+          "status": "complete"
+        }
+      },
+      "watchLevels": [
+        {
+          "text": "미 10년물 4.70%",
+          "id": "DGS10",
+          "thresholds": [
+            4.7
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
+          "max": 4.51,
+          "touchedThresholds": []
+        },
+        {
+          "text": "VIX 20선",
+          "id": "VIXCLS",
+          "thresholds": [
+            20
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-26",
+          "min": 17.28,
+          "max": 19.49,
+          "touchedThresholds": []
+        },
+        {
+          "text": "나스닥 26,518선",
+          "id": "NASDAQCOM",
+          "thresholds": [
+            26518
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "checkedThroughDate": "2026-06-26",
+          "min": 25297.62,
+          "max": 26166.6,
+          "touchedThresholds": []
+        },
+        {
+          "text": "달러/원 기준일 지연 해소 후 1,480원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1480
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-26",
+          "min": 1532.43,
+          "max": 1542.53,
+          "touchedThresholds": []
+        },
+        {
+          "text": "달러/원 기준일 지연 해소 후 1,500원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1500
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-26",
+          "min": 1532.43,
+          "max": 1542.53,
+          "touchedThresholds": []
+        },
+        {
+          "text": "코스피 외국인 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.50~4.70%",
+          "id": "DGS10",
+          "thresholds": [
+            4.5,
+            4.7
+          ],
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
+        },
+        {
+          "text": "나스닥 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "한국 반도체 대형주 매매 흐름",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.00~4.50%",
+          "id": "DGS10",
+          "thresholds": [
+            4,
+            4.5
+          ],
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
+        },
+        {
+          "text": "연준 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러 방향성",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다.",
+          "id": "VIXCLS",
+          "thresholds": [
+            20
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-26",
+          "min": 17.28,
+          "max": 19.49,
+          "touchedThresholds": []
+        }
+      ]
+    }
+  ]
+}

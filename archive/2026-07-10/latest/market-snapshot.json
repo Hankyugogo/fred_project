@@ -1,0 +1,1113 @@
+{
+  "generatedAt": "2026-07-09T22:40:10.938Z",
+  "reportDate": "2026-07-10",
+  "mode": "fred-api+market-supplements",
+  "source": {
+    "name": "FRED",
+    "apiDocsUrl": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+    "seriesBaseUrl": "https://fred.stlouisfed.org/series/"
+  },
+  "headline": "광범위 강세, 10년물 4.54% · VIX 15.84",
+  "subheadline": "FRED+시장시세 기반 브리핑 · 자료 상태 양호 · 일부 지표 지연 반영",
+  "reportCalendar": {
+    "reportDate": "2026-07-10",
+    "reportTimeZone": "Asia/Seoul",
+    "generatedAt": "2026-07-09T22:40:10.938Z",
+    "usEquityReferenceDate": "2026-07-09",
+    "latestUsEquityDate": "2026-07-09",
+    "usEquityStatus": "prior-session",
+    "hasSplitUsEquityDates": false,
+    "koreaMarketReferenceDate": "2026-07-09",
+    "rateReferenceDate": "2026-07-09",
+    "volatilityReferenceDate": "2026-07-09",
+    "fxReferenceDate": "2026-07-10",
+    "commodityReferenceDate": "2026-07-09",
+    "observations": {
+      "usEquities": {
+        "SP500": "2026-07-09",
+        "NASDAQCOM": "2026-07-09",
+        "DJIA": "2026-07-09"
+      },
+      "koreaMarkets": {
+        "KOSPI": "2026-07-09",
+        "KOSDAQ": "2026-07-09"
+      },
+      "rates": {
+        "DGS2": "2026-07-09",
+        "DGS10": "2026-07-09"
+      },
+      "volatility": {
+        "VIXCLS": "2026-07-09"
+      },
+      "fx": {
+        "DEXKOUS": "2026-07-10",
+        "DTWEXBGS": "2026-07-02",
+        "DEXJPUS": "2026-07-10"
+      },
+      "commodities": {
+        "DCOILWTICO": "2026-07-09",
+        "DCOILBRENTEU": "2026-07-09"
+      }
+    },
+    "note": "한국시간 2026-07-10 발행본의 미국 주식 기준일은 2026-07-09입니다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정됩니다."
+  },
+  "highlights": [
+    "오늘의 요약: 광범위 강세. 금리 방향 혼재, 투자심리 개선 확인 조합입니다.",
+    "핵심 근거: S&P 500 +0.81%, 나스닥종합지수 +1.30%, 다우지수 +0.27% / 10년물 4.54% (-2bp), 2년물 4.16% (-5bp), 10Y-2Y +0.38%p (+3bp) / VIX 15.84 (-6.27%, -1.06pt).",
+    "해석 유의: 보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다."
+  ],
+  "analysis": {
+    "title": "광범위 강세, 10년물 4.54% · VIX 15.84",
+    "deck": "FRED+시장시세 기반 브리핑 · 자료 상태 양호 · 일부 지표 지연 반영",
+    "lead": "광범위 강세 흐름입니다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 봐야 합니다. 주가 상승을 VIX 하락이 확인해 단기 심리는 비교적 안정적이었습니다. 주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했습니다.",
+    "facts": [
+      "지수: S&P 500 +0.81%, 나스닥종합지수 +1.30%, 다우지수 +0.27%",
+      "금리: 10년물 4.54% (-2bp), 2년물 4.16% (-5bp), 10Y-2Y +0.38%p (+3bp)",
+      "변동성: VIX 15.84 (-6.27%, -1.06pt)",
+      "달러: USD/KRW 0.00%",
+      "원자재: WTI 71.74달러 (-0.47%)"
+    ],
+    "highlights": [
+      "오늘의 요약: 광범위 강세. 금리 방향 혼재, 투자심리 개선 확인 조합입니다.",
+      "핵심 근거: S&P 500 +0.81%, 나스닥종합지수 +1.30%, 다우지수 +0.27% / 10년물 4.54% (-2bp), 2년물 4.16% (-5bp), 10Y-2Y +0.38%p (+3bp) / VIX 15.84 (-6.27%, -1.06pt).",
+      "해석 유의: 보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다."
+    ],
+    "dataQuality": {
+      "reportDate": "2026-07-10",
+      "score": 88,
+      "confidence": "high",
+      "confidenceLabel": "자료 상태 양호",
+      "publicationStatus": "caution",
+      "publicationLabel": "일부 지표 지연 반영",
+      "warnings": [
+        "보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다."
+      ],
+      "blockedNarrativeIds": [
+        "DTWEXBGS"
+      ],
+      "blockedNarrativeLabels": [
+        "광의 달러지수"
+      ],
+      "coreFreshCount": 6,
+      "coreDelayedCount": 0,
+      "coreStaleCount": 0,
+      "contextDelayedCount": 0,
+      "contextStaleCount": 1
+    },
+    "drivers": [
+      {
+        "title": "주식",
+        "verdict": "광범위 강세",
+        "desc": "3대 지수가 모두 올라 투자심리가 시장 전반에서 개선됐습니다. 나스닥종합지수가 +1.30%로 상대 강도가 가장 높았고, 다우지수는 +0.27%였습니다.",
+        "evidence": "S&P 500 +0.81%, 나스닥종합지수 +1.30%, 다우지수 +0.27%"
+      },
+      {
+        "title": "금리",
+        "verdict": "금리 방향 혼재",
+        "desc": "장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 봐야 합니다.",
+        "evidence": "10년물 4.54% (-2bp), 2년물 4.16% (-5bp), 10Y-2Y +0.38%p (+3bp)"
+      },
+      {
+        "title": "변동성",
+        "verdict": "투자심리 개선 확인",
+        "desc": "주가 상승을 VIX 하락이 확인해 단기 심리는 비교적 안정적이었습니다.",
+        "evidence": "VIX 15.84 (-6.27%, -1.06pt)"
+      },
+      {
+        "title": "달러",
+        "verdict": "달러 완화",
+        "desc": "달러 강세 압력이 누그러져 위험자산에는 부담이 다소 완화됐습니다.",
+        "evidence": "USD/KRW 0.00%"
+      }
+    ],
+    "risks": [
+      {
+        "title": "데이터 품질 경고",
+        "desc": "보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다.",
+        "severity": "medium"
+      }
+    ],
+    "sections": {
+      "topStory": [
+        {
+          "title": "시장 판정",
+          "desc": "3대 지수가 모두 올라 투자심리가 시장 전반에서 개선됐습니다. 나스닥종합지수가 +1.30%로 상대 강도가 가장 높았고, 다우지수는 +0.27%였습니다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 봐야 합니다."
+        },
+        {
+          "title": "자료 기준일",
+          "desc": "자료 상태 양호, 점수 88/100. 주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했습니다."
+        }
+      ],
+      "marketReaction": [
+        {
+          "title": "지수와 금리",
+          "desc": "S&P 500 +0.81%, 나스닥종합지수 +1.30%, 다우지수 +0.27% / 10년물 4.54% (-2bp), 2년물 4.16% (-5bp), 10Y-2Y +0.38%p (+3bp)"
+        },
+        {
+          "title": "보조 자산 확인",
+          "desc": "VIX 15.84 (-6.27%, -1.06pt) / USD/KRW 0.00% / WTI 71.74달러 (-0.47%)"
+        }
+      ],
+      "watchNow": [
+        {
+          "title": "가장 큰 제약",
+          "desc": "보조 해석용 시계열 1건은 오래돼 핵심 서술에서 제외했습니다."
+        },
+        {
+          "title": "추가 확인 포인트",
+          "desc": "달러 강세 압력이 누그러져 위험자산에는 부담이 다소 완화됐습니다."
+        }
+      ],
+      "positioning": [
+        {
+          "title": "방향보다 확인",
+          "desc": "지수·금리·변동성 신호가 완전히 정렬되지 않아 섣부른 추세 추종보다 확인 매매가 적절합니다."
+        },
+        {
+          "title": "데이터 상태 양호",
+          "desc": "핵심 판단축은 허용 범위 안에 있어 당일 시장 톤을 읽는 데 큰 제약이 없습니다."
+        }
+      ]
+    },
+    "tags": [
+      "자료 상태 양호",
+      "일부 지표 지연 반영",
+      "기술주주도",
+      "오래된시계열주의"
+    ],
+    "qualityLine": "주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했습니다."
+  },
+  "freshnessSummary": {
+    "reportDate": "2026-07-10",
+    "status": "attention",
+    "freshCount": 13,
+    "delayedCount": 0,
+    "staleCount": 1,
+    "items": [
+      {
+        "id": "DTWEXBGS",
+        "label": "광의 달러지수",
+        "status": "stale",
+        "observationDate": "2026-07-02",
+        "businessDaysOld": 6,
+        "freshnessLabel": "오래됨 6영업일",
+        "sourceUrl": "https://fred.stlouisfed.org/series/DTWEXBGS"
+      }
+    ]
+  },
+  "marketSupplementMeta": {
+    "generatedAt": "2026-07-09T22:40:10.938Z",
+    "available": 12,
+    "applied": 9,
+    "replacements": [
+      {
+        "id": "SP500",
+        "label": "S&P 500",
+        "policy": "replace",
+        "fromDate": "2026-07-08",
+        "toDate": "2026-07-09",
+        "source": "Naver Finance world index API",
+        "sourceSymbol": ".INX"
+      },
+      {
+        "id": "NASDAQCOM",
+        "label": "나스닥종합지수",
+        "policy": "replace",
+        "fromDate": "2026-07-08",
+        "toDate": "2026-07-09",
+        "source": "Naver Finance world index API",
+        "sourceSymbol": ".IXIC"
+      },
+      {
+        "id": "DGS2",
+        "label": "미 국채 2년물",
+        "policy": "replace",
+        "fromDate": "2026-07-08",
+        "toDate": "2026-07-09",
+        "source": "U.S. Treasury Daily Treasury Rates XML",
+        "sourceSymbol": "BC_2YEAR"
+      },
+      {
+        "id": "DGS10",
+        "label": "미 국채 10년물",
+        "policy": "replace",
+        "fromDate": "2026-07-08",
+        "toDate": "2026-07-09",
+        "source": "U.S. Treasury Daily Treasury Rates XML",
+        "sourceSymbol": "BC_10YEAR"
+      },
+      {
+        "id": "VIXCLS",
+        "label": "VIX",
+        "policy": "replace",
+        "fromDate": "2026-07-08",
+        "toDate": "2026-07-09",
+        "source": "Naver Finance world index API",
+        "sourceSymbol": ".VIX"
+      },
+      {
+        "id": "DEXKOUS",
+        "label": "달러/원 환율",
+        "policy": "replace",
+        "fromDate": "2026-07-02",
+        "toDate": "2026-07-10",
+        "source": "Naver Finance exchange API",
+        "sourceSymbol": "FX_USDKRW"
+      },
+      {
+        "id": "DEXJPUS",
+        "label": "달러/엔 환율",
+        "policy": "replace",
+        "fromDate": "2026-07-02",
+        "toDate": "2026-07-10",
+        "source": "Naver Finance exchange API",
+        "sourceSymbol": "FX_USDKRW/FX_JPYKRW"
+      },
+      {
+        "id": "DCOILWTICO",
+        "label": "WTI 유가",
+        "policy": "proxy",
+        "fromDate": "2026-07-06",
+        "toDate": "2026-07-09",
+        "source": "Naver Finance market index API",
+        "sourceSymbol": "CLcv1"
+      },
+      {
+        "id": "DCOILBRENTEU",
+        "label": "브렌트유",
+        "policy": "proxy",
+        "fromDate": "2026-07-06",
+        "toDate": "2026-07-09",
+        "source": "Naver Finance market index API",
+        "sourceSymbol": "LCOcv1"
+      }
+    ]
+  },
+  "notes": [
+    "주요 지표는 활용 가능하지만, 일부 보조 지표는 기준일이 늦어 해석 범위를 제한했습니다.",
+    "오래된 시계열 1건과 지연 시계열 0건이 있어, 카드의 기준일을 함께 보고 해석해야 합니다.",
+    "FRED 기준일이 늦은 9개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했습니다.",
+    "핵심 시계열은 FRED API의 fred/series/observations 엔드포인트를 기준으로 가져옵니다.",
+    "주식지수와 변동성 계열 일부는 FRED 안에서도 원 데이터 공급자의 별도 저작권/사용 조건이 붙을 수 있으니 공개 배포 전 각 시리즈 노트를 확인해야 합니다.",
+    "뉴스·실적·정책 이벤트를 붙이지 않은 규칙 기반 해석이므로, 원인 설명은 실시간 헤드라인과 함께 교차 확인해야 합니다."
+  ],
+  "groups": [
+    {
+      "id": "equities",
+      "label": "주요 지수",
+      "description": "미국 주식시장 방향을 가장 직관적으로 보는 기본 축",
+      "items": [
+        {
+          "id": "SP500",
+          "label": "S&P 500",
+          "group": "equities",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 7543.64,
+          "previousValue": 7482.71,
+          "absoluteChange": 60.93,
+          "percentChange": 0.81,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/worldstock/index/.INX",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance world index API",
+            "sourceSymbol": ".INX",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:39:59.968Z"
+          },
+          "fredReference": {
+            "latestValue": 7482.71,
+            "previousValue": 7503.85,
+            "observationDate": "2026-07-08",
+            "previousObservationDate": "2026-07-07",
+            "sourceUrl": "https://fred.stlouisfed.org/series/SP500"
+          }
+        },
+        {
+          "id": "NASDAQCOM",
+          "label": "나스닥종합지수",
+          "group": "equities",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 26206.89,
+          "previousValue": 25870.65,
+          "absoluteChange": 336.24,
+          "percentChange": 1.3,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/worldstock/index/.IXIC",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance world index API",
+            "sourceSymbol": ".IXIC",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:40:00.263Z"
+          },
+          "fredReference": {
+            "latestValue": 25870.65,
+            "previousValue": 25818.69,
+            "observationDate": "2026-07-08",
+            "previousObservationDate": "2026-07-07",
+            "sourceUrl": "https://fred.stlouisfed.org/series/NASDAQCOM"
+          }
+        },
+        {
+          "id": "DJIA",
+          "label": "다우지수",
+          "group": "equities",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 52487.41,
+          "previousValue": 52348.39,
+          "absoluteChange": 139.02,
+          "percentChange": 0.2656,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": "https://fred.stlouisfed.org/series/DJIA",
+          "mode": "fred-api",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "korea",
+      "label": "한국 시장",
+      "description": "코스피·코스닥 종가와 원-엔 환율 등 한국 투자자 직접 점검 항목",
+      "items": [
+        {
+          "id": "KOSPI",
+          "label": "코스피",
+          "group": "korea",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 7291.91,
+          "previousValue": 7246.79,
+          "absoluteChange": 45.12,
+          "percentChange": 0.62,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI",
+          "mode": "yahoo-finance",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          }
+        },
+        {
+          "id": "KOSDAQ",
+          "label": "코스닥",
+          "group": "korea",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 794,
+          "previousValue": 785,
+          "absoluteChange": 9,
+          "percentChange": 1.15,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ",
+          "mode": "yahoo-finance",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          }
+        },
+        {
+          "id": "JPYKRW",
+          "label": "원-엔 환율(100엔당)",
+          "group": "korea",
+          "format": "krw",
+          "decimals": 2,
+          "latestValue": 928.07,
+          "previousValue": 926.81,
+          "absoluteChange": 1.26,
+          "percentChange": 0.14,
+          "observationDate": "2026-07-10",
+          "previousObservationDate": null,
+          "sourceUrl": null,
+          "mode": "market-supplement",
+          "derived": true,
+          "derivedFrom": [
+            "DEXKOUS",
+            "DEXJPUS"
+          ],
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 0,
+            "label": "당일 기준",
+            "referenceDate": "2026-07-10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "label": "금리",
+      "description": "주가 밸류에이션과 금리 부담을 함께 보여주는 금리 구간",
+      "items": [
+        {
+          "id": "DGS2",
+          "label": "미 국채 2년물",
+          "group": "rates",
+          "format": "percent",
+          "decimals": 2,
+          "latestValue": 4.16,
+          "previousValue": 4.21,
+          "absoluteChange": -0.05,
+          "percentChange": -1.1876,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "U.S. Treasury Daily Treasury Rates XML",
+            "sourceSymbol": "BC_2YEAR",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:40:00.858Z"
+          },
+          "fredReference": {
+            "latestValue": 4.21,
+            "previousValue": 4.19,
+            "observationDate": "2026-07-08",
+            "previousObservationDate": "2026-07-07",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DGS2"
+          }
+        },
+        {
+          "id": "DGS10",
+          "label": "미 국채 10년물",
+          "group": "rates",
+          "format": "percent",
+          "decimals": 2,
+          "latestValue": 4.54,
+          "previousValue": 4.56,
+          "absoluteChange": -0.02,
+          "percentChange": -0.4386,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "U.S. Treasury Daily Treasury Rates XML",
+            "sourceSymbol": "BC_10YEAR",
+            "replacementPolicy": "replace",
+            "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
+            "fetchedAt": "2026-07-09T22:40:00.858Z"
+          },
+          "fredReference": {
+            "latestValue": 4.56,
+            "previousValue": 4.55,
+            "observationDate": "2026-07-08",
+            "previousObservationDate": "2026-07-07",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DGS10"
+          }
+        },
+        {
+          "id": "DFF",
+          "label": "실효 연방기금금리",
+          "group": "rates",
+          "format": "percent",
+          "decimals": 2,
+          "latestValue": 3.62,
+          "previousValue": 3.63,
+          "absoluteChange": -0.01,
+          "percentChange": -0.2755,
+          "observationDate": "2026-07-08",
+          "previousObservationDate": "2026-07-07",
+          "sourceUrl": "https://fred.stlouisfed.org/series/DFF",
+          "mode": "fred-api",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 2,
+            "label": "허용 범위 2영업일",
+            "referenceDate": "2026-07-10"
+          }
+        },
+        {
+          "id": "UST10Y_UST2Y_SPREAD",
+          "label": "10Y-2Y Curve Spread",
+          "group": "rates",
+          "format": "percent",
+          "decimals": 2,
+          "latestValue": 0.38,
+          "previousValue": 0.35,
+          "absoluteChange": 0.03,
+          "percentChange": 8.5714,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": "2026-07-08",
+          "sourceUrl": null,
+          "mode": "market-supplement",
+          "derived": true,
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          }
+        }
+      ]
+    },
+    {
+      "id": "volatility",
+      "label": "변동성",
+      "description": "시장 스트레스와 헤지 수요를 빠르게 보여주는 구간",
+      "items": [
+        {
+          "id": "VIXCLS",
+          "label": "VIX",
+          "group": "volatility",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 15.84,
+          "previousValue": 16.9,
+          "absoluteChange": -1.06,
+          "percentChange": -6.27,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/worldstock/index/.VIX",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance world index API",
+            "sourceSymbol": ".VIX",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:40:00.749Z"
+          },
+          "fredReference": {
+            "latestValue": 16.9,
+            "previousValue": 16.13,
+            "observationDate": "2026-07-08",
+            "previousObservationDate": "2026-07-07",
+            "sourceUrl": "https://fred.stlouisfed.org/series/VIXCLS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fx",
+      "label": "환율",
+      "description": "달러·원·엔 흐름을 함께 보기 좋은 조합",
+      "items": [
+        {
+          "id": "DEXKOUS",
+          "label": "달러/원 환율",
+          "group": "fx",
+          "format": "krw",
+          "decimals": 2,
+          "latestValue": 1507,
+          "previousValue": 1507,
+          "absoluteChange": 0,
+          "percentChange": 0,
+          "observationDate": "2026-07-10",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 0,
+            "label": "당일 기준",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance exchange API",
+            "sourceSymbol": "FX_USDKRW",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:40:01.147Z"
+          },
+          "fredReference": {
+            "latestValue": 1538.05,
+            "previousValue": 1550.59,
+            "observationDate": "2026-07-02",
+            "previousObservationDate": "2026-07-01",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DEXKOUS"
+          }
+        },
+        {
+          "id": "DTWEXBGS",
+          "label": "광의 달러지수",
+          "group": "fx",
+          "format": "index",
+          "decimals": 4,
+          "latestValue": 120.6902,
+          "previousValue": 121.1455,
+          "absoluteChange": -0.4553,
+          "percentChange": -0.3758,
+          "observationDate": "2026-07-02",
+          "previousObservationDate": "2026-07-01",
+          "sourceUrl": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "mode": "fred-api",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "stale",
+            "businessDaysOld": 6,
+            "label": "오래됨 6영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "supplementary": {
+            "value": 100.8,
+            "observationDate": "2026-07-10",
+            "sourceName": "Investing.com",
+            "confidence": "high",
+            "sourceUrl": "https://www.investing.com/currencies/us-dollar-index",
+            "groundedText": "The most recent value of the US Dollar Index (DXY) is 100.80.\n\n*   **Index Level:** 100.80\n*   **Date/Time of Quote:** Live quote, as of \"Just Now\" (July 10, 2026)\n*   **Source 보고서 상태:** Investing.com\n*   **Canonical URL:** [https://www.investing.com/currencies/us-dollar-index](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7kaqwUu6cMnXiw01OApq47koJDRGce8bsoJDRyZpR6NxlmfDlo6vTGo11asKjrd0yQ5xqLQAQbMw17Zap1n2FwMe87e95cs2TkXi0crIF7vgpDs3QQw-LvUWAkWYez-fa81Jq)",
+            "groundingSources": [
+              {
+                "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7kaqwUu6cMnXiw01OApq47koJDRGce8bsoJDRyZpR6NxlmfDlo6vTGo11asKjrd0yQ5xqLQAQbMw17Zap1n2FwMe87e95cs2TkXi0crIF7vgpDs3QQw-LvUWAkWYez-fa81Jq",
+                "title": "investing.com"
+              }
+            ],
+            "fetchedAt": "2026-07-09T22:40:27.149Z",
+            "fetcher": "gemini-grounding:gemini-2.5-flash"
+          }
+        },
+        {
+          "id": "DEXJPUS",
+          "label": "달러/엔 환율",
+          "group": "fx",
+          "format": "index",
+          "decimals": 2,
+          "latestValue": 162.38,
+          "previousValue": 162.6,
+          "absoluteChange": -0.22,
+          "percentChange": -0.1358,
+          "observationDate": "2026-07-10",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW%2FFX_JPYKRW",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 0,
+            "label": "당일 기준",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance exchange API",
+            "sourceSymbol": "FX_USDKRW/FX_JPYKRW",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-07-09T22:40:02.007Z"
+          },
+          "fredReference": {
+            "latestValue": 160.9,
+            "previousValue": 162.41,
+            "observationDate": "2026-07-02",
+            "previousObservationDate": "2026-07-01",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DEXJPUS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "commodities",
+      "label": "원자재",
+      "description": "인플레와 지정학 리스크를 반영하기 쉬운 핵심 원자재",
+      "items": [
+        {
+          "id": "DCOILWTICO",
+          "label": "WTI 유가",
+          "group": "commodities",
+          "format": "usd",
+          "decimals": 2,
+          "latestValue": 71.74,
+          "previousValue": 72.08,
+          "absoluteChange": -0.34,
+          "percentChange": -0.47,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/marketindex/energy/CLcv1",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance market index API",
+            "sourceSymbol": "CLcv1",
+            "replacementPolicy": "proxy",
+            "note": "FRED WTI 현물 지연 시 NYMEX WTI 근월물 종가를 최신 시장 대용치로 쓴다.",
+            "fetchedAt": "2026-07-09T22:40:02.296Z"
+          },
+          "fredReference": {
+            "latestValue": 69.6,
+            "previousValue": 69.73,
+            "observationDate": "2026-07-06",
+            "previousObservationDate": "2026-07-02",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DCOILWTICO"
+          }
+        },
+        {
+          "id": "DCOILBRENTEU",
+          "label": "브렌트유",
+          "group": "commodities",
+          "format": "usd",
+          "decimals": 2,
+          "latestValue": 76.3,
+          "previousValue": 78.02,
+          "absoluteChange": -1.72,
+          "percentChange": -2.2,
+          "observationDate": "2026-07-09",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/marketindex/energy/LCOcv1",
+          "mode": "market-supplement",
+          "freshWithinBusinessDays": 2,
+          "freshness": {
+            "status": "fresh",
+            "businessDaysOld": 1,
+            "label": "허용 범위 1영업일",
+            "referenceDate": "2026-07-10"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance market index API",
+            "sourceSymbol": "LCOcv1",
+            "replacementPolicy": "proxy",
+            "note": "FRED Brent 현물 지연 시 ICE Brent 근월물 종가를 최신 시장 대용치로 쓴다.",
+            "fetchedAt": "2026-07-09T22:40:02.488Z"
+          },
+          "fredReference": {
+            "latestValue": 69.56,
+            "previousValue": 68.68,
+            "observationDate": "2026-07-06",
+            "previousObservationDate": "2026-07-03",
+            "sourceUrl": "https://fred.stlouisfed.org/series/DCOILBRENTEU"
+          }
+        }
+      ]
+    }
+  ],
+  "enrichmentMeta": {
+    "generatedAt": "2026-07-09T22:40:27.150Z",
+    "model": "gemini-2.5-flash",
+    "requested": 1,
+    "successful": 1
+  },
+  "contextEnrichment": {
+    "generatedAt": "2026-07-09T22:40:27.295Z",
+    "today": "2026-07-10",
+    "model": "gemini-2.5-flash",
+    "sectorEtfs": {
+      "items": [
+        {
+          "ticker": "XLF",
+          "percentChange": 1.05,
+          "label": "미국 금융 ETF",
+          "close": 55.54,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLK",
+          "percentChange": 2.54,
+          "label": "미국 기술 ETF",
+          "close": 186,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLE",
+          "percentChange": -1.17,
+          "label": "미국 에너지 ETF",
+          "close": 54.95,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "SOXX",
+          "percentChange": 5.69,
+          "label": "미국 반도체 ETF",
+          "close": 593.99,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLV",
+          "percentChange": 0.23,
+          "label": "미국 헬스케어 ETF",
+          "close": 162.54,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLP",
+          "percentChange": -0.84,
+          "label": "미국 필수소비재 ETF",
+          "close": 83.68,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLY",
+          "percentChange": 1.14,
+          "label": "미국 임의소비재 ETF",
+          "close": 116.62,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLI",
+          "percentChange": 0.83,
+          "label": "미국 산업재 ETF",
+          "close": 181.92,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLU",
+          "percentChange": -0.13,
+          "label": "미국 유틸리티 ETF",
+          "close": 45.3,
+          "observationDate": "2026-07-09"
+        },
+        {
+          "ticker": "XLRE",
+          "percentChange": 0.13,
+          "label": "미국 부동산 ETF",
+          "close": 44.95,
+          "observationDate": "2026-07-07"
+        }
+      ],
+      "groundingSources": [
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6ONCe3xAO9MjTKbq0jq8iYRrghm3qojmNsWAiezbKT4vhB9fhplb-O0RDbmNpqjz0BQZfuen2BUsFvkZo5Nwoamjlh9ted9RP5dz2Z_DoSnqzW_D6RipJM1ouGt7cxHlBHacG1LoNUx7ZvLsyAfBUg-s3lWenBcssXr-kQXhMmqrfnDGwZWex",
+          "title": "investing.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqodTSYUckyE07v56xW40T_RaSVWANNmFRClmESi-M_YtbbemTS0y6zhA_JKPWhKZxMDpUwj8a5CIBLaIqboNapQ785P1nQRHemGz0aDHZaHUxtAO4ojqD7aprEVukqVAYaBOSLMg=",
+          "title": "stockanalysis.com"
+        }
+      ],
+      "fetchedAt": "2026-07-09T22:41:14.444Z"
+    },
+    "crossAssetSignals": {
+      "signals": {
+        "dxy": {
+          "value": 100.95,
+          "percentChange": -0.04,
+          "observationDate": "2026-07-09",
+          "sourceName": "Trading Economics"
+        },
+        "gold": {
+          "value": 4123.72,
+          "percentChange": 1.19,
+          "observationDate": "2026-07-09",
+          "sourceName": "Trading Economics"
+        },
+        "copper": {
+          "value": 6.27,
+          "percentChange": 2.39,
+          "observationDate": "2026-07-09",
+          "sourceName": "Money Metals Exchange"
+        },
+        "moveIndex": {
+          "value": 72.41,
+          "observationDate": "2026-07-10",
+          "sourceName": "Investing.com"
+        },
+        "realYield10y": {
+          "value": 2.31,
+          "observationDate": "2026-07-09",
+          "sourceName": "Trading Economics"
+        },
+        "termPremium10y": {
+          "value": 0.59,
+          "observationDate": "2026-07-06",
+          "sourceName": "MacroMicro"
+        }
+      },
+      "groundingSources": [
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE27aYJlKjjxiFj2AWZeV-3G4JhrMRK10TWRLGEBzN3fsg7_-a8c77FeAJaqOV08jq8pDYc7gQiwj6vmrLfE1o3C7jYdcExOO0GCZXI9qMKXiyRiUXLTeVyUaSDu_MCD1mWrssGIlwddgsBMgwm",
+          "title": "tradingeconomics.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgjcY0OxeItHb4N6tzzYj4LNOkV05hLm3kyrhxPGC7SYbKmICW10m-yli5A8TxmaH-k_-2LquaWvOEW5NQ5XxglQVxcog5tU1lX8SLFxH3P7WV7TSSfM716dob8WfzgJje2FsuNA==",
+          "title": "tradingeconomics.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEk1sIyzpBRptYQI5H_DhDMXoSlWZQGT2b9HH03MzsTncTneywpoj233Ci7sDCa678lcEGayq4WcJiva0K_iiBKs1BqzafDDEPycyblvyY0e02OFUk1cN4LT8xPcctJnpCLps4=",
+          "title": "moneymetals.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdnNIsE2oBQNW6IqWATs9bj5P-03rKHf3u0vHr4GdLKjiFDgIlgMhUWlXhGtQC-7xqn2TDDO8As9FRVnBJLN8jGTLP8SwC9XIbynmHl94RO1OIuwhKqeTc5J3e7pougP_gNFX3d8Hz9zHrDQ==",
+          "title": "investing.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0pNp0mgmOvcJoIK9aVeefaCCzAfZpEQ2I1lcDnvNCLexGELnITizoXbrhfEoNEou3JeE_LFoKP8mgBPlwxeyvUmiJxcse_oo0DZi46ubf7ZDWZld3PQS_fw40VUaVZXgSaOWGtc4n5aG4Qk4_dVGNaEFP1kJ1qg==",
+          "title": "tradingeconomics.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmunhx6VScQsfySQeHb7I4PS8_tfUVtZPIXLUk_Sy_mn2OIK6QKLvl9ZNfu7CqMBoPsq8bif71iM79aGM9FCQoNlvB9fX6UW94zlWa9vWLKVU2Fs9UJYmhVu6FOJ3KRzsls543CGjVJ7n1pr_criK3Lym9OTBV7Kv3zbY=",
+          "title": "macromicro.me"
+        }
+      ],
+      "fetchedAt": "2026-07-09T22:41:33.309Z"
+    },
+    "eventCalendar": {
+      "events": [
+        {
+          "date": "2026-07-13",
+          "category": "auction",
+          "name": "13주 만기 국채 입찰",
+          "consensus": null,
+          "importance": "medium",
+          "whyItMatters": "Treasury auctions are important for government funding and provide insights into market demand for US debt."
+        },
+        {
+          "date": "2026-07-14",
+          "category": "economic-data",
+          "name": "소비자 물가 지수 (CPI)",
+          "consensus": "May 2026 CPI was 3.1% YoY",
+          "importance": "high",
+          "whyItMatters": "This report is a key indicator of inflation, heavily influencing Federal Reserve monetary policy decisions."
+        },
+        {
+          "date": "2026-07-15",
+          "category": "auction",
+          "name": "3년, 10년, 30년 만기 국채 결제",
+          "consensus": null,
+          "importance": "medium",
+          "whyItMatters": "The settlement of these auctions represents a significant flow of capital into Treasury coffers, impacting market liquidity."
+        },
+        {
+          "date": "2026-07-16",
+          "category": "economic-data",
+          "name": "주간 신규 실업수당 청구건수 (Initial Jobless Claims)",
+          "consensus": "Around 215,000 (for the week ending July 11, 2026)",
+          "importance": "medium",
+          "whyItMatters": "Provides a real-time gauge of the labor market's health and potential shifts in unemployment trends."
+        },
+        {
+          "date": "2026-07-16",
+          "category": "economic-data",
+          "name": "소매 판매 (Retail Sales Control Group SA M/M)",
+          "consensus": null,
+          "importance": "high",
+          "whyItMatters": "A crucial measure of consumer spending, which is a major component of economic growth."
+        },
+        {
+          "date": "2026-07-16",
+          "category": "auction",
+          "name": "13주 만기 국채 결제 (13-Week Bill Settlement)",
+          "consensus": null,
+          "importance": "low",
+          "whyItMatters": "Marks the completion of the 13-week bill auction process, affecting short-term market liquidity."
+        },
+        {
+          "date": "2026-07-16",
+          "category": "korean-macro",
+          "name": "한국은행 금융통화위원회 본회의",
+          "consensus": "Expectations for a potential interest rate hike due to accelerating inflation in June (3.2% YoY).",
+          "importance": "high",
+          "whyItMatters": "The Bank of Korea's decision on the base rate directly impacts borrowing costs, inflation, and the overall economic outlook for South Korea."
+        },
+        {
+          "date": "2026-07-17",
+          "category": "economic-data",
+          "name": "미시간대 소비자 심리 지수 (University of Michigan Consumer Sentiment Index)",
+          "consensus": null,
+          "importance": "medium",
+          "whyItMatters": "Reflects consumer confidence in the economy, which can impact spending and investment decisions."
+        },
+        {
+          "date": "2026-07-21",
+          "category": "korean-macro",
+          "name": "생산자 물가 지수 (Producer Price Index Growth YoY)",
+          "consensus": null,
+          "importance": "medium",
+          "whyItMatters": "The PPI measures changes in prices received by domestic producers, serving as a leading indicator of consumer inflation."
+        },
+        {
+          "date": "2026-07-22",
+          "category": "economic-data",
+          "name": "주간 신규 실업수당 청구건수 (Initial Jobless Claims)",
+          "consensus": null,
+          "importance": "medium",
+          "whyItMatters": "Continues to provide timely insights into the state of the US labor market."
+        },
+        {
+          "date": "2026-07-22",
+          "category": "earnings",
+          "name": "Alphabet (GOOGL) Q2 2026 실적 발표",
+          "consensus": null,
+          "importance": "high",
+          "whyItMatters": "As a major tech giant, Alphabet's performance offers insights into the digital advertising market, cloud computing (Google Cloud), and broader economic health."
+        },
+        {
+          "date": "2026-07-22",
+          "category": "earnings",
+          "name": "Tesla (TSLA) Q2 2026 실적 발표",
+          "consensus": null,
+          "importance": "high",
+          "whyItMatters": "Tesla's earnings provide a look into the electric vehicle market, battery technology, and autonomous driving developments, influencing investor sentiment in the automotive and tech sectors."
+        }
+      ],
+      "groundingSources": [
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuvTOgcpv2N5bCt9a_WemUpc7kfzrUhC5puf5FBSKBs5gss3tsl5BwBNDLvT7KrMvKGoAJUUR2vOHTiWq4KljcazXFx97Rf0luVBY82adbaM8KyHxH2xvofk70kx5YHXT_trZTglyMX1A5FGb_W0_xCL4olXQ0YkSa5n_qtO03bINX_de-H-TA",
+          "title": "dante.company"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgCn9I5osPSDPcI6wLPWg8RTBuiEL7-DvEEHuWQILHM7ngyWTrZlJmireXIRX3onD9DsmEgAOzMZoMHOR82uyn7QxDHm_lMf-PNm4sfhTbz7tD17rNdp6udtBT6zQrY-PgBWydYfHYmo1t0bLSOFc--DCzXVUb26dOj63NmWDtMOuhSsfM0x5Ky4tbO0SjJt0=",
+          "title": "fxstreet.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEbV-Y37ljDg2L4VKOB1gxNFc4YaMookeJh5UfkytA3JL0D-OoDO2whx411ckRVwFGpKvW67-rC4J0omnzXNQs6Q9ucJ6m819vztDxXVeZ988fSVrE60qE9GPkAvcXl6ET4GMjd3eVeioaz-yvgyojg3P1TBeBZ_S6X1maAKDYjtiRHC39ynr1LzxRYPY9ypA==",
+          "title": "kelo.com"
+        }
+      ],
+      "fetchedAt": "2026-07-09T22:42:22.482Z"
+    }
+  }
+}

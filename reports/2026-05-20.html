@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[데일리 마감] 미 증시 혼조… 금리 경고·유가 급등 부담 · 2026-05-20 | FRED Market Briefing</title>
+<meta name="description" content="뉴욕 증시는 미 국채 금리 상승 경고와 중동발 유가 급등 압력 속에서 혼조세를 보이며 마감했다. 다우존스30 산업평균지수는 상승했으나, 기술주 중심의 나스닥 종합지수는 하락했다. 연방준비제도(연준)의 고금리 장기화 가능성과 인플레이션 압력이 시장 전반에 부담으로 작용하는 하루였다. 특히 반도체 섹터의 약세가 두드러졌다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;0,8..60,800;0,8..60,900;1,8..60,400&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#f5f3ec;
+  --paper-2:#ebe8de;
+  --panel:#ffffff;
+  --ink:#0e1410;
+  --ink-2:#1c241f;
+  --muted:#6a7068;
+  --muted-2:#8a8f87;
+  --rule:#0e1410;
+  --rule-soft:#cdcfc6;
+  --accent:#0f5e3e;
+  --accent-2:#7a3a12;
+  --up:#0d8a5a;
+  --down:#c43d2e;
+  --amber:#a86a18;
+  --flat:#606b66;
+  --grid:#e3e1d6;
+  --hi:#fff7d6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  font-size:15px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.serif{font-family:"Source Serif 4","Noto Serif KR",Georgia,serif}
+
+.shell{max-width:1360px;margin:0 auto;padding:0 28px}
+
+/* tape */
+.tape{border-bottom:1px solid var(--rule);background:var(--ink);color:var(--paper);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.tape .row{max-width:1360px;margin:0 auto;padding:8px 28px;display:flex;gap:28px;align-items:center;justify-content:space-between}
+.tape .ticks{display:flex;gap:24px;overflow:hidden;white-space:nowrap}
+.tape .tick{display:inline-flex;gap:8px;align-items:baseline}
+.tape .tick b{font-weight:700;color:var(--paper)}
+.tape .tick .v{color:#cfd5cb}
+.tape .tick .up{color:#7be0a8}
+.tape .tick .down{color:#ff8478}
+.tape .right{display:flex;gap:18px;align-items:center;color:#aab2a8}
+.tape .live{display:inline-flex;align-items:center;gap:6px;color:#ff8478}
+.tape .live::before{content:"";width:6px;height:6px;background:#ff5d4a;border-radius:50%;display:inline-block;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* masthead */
+.masthead{padding:36px 0 24px;border-bottom:2px solid var(--rule)}
+.masthead .top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--rule-soft);margin-bottom:22px}
+.masthead .brand{display:flex;align-items:baseline;gap:14px}
+.masthead .brand .logo{width:34px;height:34px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;letter-spacing:-.02em;transform:translateY(4px)}
+.masthead .brand h1.wordmark{font-family:"Source Serif 4",serif;font-weight:900;font-size:22px;letter-spacing:-.01em;margin:0}
+.masthead .brand .sub{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-left:6px}
+.masthead .meta{display:flex;gap:22px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.masthead .meta b{color:var(--ink);font-weight:700}
+.kicker{display:inline-flex;gap:12px;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.kicker .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}
+.kicker .sep{color:var(--rule-soft)}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:end}
+h1.hero{font-family:"Source Serif 4",serif;font-weight:800;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:1;letter-spacing:-.025em;margin:0 0 18px;word-break:keep-all;text-wrap:balance}
+h1.hero em{font-style:normal;color:var(--accent)}
+.deck{font-size:1.1rem;line-height:1.65;color:var(--ink-2);max-width:780px;border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:18px 0 0}
+.hero-side{border:1px solid var(--rule);background:var(--panel);padding:20px 22px;font-family:"JetBrains Mono",monospace;font-size:12px}
+.hero-side h4{margin:0 0 14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:700;display:flex;justify-content:space-between}
+.hero-side h4 span:last-child{color:var(--accent)}
+.hero-side .row{display:flex;justify-content:space-between;padding:6px 0;border-top:1px dotted var(--rule-soft);align-items:baseline}
+.hero-side .row:first-of-type{border-top:none}
+.hero-side .row .lbl{color:var(--muted)}
+.hero-side .row .val{font-weight:600;color:var(--ink)}
+.hero-side .row .chg{font-size:11px;margin-left:8px}
+.hero-side .note{margin-top:14px;padding-top:12px;border-top:1px dotted var(--rule-soft);font-family:"Noto Sans KR";font-size:11px;color:var(--muted);line-height:1.55;letter-spacing:0;text-transform:none}
+.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--flat)}
+
+/* sections */
+.section{padding:56px 0;border-bottom:1px solid var(--rule-soft)}
+.section:last-of-type{border-bottom:none}
+.section-head{display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:start;margin-bottom:32px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.section-head .num{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:700;padding-top:8px}
+.section-head .num .bar{display:block;width:48px;height:2px;background:var(--accent);margin-bottom:10px}
+.section-head h2{margin:0;font-family:"Source Serif 4",serif;font-weight:800;font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.15;letter-spacing:-.015em}
+.section-head .lede{color:var(--muted);font-size:.96rem;margin:8px 0 0;max-width:760px}
+
+/* INDEX MATRIX */
+.matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
+.matrix .cell{padding:22px 22px 18px;border-right:1px solid var(--rule-soft);position:relative}
+.matrix .cell:last-child{border-right:none}
+.matrix .cell .lbl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.matrix .cell .ticker{color:var(--ink);font-weight:600}
+.matrix .cell .val{font-family:"Source Serif 4",serif;font-weight:700;font-size:2.4rem;line-height:1.05;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.matrix .cell .val .frac{font-size:1.4rem;color:var(--muted)}
+.matrix .cell .chg{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:baseline;margin-top:4px}
+.matrix .cell .spark{margin-top:14px;height:42px}
+.matrix .cell .foot{display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule-soft)}
+.matrix .cell .arrow{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700}
+
+.lede3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;padding:0;list-style:none;counter-reset:l3}
+.lede3 li{background:var(--panel);border:1px solid var(--rule-soft);border-top:3px solid var(--ink);padding:18px 20px;font-size:1rem;line-height:1.7;counter-increment:l3}
+.lede3 li::before{content:"0" counter(l3);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);font-weight:700;display:block;margin-bottom:8px}
+
+/* verdicts */
+.verdicts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.verdict{background:var(--panel);border:1px solid var(--rule-soft);padding:18px;border-top:3px solid var(--accent)}
+.verdict.warn{border-top-color:var(--amber)}
+.verdict.bear{border-top-color:var(--down)}
+.verdict h4{margin:0 0 6px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;color:var(--muted)}
+.verdict .v{font-family:"Source Serif 4",serif;font-size:1.2rem;font-weight:700;margin:0 0 10px}
+.verdict p{margin:0;color:var(--ink-2);font-size:.92rem;line-height:1.65}
+.verdict .ev{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dotted var(--rule-soft)}
+
+/* data + curve */
+.data-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+.data-table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--rule);font-family:"JetBrains Mono",monospace;font-size:13px}
+.data-table caption{caption-side:top;text-align:left;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:0 0 8px}
+.data-table th,.data-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule-soft)}
+.data-table th{background:var(--paper-2);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:700;border-bottom:1px solid var(--rule)}
+.data-table tbody tr:last-child td{border-bottom:none}
+.data-table tbody tr:hover{background:var(--hi)}
+.data-table .num{text-align:right;font-variant-numeric:tabular-nums}
+.data-table .lbl-ko{font-family:"Noto Sans KR";font-weight:500;color:var(--ink)}
+.data-table .obs{color:var(--muted);font-size:11px}
+
+.chip{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--rule-soft);color:var(--muted);text-transform:uppercase}
+.chip.fresh{color:var(--up);border-color:rgba(13,138,90,.4);background:rgba(13,138,90,.06)}
+.chip.delayed{color:var(--amber);border-color:rgba(168,106,24,.4);background:rgba(168,106,24,.06)}
+.chip.stale{color:var(--down);border-color:rgba(196,61,46,.4);background:rgba(196,61,46,.06)}
+
+.curve-card{background:var(--panel);border:1px solid var(--rule);padding:22px}
+.curve-card h3{margin:0 0 4px;font-family:"Source Serif 4",serif;font-size:1.15rem;font-weight:700}
+.curve-card .sub{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+
+/* sectors */
+.sectors{background:var(--panel);border:1px solid var(--rule);padding:22px 24px}
+.sector-row{display:grid;grid-template-columns:170px 1fr 90px;gap:16px;align-items:center;padding:8px 0;border-top:1px dotted var(--rule-soft)}
+.sector-row:first-child{border-top:none}
+.sector-row .name{font-family:"JetBrains Mono",monospace;font-size:12px}
+.sector-row .name .ticker{font-weight:700;letter-spacing:.05em;margin-right:8px}
+.sector-row .name .ko{color:var(--muted)}
+.sector-row .pct{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;text-align:right}
+.bar-track{height:14px;position:relative;background:linear-gradient(to right,transparent calc(50% - .5px),var(--rule-soft) calc(50% - .5px),var(--rule-soft) calc(50% + .5px),transparent calc(50% + .5px))}
+.bar-fill{position:absolute;top:1px;bottom:1px;background:var(--up)}
+.bar-fill.neg{background:var(--down)}
+
+/* key issues */
+.issues{display:grid;gap:0}
+.issue{display:grid;grid-template-columns:90px 1fr;gap:32px;padding:24px 0;border-top:1px solid var(--rule-soft)}
+.issue:first-child{border-top:1px solid var(--rule)}
+.issue:last-child{border-bottom:1px solid var(--rule)}
+.issue .idx{font-family:"Source Serif 4",serif;font-style:italic;font-size:3.6rem;font-weight:800;color:var(--accent);line-height:.9;letter-spacing:-.03em}
+.issue h3{margin:0 0 14px;font-family:"Source Serif 4",serif;font-size:1.45rem;font-weight:700;letter-spacing:-.01em;line-height:1.3;word-break:keep-all}
+.issue dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:8px 18px;border-top:1px solid var(--rule-soft);padding-top:12px}
+.issue dt{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;padding-top:3px}
+.issue dd{margin:0;color:var(--ink-2);line-height:1.7;font-size:.96rem}
+
+/* timeline */
+.timeline-card{background:var(--panel);border:1px solid var(--rule);padding:24px 28px}
+.timeline-card h3{margin:0 0 4px;font-family:"Source Serif 4",serif;font-size:1.2rem}
+.timeline-card .sub{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.tl-list{display:grid;gap:0;margin-top:18px}
+.tl-event{display:grid;grid-template-columns:110px 1fr 100px;gap:18px;align-items:baseline;padding:10px 0;border-top:1px dotted var(--rule-soft)}
+.tl-event:first-child{border-top:1px solid var(--rule-soft)}
+.tl-event .when{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--ink);font-weight:600}
+.tl-event .when .day{display:block;font-size:10px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.tl-event .name{font-size:.95rem;line-height:1.5}
+.tl-event .name .ko{color:var(--muted);font-size:.85rem;display:block;margin-top:2px}
+.tl-event .imp{justify-self:end;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.tl-event.high .imp{color:var(--down)}
+.tl-event.high .when{color:var(--down)}
+
+/* checkpoints */
+.checkpoints{display:grid;gap:14px}
+.checkpoint{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--panel);border:1px solid var(--rule-soft);padding:18px 22px;border-left:3px solid var(--amber)}
+.checkpoint .marker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:700;width:80px;padding-top:3px}
+.checkpoint p{margin:0;line-height:1.7;color:var(--ink-2)}
+
+/* timeframe */
+.timeframes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
+.tf-card{padding:22px 22px 20px;border-right:1px solid var(--rule-soft);display:grid;gap:14px;align-content:start}
+.tf-card:last-child{border-right:none}
+.tf-card .top{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tf-card h3{margin:0;font-family:"Source Serif 4",serif;font-size:1.28rem;font-weight:800;line-height:1.25;letter-spacing:-.01em;word-break:keep-all}
+.tf-card dl{margin:0;display:grid;gap:10px}
+.tf-card dt{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tf-card dd{margin:3px 0 0;color:var(--ink-2);font-size:.93rem;line-height:1.7}
+.tf-card .watch{margin:0;padding:10px 12px;border-top:1px dotted var(--rule-soft);background:rgba(15,94,62,.05);display:flex;flex-wrap:wrap;gap:6px}
+.tf-card .watch span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--accent);border:1px solid rgba(15,94,62,.24);background:var(--panel);padding:3px 6px}
+
+/* positioning */
+.pos-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.pos-card{background:var(--panel);border:1px solid var(--rule);padding:24px 26px}
+.pos-card.alt{background:var(--paper-2);border-style:dashed}
+.pos-card .top{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:700}
+.pos-card.alt .top{color:var(--accent-2)}
+.pos-card h3{margin:0 0 16px;font-family:"Source Serif 4",serif;font-size:1.3rem;font-weight:700;line-height:1.35;letter-spacing:-.01em}
+.pos-card dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:6px 18px;font-size:.92rem;line-height:1.7}
+.pos-card dt{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;padding-top:3px}
+.pos-card dd{margin:0}
+.pos-card ul{margin:6px 0 0;padding-left:18px}
+.pos-card ul li{margin-bottom:4px}
+.compliance{margin-top:14px;padding:10px 12px;background:rgba(168,106,24,.08);border-left:2px solid var(--amber);font-size:.84rem;color:var(--muted)}
+
+/* essay */
+.essay{columns:2;column-gap:48px;column-rule:1px solid var(--rule-soft);font-family:"Noto Sans KR";font-size:1.02rem;line-height:1.85;color:var(--ink-2)}
+.essay p{margin:0 0 16px;break-inside:avoid-column}
+.essay p:first-child::first-letter{font-family:"Source Serif 4",serif;font-weight:800;font-size:4.2rem;line-height:.85;float:left;padding:8px 12px 0 0;color:var(--accent)}
+
+/* freshness */
+.fresh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--panel)}
+.fresh-cell{padding:16px 18px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.fresh-cell:nth-child(4n){border-right:none}
+.fresh-cell .top{display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fresh-cell .lbl{font-size:.92rem;font-weight:600;margin-bottom:4px}
+.fresh-cell .obs{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+
+/* colophon */
+.colophon{padding:32px 0 56px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;line-height:1.8}
+.colophon .row{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:18px;margin-top:18px;gap:16px;flex-wrap:wrap}
+.colophon b{color:var(--ink)}
+
+/* responsive */
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr}
+  .matrix{grid-template-columns:repeat(2,1fr)}
+  .matrix .cell:nth-child(2){border-right:none}
+  .matrix .cell:nth-child(1),.matrix .cell:nth-child(2){border-bottom:1px solid var(--rule-soft)}
+  .data-grid,.pos-grid{grid-template-columns:1fr}
+  .essay{columns:1}
+  .verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:repeat(2,1fr)}
+  .tf-card:nth-child(2){border-right:none}
+  .tf-card:nth-child(1),.tf-card:nth-child(2){border-bottom:1px solid var(--rule-soft)}
+  .section-head{grid-template-columns:1fr}
+  .issue{grid-template-columns:60px 1fr;gap:18px}
+  .issue .idx{font-size:2.4rem}
+}
+@media (max-width:680px){
+  .matrix,.verdicts,.lede3,.fresh-grid,.timeframes{grid-template-columns:1fr}
+  .matrix .cell{border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .tf-card{border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .tape .ticks{display:none}
+  .shell{padding:0 18px}
+}
+@media print{
+  body{background:#fff}
+  .tape{display:none}
+  .section{break-inside:avoid;page-break-inside:avoid}
+  .shell{max-width:none;padding:0 12mm}
+}
+</style>
+</head>
+<body>
+<div class="tape"><div class="row">
+    <div class="ticks"><span class="tick"><b>SPX</b> <span class="v">7,403.05</span> <span class="down">-0.07%</span></span><span class="tick"><b>NDX</b> <span class="v">26,090.73</span> <span class="down">-0.51%</span></span><span class="tick"><b>DJI</b> <span class="v">49,686.12</span> <span class="up">+0.32%</span></span><span class="tick"><b>UST10Y</b> <span class="v">4.61%</span> <span class="up">+2bp</span></span><span class="tick"><b>UST2Y</b> <span class="v">4.07%</span> <span class="down">-2bp</span></span><span class="tick"><b>VIX</b> <span class="v">17.82</span> <span class="down">-3.31%</span></span><span class="tick"><b>DXY</b> <span class="v">119.2825</span> <span class="up">+0.52%</span></span><span class="tick"><b>WTI</b> <span class="v">$101.56</span> <span class="up">+2.72%</span></span><span class="tick"><b>USD/KRW</b> <span class="v">1,499.61</span> <span class="up">+0.53%</span></span></div>
+    <div class="right"><span class="live">LIVE</span><span>2026-05-20-07:38 KST</span></div>
+  </div></div>
+<header class="masthead"><div class="shell">
+    <div class="top">
+      <div class="brand">
+        <span class="logo">FM</span>
+        <h1 class="wordmark">FRED Market Briefing</h1>
+        <span class="sub">Daily Macro Almanac</span>
+      </div>
+      <div class="meta">
+        <span><b>VOL. 2026 · NO. 140</b></span>
+        <span>2026-05-20 <b>수/WED</b></span>
+        <span>KOREA STANDARD TIME</span>
+      </div>
+    </div>
+    <span class="kicker"><span class="dot"></span>오늘의 마켓 브리핑<span class="sep">·</span>FRED + 연관 데이터<span class="sep">·</span>일간 정기 발행</span>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero">[데일리 마감] 미 증시 혼조… 금리 경고·유가 급등 부담</h1>
+        <p class="deck">뉴욕 증시는 미 국채 금리 상승 경고와 중동발 유가 급등 압력 속에서 혼조세를 보이며 마감했다. 다우존스30 산업평균지수는 상승했으나, 기술주 중심의 나스닥 종합지수는 하락했다. 연방준비제도(연준)의 고금리 장기화 가능성과 인플레이션 압력이 시장 전반에 부담으로 작용하는 하루였다. 특히 반도체 섹터의 약세가 두드러졌다.</p>
+      </div>
+      <aside class="hero-side" aria-label="오늘의 주요 변동폭">
+        <h4><span>오늘의 주요 변동</span><span>TOP 5</span></h4>
+        <div class="row">
+    <span class="lbl">10Y-2Y Curve Spread</span>
+    <span class="val">0.54%<span class="chg up">+4bp</span></span>
+  </div><div class="row">
+    <span class="lbl">VIX</span>
+    <span class="val">17.82<span class="chg down">-3.31%</span></span>
+  </div><div class="row">
+    <span class="lbl">WTI 유가</span>
+    <span class="val">$101.56<span class="chg up">+2.72%</span></span>
+  </div><div class="row">
+    <span class="lbl">브렌트유</span>
+    <span class="val">$106.11<span class="chg up">+2.54%</span></span>
+  </div><div class="row">
+    <span class="lbl">미 국채 2년물</span>
+    <span class="val">4.07%<span class="chg down">-2bp</span></span>
+  </div>
+        <p class="note">변동폭 절대값 기준. 금리는 베이시스포인트(bp), 그 외에는 퍼센트(%)로 환산해 비교한다.</p>
+      </aside>
+    </div>
+  </div></header>
+<main>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 01</div>
+      <div>
+        <h2>오늘의 시장 지표</h2>
+        <p class="lede">미국 주식·금리·변동성·환율 네 축의 종가와 전일 대비 변화를 한눈에 확인한다. 변동폭은 전 영업일 대비이며, 금리는 베이시스포인트(bp)로 표시합니다.</p>
+      </div>
+    </div>
+    <div class="matrix"><div class="cell">
+    <div class="lbl"><span class="ticker">S&amp;P 500</span><span>주요 지수</span></div>
+    <div class="val mono">7,403.05</div>
+    <div class="chg down mono">↓ -0.07%<span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+    <div class="spark"><svg viewBox="0 0 200 42" preserveAspectRatio="none" width="100%" height="42">
+      <line x1="142.7" y1="21" x2="57.3" y2="21" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line>
+      <circle cx="142.7" cy="21" r="3.5" fill="var(--paper)" stroke="var(--down)" stroke-width="1.6"></circle>
+      <circle cx="57.3" cy="21" r="4.2" fill="var(--down)"></circle>
+      <text x="142.7" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">7,408.50</text>
+      <text x="57.3" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">7,403.05</text>
+    </svg></div>
+    <div class="foot"><span>OBS 2026-05-18</span><span>PREV 2026-05-15</span></div>
+  </div><div class="cell">
+    <div class="lbl"><span class="ticker">미 국채 10년물</span><span>금리</span></div>
+    <div class="val mono">4<span class="frac">.61%</span></div>
+    <div class="chg up mono">↑ +2bp<span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+    <div class="spark"><svg viewBox="0 0 200 42" preserveAspectRatio="none" width="100%" height="42">
+      <line x1="57.3" y1="21" x2="142.7" y2="21" stroke="var(--up)" stroke-width="3" stroke-linecap="round"></line>
+      <circle cx="57.3" cy="21" r="3.5" fill="var(--paper)" stroke="var(--up)" stroke-width="1.6"></circle>
+      <circle cx="142.7" cy="21" r="4.2" fill="var(--up)"></circle>
+      <text x="57.3" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.59</text>
+      <text x="142.7" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">4.61</text>
+    </svg></div>
+    <div class="foot"><span>OBS 2026-05-18</span><span>PREV 2026-05-15</span></div>
+  </div><div class="cell">
+    <div class="lbl"><span class="ticker">VIX</span><span>변동성</span></div>
+    <div class="val mono">17.82</div>
+    <div class="chg down mono">↓ -3.31%<span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+    <div class="spark"><svg viewBox="0 0 200 42" preserveAspectRatio="none" width="100%" height="42">
+      <line x1="142.7" y1="21" x2="57.3" y2="21" stroke="var(--down)" stroke-width="3" stroke-linecap="round"></line>
+      <circle cx="142.7" cy="21" r="3.5" fill="var(--paper)" stroke="var(--down)" stroke-width="1.6"></circle>
+      <circle cx="57.3" cy="21" r="4.2" fill="var(--down)"></circle>
+      <text x="142.7" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">18.43</text>
+      <text x="57.3" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">17.82</text>
+    </svg></div>
+    <div class="foot"><span>OBS 2026-05-18</span><span>PREV 2026-05-15</span></div>
+  </div><div class="cell">
+    <div class="lbl"><span class="ticker">달러/원 환율</span><span>환율</span></div>
+    <div class="val mono">1,499.61</div>
+    <div class="chg up mono">↑ +0.53%<span style="color:var(--muted);font-weight:500;margin-left:6px">전일 대비</span></div>
+    <div class="spark"><svg viewBox="0 0 200 42" preserveAspectRatio="none" width="100%" height="42">
+      <line x1="57.3" y1="21" x2="142.7" y2="21" stroke="var(--up)" stroke-width="3" stroke-linecap="round"></line>
+      <circle cx="57.3" cy="21" r="3.5" fill="var(--paper)" stroke="var(--up)" stroke-width="1.6"></circle>
+      <circle cx="142.7" cy="21" r="4.2" fill="var(--up)"></circle>
+      <text x="57.3" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">1,491.75</text>
+      <text x="142.7" y="39" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink)" font-weight="700">1,499.61</text>
+    </svg></div>
+    <div class="foot"><span>OBS 2026-05-15</span><span>PREV 2026-05-14</span></div>
+  </div></div>
+    <ul class="lede3"><li>미국 증시는 다우존스30 산업평균지수가 0.32% 상승한 반면, S&amp;P500지수와 나스닥 종합지수는 각각 0.07%, 0.51% 하락하며 혼조세를 기록했다.</li><li>미 국채 10년물 금리는 4.61%로 상승했고, 중동 분쟁에 따른 유가 급등 우려가 개인소비지출(PCE) 물가지수 상승 위험을 키웠다.</li><li>기술주와 반도체 섹터가 약세를 보인 반면, 에너지와 금융 섹터는 강세를 나타내며 시장 내 차별화가 심화했다.</li></ul>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 02</div>
+      <div>
+        <h2>오늘의 시장 신호 / 4축 요약</h2>
+        <p class="lede">주식·금리·변동성·달러를 각각 하나의 문장으로 요약합니다. 평소와 다른 패턴이 보이는 항목에는 "주가↑인데 VIX↑"처럼 그 의미를 함께 적었다.</p>
+      </div>
+    </div>
+    <div class="verdicts">
+      <article class="verdict warn">
+        <h4>주식</h4>
+        <p class="v">박스권</p>
+        <p>S&amp;P 500이 -0.07%로 7,403.05에 마감했다. 차익실현 압력이 우위인 환경이다.</p>
+        <p class="ev mono">S&amp;P 500 7,403.05 · -0.07%</p>
+      </article><article class="verdict warn">
+        <h4>금리</h4>
+        <p class="v">장·단기 엇갈림</p>
+        <p>2년물 -2bp, 10년물 +2bp. 할인율(미래 현금흐름을 현재가치로 깎는 비율)이 높아져 성장주에 부담이다.</p>
+        <p class="ev mono">2Y 4.07% · 10Y 4.61%</p>
+      </article><article class="verdict ">
+        <h4>변동성</h4>
+        <p class="v">안도 분위기</p>
+        <p>VIX 17.82. 옵션 시장은 변동성 축소에 베팅 중이다.</p>
+        <p class="ev mono">VIX 17.82 · -3.31%</p>
+      </article><article class="verdict ">
+        <h4>달러</h4>
+        <p class="v">달러 강세</p>
+        <p>DXY +0.52%, USD/KRW +0.53%. 원화 약세 압력이 동시에 들어옵니다.</p>
+        <p class="ev mono">DXY 119.28 · KRW 1,499.61</p>
+      </article>
+    </div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 03</div>
+      <div>
+        <h2>전체 지표 데이터 · 일드 커브</h2>
+        <p class="lede">표는 오늘 마감된 모든 지표의 종가와 변동폭을 그대로 보여줍니다. 우측 곡선은 만기별 금리를 한 그림으로 묶어, 시장이 단기와 장기를 어떻게 다르게 보는지 비교한다.</p>
+      </div>
+    </div>
+    <div class="data-grid">
+      <table class="data-table">
+    <caption>전체 지표 데이터</caption>
+    <thead><tr><th>지표</th><th>분류</th><th class="num">종가</th><th class="num">변동</th><th>관측일</th></tr></thead>
+    <tbody><tr>
+      <td class="lbl-ko">S&amp;P 500 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>주요 지수</td>
+      <td class="num">7,403.05</td>
+      <td class="num down">-0.07%</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">나스닥종합지수 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>주요 지수</td>
+      <td class="num">26,090.73</td>
+      <td class="num down">-0.51%</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">다우지수 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>주요 지수</td>
+      <td class="num">49,686.12</td>
+      <td class="num up">+0.32%</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">원-엔 환율(100엔당) <span class="chip delayed" style="margin-left:6px;font-size:9px;padding:1px 5px">지연</span></td>
+      <td>한국 시장</td>
+      <td class="num">944.99</td>
+      <td class="num up">+0.14%</td>
+      <td class="obs">2026-05-15</td>
+    </tr><tr>
+      <td class="lbl-ko">미 국채 2년물 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>금리</td>
+      <td class="num">4.07%</td>
+      <td class="num down">-2bp</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">미 국채 10년물 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>금리</td>
+      <td class="num">4.61%</td>
+      <td class="num up">+2bp</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">실효 연방기금금리 <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>금리</td>
+      <td class="num">3.63%</td>
+      <td class="num flat">0bp</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">10Y-2Y Curve Spread <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>금리</td>
+      <td class="num">0.54%</td>
+      <td class="num up">+4bp</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">VIX <span class="chip fresh" style="margin-left:6px;font-size:9px;padding:1px 5px">최신</span></td>
+      <td>변동성</td>
+      <td class="num">17.82</td>
+      <td class="num down">-3.31%</td>
+      <td class="obs">2026-05-18</td>
+    </tr><tr>
+      <td class="lbl-ko">달러/원 환율 <span class="chip delayed" style="margin-left:6px;font-size:9px;padding:1px 5px">지연</span></td>
+      <td>환율</td>
+      <td class="num">1,499.61</td>
+      <td class="num up">+0.53%</td>
+      <td class="obs">2026-05-15</td>
+    </tr><tr>
+      <td class="lbl-ko">광의 달러지수 <span class="chip delayed" style="margin-left:6px;font-size:9px;padding:1px 5px">지연</span></td>
+      <td>환율</td>
+      <td class="num">119.2825</td>
+      <td class="num up">+0.52%</td>
+      <td class="obs">2026-05-15</td>
+    </tr><tr>
+      <td class="lbl-ko">달러/엔 환율 <span class="chip delayed" style="margin-left:6px;font-size:9px;padding:1px 5px">지연</span></td>
+      <td>환율</td>
+      <td class="num">158.69</td>
+      <td class="num up">+0.39%</td>
+      <td class="obs">2026-05-15</td>
+    </tr><tr>
+      <td class="lbl-ko">WTI 유가 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
+      <td>원자재</td>
+      <td class="num">$101.56</td>
+      <td class="num up">+2.72%</td>
+      <td class="obs">2026-05-11</td>
+    </tr><tr>
+      <td class="lbl-ko">브렌트유 <span class="chip stale" style="margin-left:6px;font-size:9px;padding:1px 5px">오래됨</span></td>
+      <td>원자재</td>
+      <td class="num">$106.11</td>
+      <td class="num up">+2.54%</td>
+      <td class="obs">2026-05-11</td>
+    </tr></tbody>
+  </table>
+      <div class="curve-card">
+    <h3>장단기 금리 스프레드 (10Y–2Y)</h3>
+    <p class="sub">경기 침체 신호의 핵심 지표 · 음수면 역전</p>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:8px 0 14px">
+        <div style="font-family:'Source Serif 4',serif;font-weight:800;font-size:3.2rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums">+54<span style="font-size:1.4rem;color:var(--muted)">bp</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span class="mono up" style="font-size:12px;font-weight:600">+4bp 전일 대비</span>
+          <span class="mono" style="font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">10Y–2Y · 정상 곡선 · 0bp가 침체 임계</span>
+        </div>
+      </div>
+    <svg viewBox="0 0 380 200" width="100%" role="img" aria-label="Yield curve">
+      <line x1="40" y1="164.0" x2="364" y2="164.0" stroke="var(--grid)" stroke-width="1"></line>
+          <text x="34" y="164.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">3.58</text><line x1="40" y1="126.5" x2="364" y2="126.5" stroke="var(--grid)" stroke-width="1"></line>
+          <text x="34" y="126.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">3.85</text><line x1="40" y1="89.0" x2="364" y2="89.0" stroke="var(--grid)" stroke-width="1"></line>
+          <text x="34" y="89.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.12</text><line x1="40" y1="51.5" x2="364" y2="51.5" stroke="var(--grid)" stroke-width="1"></line>
+          <text x="34" y="51.5" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.39</text><line x1="40" y1="14.0" x2="364" y2="14.0" stroke="var(--grid)" stroke-width="1"></line>
+          <text x="34" y="14.0" text-anchor="end" dominant-baseline="middle" font-family="JetBrains Mono" font-size="9" fill="var(--muted)">4.66</text>
+      <text x="40.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">EFFR</text><text x="202.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">2Y</text><text x="364.0" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink)" font-weight="700">10Y</text>
+      <path d="M40.0,157.1 L202.0,93.2 L364.0,23.7" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="3 3"></path>
+      <path d="M40.0,157.1 L202.0,95.9 L364.0,20.9" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"></path>
+      <circle cx="40.0" cy="157.1" r="3.4" fill="var(--accent)"></circle>
+        <text x="40.0" y="147.1" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">3.63</text><circle cx="202.0" cy="95.9" r="3.4" fill="var(--accent)"></circle>
+        <text x="202.0" y="85.9" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">4.07</text><circle cx="364.0" cy="20.9" r="3.4" fill="var(--accent)"></circle>
+        <text x="364.0" y="10.9" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--ink)" font-weight="700">4.61</text>
+      <g font-family="JetBrains Mono" font-size="9" fill="var(--muted)">
+        <line x1="44" y1="14" x2="64" y2="14" stroke="var(--accent)" stroke-width="2"></line>
+        <text x="68" y="17">오늘</text>
+        <line x1="108" y1="14" x2="128" y2="14" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="3 3"></line>
+        <text x="132" y="17">전일</text>
+      </g>
+    </svg>
+    <p style="margin:14px 0 0;font-size:.84rem;color:var(--muted);line-height:1.55">
+      이 그림은 만기가 짧은 금리(왼쪽)부터 긴 금리(오른쪽)를 차례로 잇다.
+      <b>우상향</b>이면 정상, <b>평탄·하향</b>이면 경기 둔화 신호로 해석합니다.
+    </p>
+  </div>
+    </div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 04</div>
+      <div>
+        <h2>오늘의 핵심 이슈</h2>
+        <p class="lede">데이터 한 줄로 끝낼 수 없는 이슈를 풀어 적다. <em>WHAT</em> 어떤 사실인지, <em>WHY</em> 왜 시장이 그렇게 반응했는지, <em>WATCH</em> 앞으로 무엇을 봐야 하는지로 나눕니다.</p>
+      </div>
+    </div>
+    <div class="issues">
+      <article class="issue">
+        <div class="idx">01</div>
+        <div>
+          <h3>미 국채 금리 상승 경고와 연준 정책 불확실성</h3>
+          <dl>
+            <dt>WHAT · 사실</dt><dd>일부 차트 분석에서 미 국채 금리가 상당폭 상승할 가능성이 제기되었으며, 모건스탠리는 2027년 연준의 금리 인하 전망을 두 차례로 수정했다. 트럼프 전 대통령은 연준 의장 후보에게 금리 결정 자율성을 시사했다.</dd>
+            <dt>WHY · 반응</dt><dd>미 국채 금리 상승 경고는 시장의 고금리 장기화 우려를 심화시켰다. 연준의 금리 인하 기대가 약화되면서 성장주에 대한 밸류에이션 부담이 커졌다. 다만 트럼프의 발언은 연준 독립성 유지에 대한 기대를 일부 높였다.</dd>
+            <dt>WATCH · 관측</dt><dd>2026년 5월 20일 발표될 연방공개시장위원회(FOMC) 의사록에서 연준 위원들의 금리 인하 경로에 대한 구체적인 논의를 확인한다. 미 국채 10년물 금리가 4.70%를 상회할 경우 시장 변동성이 확대될 수 있다.</dd>
+          </dl>
+        </div>
+      </article><article class="issue">
+        <div class="idx">02</div>
+        <div>
+          <h3>중동 분쟁발 유가 급등과 인플레이션 압력</h3>
+          <dl>
+            <dt>WHAT · 사실</dt><dd>중동 분쟁으로 인한 유가 상승이 미국 개인소비지출(PCE) 물가지수 상승 위험을 높이고 있다는 분석이 나왔다. 서부텍사스산원유(WTI)는 보충 시세 기준 107.08달러를 기록했다.</dd>
+            <dt>WHY · 반응</dt><dd>유가 급등은 전반적인 물가 상승 압력으로 작용하며 연방준비제도(연준)의 통화정책 긴축 기조를 장기화시킬 수 있다는 우려를 키웠다. 이는 소비 심리 위축과 기업 비용 증가로 이어질 가능성이 있다.</dd>
+            <dt>WATCH · 관측</dt><dd>향후 중동 정세 변화와 함께 WTI 유가가 110달러를 돌파하는지 주시한다. 2026년 5월 21일 발표될 주간 신규 실업수당 청구건수와 5월 22일 S&amp;P 글로벌 미국 제조업·서비스업 구매관리자지수(PMI)를 통해 소비 및 생산 활동의 변화를 확인한다.</dd>
+          </dl>
+        </div>
+      </article><article class="issue">
+        <div class="idx">03</div>
+        <div>
+          <h3>기술주 및 반도체 섹터 약세 심화</h3>
+          <dl>
+            <dt>WHAT · 사실</dt><dd>나스닥 종합지수가 0.51% 하락했으며, 미국 기술 ETF(XLK)는 1.08%, 미국 반도체 ETF(SOXX)는 2.49% 급락했다. 코어위브 주가는 구글 클라우드 경쟁 심화 우려로 하락했다.</dd>
+            <dt>WHY · 반응</dt><dd>고금리 장기화 우려와 지정학적 리스크가 복합적으로 작용하며 기술주와 반도체 섹터에 대한 투자 심리가 위축되었다. 특히 반도체 업종은 높은 성장 기대에도 불구하고 금리 민감도가 높아 부담이 가중되었다.</dd>
+            <dt>WATCH · 관측</dt><dd>미 국채 10년물 금리가 4.50% 이하로 안정되는지 확인한다. SOXX 지수가 490포인트 지지선을 하회할 경우 추가적인 기술주 조정 가능성을 열어둔다.</dd>
+          </dl>
+        </div>
+      </article><article class="issue">
+        <div class="idx">04</div>
+        <div>
+          <h3>금융 및 에너지 섹터의 상대적 강세</h3>
+          <dl>
+            <dt>WHAT · 사실</dt><dd>미국 금융 ETF(XLF)는 1.25%, 미국 에너지 ETF(XLE)는 2.36% 상승하며 시장 대비 강세를 보였다.</dd>
+            <dt>WHY · 반응</dt><dd>금융 섹터는 장기 금리 상승에 따른 순이자마진(NIM) 개선 기대감으로 강세를 나타냈다. 에너지 섹터는 중동 분쟁으로 인한 유가 급등의 직접적인 수혜를 받으며 상승했다.</dd>
+            <dt>WATCH · 관측</dt><dd>미 국채 10년물 금리가 4.60% 이상을 유지하는지, WTI 유가가 105달러 이상을 지속하는지 확인한다. 이들 지표가 유지될 경우 해당 섹터의 상대 강세가 이어질 수 있다.</dd>
+          </dl>
+        </div>
+      </article><article class="issue">
+        <div class="idx">05</div>
+        <div>
+          <h3>아스테라 랩스 주가 급등, 개별 기업 모멘텀</h3>
+          <dl>
+            <dt>WHAT · 사실</dt><dd>아스테라 랩스 주가가 신규 스위치 제품 출시 일정과 광 네트워킹 부문의 매출 기회 언급에 힘입어 크게 상승했다.</dd>
+            <dt>WHY · 반응</dt><dd>거시 경제 불확실성 속에서도 개별 기업의 명확한 성장 모멘텀과 신제품 출시에 대한 기대감이 투자자들의 매수 심리를 자극했다. 이는 특정 기술 혁신을 보유한 기업에 대한 시장의 선별적인 접근을 보여준다.</dd>
+            <dt>WATCH · 관측</dt><dd>아스테라 랩스의 다음 분기 실적 발표에서 신제품 매출 기여도와 가이던스를 확인한다. 유사한 기술 혁신 기업들의 실적 발표에 대한 시장 반응을 주시한다.</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 05</div>
+      <div>
+        <h2>상위 시간축 인사이트</h2>
+        <p class="lede">오늘의 마감 신호를 주간·월간·분기·연간 흐름 안에서 다시 해석합니다. 판단은 짧게, 한국시장 연결은 섹터와 확인 지표 중심으로 정리합니다.</p>
+      </div>
+    </div>
+    <div class="timeframes">
+      <article class="tf-card">
+        <div class="top">WEEKLY</div>
+        <h3>주간: 고금리 부담 흡수 여부와 섹터 차별화</h3>
+        <dl>
+          <div><dt>판단</dt><dd>이번 주 시장은 미국 증시 강세가 장기금리 부담을 얼마나 흡수할 수 있는지에 따라 섹터별 차별화가 심화될 전망이다.</dd></div>
+          <div><dt>의미</dt><dd>주가와 금리가 동반 상승하는 국면에서는 유동성보다 기업 이익 모멘텀에 대한 의존도가 커진다. 이 경우 지수 전반은 견조하더라도 상승 종목 수가 제한되며 섹터 간 수익률 격차가 확대될 수 있다.</dd></div>
+          <div><dt>한국시장</dt><dd>한국 시장에서는 반도체(삼성전자, SK하이닉스)가 미국 기술주 및 SOXX 지수 흐름을 따를 가능성이 크다. 반면 2차전지(LG에너지솔루션, 에코프로비엠)와 바이오(삼성바이오로직스, 셀트리온)는 금리 부담에 더욱 민감하게 반응할 수 있어 장기금리 상단 확인이 중요하다.</dd></div>
+        </dl>
+        <p class="watch"><span>미 국채 10년물 4.50% 지지 여부</span><span>달러/원 환율 1,510원 상회 지속 여부</span><span>SOXX 지수 490포인트 하회 여부</span><span>2026년 5월 20일 연방공개시장위원회 의사록 내용</span></p>
+      </article><article class="tf-card">
+        <div class="top">MONTHLY</div>
+        <h3>월간: 금리 상단과 달러 방향이 위험자산 선호 제한</h3>
+        <dl>
+          <div><dt>판단</dt><dd>이달 시장 흐름은 금리 상단과 달러 강세가 위험자산 선호 심리를 얼마나 제한하는지가 핵심 변수다.</dd></div>
+          <div><dt>의미</dt><dd>월간 기준으로 달러와 금리가 동시에 강해지면 신흥국 통화 가치 하락과 외국인 매도세로 이어져 자본 유출 압력이 커진다. 주가가 반등하더라도 환율이 안정되지 않으면 한국 증시의 상승 지속성은 약화될 수 있다.</dd></div>
+          <div><dt>한국시장</dt><dd>달러/원 환율은 보충 시세 기준 1,510.60원 부근에서 한국 수출주(현대차, 기아, HD현대중공업)와 외국인 매매를 가르는 중요한 변수다. 자동차와 조선은 환율 방어력이 있지만, 인터넷/플랫폼(NAVER, 카카오)과 바이오는 금리·환율 동반 상승에 취약할 수 있다.</dd></div>
+        </dl>
+        <p class="watch"><span>달러/원 환율 1,520원 돌파 여부</span><span>광의 달러지수(DXY) 100선 상회 여부</span><span>변동성지수(VIX) 20선 재돌파 여부</span><span>코스피 외국인 순매수 전환 여부</span></p>
+      </article><article class="tf-card">
+        <div class="top">QUARTERLY</div>
+        <h3>분기: 실적 모멘텀과 연준 정책 경로의 충돌 검증</h3>
+        <dl>
+          <div><dt>판단</dt><dd>이번 분기는 기업 실적 모멘텀과 연방준비제도(연준)의 정책 경로가 충돌하며 시장의 방향성을 결정하는 검증 구간이다.</dd></div>
+          <div><dt>의미</dt><dd>기업 실적이 개선되더라도 금리 인하 기대가 후퇴하면 주가 밸류에이션 확장은 제한적이다. 분기 흐름은 실적 전망 상향 폭이 금리 부담을 넘어서는지에 따라 성장주와 가치주의 상대적 우위가 갈릴 수 있다.</dd></div>
+          <div><dt>한국시장</dt><dd>반도체(삼성전자, SK하이닉스)는 인공지능(AI) 투자와 메모리 업황 개선이 이어진다면 분기 주도 업종으로 남을 수 있다. 금융(KB금융, 신한지주)은 한국 장기금리 동조성과 순이자마진(NIM)에, 조선(HD현대중공업, 삼성중공업)과 방산(한화에어로, LIG넥스원)은 달러 강세와 지정학적 리스크에 따라 상대 강도가 결정된다.</dd></div>
+        </dl>
+        <p class="watch"><span>미 국채 10년물 4.50% 이상 유지 여부</span><span>장단기 금리차 0bp 수렴 여부</span><span>SOXX 지수의 분기별 상대 강도</span><span>주요 기업들의 분기 실적 가이던스 변화</span></p>
+      </article><article class="tf-card">
+        <div class="top">YEARLY</div>
+        <h3>연간: 인공지능(AI) 사이클과 고금리 레짐의 공존</h3>
+        <dl>
+          <div><dt>판단</dt><dd>연간 시장의 핵심 테마는 인공지능(AI) 투자 사이클과 고금리 레짐의 공존 속에서 수익률이 결정될 전망이다.</dd></div>
+          <div><dt>의미</dt><dd>인공지능(AI) 투자 확대는 반도체와 전력 인프라 수요를 지지하지만, 고금리는 장기 성장주의 현재가치 평가를 압박한다. 연간 수익률은 구조적 테마의 힘보다 금리와 달러가 어느 수준에서 안정되는지에 크게 좌우될 가능성이 있다.</dd></div>
+          <div><dt>한국시장</dt><dd>한국 시장에서는 반도체(삼성전자, SK하이닉스), 전력기기, 조선(HD현대중공업), 방산(한화에어로)이 구조적 테마와 연결된다. 2차전지(LG에너지솔루션), 바이오(삼성바이오로직스), 인터넷/플랫폼(NAVER, 카카오)은 금리 하락과 실적 회복 신호가 함께 나와야 연간 상대 성과가 개선될 여지가 있다.</dd></div>
+        </dl>
+        <p class="watch"><span>연방준비제도(연준)의 연간 금리 인하 횟수</span><span>미 국채 10년물 금리 4.00~4.50% 밴드 유지 여부</span><span>달러지수(DXY)의 연간 방향성</span><span>글로벌 인공지능(AI) 설비투자 전망치 변화</span></p>
+      </article>
+    </div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 06</div>
+      <div>
+        <h2>섹터 히트맵</h2>
+        <p class="lede">SPDR 섹터 ETF의 일간 변동폭. 같은 날에도 어떤 업종이 시장 전체를 앞섰고 어떤 업종이 뒤처졌는지 한눈에 보여줍니다.</p>
+      </div>
+    </div>
+    <div class="sectors"><div class="sector-row">
+      <div class="name"><span class="ticker">XLE</span><span class="ko">에너지</span></div>
+      <div class="bar-track"><div class="bar-fill " style="left:50%;width:47.39%"></div></div>
+      <div class="pct up">+2.36%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLF</span><span class="ko">금융</span></div>
+      <div class="bar-track"><div class="bar-fill " style="left:50%;width:25.10%"></div></div>
+      <div class="pct up">+1.25%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLU</span><span class="ko">유틸리티</span></div>
+      <div class="bar-track"><div class="bar-fill " style="left:50%;width:3.21%"></div></div>
+      <div class="pct up">+0.16%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLP</span><span class="ko">필수소비재</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:41.967871485943775%;width:8.03%"></div></div>
+      <div class="pct down">-0.40%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLI</span><span class="ko">산업재</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:39.3574297188755%;width:10.64%"></div></div>
+      <div class="pct down">-0.53%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLV</span><span class="ko">헬스케어</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:29.116465863453815%;width:20.88%"></div></div>
+      <div class="pct down">-1.04%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLK</span><span class="ko">기술</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:28.313253012048193%;width:21.69%"></div></div>
+      <div class="pct down">-1.08%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLRE</span><span class="ko">리츠</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:18.87550200803213%;width:31.12%"></div></div>
+      <div class="pct down">-1.55%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">XLY</span><span class="ko">임의소비재</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:13.855421686746986%;width:36.14%"></div></div>
+      <div class="pct down">-1.80%</div>
+    </div><div class="sector-row">
+      <div class="name"><span class="ticker">SOXX</span><span class="ko">반도체</span></div>
+      <div class="bar-track"><div class="bar-fill neg" style="left:0%;width:50.00%"></div></div>
+      <div class="pct down">-2.49%</div>
+    </div></div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 07</div>
+      <div>
+        <h2>다가오는 일정 · 한국 시장 체크포인트</h2>
+        <p class="lede">앞으로 시장을 흔들 수 있는 미국 경제 일정과, 한국 시장 관점에서 봐야 할 임계 수준을 묶어 적다.</p>
+      </div>
+    </div>
+    <div class="data-grid">
+      <div class="timeline-card">
+        <h3>이코노믹 캘린더</h3>
+        <p class="sub">UPCOMING U.S. RELEASES</p>
+        <div class="tl-list">
+          <div class="tl-event ">
+              <div class="when"><span class="day">수</span>5/20</div>
+              <div class="name">미국 20년물 국채 입찰<span class="ko">This auction gauges investor demand for long-term US government debt, influencing bond yields and borrowing costs.</span></div>
+              <div class="imp">MEDIUM</div>
+            </div><div class="tl-event ">
+              <div class="when"><span class="day">수</span>5/20</div>
+              <div class="name">미국 17주물 국채 입찰<span class="ko">Treasury bill auctions are important for short-term government funding and money market liquidity.</span></div>
+              <div class="imp">LOW</div>
+            </div><div class="tl-event high">
+              <div class="when"><span class="day">수</span>5/20</div>
+              <div class="name">연방공개시장위원회 의사록<span class="ko">The minutes offer detailed insights into the Federal Reserve's discussions on monetary policy, economic outlook, and future interest rate path.</span></div>
+              <div class="imp">HIGH</div>
+            </div><div class="tl-event ">
+              <div class="when"><span class="day">수</span>5/20</div>
+              <div class="name">Michael Barr Speech (마이클 바 연준 이사 연설)<span class="ko">Comments from Fed officials can provide clues about future monetary policy.</span></div>
+              <div class="imp">MEDIUM</div>
+            </div><div class="tl-event high">
+              <div class="when"><span class="day">목</span>5/21</div>
+              <div class="name">주간 신규 실업수당 청구건수<span class="ko">This data provides a real-time look at the health of the US labor market.</span></div>
+              <div class="imp">HIGH</div>
+            </div><div class="tl-event high">
+              <div class="when"><span class="day">목</span>5/21</div>
+              <div class="name">연방공개시장위원회 의사록<span class="ko">The minutes offer detailed insights into the Federal Reserve's discussions on monetary policy, economic outlook, and future interest rate path.</span></div>
+              <div class="imp">HIGH</div>
+            </div><div class="tl-event ">
+              <div class="when"><span class="day">목</span>5/21</div>
+              <div class="name">Christopher Waller Discussion (크리스토퍼 월러 연준 이사 토론)<span class="ko">Discussions from Fed officials can offer insights into their economic perspectives.</span></div>
+              <div class="imp">MEDIUM</div>
+            </div><div class="tl-event ">
+              <div class="when"><span class="day">목</span>5/21</div>
+              <div class="name">미국 4주물 국채 입찰<span class="ko">Treasury bill auctions are important for short-term government funding and money market liquidity.</span></div>
+              <div class="imp">LOW</div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <div class="checkpoints">
+          <div class="checkpoint">
+            <div class="marker">CHECK 01</div>
+            <p>미 국채 10년물 금리가 4.70%를 상향 돌파할 경우, 한국 성장주(반도체, 바이오, 인터넷/플랫폼)의 밸류에이션 부담이 가중되며 외국인 매도세가 심화될 가능성이 있다.</p>
+          </div><div class="checkpoint">
+            <div class="marker">CHECK 02</div>
+            <p>달러/원 환율이 1,520원을 넘어설 경우, 한국 수출 기업(자동차, 조선)의 환율 효과가 일부 상쇄되고 외국인 자금 유출 압력이 커지면서 코스피지수 전반의 하방 압력이 확대될 수 있다.</p>
+          </div><div class="checkpoint">
+            <div class="marker">CHECK 03</div>
+            <p>미국 반도체 ETF(SOXX)가 490포인트 아래로 추가 하락할 경우, 삼성전자와 SK하이닉스 등 국내 반도체 대장주에 대한 투자 심리가 위축될 수 있어 주의가 필요하다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 08</div>
+      <div>
+        <h2>참고 포지셔닝 · 시나리오</h2>
+        <p class="lede">위 4축 신호와 일정을 종합해 가상의 멀티에셋 포트폴리오가 취할 만한 자세를 적다. 실제 매매 권유가 아니라 사고의 출발점이다.</p>
+      </div>
+    </div>
+    <div class="pos-grid">
+      <article class="pos-card ">
+      <div class="top">BASE CASE · 기본 시나리오</div>
+      <h3>매크로 불확실성 속 섹터 차별화에 대비하며, 방어적 성장주와 가치주 비중을 유지하는 전략이 유효하다.</h3>
+      <dl>
+        <dt>근거</dt><dd>미 국채 금리 상승 경고와 중동발 유가 급등은 연방준비제도(연준)의 고금리 장기화 가능성을 높여 시장 전반의 변동성을 키운다. 그러나 견조한 기업 실적 모멘텀을 가진 일부 섹터는 상대적 강세를 유지할 수 있다. 따라서 시장 전반의 방향성보다는 개별 섹터의 매크로 민감도와 펀더멘털을 고려한 선별적 접근이 필요하다.</dd>
+        <dt>긍정 요인</dt><dd>금리 상승과 인플레이션 압력에 덜 민감한 에너지, 금융 섹터 및 개별 모멘텀을 가진 기업에 대한 노출을 통해 시장 하방 위험을 일부 헤지하고 안정적인 수익을 추구할 수 있다.</dd>
+        <dt>부정 요인</dt><dd>기술주 중심의 시장 반등 시 상대적으로 소외될 수 있으며, 매크로 지표의 급격한 변화에 따라 포지션 조정이 필요할 수 있다.</dd>
+        <dt>트리거</dt><dd><ul><li>미 국채 10년물 금리 4.70% 상향 돌파 시</li><li>달러/원 환율 1,520원 돌파 시</li><li>미국 소비자물가지수(CPI) 또는 개인소비지출(PCE) 물가지수 컨센서스 상회 시</li></ul></dd>
+        <dt>실행 힌트</dt><dd>기술주 및 반도체 섹터 비중을 점진적으로 축소하고, 에너지 및 금융 섹터 비중을 늘리는 것을 검토할 여지가 있다. 동시에 고배당주와 필수소비재 등 방어적 성격의 자산에 대한 분할 진입을 고려한다.</dd>
+        
+      </dl>
+    </article>
+      <article class="pos-card alt">
+      <div class="top">ALT CASE · 대체 시나리오</div>
+      <h3>위험자산 선호 심리가 회복되며 기술주 중심의 시장 반등이 나타날 수 있다. 이 경우 성장주 비중 확대를 검토할 여지가 있다.</h3>
+      <dl>
+        
+        
+        
+        
+        
+        <dt>발동 조건</dt><dd>연방공개시장위원회(FOMC) 의사록에서 비둘기파적 기조가 확인되거나, 주간 신규 실업수당 청구건수가 예상치를 크게 상회하여 연준의 금리 인하 기대가 급격히 강화될 경우</dd>
+      </dl>
+    </article>
+    </div>
+    <p class="compliance">본 결과물은 정보 제공이며 투자자문이 아니다.</p>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 09</div>
+      <div>
+        <h2>오늘의 시장 해설</h2>
+        <p class="lede">데이터를 잇는 흐름과 맥락을 풀어 적다.</p>
+      </div>
+    </div>
+    <div class="essay"><p>간밤 뉴욕 증시는 다우존스30 산업평균지수의 상승에도 불구하고 S&amp;P500지수와 나스닥 종합지수가 하락하며 혼조세를 보였다. 이는 미 국채 금리 상승 경고와 중동발 유가 급등이라는 거시적 압력이 시장 전반에 부담으로 작용한 결과이다. 특히 기술주와 반도체 섹터의 약세가 두드러지며 시장 내 차별화가 심화되었다.</p><p>미 국채 10년물 금리가 4.61%까지 오르면서 연방준비제도(연준)의 고금리 장기화 가능성에 대한 우려가 다시 고개를 들었다. 이는 실질금리 상승과 기간 프리미엄 유지라는 매크로 배경 속에서 성장주의 밸류에이션 매력을 떨어뜨리는 핵심 요인으로 작용한다. 유가 급등은 인플레이션 재점화 가능성을 높여 연준의 통화정책 여력을 더욱 제한할 수 있다.</p><p>한국 시장은 이러한 미국 시장의 흐름에 민감하게 반응할 것으로 예상된다. 미 국채 10년물 금리가 4.70%를 상회하거나 달러/원 환율이 1,520원을 돌파할 경우, 국내 성장주(반도체, 바이오, 인터넷/플랫폼)의 조정 압력이 커지고 외국인 자금 유출이 가속화될 수 있다. 반면 에너지, 금융, 조선, 방산 등은 상대적으로 견조한 흐름을 보일 가능성이 있다.</p><p>투자자들은 매크로 지표의 변화와 연방공개시장위원회(FOMC) 의사록 등 주요 이벤트를 주시하며 포트폴리오의 방어력을 높이는 전략을 검토해야 한다. 특히 금리 민감도가 높은 성장주 비중을 조절하고, 유가 및 금리 상승에 수혜를 받는 섹터에 대한 선별적 접근을 통해 변동성 장세에 대비할 필요가 있다.</p></div>
+  </div></section>
+<section class="section"><div class="shell">
+    <div class="section-head">
+      <div class="num"><span class="bar"></span>§ 10</div>
+      <div>
+        <h2>데이터 업데이트 현황</h2>
+        <p class="lede">각 지표가 언제 마감된 데이터를 사용했는지 표시합니다. <span class="chip fresh">최신</span>은 당일, <span class="chip delayed">지연</span>은 1영업일, <span class="chip stale">오래됨</span>은 그 이상이다.</p>
+      </div>
+    </div>
+    
+    <div style="display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--muted);margin:0 0 18px;flex-wrap:wrap">
+      <span><span class="chip fresh" style="margin-right:6px">최신</span>7건</span>
+      <span><span class="chip delayed" style="margin-right:6px">지연</span>3건</span>
+      <span><span class="chip stale" style="margin-right:6px">오래됨</span>2건</span>
+      <span style="margin-left:auto">기준일 2026-05-20</span>
+    </div>
+    <div class="fresh-grid">
+      <div class="fresh-cell">
+        <div class="top">
+          <span>DCOILWTICO</span>
+          <span class="chip stale">오래됨</span>
+        </div>
+        <div class="lbl">WTI 유가</div>
+        <div class="obs">OBS · 2026-05-11 · 7영업일 전</div>
+      </div><div class="fresh-cell">
+        <div class="top">
+          <span>DCOILBRENTEU</span>
+          <span class="chip stale">오래됨</span>
+        </div>
+        <div class="lbl">브렌트유</div>
+        <div class="obs">OBS · 2026-05-11 · 7영업일 전</div>
+      </div><div class="fresh-cell">
+        <div class="top">
+          <span>DEXKOUS</span>
+          <span class="chip delayed">지연</span>
+        </div>
+        <div class="lbl">달러/원 환율</div>
+        <div class="obs">OBS · 2026-05-15 · 3영업일 전</div>
+      </div><div class="fresh-cell">
+        <div class="top">
+          <span>DTWEXBGS</span>
+          <span class="chip delayed">지연</span>
+        </div>
+        <div class="lbl">광의 달러지수</div>
+        <div class="obs">OBS · 2026-05-15 · 3영업일 전</div>
+      </div><div class="fresh-cell">
+        <div class="top">
+          <span>DEXJPUS</span>
+          <span class="chip delayed">지연</span>
+        </div>
+        <div class="lbl">달러/엔 환율</div>
+        <div class="obs">OBS · 2026-05-15 · 3영업일 전</div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="colophon"><div class="shell">
+    <div class="row">
+      <span><b>FRED Market Briefing</b> · 자동 생성 데일리 브리핑</span>
+      <span>데이터 출처: FRED (Federal Reserve Bank of St. Louis) · [object Object]</span>
+    </div>
+    <div class="row">
+      <span>발행: 2026-05-20-07:38 KST</span>
+      <span>리포트 일자: 2026-05-20</span>
+      <span>모드: fred-api</span>
+    </div>
+    <div class="row">
+      <span>본 결과물은 정보 제공이며 투자자문이 아니다.</span>
+    </div>
+  </div></footer>
+</body>
+</html>
