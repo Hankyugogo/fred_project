@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-06-15",
-  "briefingTitle": "미 증시 동반 강세, 장기금리 4.48% 부담 점검",
-  "sourceRunId": "20260615T005351646Z",
-  "sourceGeneratedAt": "2026-06-15T00:45:49.879Z",
-  "validatedAt": "2026-07-12T12:50:25.186Z",
+  "reportDate": "2026-06-20",
+  "briefingTitle": "미 증시 동반 강세, 장기금리 4.46% 부담 점검",
+  "sourceRunId": "20260619T221231083Z",
+  "sourceGeneratedAt": "2026-06-19T22:11:38.577Z",
+  "validatedAt": "2026-07-12T12:50:25.199Z",
   "validationRunId": "20260712T125025164Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-07-12T12:50:16.494Z",
@@ -13,136 +13,136 @@
   },
   "overall": {
     "status": "complete",
-    "score": 83.4,
-    "classification": "confirmed"
+    "score": 33.3,
+    "classification": "miss"
   },
   "horizons": [
     {
       "horizonSessions": 1,
       "status": "complete",
-      "score": 66.7,
-      "classification": "mixed",
-      "hitCount": 2,
-      "partialCount": 0,
+      "score": 33.3,
+      "classification": "miss",
+      "hitCount": 0,
+      "partialCount": 2,
       "missCount": 1,
       "checks": [
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
           "expected": "up",
-          "actual": "up",
-          "result": "hit"
+          "actual": "down",
+          "result": "miss"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
-          "expected": "up",
-          "actual": "mixed",
-          "result": "miss"
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
-          "expected": "down",
-          "actual": "down",
-          "result": "hit"
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
         }
       ],
       "observations": {
         "SP500": {
           "id": "SP500",
           "label": "S&P 500",
-          "baseDate": "2026-06-12",
-          "baseValue": 7431.46,
-          "targetDate": "2026-06-15",
-          "actualValue": 7554.29,
+          "baseDate": "2026-06-18",
+          "baseValue": 7500.58,
+          "targetDate": "2026-06-22",
+          "actualValue": 7472.79,
           "horizonSessions": 1,
-          "absoluteChange": 122.83,
-          "percentChange": 1.6528,
+          "absoluteChange": -27.79,
+          "percentChange": -0.3705,
           "status": "complete"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
-          "baseDate": "2026-06-12",
-          "baseValue": 25888.84,
-          "targetDate": "2026-06-15",
-          "actualValue": 26683.94,
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "targetDate": "2026-06-22",
+          "actualValue": 26166.6,
           "horizonSessions": 1,
-          "absoluteChange": 795.1,
-          "percentChange": 3.0712,
+          "absoluteChange": -351.33,
+          "percentChange": -1.3249,
           "status": "complete"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
-          "baseDate": "2026-06-12",
-          "baseValue": 51202.26,
-          "targetDate": "2026-06-15",
-          "actualValue": 51671.03,
+          "baseDate": "2026-06-18",
+          "baseValue": 51564.7,
+          "targetDate": "2026-06-22",
+          "actualValue": 51712.71,
           "horizonSessions": 1,
-          "absoluteChange": 468.77,
-          "percentChange": 0.9155,
+          "absoluteChange": 148.01,
+          "percentChange": 0.287,
           "status": "complete"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "targetDate": "2026-06-15",
-          "actualValue": 4.47,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "targetDate": "2026-06-22",
+          "actualValue": 4.51,
           "horizonSessions": 1,
-          "absoluteChange": -0.01,
-          "percentChange": -0.2232,
+          "absoluteChange": 0.05,
+          "percentChange": 1.1211,
           "status": "complete"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.09,
-          "targetDate": "2026-06-15",
-          "actualValue": 4.07,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.19,
+          "targetDate": "2026-06-22",
+          "actualValue": 4.24,
           "horizonSessions": 1,
-          "absoluteChange": -0.02,
-          "percentChange": -0.489,
+          "absoluteChange": 0.05,
+          "percentChange": 1.1933,
           "status": "complete"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "targetDate": "2026-06-15",
-          "actualValue": 16.2,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "targetDate": "2026-06-22",
+          "actualValue": 17.28,
           "horizonSessions": 1,
-          "absoluteChange": -1.48,
-          "percentChange": -8.371,
+          "absoluteChange": 0.5,
+          "percentChange": 2.9797,
           "status": "complete"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "targetDate": "2026-06-16",
-          "actualValue": 1508.12,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "targetDate": "2026-06-22",
+          "actualValue": 1537.86,
           "horizonSessions": 1,
-          "absoluteChange": 1.02,
-          "percentChange": 0.0677,
+          "absoluteChange": 4.86,
+          "percentChange": 0.317,
           "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-06-14",
-          "baseValue": 80.87,
-          "targetDate": "2026-06-15",
-          "actualValue": 84.65,
+          "baseDate": "2026-06-19",
+          "baseValue": 76.54,
+          "targetDate": "2026-06-22",
+          "actualValue": 78.94,
           "horizonSessions": 1,
-          "absoluteChange": 3.78,
-          "percentChange": 4.6742,
+          "absoluteChange": 2.4,
+          "percentChange": 3.1356,
           "status": "complete"
         }
       },
@@ -154,11 +154,11 @@
             4.7
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-15",
-          "min": 4.47,
-          "max": 4.47,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
           "touchedThresholds": []
         },
         {
@@ -168,28 +168,26 @@
             20
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "checkedThroughDate": "2026-06-15",
-          "min": 16.2,
-          "max": 16.2,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-22",
+          "min": 17.28,
+          "max": 17.28,
           "touchedThresholds": []
         },
         {
-          "text": "나스닥 25,889선",
+          "text": "나스닥 26,518선",
           "id": "NASDAQCOM",
           "thresholds": [
-            25889
+            26518
           ],
-          "status": "touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 25888.84,
-          "checkedThroughDate": "2026-06-15",
-          "min": 26683.94,
-          "max": 26683.94,
-          "touchedThresholds": [
-            25889
-          ]
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "checkedThroughDate": "2026-06-22",
+          "min": 26166.6,
+          "max": 26166.6,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,480원",
@@ -198,11 +196,11 @@
             1480
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "checkedThroughDate": "2026-06-16",
-          "min": 1508.12,
-          "max": 1508.12,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-22",
+          "min": 1537.86,
+          "max": 1537.86,
           "touchedThresholds": []
         },
         {
@@ -212,11 +210,11 @@
             1500
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "checkedThroughDate": "2026-06-16",
-          "min": 1508.12,
-          "max": 1508.12,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-22",
+          "min": 1537.86,
+          "max": 1537.86,
           "touchedThresholds": []
         },
         {
@@ -232,13 +230,15 @@
             4.5,
             4.7
           ],
-          "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-15",
-          "min": 4.47,
-          "max": 4.47,
-          "touchedThresholds": []
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
         },
         {
           "text": "나스닥 상대강도",
@@ -259,13 +259,15 @@
             4,
             4.5
           ],
-          "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-15",
-          "min": 4.47,
-          "max": 4.47,
-          "touchedThresholds": []
+          "status": "touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-22",
+          "min": 4.51,
+          "max": 4.51,
+          "touchedThresholds": [
+            4.5
+          ]
         },
         {
           "text": "연준 금리 인하 횟수",
@@ -286,11 +288,11 @@
             20
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "checkedThroughDate": "2026-06-15",
-          "min": 16.2,
-          "max": 16.2,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-22",
+          "min": 17.28,
+          "max": 17.28,
           "touchedThresholds": []
         }
       ]
@@ -298,129 +300,129 @@
     {
       "horizonSessions": 5,
       "status": "complete",
-      "score": 100,
-      "classification": "confirmed",
-      "hitCount": 3,
-      "partialCount": 0,
-      "missCount": 0,
+      "score": 33.3,
+      "classification": "miss",
+      "hitCount": 0,
+      "partialCount": 2,
+      "missCount": 1,
       "checks": [
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
           "expected": "up",
-          "actual": "up",
-          "result": "hit"
+          "actual": "down",
+          "result": "miss"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
-          "expected": "up",
-          "actual": "up",
-          "result": "hit"
+          "expected": "mixed",
+          "actual": "down",
+          "result": "partial"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
-          "expected": "down",
-          "actual": "down",
-          "result": "hit"
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
         }
       ],
       "observations": {
         "SP500": {
           "id": "SP500",
           "label": "S&P 500",
-          "baseDate": "2026-06-12",
-          "baseValue": 7431.46,
-          "targetDate": "2026-06-22",
-          "actualValue": 7472.79,
+          "baseDate": "2026-06-18",
+          "baseValue": 7500.58,
+          "targetDate": "2026-06-26",
+          "actualValue": 7354.02,
           "horizonSessions": 5,
-          "absoluteChange": 41.33,
-          "percentChange": 0.5561,
+          "absoluteChange": -146.56,
+          "percentChange": -1.954,
           "status": "complete"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
-          "baseDate": "2026-06-12",
-          "baseValue": 25888.84,
-          "targetDate": "2026-06-22",
-          "actualValue": 26166.6,
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "targetDate": "2026-06-26",
+          "actualValue": 25297.62,
           "horizonSessions": 5,
-          "absoluteChange": 277.76,
-          "percentChange": 1.0729,
+          "absoluteChange": -1220.31,
+          "percentChange": -4.6018,
           "status": "complete"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
-          "baseDate": "2026-06-12",
-          "baseValue": 51202.26,
-          "targetDate": "2026-06-22",
-          "actualValue": 51712.71,
+          "baseDate": "2026-06-18",
+          "baseValue": 51564.7,
+          "targetDate": "2026-06-26",
+          "actualValue": 51876.11,
           "horizonSessions": 5,
-          "absoluteChange": 510.45,
-          "percentChange": 0.9969,
+          "absoluteChange": 311.41,
+          "percentChange": 0.6039,
           "status": "complete"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "targetDate": "2026-06-22",
-          "actualValue": 4.51,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "targetDate": "2026-06-26",
+          "actualValue": 4.38,
           "horizonSessions": 5,
-          "absoluteChange": 0.03,
-          "percentChange": 0.6696,
+          "absoluteChange": -0.08,
+          "percentChange": -1.7937,
           "status": "complete"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.09,
-          "targetDate": "2026-06-22",
-          "actualValue": 4.24,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.19,
+          "targetDate": "2026-06-26",
+          "actualValue": 4.07,
           "horizonSessions": 5,
-          "absoluteChange": 0.15,
-          "percentChange": 3.6675,
+          "absoluteChange": -0.12,
+          "percentChange": -2.864,
           "status": "complete"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "targetDate": "2026-06-19",
-          "actualValue": 16.78,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "targetDate": "2026-06-26",
+          "actualValue": 18.41,
           "horizonSessions": 5,
-          "absoluteChange": -0.9,
-          "percentChange": -5.0905,
+          "absoluteChange": 1.63,
+          "percentChange": 9.7139,
           "status": "complete"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "targetDate": "2026-06-23",
-          "actualValue": 1532.43,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "targetDate": "2026-06-26",
+          "actualValue": 1533.44,
           "horizonSessions": 5,
-          "absoluteChange": 25.33,
-          "percentChange": 1.6807,
+          "absoluteChange": 0.44,
+          "percentChange": 0.0287,
           "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-06-14",
-          "baseValue": 80.87,
-          "targetDate": "2026-06-22",
-          "actualValue": 78.94,
+          "baseDate": "2026-06-19",
+          "baseValue": 76.54,
+          "targetDate": "2026-06-26",
+          "actualValue": 70.3,
           "horizonSessions": 5,
-          "absoluteChange": -1.93,
-          "percentChange": -2.3865,
+          "absoluteChange": -6.24,
+          "percentChange": -8.1526,
           "status": "complete"
         }
       },
@@ -432,10 +434,10 @@
             4.7
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-22",
-          "min": 4.43,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
           "max": 4.51,
           "touchedThresholds": []
         },
@@ -446,28 +448,26 @@
             20
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "checkedThroughDate": "2026-06-19",
-          "min": 16.2,
-          "max": 18.44,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-26",
+          "min": 17.28,
+          "max": 19.49,
           "touchedThresholds": []
         },
         {
-          "text": "나스닥 25,889선",
+          "text": "나스닥 26,518선",
           "id": "NASDAQCOM",
           "thresholds": [
-            25889
+            26518
           ],
-          "status": "touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 25888.84,
-          "checkedThroughDate": "2026-06-22",
-          "min": 26021.66,
-          "max": 26683.94,
-          "touchedThresholds": [
-            25889
-          ]
+          "status": "not_touched",
+          "baseDate": "2026-06-18",
+          "baseValue": 26517.93,
+          "checkedThroughDate": "2026-06-26",
+          "min": 25297.62,
+          "max": 26166.6,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,480원",
@@ -476,11 +476,11 @@
             1480
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "checkedThroughDate": "2026-06-23",
-          "min": 1508.12,
-          "max": 1540.64,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-26",
+          "min": 1532.43,
+          "max": 1542.53,
           "touchedThresholds": []
         },
         {
@@ -490,11 +490,11 @@
             1500
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-15",
-          "baseValue": 1507.1,
-          "checkedThroughDate": "2026-06-23",
-          "min": 1508.12,
-          "max": 1540.64,
+          "baseDate": "2026-06-19",
+          "baseValue": 1533,
+          "checkedThroughDate": "2026-06-26",
+          "min": 1532.43,
+          "max": 1542.53,
           "touchedThresholds": []
         },
         {
@@ -511,10 +511,10 @@
             4.7
           ],
           "status": "touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-22",
-          "min": 4.43,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
           "max": 4.51,
           "touchedThresholds": [
             4.5
@@ -540,10 +540,10 @@
             4.5
           ],
           "status": "touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 4.48,
-          "checkedThroughDate": "2026-06-22",
-          "min": 4.43,
+          "baseDate": "2026-06-18",
+          "baseValue": 4.46,
+          "checkedThroughDate": "2026-06-26",
+          "min": 4.38,
           "max": 4.51,
           "touchedThresholds": [
             4.5
@@ -568,11 +568,11 @@
             20
           ],
           "status": "not_touched",
-          "baseDate": "2026-06-12",
-          "baseValue": 17.68,
-          "checkedThroughDate": "2026-06-19",
-          "min": 16.2,
-          "max": 18.44,
+          "baseDate": "2026-06-19",
+          "baseValue": 16.78,
+          "checkedThroughDate": "2026-06-26",
+          "min": 17.28,
+          "max": 19.49,
           "touchedThresholds": []
         }
       ]
