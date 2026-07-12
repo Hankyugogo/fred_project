@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T21:58:48.108Z",
+  "generatedAt": "2026-07-12T13:44:35.405Z",
   "source": "Yahoo Finance v8 chart API",
   "purpose": "FRED 지연 시 최신 시장 종가/대용 시세로 보강",
   "items": [
@@ -20,7 +20,7 @@
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.INX",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:44.748Z"
+      "fetchedAt": "2026-07-12T13:44:31.712Z"
     },
     {
       "id": "NASDAQCOM",
@@ -39,7 +39,7 @@
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.IXIC",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:45.037Z"
+      "fetchedAt": "2026-07-12T13:44:32.097Z"
     },
     {
       "id": "DJIA",
@@ -58,7 +58,7 @@
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.DJI",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:45.326Z"
+      "fetchedAt": "2026-07-12T13:44:32.383Z"
     },
     {
       "id": "VIXCLS",
@@ -77,7 +77,7 @@
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.VIX",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:45.517Z"
+      "fetchedAt": "2026-07-12T13:44:32.524Z"
     },
     {
       "id": "DGS2",
@@ -96,7 +96,7 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:45.603Z"
+      "fetchedAt": "2026-07-12T13:44:32.640Z"
     },
     {
       "id": "DGS10",
@@ -115,7 +115,7 @@
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
-      "fetchedAt": "2026-07-11T21:58:45.604Z"
+      "fetchedAt": "2026-07-12T13:44:32.640Z"
     },
     {
       "id": "DEXKOUS",
@@ -134,7 +134,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:45.889Z"
+      "fetchedAt": "2026-07-12T13:44:32.923Z"
     },
     {
       "id": "DEXJPUS",
@@ -153,7 +153,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW%2FFX_JPYKRW",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:46.748Z"
+      "fetchedAt": "2026-07-12T13:44:33.615Z"
     },
     {
       "id": "DCOILWTICO",
@@ -172,7 +172,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/energy/CLcv1",
       "replacementPolicy": "proxy",
       "note": "FRED WTI 현물 지연 시 NYMEX WTI 근월물 종가를 최신 시장 대용치로 쓴다.",
-      "fetchedAt": "2026-07-11T21:58:47.036Z"
+      "fetchedAt": "2026-07-12T13:44:33.900Z"
     },
     {
       "id": "DCOILBRENTEU",
@@ -191,7 +191,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/energy/LCOcv1",
       "replacementPolicy": "proxy",
       "note": "FRED Brent 현물 지연 시 ICE Brent 근월물 종가를 최신 시장 대용치로 쓴다.",
-      "fetchedAt": "2026-07-11T21:58:47.229Z"
+      "fetchedAt": "2026-07-12T13:44:34.044Z"
     },
     {
       "id": "GOLD",
@@ -210,7 +210,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/metals/GCcv1",
       "replacementPolicy": "proxy",
       "note": null,
-      "fetchedAt": "2026-07-11T21:58:47.513Z"
+      "fetchedAt": "2026-07-12T13:44:34.332Z"
     },
     {
       "id": "COPPER",
@@ -229,7 +229,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/metals/HGcv1",
       "replacementPolicy": "proxy",
       "note": "Stooq HG.F는 센트 단위로 제공되어 0.01 스케일을 적용한다.",
-      "fetchedAt": "2026-07-11T21:58:47.801Z"
+      "fetchedAt": "2026-07-12T13:44:34.618Z"
     },
     {
       "id": "BTC",
@@ -240,7 +240,7 @@
       "sourceUrl": "https://finance.yahoo.com/quote/BTC-USD",
       "replacementPolicy": "replace",
       "error": "Stooq: HTTP 404; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
-      "fetchedAt": "2026-07-11T21:58:48.108Z"
+      "fetchedAt": "2026-07-12T13:44:35.405Z"
     }
   ]
 }
