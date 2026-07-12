@@ -36,6 +36,16 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check out generated data branch
+        uses: actions/checkout@v4
+        with:
+          ref: report-data
+          path: _generated
+
+      - name: Restore generated state from report-data branch
+        shell: bash
+        run: rsync -a --exclude .git _generated/ ./
+
       - name: Check whether today's report already exists
         id: report_guard
         shell: bash
@@ -76,14 +86,16 @@ jobs:
         env:
           PAGES_BASE_URL: ${{ env.PAGES_BASE_URL }}
 
-      - name: Commit generated report
+      - name: Commit generated report to report-data branch
         if: ${{ steps.report_guard.outputs.skip != 'true' }}
         run: |
+          rsync -a --delete --exclude .git data posts reports archive report.html _generated/
+          cd _generated
           git config user.name "daily-report-bot"
           git config user.email "daily-report-bot@example.com"
-          git add data posts reports archive report.html
+          git add -A
           git diff --cached --quiet || git commit -m "Update daily economy report"
-          git push
+          git push origin report-data
 
       - name: Build Pages artifact
         if: ${{ steps.report_guard.outputs.skip != 'true' }}

@@ -116,11 +116,16 @@ FRED 시리즈:
 동작 순서:
 
 1. 매일 06:07 KST에 1차 실행, 09:07 KST에 예비 실행
-2. `npm run publish:full-rich`로 수집·생성·렌더링·아카이브·사후 검증 실행
-3. `data`, `posts`, `reports`, `archive`, `report.html` 생성물 커밋·푸시
-4. `index.html`, `settings.html`, `app.js`, `settings.js`, `styles.css`, `report.html`, `config`, `data`, `posts`, `reports`, `archive`를 GitHub Pages artifact로 업로드
-5. GitHub Pages로 배포
-6. Secrets가 있으면 이메일과 텔레그램 알림 전송
+2. `report-data` 브랜치에서 이전 생성물 상태를 복원
+3. `npm run publish:full-rich`로 수집·생성·렌더링·아카이브·사후 검증 실행
+4. `data`, `posts`, `reports`, `archive`, `report.html` 생성물을 `report-data` 브랜치에 커밋·푸시
+5. `index.html`, `settings.html`, `app.js`, `settings.js`, `styles.css`, `report.html`, `config`, `data`, `posts`, `reports`, `archive`를 GitHub Pages artifact로 업로드
+6. GitHub Pages로 배포
+7. Secrets가 있으면 이메일과 텔레그램 알림 전송
+
+생성물 브랜치:
+
+`main`은 소스만 추적하고, 파이프라인 생성물(`data/`, `posts/`, `reports/`, `archive/`, `report.html`)은 `report-data` 브랜치에만 커밋됩니다. 로컬에서 `npm run publish:full`을 실행하면 생성물은 작업 폴더에 남지만 git에는 잡히지 않습니다. 로컬 생성물을 CI 상태로 되돌리려면 `git checkout report-data -- .` 대신 `git fetch origin report-data` 후 필요한 파일만 복사하십시오.
 
 필수 repository secrets:
 
