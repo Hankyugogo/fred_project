@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-20T04:00:30.098Z",
-  "validationRunId": "20260720T040030014Z",
+  "generatedAt": "2026-07-20T22:10:58.793Z",
+  "validationRunId": "20260720T221058699Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-07-20T03:59:46.916Z",
+    "macroHistoryGeneratedAt": "2026-07-20T22:10:17.783Z",
     "horizons": [
       1,
       5
@@ -1165,10 +1165,10 @@
       "reportDate": "2026-07-14",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 장기금리 재상승…유가 급등 주목",
       "sourceRunId": "20260713T220706369Z",
-      "validatedAt": "2026-07-20T04:00:30.039Z",
+      "validatedAt": "2026-07-20T22:10:58.725Z",
       "overall": {
-        "status": "partial",
-        "score": 16.7,
+        "status": "complete",
+        "score": 33.4,
         "classification": "miss"
       },
       "horizons": [
@@ -1183,12 +1183,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
-          "missCount": 0
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 1,
+          "missCount": 1
         }
       ],
       "archivePath": "archive/2026-07-14/latest/outcome-validation.json"
@@ -1197,7 +1197,7 @@
       "reportDate": "2026-07-15",
       "briefingTitle": "[데일리 마감] 나스닥 0.90% 상승... 물가 완화·금리 하락 기대",
       "sourceRunId": "20260714T221000726Z",
-      "validatedAt": "2026-07-20T04:00:30.060Z",
+      "validatedAt": "2026-07-20T22:10:58.746Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -1229,7 +1229,7 @@
       "reportDate": "2026-07-16",
       "briefingTitle": "[데일리 마감] 美 증시 동반 강세, 연준 매파적 기조 유지",
       "sourceRunId": "20260715T221412969Z",
-      "validatedAt": "2026-07-20T04:00:30.068Z",
+      "validatedAt": "2026-07-20T22:10:58.754Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -1261,7 +1261,7 @@
       "reportDate": "2026-07-17",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 금리 부담 지속… 나스닥 1.47%↓",
       "sourceRunId": "20260716T221413668Z",
-      "validatedAt": "2026-07-20T04:00:30.074Z",
+      "validatedAt": "2026-07-20T22:10:58.760Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -1293,21 +1293,21 @@
       "reportDate": "2026-07-18",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 기술주 약세 지속",
       "sourceRunId": "20260717T220421073Z",
-      "validatedAt": "2026-07-20T04:00:30.081Z",
+      "validatedAt": "2026-07-20T22:10:58.767Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         },
         {
           "horizonSessions": 5,
@@ -1325,21 +1325,21 @@
       "reportDate": "2026-07-19",
       "briefingTitle": "[데일리 마감] 美 증시 기술주 매도세에 하락… 유가 급등",
       "sourceRunId": "20260718T220152835Z",
-      "validatedAt": "2026-07-20T04:00:30.087Z",
+      "validatedAt": "2026-07-20T22:10:58.773Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         },
         {
           "horizonSessions": 5,
@@ -1357,7 +1357,39 @@
       "reportDate": "2026-07-20",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감…유가 상승·물가 우려",
       "sourceRunId": "20260720T040029831Z",
-      "validatedAt": "2026-07-20T04:00:30.093Z",
+      "validatedAt": "2026-07-20T22:10:58.779Z",
+      "overall": {
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
+          "partialCount": 0,
+          "missCount": 2
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-07-20/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-07-21",
+      "briefingTitle": "[데일리 마감] 미 증시 완만한 조정, 장기금리 4.60% 재상승",
+      "sourceRunId": "20260720T221058514Z",
+      "validatedAt": "2026-07-20T22:10:58.786Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -1383,7 +1415,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-07-20/latest/outcome-validation.json"
+      "archivePath": "archive/2026-07-21/latest/outcome-validation.json"
     }
   ]
 }
