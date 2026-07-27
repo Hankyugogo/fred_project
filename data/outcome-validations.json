@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-26T22:08:28.096Z",
-  "validationRunId": "20260726T220828009Z",
+  "generatedAt": "2026-07-27T22:15:37.948Z",
+  "validationRunId": "20260727T221537885Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-07-26T22:07:51.927Z",
+    "macroHistoryGeneratedAt": "2026-07-27T22:14:58.766Z",
     "horizons": [
       1,
       5
@@ -1389,11 +1389,11 @@
       "reportDate": "2026-07-21",
       "briefingTitle": "[데일리 마감] 미 증시 완만한 조정, 장기금리 4.60% 재상승",
       "sourceRunId": "20260720T221058514Z",
-      "validatedAt": "2026-07-26T22:08:28.036Z",
+      "validatedAt": "2026-07-27T22:15:37.904Z",
       "overall": {
-        "status": "partial",
-        "score": 66.7,
-        "classification": "mixed"
+        "status": "complete",
+        "score": 75,
+        "classification": "confirmed"
       },
       "horizons": [
         {
@@ -1407,11 +1407,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         }
       ],
@@ -1421,7 +1421,7 @@
       "reportDate": "2026-07-22",
       "briefingTitle": "[데일리 마감] 나스닥 1.29% 강세…장기금리 4.63% 부담",
       "sourceRunId": "20260721T221236394Z",
-      "validatedAt": "2026-07-26T22:08:28.056Z",
+      "validatedAt": "2026-07-27T22:15:37.917Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -1453,7 +1453,7 @@
       "reportDate": "2026-07-23",
       "briefingTitle": "美 증시 약보합 마감, 장기금리 부담 지속",
       "sourceRunId": "20260722T221516830Z",
-      "validatedAt": "2026-07-26T22:08:28.065Z",
+      "validatedAt": "2026-07-27T22:15:37.923Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -1485,7 +1485,7 @@
       "reportDate": "2026-07-24",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260724T033911695Z",
-      "validatedAt": "2026-07-26T22:08:28.071Z",
+      "validatedAt": "2026-07-27T22:15:37.926Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -1517,20 +1517,20 @@
       "reportDate": "2026-07-25",
       "briefingTitle": "[데일리 마감] 美 증시 혼조, 다우 강세… 장기금리 4.69% 유지",
       "sourceRunId": "20260725T033523063Z",
-      "validatedAt": "2026-07-26T22:08:28.078Z",
+      "validatedAt": "2026-07-27T22:15:37.931Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -1549,20 +1549,20 @@
       "reportDate": "2026-07-26",
       "briefingTitle": "[데일리 마감] 미 증시 혼조, 나스닥 하락 속 다우 상승",
       "sourceRunId": "20260725T220421259Z",
-      "validatedAt": "2026-07-26T22:08:28.085Z",
+      "validatedAt": "2026-07-27T22:15:37.935Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -1581,7 +1581,39 @@
       "reportDate": "2026-07-27",
       "briefingTitle": "[데일리 마감] 미 증시 혼조 마감… 다우 강세, 나스닥 하락",
       "sourceRunId": "20260726T220827823Z",
-      "validatedAt": "2026-07-26T22:08:28.090Z",
+      "validatedAt": "2026-07-27T22:15:37.939Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-07-27/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-07-28",
+      "briefingTitle": "[데일리 마감] 다우 강세 속 지수 혼조, 장기금리 4.65% 하락",
+      "sourceRunId": "20260727T221537757Z",
+      "validatedAt": "2026-07-27T22:15:37.944Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -1607,7 +1639,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-07-27/latest/outcome-validation.json"
+      "archivePath": "archive/2026-07-28/latest/outcome-validation.json"
     }
   ]
 }
