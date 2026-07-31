@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-30T22:17:23.142Z",
-  "validationRunId": "20260730T221723052Z",
+  "generatedAt": "2026-07-31T22:14:59.909Z",
+  "validationRunId": "20260731T221459813Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-07-30T22:16:44.887Z",
+    "macroHistoryGeneratedAt": "2026-07-31T22:14:12.191Z",
     "horizons": [
       1,
       5
@@ -1517,10 +1517,10 @@
       "reportDate": "2026-07-25",
       "briefingTitle": "[데일리 마감] 美 증시 혼조, 다우 강세… 장기금리 4.69% 유지",
       "sourceRunId": "20260725T033523063Z",
-      "validatedAt": "2026-07-30T22:17:23.099Z",
+      "validatedAt": "2026-07-31T22:14:59.842Z",
       "overall": {
-        "status": "partial",
-        "score": 83.3,
+        "status": "complete",
+        "score": 75,
         "classification": "confirmed"
       },
       "horizons": [
@@ -1535,11 +1535,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         }
       ],
@@ -1549,10 +1549,10 @@
       "reportDate": "2026-07-26",
       "briefingTitle": "[데일리 마감] 미 증시 혼조, 나스닥 하락 속 다우 상승",
       "sourceRunId": "20260725T220421259Z",
-      "validatedAt": "2026-07-30T22:17:23.107Z",
+      "validatedAt": "2026-07-31T22:14:59.863Z",
       "overall": {
-        "status": "partial",
-        "score": 83.3,
+        "status": "complete",
+        "score": 75,
         "classification": "confirmed"
       },
       "horizons": [
@@ -1567,11 +1567,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         }
       ],
@@ -1581,10 +1581,10 @@
       "reportDate": "2026-07-27",
       "briefingTitle": "[데일리 마감] 미 증시 혼조 마감… 다우 강세, 나스닥 하락",
       "sourceRunId": "20260726T220827823Z",
-      "validatedAt": "2026-07-30T22:17:23.113Z",
+      "validatedAt": "2026-07-31T22:14:59.871Z",
       "overall": {
-        "status": "partial",
-        "score": 83.3,
+        "status": "complete",
+        "score": 75,
         "classification": "confirmed"
       },
       "horizons": [
@@ -1599,11 +1599,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         }
       ],
@@ -1613,7 +1613,7 @@
       "reportDate": "2026-07-28",
       "briefingTitle": "[데일리 마감] 다우 강세 속 지수 혼조, 장기금리 4.65% 하락",
       "sourceRunId": "20260727T221537757Z",
-      "validatedAt": "2026-07-30T22:17:23.119Z",
+      "validatedAt": "2026-07-31T22:14:59.877Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -1645,7 +1645,7 @@
       "reportDate": "2026-07-29",
       "briefingTitle": "[데일리 마감] 다우 강세 속 나스닥 하락, 반도체 약세 지속",
       "sourceRunId": "20260728T221525728Z",
-      "validatedAt": "2026-07-30T22:17:23.126Z",
+      "validatedAt": "2026-07-31T22:14:59.884Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -1677,7 +1677,7 @@
       "reportDate": "2026-07-30",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260729T220954768Z",
-      "validatedAt": "2026-07-30T22:17:23.131Z",
+      "validatedAt": "2026-07-31T22:14:59.891Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -1709,7 +1709,39 @@
       "reportDate": "2026-07-31",
       "briefingTitle": "[데일리 마감] 나스닥 2.78% 급등…기술주 강세",
       "sourceRunId": "20260730T221722865Z",
-      "validatedAt": "2026-07-30T22:17:23.137Z",
+      "validatedAt": "2026-07-31T22:14:59.898Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-07-31/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-01",
+      "briefingTitle": "미 증시 동반 강세, 장기금리 4.75% 부담 점검",
+      "sourceRunId": "20260731T221459628Z",
+      "validatedAt": "2026-07-31T22:14:59.905Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -1735,7 +1767,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-07-31/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-01/latest/outcome-validation.json"
     }
   ]
 }
