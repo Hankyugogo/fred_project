@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-04T22:20:43.693Z",
-  "validationRunId": "20260804T222043599Z",
+  "generatedAt": "2026-08-05T22:18:59.090Z",
+  "validationRunId": "20260805T221859019Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-04T22:20:07.104Z",
+    "macroHistoryGeneratedAt": "2026-08-05T22:18:17.291Z",
     "horizons": [
       1,
       5
@@ -1677,9 +1677,9 @@
       "reportDate": "2026-07-30",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260729T220954768Z",
-      "validatedAt": "2026-08-04T22:20:43.648Z",
+      "validatedAt": "2026-08-05T22:18:59.041Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 0,
         "classification": "miss"
       },
@@ -1695,12 +1695,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 3
         }
       ],
       "archivePath": "archive/2026-07-30/latest/outcome-validation.json"
@@ -1709,7 +1709,7 @@
       "reportDate": "2026-07-31",
       "briefingTitle": "[데일리 마감] 나스닥 2.78% 급등…기술주 강세",
       "sourceRunId": "20260730T221722865Z",
-      "validatedAt": "2026-08-04T22:20:43.656Z",
+      "validatedAt": "2026-08-05T22:18:59.057Z",
       "overall": {
         "status": "partial",
         "score": 83.3,
@@ -1741,7 +1741,7 @@
       "reportDate": "2026-08-01",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.75% 부담 점검",
       "sourceRunId": "20260731T221459628Z",
-      "validatedAt": "2026-08-04T22:20:43.663Z",
+      "validatedAt": "2026-08-05T22:18:59.063Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -1773,7 +1773,7 @@
       "reportDate": "2026-08-02",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.75% 부담 점검",
       "sourceRunId": "20260801T220606230Z",
-      "validatedAt": "2026-08-04T22:20:43.669Z",
+      "validatedAt": "2026-08-05T22:18:59.068Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -1805,7 +1805,7 @@
       "reportDate": "2026-08-03",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 장기금리 4.75% 부담 지속",
       "sourceRunId": "20260802T220508386Z",
-      "validatedAt": "2026-08-04T22:20:43.676Z",
+      "validatedAt": "2026-08-05T22:18:59.072Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -1837,7 +1837,7 @@
       "reportDate": "2026-08-04",
       "briefingTitle": "[데일리 마감] 미 증시 강세, 나스닥 2.13% 상승",
       "sourceRunId": "20260803T221636653Z",
-      "validatedAt": "2026-08-04T22:20:43.682Z",
+      "validatedAt": "2026-08-05T22:18:59.078Z",
       "overall": {
         "status": "partial",
         "score": 83.3,
@@ -1869,7 +1869,39 @@
       "reportDate": "2026-08-05",
       "briefingTitle": "[데일리 마감] 나스닥 2.59% 강세… 미 국채 10년물 4.63%",
       "sourceRunId": "20260804T222043407Z",
-      "validatedAt": "2026-08-04T22:20:43.688Z",
+      "validatedAt": "2026-08-05T22:18:59.083Z",
+      "overall": {
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 3
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-05/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-06",
+      "briefingTitle": "[데일리 마감] 다우 강세 속 나스닥 하락… 장기금리 4.63% 정체",
+      "sourceRunId": "20260805T221858818Z",
+      "validatedAt": "2026-08-05T22:18:59.087Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -1895,7 +1927,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-05/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-06/latest/outcome-validation.json"
     }
   ]
 }
