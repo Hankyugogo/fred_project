@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-11T22:00:02.554Z",
-  "validationRunId": "20260811T220002447Z",
+  "generatedAt": "2026-08-12T21:58:25.909Z",
+  "validationRunId": "20260812T215825814Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-11T21:59:21.811Z",
+    "macroHistoryGeneratedAt": "2026-08-12T21:57:47.428Z",
     "horizons": [
       1,
       5
@@ -1901,11 +1901,11 @@
       "reportDate": "2026-08-06",
       "briefingTitle": "[데일리 마감] 다우 강세 속 나스닥 하락… 장기금리 4.63% 정체",
       "sourceRunId": "20260805T221858818Z",
-      "validatedAt": "2026-08-11T22:00:02.505Z",
+      "validatedAt": "2026-08-12T21:58:25.846Z",
       "overall": {
-        "status": "partial",
-        "score": 83.3,
-        "classification": "confirmed"
+        "status": "complete",
+        "score": 66.7,
+        "classification": "mixed"
       },
       "horizons": [
         {
@@ -1919,12 +1919,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
-          "missCount": 0
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 1,
+          "missCount": 1
         }
       ],
       "archivePath": "archive/2026-08-06/latest/outcome-validation.json"
@@ -1933,7 +1933,7 @@
       "reportDate": "2026-08-07",
       "briefingTitle": "[데일리 마감] 미 증시 고용보고서 대기 속 혼조",
       "sourceRunId": "20260807T010431233Z",
-      "validatedAt": "2026-08-11T22:00:02.513Z",
+      "validatedAt": "2026-08-12T21:58:25.866Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -1965,7 +1965,7 @@
       "reportDate": "2026-08-08",
       "briefingTitle": "[데일리 마감] 나스닥 1.30% 강세… 고용 둔화에 금리인상 압박 완화",
       "sourceRunId": "20260807T215153162Z",
-      "validatedAt": "2026-08-11T22:00:02.520Z",
+      "validatedAt": "2026-08-12T21:58:25.873Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -1997,7 +1997,7 @@
       "reportDate": "2026-08-09",
       "briefingTitle": "[데일리 마감] 나스닥 1.30% 강세… 연준 금리 인상 기대 약화",
       "sourceRunId": "20260808T214046298Z",
-      "validatedAt": "2026-08-11T22:00:02.527Z",
+      "validatedAt": "2026-08-12T21:58:25.879Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -2029,7 +2029,7 @@
       "reportDate": "2026-08-10",
       "briefingTitle": "[데일리 마감] 나스닥 1.30% 강세… 미 국채 10년물 4.65%",
       "sourceRunId": "20260809T214406518Z",
-      "validatedAt": "2026-08-11T22:00:02.534Z",
+      "validatedAt": "2026-08-12T21:58:25.886Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -2061,7 +2061,7 @@
       "reportDate": "2026-08-11",
       "briefingTitle": "[데일리 마감] 미 증시 혼조 마감… 장기금리 4.72% 재상승",
       "sourceRunId": "20260810T215425013Z",
-      "validatedAt": "2026-08-11T22:00:02.540Z",
+      "validatedAt": "2026-08-12T21:58:25.892Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -2093,7 +2093,39 @@
       "reportDate": "2026-08-12",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… CPI 앞두고 관망 심리",
       "sourceRunId": "20260811T220002240Z",
-      "validatedAt": "2026-08-11T22:00:02.547Z",
+      "validatedAt": "2026-08-12T21:58:25.898Z",
+      "overall": {
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 2,
+          "missCount": 1
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-12/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-13",
+      "briefingTitle": "[데일리 마감] 나스닥 0.54% 상승… 물가 둔화 기대에 금리 하락",
+      "sourceRunId": "20260812T215825619Z",
+      "validatedAt": "2026-08-12T21:58:25.904Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -2119,7 +2151,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-12/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-13/latest/outcome-validation.json"
     }
   ]
 }
