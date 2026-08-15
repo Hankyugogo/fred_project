@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-08-15",
-  "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
-  "sourceRunId": "20260814T213613878Z",
-  "sourceGeneratedAt": "2026-08-14T21:33:51.969Z",
-  "validatedAt": "2026-08-15T21:31:12.919Z",
+  "reportDate": "2026-08-16",
+  "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 장기금리 재상승 부담",
+  "sourceRunId": "20260815T213112647Z",
+  "sourceGeneratedAt": "2026-08-15T21:29:35.076Z",
+  "validatedAt": "2026-08-15T21:31:12.925Z",
   "validationRunId": "20260815T213112844Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-08-15T21:30:35.239Z",
@@ -132,7 +132,7 @@
       },
       "watchLevels": [
         {
-          "text": "미 10년물 4.70%",
+          "text": "미 국채 10년물 4.70% 상회 여부",
           "id": "DGS10",
           "thresholds": [
             4.7
@@ -142,44 +142,36 @@
           "baseValue": 4.68
         },
         {
-          "text": "VIX 20선",
-          "id": "VIXCLS",
-          "thresholds": [
-            20
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 14.25
-        },
-        {
-          "text": "나스닥 26,729선",
-          "id": "NASDAQCOM",
-          "thresholds": [
-            26729
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 26729.16
-        },
-        {
-          "text": "달러/원 기준일 지연 해소 후 1,480원",
+          "text": "달러/원 환율 1,420원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1480
+            1420
           ],
           "status": "pending",
           "baseDate": "2026-08-15",
           "baseValue": 1418.5
         },
         {
-          "text": "달러/원 기준일 지연 해소 후 1,500원",
+          "text": "미 반도체 ETF(SOXX) 1% 이상 하락 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 1,430원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1500
+            1430
           ],
           "status": "pending",
           "baseDate": "2026-08-15",
           "baseValue": 1418.5
+        },
+        {
+          "text": "달러지수(DXY) 100선 재돌파",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
         },
         {
           "text": "코스피 외국인 순매수 전환",
@@ -188,30 +180,35 @@
           "status": "unparsed"
         },
         {
-          "text": "미 10년물 4.50~4.70%",
+          "text": "미 국채 10년물 4.50% 하회 지속",
           "id": "DGS10",
           "thresholds": [
-            4.5,
-            4.7
+            4.5
           ],
           "status": "pending",
           "baseDate": "2026-08-14",
           "baseValue": 4.68
         },
         {
-          "text": "나스닥 상대강도",
+          "text": "장단기 금리차 0bp 수렴",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "한국 반도체 대형주 매매 흐름",
+          "text": "미 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 10년물 4.00~4.50%",
+          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.00~4.50% 밴드 유지",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -222,26 +219,10 @@
           "baseValue": 4.68
         },
         {
-          "text": "연준 금리 인하 횟수",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
-        },
-        {
-          "text": "달러 방향성",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다.",
-          "id": "VIXCLS",
-          "thresholds": [
-            20
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 14.25
         }
       ]
     },
@@ -360,7 +341,7 @@
       },
       "watchLevels": [
         {
-          "text": "미 10년물 4.70%",
+          "text": "미 국채 10년물 4.70% 상회 여부",
           "id": "DGS10",
           "thresholds": [
             4.7
@@ -370,44 +351,36 @@
           "baseValue": 4.68
         },
         {
-          "text": "VIX 20선",
-          "id": "VIXCLS",
-          "thresholds": [
-            20
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 14.25
-        },
-        {
-          "text": "나스닥 26,729선",
-          "id": "NASDAQCOM",
-          "thresholds": [
-            26729
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 26729.16
-        },
-        {
-          "text": "달러/원 기준일 지연 해소 후 1,480원",
+          "text": "달러/원 환율 1,420원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1480
+            1420
           ],
           "status": "pending",
           "baseDate": "2026-08-15",
           "baseValue": 1418.5
         },
         {
-          "text": "달러/원 기준일 지연 해소 후 1,500원",
+          "text": "미 반도체 ETF(SOXX) 1% 이상 하락 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 1,430원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1500
+            1430
           ],
           "status": "pending",
           "baseDate": "2026-08-15",
           "baseValue": 1418.5
+        },
+        {
+          "text": "달러지수(DXY) 100선 재돌파",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
         },
         {
           "text": "코스피 외국인 순매수 전환",
@@ -416,30 +389,35 @@
           "status": "unparsed"
         },
         {
-          "text": "미 10년물 4.50~4.70%",
+          "text": "미 국채 10년물 4.50% 하회 지속",
           "id": "DGS10",
           "thresholds": [
-            4.5,
-            4.7
+            4.5
           ],
           "status": "pending",
           "baseDate": "2026-08-14",
           "baseValue": 4.68
         },
         {
-          "text": "나스닥 상대강도",
+          "text": "장단기 금리차 0bp 수렴",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "한국 반도체 대형주 매매 흐름",
+          "text": "미 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 10년물 4.00~4.50%",
+          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.00~4.50% 밴드 유지",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -450,26 +428,10 @@
           "baseValue": 4.68
         },
         {
-          "text": "연준 금리 인하 횟수",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
-        },
-        {
-          "text": "달러 방향성",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 10년물 4.70%, VIX 20선, 달러/원 기준일 지연 해소 후 1,500원을 우선 본다.",
-          "id": "VIXCLS",
-          "thresholds": [
-            20
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-14",
-          "baseValue": 14.25
         }
       ]
     }
