@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-08-15",
+  "reportDate": "2026-08-17",
   "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
-  "sourceRunId": "20260814T213613878Z",
-  "sourceGeneratedAt": "2026-08-14T21:33:51.969Z",
-  "validatedAt": "2026-08-16T21:29:47.090Z",
+  "sourceRunId": "20260816T212946818Z",
+  "sourceGeneratedAt": "2026-08-16T21:28:47.416Z",
+  "validatedAt": "2026-08-16T21:29:47.102Z",
   "validationRunId": "20260816T212947012Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-08-16T21:29:39.047Z",
@@ -112,14 +112,12 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-08-15",
+          "baseDate": "2026-08-17",
           "baseValue": 1418.5,
-          "targetDate": "2026-08-17",
-          "actualValue": 1418.5,
           "horizonSessions": 1,
-          "absoluteChange": 0,
-          "percentChange": 0,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-17"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -169,13 +167,9 @@
           "thresholds": [
             1480
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-15",
-          "baseValue": 1418.5,
-          "checkedThroughDate": "2026-08-17",
-          "min": 1418.5,
-          "max": 1418.5,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-17",
+          "baseValue": 1418.5
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,500원",
@@ -183,13 +177,9 @@
           "thresholds": [
             1500
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-15",
-          "baseValue": 1418.5,
-          "checkedThroughDate": "2026-08-17",
-          "min": 1418.5,
-          "max": 1418.5,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-17",
+          "baseValue": 1418.5
         },
         {
           "text": "코스피 외국인 순매수 전환",
@@ -350,11 +340,11 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-08-15",
+          "baseDate": "2026-08-17",
           "baseValue": 1418.5,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-17"
         },
         "DCOILWTICO": {
@@ -405,13 +395,9 @@
           "thresholds": [
             1480
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-15",
-          "baseValue": 1418.5,
-          "checkedThroughDate": "2026-08-17",
-          "min": 1418.5,
-          "max": 1418.5,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-17",
+          "baseValue": 1418.5
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,500원",
@@ -419,13 +405,9 @@
           "thresholds": [
             1500
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-15",
-          "baseValue": 1418.5,
-          "checkedThroughDate": "2026-08-17",
-          "min": 1418.5,
-          "max": 1418.5,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-17",
+          "baseValue": 1418.5
         },
         {
           "text": "코스피 외국인 순매수 전환",
