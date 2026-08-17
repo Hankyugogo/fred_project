@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-16T21:29:47.107Z",
-  "validationRunId": "20260816T212947012Z",
+  "generatedAt": "2026-08-17T21:35:56.010Z",
+  "validationRunId": "20260817T213555906Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-16T21:29:39.047Z",
+    "macroHistoryGeneratedAt": "2026-08-17T21:35:13.919Z",
     "horizons": [
       1,
       5
@@ -2061,9 +2061,9 @@
       "reportDate": "2026-08-11",
       "briefingTitle": "[데일리 마감] 미 증시 혼조 마감… 장기금리 4.72% 재상승",
       "sourceRunId": "20260810T215425013Z",
-      "validatedAt": "2026-08-16T21:29:47.048Z",
+      "validatedAt": "2026-08-17T21:35:55.942Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 16.7,
         "classification": "miss"
       },
@@ -2079,12 +2079,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 16.7,
+          "classification": "miss",
           "hitCount": 0,
-          "partialCount": 0,
-          "missCount": 0
+          "partialCount": 1,
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-08-11/latest/outcome-validation.json"
@@ -2093,7 +2093,7 @@
       "reportDate": "2026-08-12",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… CPI 앞두고 관망 심리",
       "sourceRunId": "20260811T220002240Z",
-      "validatedAt": "2026-08-16T21:29:47.070Z",
+      "validatedAt": "2026-08-17T21:35:55.964Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -2125,7 +2125,7 @@
       "reportDate": "2026-08-13",
       "briefingTitle": "[데일리 마감] 나스닥 0.54% 상승… 물가 둔화 기대에 금리 하락",
       "sourceRunId": "20260812T215825619Z",
-      "validatedAt": "2026-08-16T21:29:47.076Z",
+      "validatedAt": "2026-08-17T21:35:55.971Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -2157,7 +2157,7 @@
       "reportDate": "2026-08-14",
       "briefingTitle": "[데일리 마감] 미 증시 사상 최고치, 인플레 둔화에 금리 하락",
       "sourceRunId": "20260813T220414227Z",
-      "validatedAt": "2026-08-16T21:29:47.083Z",
+      "validatedAt": "2026-08-17T21:35:55.977Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -2189,20 +2189,20 @@
       "reportDate": "2026-08-15",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260814T213613878Z",
-      "validatedAt": "2026-08-16T21:29:47.090Z",
+      "validatedAt": "2026-08-17T21:35:55.984Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 66.7,
+        "classification": "mixed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         },
         {
@@ -2221,20 +2221,20 @@
       "reportDate": "2026-08-16",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 장기금리 재상승 부담",
       "sourceRunId": "20260815T213112647Z",
-      "validatedAt": "2026-08-16T21:29:47.097Z",
+      "validatedAt": "2026-08-17T21:35:55.991Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 66.7,
+        "classification": "mixed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         },
         {
@@ -2253,7 +2253,39 @@
       "reportDate": "2026-08-17",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260816T212946818Z",
-      "validatedAt": "2026-08-16T21:29:47.102Z",
+      "validatedAt": "2026-08-17T21:35:55.997Z",
+      "overall": {
+        "status": "partial",
+        "score": 66.7,
+        "classification": "mixed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-17/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-18",
+      "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 유가 상승·금리 부담",
+      "sourceRunId": "20260817T213555709Z",
+      "validatedAt": "2026-08-17T21:35:56.003Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -2279,7 +2311,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-17/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-18/latest/outcome-validation.json"
     }
   ]
 }
