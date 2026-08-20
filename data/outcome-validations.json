@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-19T21:36:13.934Z",
-  "validationRunId": "20260819T213613835Z",
+  "generatedAt": "2026-08-20T21:39:19.444Z",
+  "validationRunId": "20260820T213919345Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-19T21:35:31.782Z",
+    "macroHistoryGeneratedAt": "2026-08-20T21:38:40.353Z",
     "horizons": [
       1,
       5
@@ -2157,10 +2157,10 @@
       "reportDate": "2026-08-14",
       "briefingTitle": "[데일리 마감] 미 증시 사상 최고치, 인플레 둔화에 금리 하락",
       "sourceRunId": "20260813T220414227Z",
-      "validatedAt": "2026-08-19T21:36:13.889Z",
+      "validatedAt": "2026-08-20T21:39:19.379Z",
       "overall": {
-        "status": "partial",
-        "score": 50,
+        "status": "complete",
+        "score": 41.7,
         "classification": "mixed"
       },
       "horizons": [
@@ -2175,12 +2175,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
           "hitCount": 0,
-          "partialCount": 0,
-          "missCount": 0
+          "partialCount": 2,
+          "missCount": 1
         }
       ],
       "archivePath": "archive/2026-08-14/latest/outcome-validation.json"
@@ -2189,7 +2189,7 @@
       "reportDate": "2026-08-15",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260814T213613878Z",
-      "validatedAt": "2026-08-19T21:36:13.896Z",
+      "validatedAt": "2026-08-20T21:39:19.400Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -2221,7 +2221,7 @@
       "reportDate": "2026-08-16",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 장기금리 재상승 부담",
       "sourceRunId": "20260815T213112647Z",
-      "validatedAt": "2026-08-19T21:36:13.902Z",
+      "validatedAt": "2026-08-20T21:39:19.407Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -2253,7 +2253,7 @@
       "reportDate": "2026-08-17",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260816T212946818Z",
-      "validatedAt": "2026-08-19T21:36:13.908Z",
+      "validatedAt": "2026-08-20T21:39:19.413Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -2285,7 +2285,7 @@
       "reportDate": "2026-08-18",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 유가 상승·금리 부담",
       "sourceRunId": "20260817T213555709Z",
-      "validatedAt": "2026-08-19T21:36:13.915Z",
+      "validatedAt": "2026-08-20T21:39:19.420Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -2317,7 +2317,7 @@
       "reportDate": "2026-08-19",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감, 장기금리 부담 지속",
       "sourceRunId": "20260818T213738324Z",
-      "validatedAt": "2026-08-19T21:36:13.921Z",
+      "validatedAt": "2026-08-20T21:39:19.427Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -2349,7 +2349,39 @@
       "reportDate": "2026-08-20",
       "briefingTitle": "[데일리 마감] 미 증시 혼조…장기금리 4.65% 하락",
       "sourceRunId": "20260819T213613647Z",
-      "validatedAt": "2026-08-19T21:36:13.927Z",
+      "validatedAt": "2026-08-20T21:39:19.432Z",
+      "overall": {
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 3
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-20/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-21",
+      "briefingTitle": "[데일리 마감] 미 증시 동반 하락… 장기금리 4.69% 재상승",
+      "sourceRunId": "20260820T213919149Z",
+      "validatedAt": "2026-08-20T21:39:19.439Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -2375,7 +2407,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-20/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-21/latest/outcome-validation.json"
     }
   ]
 }
