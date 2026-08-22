@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-08-19",
-  "briefingTitle": "[데일리 마감] 미 증시 하락 마감, 장기금리 부담 지속",
-  "sourceRunId": "20260818T213738324Z",
-  "sourceGeneratedAt": "2026-08-18T21:32:38.951Z",
-  "validatedAt": "2026-08-22T21:32:33.068Z",
+  "reportDate": "2026-08-23",
+  "briefingTitle": "[데일리 마감] 다우 0.98% 강세… 장기금리 4.74% 부담 지속",
+  "sourceRunId": "20260822T213232813Z",
+  "sourceGeneratedAt": "2026-08-22T21:30:09.764Z",
+  "validatedAt": "2026-08-22T21:32:33.094Z",
   "validationRunId": "20260822T213233009Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-08-22T21:31:55.065Z",
@@ -12,138 +12,122 @@
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
   "overall": {
-    "status": "partial",
-    "score": 16.7,
-    "classification": "miss"
+    "status": "pending",
+    "score": null,
+    "classification": "pending"
   },
   "horizons": [
     {
       "horizonSessions": 1,
-      "status": "complete",
-      "score": 16.7,
-      "classification": "miss",
+      "status": "pending",
+      "score": null,
+      "classification": "pending",
       "hitCount": 0,
-      "partialCount": 1,
-      "missCount": 2,
+      "partialCount": 0,
+      "missCount": 0,
       "checks": [
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
-          "expected": "mixed",
-          "actual": "up",
-          "result": "partial"
+          "expected": "up",
+          "actual": "pending",
+          "result": "pending"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
-          "expected": "down",
-          "actual": "mixed",
-          "result": "miss"
+          "expected": "up",
+          "actual": "pending",
+          "result": "pending"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
-          "expected": "up",
-          "actual": "down",
-          "result": "miss"
+          "expected": "down",
+          "actual": "pending",
+          "result": "pending"
         }
       ],
       "observations": {
         "SP500": {
           "id": "SP500",
           "label": "S&P 500",
-          "baseDate": "2026-08-18",
-          "baseValue": 7691.76,
-          "targetDate": "2026-08-19",
-          "actualValue": 7707.98,
+          "baseDate": "2026-08-21",
+          "baseValue": 7674.37,
           "horizonSessions": 1,
-          "absoluteChange": 16.22,
-          "percentChange": 0.2109,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
-          "baseDate": "2026-08-18",
-          "baseValue": 26289.71,
-          "targetDate": "2026-08-19",
-          "actualValue": 26331.09,
+          "baseDate": "2026-08-21",
+          "baseValue": 26180.45,
           "horizonSessions": 1,
-          "absoluteChange": 41.38,
-          "percentChange": 0.1574,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
-          "baseDate": "2026-08-18",
-          "baseValue": 53343.4,
-          "targetDate": "2026-08-19",
-          "actualValue": 53463.05,
+          "baseDate": "2026-08-21",
+          "baseValue": 53277.01,
           "horizonSessions": 1,
-          "absoluteChange": 119.65,
-          "percentChange": 0.2243,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "targetDate": "2026-08-19",
-          "actualValue": 4.65,
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74,
           "horizonSessions": 1,
-          "absoluteChange": -0.06,
-          "percentChange": -1.2739,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.19,
-          "targetDate": "2026-08-19",
-          "actualValue": 4.19,
+          "baseDate": "2026-08-21",
+          "baseValue": 4.24,
           "horizonSessions": 1,
-          "absoluteChange": 0,
-          "percentChange": 0,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
-          "baseDate": "2026-08-18",
-          "baseValue": 15.84,
-          "targetDate": "2026-08-19",
-          "actualValue": 14.89,
+          "baseDate": "2026-08-21",
+          "baseValue": 15.13,
           "horizonSessions": 1,
-          "absoluteChange": -0.95,
-          "percentChange": -5.9975,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-08-19",
-          "baseValue": 1413,
-          "targetDate": "2026-08-22",
-          "actualValue": 1388,
+          "baseDate": "2026-08-22",
+          "baseValue": 1388,
           "horizonSessions": 1,
-          "absoluteChange": -25,
-          "percentChange": -1.7693,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-22"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-08-18",
-          "baseValue": 84.94,
-          "targetDate": "2026-08-21",
-          "actualValue": 87.06,
+          "baseDate": "2026-08-21",
+          "baseValue": 87.06,
           "horizonSessions": 1,
-          "absoluteChange": 2.12,
-          "percentChange": 2.4959,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-08-21"
         }
       },
       "watchLevels": [
@@ -153,86 +137,84 @@
           "thresholds": [
             4.75
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-19",
-          "min": 4.65,
-          "max": 4.65,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "달러/원 환율 1,420원 돌파 여부",
+          "text": "달러/원 환율 1,390원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1420
+            1390
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-19",
-          "baseValue": 1413,
-          "checkedThroughDate": "2026-08-22",
-          "min": 1388,
-          "max": 1388,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-22",
+          "baseValue": 1388
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 540달러 지지 여부",
+          "text": "미국 반도체 ETF(SOXX) -0.46% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "8월 19일 연방공개시장위원회(FOMC) 의사록 내용",
+          "text": "8월 26일 개인 소득 및 지출(7월) 결과",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 18선",
+          "text": "달러/원 환율 1,400원 돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1400
+          ],
+          "status": "pending",
+          "baseDate": "2026-08-22",
+          "baseValue": 1388
+        },
+        {
+          "text": "변동성지수(VIX) 20선 돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
+          "text": "코스피 외국인 순매수 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "광의 달러지수(DXY) 119.50 상회 여부",
+          "text": "광의 달러지수(DXY) 119.00 이상 유지 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.50% 지지 여부",
+          "text": "미 국채 10년물 4.50% 하회 여부",
           "id": "DGS10",
           "thresholds": [
             4.5
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-19",
-          "min": 4.65,
-          "max": 4.65,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 분기별 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "주요 기업 분기 실적 가이던스",
+          "text": "주요 기업 분기 실적 가이던스 변화",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "장단기 금리차 0.40%포인트 하회 여부",
+          "text": "미국 10년-2년 국채 금리 스프레드 0bp 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -244,28 +226,30 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지 유지",
+          "text": "미 국채 10년물 4.00~4.50% 레인지 유지 여부",
           "id": "DGS10",
           "thresholds": [
             4,
             4.5
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-19",
-          "min": 4.65,
-          "max": 4.65,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "광의 달러지수(DXY) 방향성",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 증가율",
+          "text": "인공지능(AI) 설비투자 전망치 변화",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX)가 0.46% 하락하며 장기금리 상승에 대한 기술주의 민감도를 다시 한번 확인했다. 국내 반도체 섹터에도 영향을 미칠 수 있다.",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -284,21 +268,21 @@
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
-          "expected": "mixed",
+          "expected": "up",
           "actual": "pending",
           "result": "pending"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
-          "expected": "down",
+          "expected": "up",
           "actual": "pending",
           "result": "pending"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
-          "expected": "up",
+          "expected": "down",
           "actual": "pending",
           "result": "pending"
         }
@@ -307,81 +291,81 @@
         "SP500": {
           "id": "SP500",
           "label": "S&P 500",
-          "baseDate": "2026-08-18",
-          "baseValue": 7691.76,
+          "baseDate": "2026-08-21",
+          "baseValue": 7674.37,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
-          "baseDate": "2026-08-18",
-          "baseValue": 26289.71,
+          "baseDate": "2026-08-21",
+          "baseValue": 26180.45,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
-          "baseDate": "2026-08-18",
-          "baseValue": 53343.4,
+          "baseDate": "2026-08-21",
+          "baseValue": 53277.01,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.19,
+          "baseDate": "2026-08-21",
+          "baseValue": 4.24,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
-          "baseDate": "2026-08-18",
-          "baseValue": 15.84,
+          "baseDate": "2026-08-21",
+          "baseValue": 15.13,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-08-19",
-          "baseValue": 1413,
+          "baseDate": "2026-08-22",
+          "baseValue": 1388,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-22"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-08-18",
-          "baseValue": 84.94,
+          "baseDate": "2026-08-21",
+          "baseValue": 87.06,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-08-21"
         }
       },
@@ -392,86 +376,84 @@
           "thresholds": [
             4.75
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-21",
-          "min": 4.65,
-          "max": 4.74,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "달러/원 환율 1,420원 돌파 여부",
+          "text": "달러/원 환율 1,390원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1420
+            1390
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-19",
-          "baseValue": 1413,
-          "checkedThroughDate": "2026-08-22",
-          "min": 1388,
-          "max": 1388,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-22",
+          "baseValue": 1388
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 540달러 지지 여부",
+          "text": "미국 반도체 ETF(SOXX) -0.46% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "8월 19일 연방공개시장위원회(FOMC) 의사록 내용",
+          "text": "8월 26일 개인 소득 및 지출(7월) 결과",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 18선",
+          "text": "달러/원 환율 1,400원 돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1400
+          ],
+          "status": "pending",
+          "baseDate": "2026-08-22",
+          "baseValue": 1388
+        },
+        {
+          "text": "변동성지수(VIX) 20선 돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
+          "text": "코스피 외국인 순매수 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "광의 달러지수(DXY) 119.50 상회 여부",
+          "text": "광의 달러지수(DXY) 119.00 이상 유지 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.50% 지지 여부",
+          "text": "미 국채 10년물 4.50% 하회 여부",
           "id": "DGS10",
           "thresholds": [
             4.5
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-21",
-          "min": 4.65,
-          "max": 4.74,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 분기별 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "주요 기업 분기 실적 가이던스",
+          "text": "주요 기업 분기 실적 가이던스 변화",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "장단기 금리차 0.40%포인트 하회 여부",
+          "text": "미국 10년-2년 국채 금리 스프레드 0bp 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -483,28 +465,30 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지 유지",
+          "text": "미 국채 10년물 4.00~4.50% 레인지 유지 여부",
           "id": "DGS10",
           "thresholds": [
             4,
             4.5
           ],
-          "status": "not_touched",
-          "baseDate": "2026-08-18",
-          "baseValue": 4.71,
-          "checkedThroughDate": "2026-08-21",
-          "min": 4.65,
-          "max": 4.74,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-08-21",
+          "baseValue": 4.74
         },
         {
-          "text": "광의 달러지수(DXY) 방향성",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 증가율",
+          "text": "인공지능(AI) 설비투자 전망치 변화",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX)가 0.46% 하락하며 장기금리 상승에 대한 기술주의 민감도를 다시 한번 확인했다. 국내 반도체 섹터에도 영향을 미칠 수 있다.",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
