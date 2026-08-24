@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-23T21:32:01.772Z",
-  "validationRunId": "20260823T213201671Z",
+  "generatedAt": "2026-08-24T21:41:48.581Z",
+  "validationRunId": "20260824T214148485Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-23T21:31:21.714Z",
+    "macroHistoryGeneratedAt": "2026-08-24T21:40:51.528Z",
     "horizons": [
       1,
       5
@@ -2285,9 +2285,9 @@
       "reportDate": "2026-08-18",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 유가 상승·금리 부담",
       "sourceRunId": "20260817T213555709Z",
-      "validatedAt": "2026-08-23T21:32:01.711Z",
+      "validatedAt": "2026-08-24T21:41:48.520Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 100,
         "classification": "confirmed"
       },
@@ -2303,10 +2303,10 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 100,
+          "classification": "confirmed",
+          "hitCount": 3,
           "partialCount": 0,
           "missCount": 0
         }
@@ -2317,7 +2317,7 @@
       "reportDate": "2026-08-19",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감, 장기금리 부담 지속",
       "sourceRunId": "20260818T213738324Z",
-      "validatedAt": "2026-08-23T21:32:01.733Z",
+      "validatedAt": "2026-08-24T21:41:48.540Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -2349,7 +2349,7 @@
       "reportDate": "2026-08-20",
       "briefingTitle": "[데일리 마감] 미 증시 혼조…장기금리 4.65% 하락",
       "sourceRunId": "20260819T213613647Z",
-      "validatedAt": "2026-08-23T21:32:01.740Z",
+      "validatedAt": "2026-08-24T21:41:48.546Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -2381,7 +2381,7 @@
       "reportDate": "2026-08-21",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락… 장기금리 4.69% 재상승",
       "sourceRunId": "20260820T213919149Z",
-      "validatedAt": "2026-08-23T21:32:01.747Z",
+      "validatedAt": "2026-08-24T21:41:48.552Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -2413,21 +2413,21 @@
       "reportDate": "2026-08-22",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.74% 부담 점검",
       "sourceRunId": "20260821T213453050Z",
-      "validatedAt": "2026-08-23T21:32:01.754Z",
+      "validatedAt": "2026-08-24T21:41:48.558Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 3
         },
         {
           "horizonSessions": 5,
@@ -2445,21 +2445,21 @@
       "reportDate": "2026-08-23",
       "briefingTitle": "[데일리 마감] 다우 0.98% 강세… 장기금리 4.74% 부담 지속",
       "sourceRunId": "20260822T213232813Z",
-      "validatedAt": "2026-08-23T21:32:01.761Z",
+      "validatedAt": "2026-08-24T21:41:48.565Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 3
         },
         {
           "horizonSessions": 5,
@@ -2477,7 +2477,39 @@
       "reportDate": "2026-08-24",
       "briefingTitle": "[데일리 마감] 미 증시 강세, 장기금리 부담 지속",
       "sourceRunId": "20260823T213201467Z",
-      "validatedAt": "2026-08-23T21:32:01.767Z",
+      "validatedAt": "2026-08-24T21:41:48.571Z",
+      "overall": {
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 3
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-24/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-25",
+      "briefingTitle": "[데일리 마감] 미 증시 혼조, 반도체 약세 속 다우 상승… 장기금리 4.70%",
+      "sourceRunId": "20260824T214148290Z",
+      "validatedAt": "2026-08-24T21:41:48.576Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -2503,7 +2535,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-24/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-25/latest/outcome-validation.json"
     }
   ]
 }
