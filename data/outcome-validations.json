@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-25T21:38:35.284Z",
-  "validationRunId": "20260825T213835187Z",
+  "generatedAt": "2026-08-27T00:41:39.211Z",
+  "validationRunId": "20260827T004139114Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-08-25T21:37:54.657Z",
+    "macroHistoryGeneratedAt": "2026-08-27T00:40:56.298Z",
     "horizons": [
       1,
       5
@@ -2349,9 +2349,9 @@
       "reportDate": "2026-08-20",
       "briefingTitle": "[데일리 마감] 미 증시 혼조…장기금리 4.65% 하락",
       "sourceRunId": "20260819T213613647Z",
-      "validatedAt": "2026-08-25T21:38:35.241Z",
+      "validatedAt": "2026-08-27T00:41:39.149Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 0,
         "classification": "miss"
       },
@@ -2367,12 +2367,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 3
         }
       ],
       "archivePath": "archive/2026-08-20/latest/outcome-validation.json"
@@ -2381,7 +2381,7 @@
       "reportDate": "2026-08-21",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락… 장기금리 4.69% 재상승",
       "sourceRunId": "20260820T213919149Z",
-      "validatedAt": "2026-08-25T21:38:35.248Z",
+      "validatedAt": "2026-08-27T00:41:39.170Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -2413,7 +2413,7 @@
       "reportDate": "2026-08-22",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.74% 부담 점검",
       "sourceRunId": "20260821T213453050Z",
-      "validatedAt": "2026-08-25T21:38:35.254Z",
+      "validatedAt": "2026-08-27T00:41:39.176Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -2445,7 +2445,7 @@
       "reportDate": "2026-08-23",
       "briefingTitle": "[데일리 마감] 다우 0.98% 강세… 장기금리 4.74% 부담 지속",
       "sourceRunId": "20260822T213232813Z",
-      "validatedAt": "2026-08-25T21:38:35.260Z",
+      "validatedAt": "2026-08-27T00:41:39.182Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -2477,7 +2477,7 @@
       "reportDate": "2026-08-24",
       "briefingTitle": "[데일리 마감] 미 증시 강세, 장기금리 부담 지속",
       "sourceRunId": "20260823T213201467Z",
-      "validatedAt": "2026-08-25T21:38:35.267Z",
+      "validatedAt": "2026-08-27T00:41:39.188Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -2509,7 +2509,7 @@
       "reportDate": "2026-08-25",
       "briefingTitle": "[데일리 마감] 미 증시 혼조, 반도체 약세 속 다우 상승… 장기금리 4.70%",
       "sourceRunId": "20260824T214148290Z",
-      "validatedAt": "2026-08-25T21:38:35.272Z",
+      "validatedAt": "2026-08-27T00:41:39.195Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -2541,7 +2541,39 @@
       "reportDate": "2026-08-26",
       "briefingTitle": "미 증시 동반 강세, 국채금리 하락",
       "sourceRunId": "20260825T213834994Z",
-      "validatedAt": "2026-08-25T21:38:35.278Z",
+      "validatedAt": "2026-08-27T00:41:39.200Z",
+      "overall": {
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
+          "partialCount": 0,
+          "missCount": 2
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-08-26/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-08-27",
+      "briefingTitle": "[데일리 마감] 미 증시 혼조 마감…장기금리 4.66% 유지",
+      "sourceRunId": "20260827T004138919Z",
+      "validatedAt": "2026-08-27T00:41:39.206Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -2567,7 +2599,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-08-26/latest/outcome-validation.json"
+      "archivePath": "archive/2026-08-27/latest/outcome-validation.json"
     }
   ]
 }
