@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-08-29",
-  "briefingTitle": "[데일리 마감] 미 증시 혼조 마감… 연준 긴축 우려 재부상",
-  "sourceRunId": "20260829T031033292Z",
-  "sourceGeneratedAt": "2026-08-29T03:08:16.447Z",
-  "validatedAt": "2026-08-29T23:25:02.967Z",
+  "reportDate": "2026-08-30",
+  "briefingTitle": "[데일리 마감] 美 증시 혼조 마감… 장기금리 4.73% 재상승",
+  "sourceRunId": "20260829T232502694Z",
+  "sourceGeneratedAt": "2026-08-29T23:14:25.288Z",
+  "validatedAt": "2026-08-29T23:25:02.973Z",
   "validationRunId": "20260829T232502886Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-08-29T23:21:44.018Z",
@@ -132,7 +132,7 @@
       },
       "watchLevels": [
         {
-          "text": "미 국채 10년물 4.75% 상회 여부",
+          "text": "미 국채 10년물 4.75% 상향 돌파 여부",
           "id": "DGS10",
           "thresholds": [
             4.75
@@ -142,7 +142,29 @@
           "baseValue": 4.73
         },
         {
-          "text": "달러/원 1,400원 돌파 여부",
+          "text": "달러/원 환율 1,385원 재돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1385
+          ],
+          "status": "pending",
+          "baseDate": "2026-08-29",
+          "baseValue": 1380.5
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX) 500선 지지 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주간 외국인 코스피 선물 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 환율 1,400원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
             1400
@@ -152,47 +174,25 @@
           "baseValue": 1380.5
         },
         {
-          "text": "SOXX +1.54% 흐름 유지",
+          "text": "달러지수(DXY) 100선 상회 지속 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "9월 1일 ISM 제조업 구매관리자지수(PMI)",
+          "text": "변동성지수(VIX) 18선 재돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "달러/원 1,420원 이상 상승",
-          "id": "DEXKOUS",
-          "thresholds": [
-            1420
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-29",
-          "baseValue": 1380.5
-        },
-        {
-          "text": "광의 달러지수(DXY) 119 이상",
+          "text": "코스피 외국인 순매수 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 20선",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "코스피 외국인 순매수 전환",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 국채 10년물 4.50% 하회",
+          "text": "미 국채 10년물 4.50% 하향 안정화",
           "id": "DGS10",
           "thresholds": [
             4.5
@@ -202,31 +202,31 @@
           "baseValue": 4.73
         },
         {
-          "text": "장단기 금리차 0%포인트",
+          "text": "미국 장단기 금리차 0bp 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "SOXX 분기 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기별 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "주요 기업 분기 실적 가이던스",
+          "text": "주요 빅테크 기업 분기 실적 가이던스",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "text": "연방준비제도(연준) 금리 인하 횟수 (시장 예상)",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지",
+          "text": "미 국채 10년물 4.00~4.50% 밴드 유지 여부",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -237,25 +237,13 @@
           "baseValue": 4.73
         },
         {
-          "text": "달러지수(DXY) 방향성",
+          "text": "달러지수(DXY)의 연간 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 전망치",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 국채 10년물 금리가 4.75%를 상회할 경우 주식 시장의 밸류에이션 부담이 더욱 커질 수 있다. 금리 추이를 면밀히 주시해야 한다.",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "다음 주 ISM 제조업 구매관리자지수(PMI)와 비농업 고용보고서 등 주요 지표 발표를 확인한 후 시장의 명확한 방향성이 설정될 때까지 신중하게 접근한다.",
+          "text": "인공지능(AI) 설비투자 증가율 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -377,7 +365,7 @@
       },
       "watchLevels": [
         {
-          "text": "미 국채 10년물 4.75% 상회 여부",
+          "text": "미 국채 10년물 4.75% 상향 돌파 여부",
           "id": "DGS10",
           "thresholds": [
             4.75
@@ -387,7 +375,29 @@
           "baseValue": 4.73
         },
         {
-          "text": "달러/원 1,400원 돌파 여부",
+          "text": "달러/원 환율 1,385원 재돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1385
+          ],
+          "status": "pending",
+          "baseDate": "2026-08-29",
+          "baseValue": 1380.5
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX) 500선 지지 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주간 외국인 코스피 선물 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 환율 1,400원 돌파 여부",
           "id": "DEXKOUS",
           "thresholds": [
             1400
@@ -397,47 +407,25 @@
           "baseValue": 1380.5
         },
         {
-          "text": "SOXX +1.54% 흐름 유지",
+          "text": "달러지수(DXY) 100선 상회 지속 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "9월 1일 ISM 제조업 구매관리자지수(PMI)",
+          "text": "변동성지수(VIX) 18선 재돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "달러/원 1,420원 이상 상승",
-          "id": "DEXKOUS",
-          "thresholds": [
-            1420
-          ],
-          "status": "pending",
-          "baseDate": "2026-08-29",
-          "baseValue": 1380.5
-        },
-        {
-          "text": "광의 달러지수(DXY) 119 이상",
+          "text": "코스피 외국인 순매수 전환 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 20선",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "코스피 외국인 순매수 전환",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 국채 10년물 4.50% 하회",
+          "text": "미 국채 10년물 4.50% 하향 안정화",
           "id": "DGS10",
           "thresholds": [
             4.5
@@ -447,31 +435,31 @@
           "baseValue": 4.73
         },
         {
-          "text": "장단기 금리차 0%포인트",
+          "text": "미국 장단기 금리차 0bp 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "SOXX 분기 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기별 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "주요 기업 분기 실적 가이던스",
+          "text": "주요 빅테크 기업 분기 실적 가이던스",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "text": "연방준비제도(연준) 금리 인하 횟수 (시장 예상)",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지",
+          "text": "미 국채 10년물 4.00~4.50% 밴드 유지 여부",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -482,25 +470,13 @@
           "baseValue": 4.73
         },
         {
-          "text": "달러지수(DXY) 방향성",
+          "text": "달러지수(DXY)의 연간 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 전망치",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "미 국채 10년물 금리가 4.75%를 상회할 경우 주식 시장의 밸류에이션 부담이 더욱 커질 수 있다. 금리 추이를 면밀히 주시해야 한다.",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "다음 주 ISM 제조업 구매관리자지수(PMI)와 비농업 고용보고서 등 주요 지표 발표를 확인한 후 시장의 명확한 방향성이 설정될 때까지 신중하게 접근한다.",
+          "text": "인공지능(AI) 설비투자 증가율 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
