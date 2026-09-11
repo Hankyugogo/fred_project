@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-10T23:07:34.840Z",
-  "validationRunId": "20260910T230734720Z",
+  "generatedAt": "2026-09-11T23:12:47.401Z",
+  "validationRunId": "20260911T231247281Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-09-10T23:06:51.228Z",
+    "macroHistoryGeneratedAt": "2026-09-11T23:12:05.954Z",
     "horizons": [
       1,
       5
@@ -2861,10 +2861,10 @@
       "reportDate": "2026-09-05",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 고용지표에 금리 우려",
       "sourceRunId": "20260904T230237808Z",
-      "validatedAt": "2026-09-10T23:07:34.787Z",
+      "validatedAt": "2026-09-11T23:12:47.327Z",
       "overall": {
-        "status": "partial",
-        "score": 66.7,
+        "status": "complete",
+        "score": 58.4,
         "classification": "mixed"
       },
       "horizons": [
@@ -2879,11 +2879,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
           "hitCount": 0,
-          "partialCount": 0,
+          "partialCount": 1,
           "missCount": 0
         }
       ],
@@ -2893,10 +2893,10 @@
       "reportDate": "2026-09-06",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260905T230803651Z",
-      "validatedAt": "2026-09-10T23:07:34.794Z",
+      "validatedAt": "2026-09-11T23:12:47.348Z",
       "overall": {
-        "status": "partial",
-        "score": 66.7,
+        "status": "complete",
+        "score": 58.4,
         "classification": "mixed"
       },
       "horizons": [
@@ -2911,11 +2911,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
           "hitCount": 0,
-          "partialCount": 0,
+          "partialCount": 1,
           "missCount": 0
         }
       ],
@@ -2925,10 +2925,10 @@
       "reportDate": "2026-09-07",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260906T231017912Z",
-      "validatedAt": "2026-09-10T23:07:34.802Z",
+      "validatedAt": "2026-09-11T23:12:47.356Z",
       "overall": {
-        "status": "partial",
-        "score": 66.7,
+        "status": "complete",
+        "score": 58.4,
         "classification": "mixed"
       },
       "horizons": [
@@ -2943,11 +2943,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
           "hitCount": 0,
-          "partialCount": 0,
+          "partialCount": 1,
           "missCount": 0
         }
       ],
@@ -2957,7 +2957,7 @@
       "reportDate": "2026-09-08",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20260907T233729454Z",
-      "validatedAt": "2026-09-10T23:07:34.808Z",
+      "validatedAt": "2026-09-11T23:12:47.363Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -2989,7 +2989,7 @@
       "reportDate": "2026-09-09",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감… 장기금리 4.80% 유지",
       "sourceRunId": "20260908T232235656Z",
-      "validatedAt": "2026-09-10T23:07:34.816Z",
+      "validatedAt": "2026-09-11T23:12:47.369Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -3021,7 +3021,7 @@
       "reportDate": "2026-09-10",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 유가 급등에 금리 부담",
       "sourceRunId": "20260909T231320615Z",
-      "validatedAt": "2026-09-10T23:07:34.827Z",
+      "validatedAt": "2026-09-11T23:12:47.377Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -3053,7 +3053,39 @@
       "reportDate": "2026-09-11",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 장기금리 5% 육박",
       "sourceRunId": "20260910T230734516Z",
-      "validatedAt": "2026-09-10T23:07:34.835Z",
+      "validatedAt": "2026-09-11T23:12:47.388Z",
+      "overall": {
+        "status": "partial",
+        "score": 0,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 3
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-09-11/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-09-12",
+      "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 유가 하락·금리 인상 전망 영향",
+      "sourceRunId": "20260911T231247083Z",
+      "validatedAt": "2026-09-11T23:12:47.396Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -3079,7 +3111,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-09-11/latest/outcome-validation.json"
+      "archivePath": "archive/2026-09-12/latest/outcome-validation.json"
     }
   ]
 }
