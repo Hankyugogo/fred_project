@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-09-12",
-  "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 유가 하락·금리 인상 전망 영향",
-  "sourceRunId": "20260911T231247083Z",
-  "sourceGeneratedAt": "2026-09-11T23:11:04.430Z",
-  "validatedAt": "2026-09-13T23:07:25.511Z",
+  "reportDate": "2026-09-14",
+  "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 장기금리 4.96% 유지",
+  "sourceRunId": "20260913T230725206Z",
+  "sourceGeneratedAt": "2026-09-13T23:05:24.185Z",
+  "validatedAt": "2026-09-13T23:07:25.530Z",
   "validationRunId": "20260913T230725421Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-09-13T23:06:48.248Z",
@@ -112,103 +112,109 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
-          "targetDate": "2026-09-14",
-          "actualValue": 1343.8,
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8,
           "horizonSessions": 1,
-          "absoluteChange": 0.5,
-          "percentChange": 0.0372,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-09-14"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-09-11",
-          "baseValue": 100.05,
-          "targetDate": "2026-09-13",
-          "actualValue": 102.33,
+          "baseDate": "2026-09-13",
+          "baseValue": 102.33,
           "horizonSessions": 1,
-          "absoluteChange": 2.28,
-          "percentChange": 2.2789,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-09-13"
         }
       },
       "watchLevels": [
         {
-          "text": "미 국채 10년물 4.96% 유지",
+          "text": "미 국채 10년물 5.00% 상향 돌파",
           "id": "DGS10",
           "thresholds": [
-            4.96
+            5
           ],
           "status": "pending",
           "baseDate": "2026-09-11",
           "baseValue": 4.96
         },
         {
-          "text": "달러/원 1,340원 지지 여부",
-          "id": "DEXKOUS",
-          "thresholds": [
-            1340
-          ],
-          "status": "not_touched",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
-          "checkedThroughDate": "2026-09-14",
-          "min": 1343.8,
-          "max": 1343.8,
-          "touchedThresholds": []
-        },
-        {
-          "text": "미국 반도체 ETF(SOXX) -0.19% 흐름 유지",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "달러/원 1,350원 돌파 여부",
+          "text": "달러/원 환율 1,350원 재돌파",
           "id": "DEXKOUS",
           "thresholds": [
             1350
           ],
-          "status": "not_touched",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
-          "checkedThroughDate": "2026-09-14",
-          "min": 1343.8,
-          "max": 1343.8,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8
         },
         {
-          "text": "변동성지수(VIX) 18선",
+          "text": "SOXX(미 반도체 ETF) +1.5% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
+          "text": "2026년 9월 16일 FOMC 금리 결정",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.80% 지지",
+          "text": "달러/원 환율 1,360원 돌파",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1360
+          ],
+          "status": "pending",
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8
+        },
+        {
+          "text": "광의 달러지수(DXY) 100선 돌파",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "변동성지수(VIX) 20선",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "코스피 외국인 순매수 전환 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.50% 하향 안정화",
           "id": "DGS10",
           "thresholds": [
-            4.8
+            4.5
           ],
           "status": "pending",
           "baseDate": "2026-09-11",
           "baseValue": 4.96
         },
         {
-          "text": "장단기 금리차 0.30%포인트",
+          "text": "장단기 금리차 0bp",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
+          "text": "SOXX(미 반도체 ETF) 분기 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주요 기업 분기 실적 가이던스",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -220,7 +226,7 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 밴드",
+          "text": "미 국채 10년물 4.00~4.50% 범위",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -237,7 +243,7 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 금리 5.0% 상향 돌파와 같은 매크로 변수의 급격한 변화에 대비하여 포트폴리오의 방어적 요소를 점검하고 헤지 비중을 고려하는 것이 중요하다.",
+          "text": "인공지능(AI) 설비투자 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -339,99 +345,109 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-09-14"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-09-11",
-          "baseValue": 100.05,
+          "baseDate": "2026-09-13",
+          "baseValue": 102.33,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-09-13"
         }
       },
       "watchLevels": [
         {
-          "text": "미 국채 10년물 4.96% 유지",
+          "text": "미 국채 10년물 5.00% 상향 돌파",
           "id": "DGS10",
           "thresholds": [
-            4.96
+            5
           ],
           "status": "pending",
           "baseDate": "2026-09-11",
           "baseValue": 4.96
         },
         {
-          "text": "달러/원 1,340원 지지 여부",
-          "id": "DEXKOUS",
-          "thresholds": [
-            1340
-          ],
-          "status": "not_touched",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
-          "checkedThroughDate": "2026-09-14",
-          "min": 1343.8,
-          "max": 1343.8,
-          "touchedThresholds": []
-        },
-        {
-          "text": "미국 반도체 ETF(SOXX) -0.19% 흐름 유지",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "달러/원 1,350원 돌파 여부",
+          "text": "달러/원 환율 1,350원 재돌파",
           "id": "DEXKOUS",
           "thresholds": [
             1350
           ],
-          "status": "not_touched",
-          "baseDate": "2026-09-12",
-          "baseValue": 1343.3,
-          "checkedThroughDate": "2026-09-14",
-          "min": 1343.8,
-          "max": 1343.8,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8
         },
         {
-          "text": "변동성지수(VIX) 18선",
+          "text": "SOXX(미 반도체 ETF) +1.5% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
+          "text": "2026년 9월 16일 FOMC 금리 결정",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.80% 지지",
+          "text": "달러/원 환율 1,360원 돌파",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1360
+          ],
+          "status": "pending",
+          "baseDate": "2026-09-14",
+          "baseValue": 1343.8
+        },
+        {
+          "text": "광의 달러지수(DXY) 100선 돌파",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "변동성지수(VIX) 20선",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "코스피 외국인 순매수 전환 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.50% 하향 안정화",
           "id": "DGS10",
           "thresholds": [
-            4.8
+            4.5
           ],
           "status": "pending",
           "baseDate": "2026-09-11",
           "baseValue": 4.96
         },
         {
-          "text": "장단기 금리차 0.30%포인트",
+          "text": "장단기 금리차 0bp",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
+          "text": "SOXX(미 반도체 ETF) 분기 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주요 기업 분기 실적 가이던스",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -443,7 +459,7 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 밴드",
+          "text": "미 국채 10년물 4.00~4.50% 범위",
           "id": "DGS10",
           "thresholds": [
             4,
@@ -460,7 +476,7 @@
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 금리 5.0% 상향 돌파와 같은 매크로 변수의 급격한 변화에 대비하여 포트폴리오의 방어적 요소를 점검하고 헤지 비중을 고려하는 것이 중요하다.",
+          "text": "인공지능(AI) 설비투자 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
