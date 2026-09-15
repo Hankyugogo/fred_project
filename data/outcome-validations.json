@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-14T23:51:57.941Z",
-  "validationRunId": "20260914T235157825Z",
+  "generatedAt": "2026-09-15T23:32:51.859Z",
+  "validationRunId": "20260915T233251738Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-09-14T23:51:16.339Z",
+    "macroHistoryGeneratedAt": "2026-09-15T23:31:55.278Z",
     "horizons": [
       1,
       5
@@ -2989,9 +2989,9 @@
       "reportDate": "2026-09-09",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감… 장기금리 4.80% 유지",
       "sourceRunId": "20260908T232235656Z",
-      "validatedAt": "2026-09-14T23:51:57.889Z",
+      "validatedAt": "2026-09-15T23:32:51.784Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 66.7,
         "classification": "mixed"
       },
@@ -3007,11 +3007,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 2,
           "missCount": 0
         }
       ],
@@ -3021,7 +3021,7 @@
       "reportDate": "2026-09-10",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 유가 급등에 금리 부담",
       "sourceRunId": "20260909T231320615Z",
-      "validatedAt": "2026-09-14T23:51:57.896Z",
+      "validatedAt": "2026-09-15T23:32:51.806Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -3053,7 +3053,7 @@
       "reportDate": "2026-09-11",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락, 장기금리 5% 육박",
       "sourceRunId": "20260910T230734516Z",
-      "validatedAt": "2026-09-14T23:51:57.903Z",
+      "validatedAt": "2026-09-15T23:32:51.814Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -3085,7 +3085,7 @@
       "reportDate": "2026-09-12",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 유가 하락·금리 인상 전망 영향",
       "sourceRunId": "20260911T231247083Z",
-      "validatedAt": "2026-09-14T23:51:57.909Z",
+      "validatedAt": "2026-09-15T23:32:51.821Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -3117,7 +3117,7 @@
       "reportDate": "2026-09-13",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 기술주 주도",
       "sourceRunId": "20260912T225951801Z",
-      "validatedAt": "2026-09-14T23:51:57.916Z",
+      "validatedAt": "2026-09-15T23:32:51.827Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -3149,7 +3149,7 @@
       "reportDate": "2026-09-14",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 장기금리 4.96% 유지",
       "sourceRunId": "20260913T230725206Z",
-      "validatedAt": "2026-09-14T23:51:57.928Z",
+      "validatedAt": "2026-09-15T23:32:51.835Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -3181,7 +3181,39 @@
       "reportDate": "2026-09-15",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세, 장기금리 5% 돌파 부담",
       "sourceRunId": "20260914T235157616Z",
-      "validatedAt": "2026-09-14T23:51:57.935Z",
+      "validatedAt": "2026-09-15T23:32:51.846Z",
+      "overall": {
+        "status": "partial",
+        "score": 50,
+        "classification": "mixed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 50,
+          "classification": "mixed",
+          "hitCount": 1,
+          "partialCount": 1,
+          "missCount": 1
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-09-15/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-09-16",
+      "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
+      "sourceRunId": "20260915T233251533Z",
+      "validatedAt": "2026-09-15T23:32:51.854Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -3207,7 +3239,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-09-15/latest/outcome-validation.json"
+      "archivePath": "archive/2026-09-16/latest/outcome-validation.json"
     }
   ]
 }
