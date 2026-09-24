@@ -1,0 +1,113 @@
+{
+  "reportDate": "2026-09-25",
+  "runId": "20260924T235212000Z",
+  "archivedAt": "2026-09-24T23:52:12.000Z",
+  "generatedAt": "2026-09-24T23:50:39.028Z",
+  "latestPath": "archive/2026-09-25/latest",
+  "runPath": "archive/2026-09-25/runs/20260924T235212000Z",
+  "reportCalendar": {
+    "reportDate": "2026-09-25",
+    "reportTimeZone": "Asia/Seoul",
+    "generatedAt": "2026-09-24T23:50:39.028Z",
+    "usEquityReferenceDate": "2026-09-24",
+    "latestUsEquityDate": "2026-09-24",
+    "usEquityStatus": "prior-session",
+    "hasSplitUsEquityDates": false,
+    "koreaMarketReferenceDate": "2026-09-23",
+    "rateReferenceDate": "2026-09-24",
+    "volatilityReferenceDate": "2026-09-24",
+    "fxReferenceDate": "2026-09-24",
+    "commodityReferenceDate": "2026-09-24",
+    "observations": {
+      "usEquities": {
+        "SP500": "2026-09-24",
+        "NASDAQCOM": "2026-09-24",
+        "DJIA": "2026-09-24"
+      },
+      "koreaMarkets": {
+        "KOSPI": "2026-09-23",
+        "KOSDAQ": "2026-09-23"
+      },
+      "rates": {
+        "DGS2": "2026-09-24",
+        "DGS10": "2026-09-24"
+      },
+      "volatility": {
+        "VIXCLS": "2026-09-24"
+      },
+      "fx": {
+        "DEXKOUS": "2026-09-24",
+        "DTWEXBGS": "2026-09-18",
+        "DEXJPUS": "2026-09-24"
+      },
+      "commodities": {
+        "DCOILWTICO": "2026-09-24",
+        "DCOILBRENTEU": "2026-09-24"
+      }
+    },
+    "note": "한국시간 2026-09-25 발행본의 미국 주식 기준일은 2026-09-24다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정된다."
+  },
+  "files": [
+    {
+      "source": "data/market-snapshot.json",
+      "archivedAs": "market-snapshot.json",
+      "bytes": 37658
+    },
+    {
+      "source": "data/briefings.json",
+      "archivedAs": "briefings.json",
+      "bytes": 6285053
+    },
+    {
+      "source": "data/news-digest.json",
+      "archivedAs": "news-digest.json",
+      "bytes": 77655
+    },
+    {
+      "source": "data/yahoo-snapshot.json",
+      "archivedAs": "yahoo-snapshot.json",
+      "bytes": 1125
+    },
+    {
+      "source": "data/stooq-snapshot.json",
+      "archivedAs": "stooq-snapshot.json",
+      "bytes": 1475
+    },
+    {
+      "source": "data/market-supplements.json",
+      "archivedAs": "market-supplements.json",
+      "bytes": 8430
+    },
+    {
+      "source": "data/watchlist-prices.json",
+      "archivedAs": "watchlist-prices.json",
+      "bytes": 228298
+    },
+    {
+      "source": "data/stock-watchlist.json",
+      "archivedAs": "stock-watchlist.json",
+      "bytes": 211979
+    },
+    {
+      "source": "data/macro-history.json",
+      "archivedAs": "macro-history.json",
+      "bytes": 597310
+    },
+    {
+      "source": "generated",
+      "archivedAs": "briefing.json",
+      "bytes": 42829
+    },
+    {
+      "source": "posts/2026-09-25.md",
+      "archivedAs": "briefing.md",
+      "bytes": 21631
+    },
+    {
+      "source": "reports/2026-09-25.html",
+      "archivedAs": "report.html",
+      "bytes": 253929
+    }
+  ],
+  "note": "latest is overwritten by the newest run for this report date; runs/* keeps each generated copy."
+}
