@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "reportDate": "2026-10-04",
-  "briefingTitle": "[데일리 마감] 나스닥 1.19% 강세… 장기금리 5.28% 부담",
-  "sourceRunId": "20261003T234623305Z",
-  "sourceGeneratedAt": "2026-10-03T23:44:17.603Z",
-  "validatedAt": "2026-10-04T23:57:46.680Z",
+  "reportDate": "2026-10-05",
+  "briefingTitle": "나스닥 1.19% 상승 마감… 장기금리 5.28% 부담 지속",
+  "sourceRunId": "20261004T235746365Z",
+  "sourceGeneratedAt": "2026-10-04T23:55:35.439Z",
+  "validatedAt": "2026-10-04T23:57:46.686Z",
   "validationRunId": "20261004T235746579Z",
   "basis": {
     "macroHistoryGeneratedAt": "2026-10-04T23:57:08.815Z",
@@ -112,26 +112,22 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
-          "targetDate": "2026-10-05",
-          "actualValue": 1347,
+          "baseDate": "2026-10-05",
+          "baseValue": 1347,
           "horizonSessions": 1,
-          "absoluteChange": -2,
-          "percentChange": -0.1483,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-10-05"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-10-02",
-          "baseValue": 91.11,
-          "targetDate": "2026-10-04",
-          "actualValue": 90.98,
+          "baseDate": "2026-10-04",
+          "baseValue": 90.98,
           "horizonSessions": 1,
-          "absoluteChange": -0.13,
-          "percentChange": -0.1427,
-          "status": "complete"
+          "status": "pending",
+          "availableFutureSessions": 0,
+          "latestHistoryDate": "2026-10-04"
         }
       },
       "watchLevels": [
@@ -146,62 +142,58 @@
           "baseValue": 5.28
         },
         {
-          "text": "달러/원 환율 1,350원 재돌파 여부",
+          "text": "달러/원 환율 1,340원 지지 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1350
+            1340
           ],
-          "status": "not_touched",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
-          "checkedThroughDate": "2026-10-05",
-          "min": 1347,
-          "max": 1347,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-10-05",
+          "baseValue": 1347
         },
         {
-          "text": "SOXX(미 반도체 ETF) +2.18% 흐름 유지",
+          "text": "미국 반도체 ETF(SOXX) +2.18% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "10월 7일 FOMC 의사록 내용",
+          "text": "2026년 10월 5일 한국은행 금융통화위원회 본회의 결과",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "달러/원 환율 1,360원 돌파 여부",
+          "text": "달러/원 환율 1,380원 상회 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1360
+            1380
           ],
-          "status": "not_touched",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
-          "checkedThroughDate": "2026-10-05",
-          "min": 1347,
-          "max": 1347,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-10-05",
+          "baseValue": 1347
         },
         {
-          "text": "달러지수(DXY)의 102선 재돌파",
+          "text": "변동성지수(VIX) 20선 돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 20선 상회",
+          "text": "코스피 외국인 선물 순매수 전환",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
+          "text": "미 국채 10년물 5.30% 지지 여부",
+          "id": "DGS10",
+          "thresholds": [
+            5.3
+          ],
+          "status": "pending",
+          "baseDate": "2026-10-02",
+          "baseValue": 5.28
         },
         {
           "text": "미 국채 10년물 5.00% 하회 여부",
@@ -214,13 +206,7 @@
           "baseValue": 5.28
         },
         {
-          "text": "장단기 금리차 0bp(제로 베이시스 포인트) 재접근",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "SOXX(미 반도체 ETF) 분기 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -232,16 +218,21 @@
           "status": "unparsed"
         },
         {
+          "text": "장단기 금리차 0bp 회복 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
           "text": "연방준비제도(연준) 금리 인하 횟수",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지 유지",
+          "text": "미 국채 10년물 4.50% 지지 여부",
           "id": "DGS10",
           "thresholds": [
-            4,
             4.5
           ],
           "status": "pending",
@@ -249,19 +240,13 @@
           "baseValue": 5.28
         },
         {
-          "text": "달러지수(DXY)의 연간 방향성",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 전망치 변화",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "10월 7일 공개되는 연방공개시장위원회(FOMC) 의사록을 통해 연방준비제도(연준)의 통화 정책 스탠스에 대한 추가 단서를 파악해야 한다.",
+          "text": "인공지능(AI) 설비투자 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -363,21 +348,21 @@
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
+          "baseDate": "2026-10-05",
+          "baseValue": 1347,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-10-05"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
-          "baseDate": "2026-10-02",
-          "baseValue": 91.11,
+          "baseDate": "2026-10-04",
+          "baseValue": 90.98,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
+          "availableFutureSessions": 0,
           "latestHistoryDate": "2026-10-04"
         }
       },
@@ -393,62 +378,58 @@
           "baseValue": 5.28
         },
         {
-          "text": "달러/원 환율 1,350원 재돌파 여부",
+          "text": "달러/원 환율 1,340원 지지 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1350
+            1340
           ],
-          "status": "not_touched",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
-          "checkedThroughDate": "2026-10-05",
-          "min": 1347,
-          "max": 1347,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-10-05",
+          "baseValue": 1347
         },
         {
-          "text": "SOXX(미 반도체 ETF) +2.18% 흐름 유지",
+          "text": "미국 반도체 ETF(SOXX) +2.18% 흐름 유지",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "10월 7일 FOMC 의사록 내용",
+          "text": "2026년 10월 5일 한국은행 금융통화위원회 본회의 결과",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "달러/원 환율 1,360원 돌파 여부",
+          "text": "달러/원 환율 1,380원 상회 여부",
           "id": "DEXKOUS",
           "thresholds": [
-            1360
+            1380
           ],
-          "status": "not_touched",
-          "baseDate": "2026-10-03",
-          "baseValue": 1349,
-          "checkedThroughDate": "2026-10-05",
-          "min": 1347,
-          "max": 1347,
-          "touchedThresholds": []
+          "status": "pending",
+          "baseDate": "2026-10-05",
+          "baseValue": 1347
         },
         {
-          "text": "달러지수(DXY)의 102선 재돌파",
+          "text": "변동성지수(VIX) 20선 돌파 여부",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "변동성지수(VIX) 20선 상회",
+          "text": "코스피 외국인 선물 순매수 전환",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "코스피 외국인 순매수 전환",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
+          "text": "미 국채 10년물 5.30% 지지 여부",
+          "id": "DGS10",
+          "thresholds": [
+            5.3
+          ],
+          "status": "pending",
+          "baseDate": "2026-10-02",
+          "baseValue": 5.28
         },
         {
           "text": "미 국채 10년물 5.00% 하회 여부",
@@ -461,13 +442,7 @@
           "baseValue": 5.28
         },
         {
-          "text": "장단기 금리차 0bp(제로 베이시스 포인트) 재접근",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "SOXX(미 반도체 ETF) 분기 상대강도",
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
@@ -479,16 +454,21 @@
           "status": "unparsed"
         },
         {
+          "text": "장단기 금리차 0bp 회복 여부",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
           "text": "연방준비제도(연준) 금리 인하 횟수",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "미 국채 10년물 4.00~4.50% 레인지 유지",
+          "text": "미 국채 10년물 4.50% 지지 여부",
           "id": "DGS10",
           "thresholds": [
-            4,
             4.5
           ],
           "status": "pending",
@@ -496,19 +476,13 @@
           "baseValue": 5.28
         },
         {
-          "text": "달러지수(DXY)의 연간 방향성",
+          "text": "달러지수(DXY) 방향성",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
         },
         {
-          "text": "인공지능(AI) 설비투자 전망치 변화",
-          "id": null,
-          "thresholds": [],
-          "status": "unparsed"
-        },
-        {
-          "text": "10월 7일 공개되는 연방공개시장위원회(FOMC) 의사록을 통해 연방준비제도(연준)의 통화 정책 스탠스에 대한 추가 단서를 파악해야 한다.",
+          "text": "인공지능(AI) 설비투자 전망치",
           "id": null,
           "thresholds": [],
           "status": "unparsed"
