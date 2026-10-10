@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-09T01:12:13.500Z",
-  "validationRunId": "20261009T011213380Z",
+  "generatedAt": "2026-10-10T00:44:33.858Z",
+  "validationRunId": "20261010T004433788Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-09T01:11:33.003Z",
+    "macroHistoryGeneratedAt": "2026-10-10T00:43:56.954Z",
     "horizons": [
       1,
       5
@@ -3757,9 +3757,9 @@
       "reportDate": "2026-10-03",
       "briefingTitle": "미 증시 동반 강세, 장기금리 5.28% 부담 점검",
       "sourceRunId": "20261003T002623065Z",
-      "validatedAt": "2026-10-09T01:12:13.454Z",
+      "validatedAt": "2026-10-10T00:44:33.820Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 33.3,
         "classification": "miss"
       },
@@ -3775,12 +3775,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-10-03/latest/outcome-validation.json"
@@ -3789,9 +3789,9 @@
       "reportDate": "2026-10-04",
       "briefingTitle": "[데일리 마감] 나스닥 1.19% 강세… 장기금리 5.28% 부담",
       "sourceRunId": "20261003T234623305Z",
-      "validatedAt": "2026-10-09T01:12:13.461Z",
+      "validatedAt": "2026-10-10T00:44:33.833Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 33.3,
         "classification": "miss"
       },
@@ -3807,12 +3807,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-10-04/latest/outcome-validation.json"
@@ -3821,9 +3821,9 @@
       "reportDate": "2026-10-05",
       "briefingTitle": "나스닥 1.19% 상승 마감… 장기금리 5.28% 부담 지속",
       "sourceRunId": "20261004T235746365Z",
-      "validatedAt": "2026-10-09T01:12:13.467Z",
+      "validatedAt": "2026-10-10T00:44:33.837Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 33.3,
         "classification": "miss"
       },
@@ -3839,12 +3839,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-10-05/latest/outcome-validation.json"
@@ -3853,7 +3853,7 @@
       "reportDate": "2026-10-06",
       "briefingTitle": "[데일리 마감] 나스닥 1.05% 강세… 미 10년물 5.31% 부담",
       "sourceRunId": "20261006T014515534Z",
-      "validatedAt": "2026-10-09T01:12:13.474Z",
+      "validatedAt": "2026-10-10T00:44:33.841Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -3885,7 +3885,7 @@
       "reportDate": "2026-10-07",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 금리 하락 속 기술주 주도",
       "sourceRunId": "20261007T004525445Z",
-      "validatedAt": "2026-10-09T01:12:13.482Z",
+      "validatedAt": "2026-10-10T00:44:33.845Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -3917,7 +3917,7 @@
       "reportDate": "2026-10-08",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락… 장기금리 부담 지속",
       "sourceRunId": "20261008T005926706Z",
-      "validatedAt": "2026-10-09T01:12:13.489Z",
+      "validatedAt": "2026-10-10T00:44:33.849Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -3949,7 +3949,39 @@
       "reportDate": "2026-10-09",
       "briefingTitle": "[데일리 마감] 나스닥 1.25% 하락… 장기금리 5.22% 부담 지속",
       "sourceRunId": "20261009T011213169Z",
-      "validatedAt": "2026-10-09T01:12:13.495Z",
+      "validatedAt": "2026-10-10T00:44:33.852Z",
+      "overall": {
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 0,
+          "partialCount": 2,
+          "missCount": 1
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-10-09/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-10-10",
+      "briefingTitle": "[데일리 마감] 미 증시 동반 상승, 금리 부담 속 실적 기대",
+      "sourceRunId": "20261010T004433580Z",
+      "validatedAt": "2026-10-10T00:44:33.856Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -3975,7 +4007,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-10-09/latest/outcome-validation.json"
+      "archivePath": "archive/2026-10-10/latest/outcome-validation.json"
     }
   ]
 }
