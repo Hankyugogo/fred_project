@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T00:43:52.979Z",
+  "generatedAt": "2026-10-11T00:13:05.012Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, NVIDIA, SK하이닉스, 삼성전자로 구성한다.",
   "source": {
@@ -7,12 +7,12 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-10-10T00:42:18.389Z",
-    "latestBriefingDate": "2026-10-10",
-    "priceHistoryGeneratedAt": "2026-10-10T00:43:52.829Z"
+    "snapshotGeneratedAt": "2026-10-11T00:11:38.085Z",
+    "latestBriefingDate": "2026-10-11",
+    "priceHistoryGeneratedAt": "2026-10-11T00:13:04.798Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-10-10",
+    "reportDate": "2026-10-11",
     "title": "동반 강세, 10년물 5.24% · VIX 14.84",
     "summary": "미국 증시는 강세 흐름으로 마감했다. S&P500지수는 +0.59%, 나스닥 종합지수는 +0.64%, 다우존스30 산업평균지수는 +0.83%를 기록했다. S&P500, 나스닥, 다우가 모두 오르며 매수세가 지수 전반으로 확산됐다. 주가 강세와 변동성 안정이 동반되면서 투자심리가 개선된 흐름이 나타났다. 미 국채 10년물 금리는 5.24%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +1.36%p 높아 장기 자금 조달 부담이 남아 있다. 이번 브리핑의 주요 시계열은 허용 범위 안의 기준일을 유지해 자료 기반 해석에 큰 제약이 없다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 한다.",
     "signals": [
@@ -39,8 +39,8 @@
       },
       {
         "label": "달러/원",
-        "value": "1342원",
-        "change": "+0.07%",
+        "value": "1343.8원",
+        "change": "+0.21%",
         "tone": "down",
         "note": "외국인 매매와 환율 민감 업종의 핵심 변수다."
       }
@@ -133,7 +133,7 @@
         "asOf": "2026-10-08",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 44,
         "tone": "중립",
         "toneClass": "neutral",
@@ -1558,7 +1558,7 @@
       },
       "price": 77,
       "changePercent": 5.48,
-      "macroScore": 74,
+      "macroScore": 73,
       "macroTone": "우호",
       "macroToneClass": "positive",
       "sectorSignal": {
@@ -1573,7 +1573,7 @@
         "asOf": "2026-10-08",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 49,
         "tone": "중립",
         "toneClass": "neutral",
@@ -2897,14 +2897,14 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 3.74,
+            "expectedReturnPct": 3.65,
             "upProbabilityPct": 56,
             "rangeLowPct": -4.31,
             "rangeHighPct": 4.31
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 10.94,
+            "expectedReturnPct": 10.77,
             "upProbabilityPct": 58,
             "rangeLowPct": -10.94,
             "rangeHighPct": 10.94
@@ -2993,63 +2993,56 @@
         "수출 규제와 공급망 제약은 매출 가시성을 흔들 수 있다."
       ],
       "quote": {
-        "price": 230.48,
-        "changePercent": -2.94,
+        "price": 229.28,
+        "changePercent": -0.52,
         "currency": "USD",
         "source": "watchlist-prices"
       },
-      "price": 230.48,
-      "changePercent": -2.94,
-      "macroScore": 46,
+      "price": 229.28,
+      "changePercent": -0.52,
+      "macroScore": 52,
       "macroTone": "중립",
       "macroToneClass": "neutral",
       "sectorSignal": {
         "ticker": "SOXX",
         "label": "미국 반도체 ETF",
-        "close": 563.28,
-        "percentChange": -3.35,
+        "close": 571.01,
+        "percentChange": -0.69,
         "observationDate": "2026-10-09"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-10-08",
+        "asOf": "2026-10-09",
         "source": "nasdaq-historical",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/nvda/historical",
         "historyLength": 250,
-        "score": 74,
+        "score": 73,
         "tone": "상방 우위",
         "toneClass": "positive",
-        "summary": "상방 우위 신호다. 20거래일 수익률 5.55%, RSI 60.9, 60일 추세 8.46% 기준으로 판단했다.",
+        "summary": "상방 우위 신호다. 20거래일 수익률 5.03%, RSI 52.8, 60일 추세 10.55% 기준으로 판단했다.",
         "indicators": {
-          "close": 230.48,
-          "return1d": -2.94,
-          "return5d": -0.16,
-          "return20d": 5.55,
-          "return60d": 8.46,
-          "ma20": 226.1845,
-          "ma60": 218.36,
-          "ma120": 213.5959,
-          "rsi14": 60.9,
-          "macd": 4.4481,
-          "macdSignal": 3.7907,
-          "macdHistogram": 0.6574,
-          "dailyVolatility20d": 1.54,
-          "annualVolatility20d": 24.42,
-          "slope60d": 8.46,
-          "drawdown120d": -3.66,
+          "close": 229.28,
+          "return1d": -0.52,
+          "return5d": -2,
+          "return20d": 5.03,
+          "return60d": 10.55,
+          "ma20": 226.734,
+          "ma60": 218.7247,
+          "ma120": 213.8228,
+          "rsi14": 52.8,
+          "macd": 3.9496,
+          "macdSignal": 3.8225,
+          "macdHistogram": 0.1271,
+          "dailyVolatility20d": 1.55,
+          "annualVolatility20d": 24.55,
+          "slope60d": 10.55,
+          "drawdown120d": -4.16,
           "support20d": 208.93,
           "resistance20d": 243.37,
-          "volumeRatio20d": 1.09
+          "volumeRatio20d": 0.78
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-01-22",
-              "close": 184.84,
-              "ma20": 186.3615,
-              "ma60": 186.4105,
-              "volume": 139636600
-            },
             {
               "date": "2026-01-23",
               "close": 187.67,
@@ -4302,6 +4295,13 @@
               "ma20": 226.1845,
               "ma60": 218.36,
               "volume": 118697400
+            },
+            {
+              "date": "2026-10-09",
+              "close": 229.28,
+              "ma20": 226.734,
+              "ma60": 218.7247,
+              "volume": 84645560
             }
           ]
         }
@@ -4331,7 +4331,7 @@
         ]
       },
       "forecast": {
-        "score": 61,
+        "score": 64,
         "toneClass": "neutral",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -4339,17 +4339,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 1.05,
-            "upProbabilityPct": 57,
-            "rangeLowPct": -3.85,
-            "rangeHighPct": 3.85
+            "expectedReturnPct": 1.42,
+            "upProbabilityPct": 58,
+            "rangeLowPct": -3.68,
+            "rangeHighPct": 3.68
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 4.88,
-            "upProbabilityPct": 59,
-            "rangeLowPct": -9.55,
-            "rangeHighPct": 9.55
+            "expectedReturnPct": 5.36,
+            "upProbabilityPct": 61,
+            "rangeLowPct": -9.03,
+            "rangeHighPct": 9.03
           }
         ]
       },
@@ -4459,7 +4459,7 @@
         "asOf": "2026-10-08",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=000660",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 39,
         "tone": "중립",
         "toneClass": "neutral",
@@ -4474,9 +4474,9 @@
           "ma60": 1715916.6667,
           "ma120": 1840000,
           "rsi14": 47.8,
-          "macd": 7511.3149,
-          "macdSignal": 21034.7725,
-          "macdHistogram": -13523.4576,
+          "macd": 7511.315,
+          "macdSignal": 21034.7726,
+          "macdHistogram": -13523.4577,
           "dailyVolatility20d": 2.96,
           "annualVolatility20d": 46.97,
           "slope60d": -22.87,
@@ -5904,7 +5904,7 @@
         "asOf": "2026-10-08",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=005930",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 49,
         "tone": "중립",
         "toneClass": "neutral",
