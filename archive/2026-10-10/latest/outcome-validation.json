@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 미 증시 동반 상승, 금리 부담 속 실적 기대",
   "sourceRunId": "20261010T004433580Z",
   "sourceGeneratedAt": "2026-10-10T00:42:18.389Z",
-  "validatedAt": "2026-10-11T00:13:48.423Z",
-  "validationRunId": "20261011T001348320Z",
+  "validatedAt": "2026-10-12T00:29:07.653Z",
+  "validationRunId": "20261012T002907553Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-11T00:13:08.276Z",
+    "macroHistoryGeneratedAt": "2026-10-12T00:28:07.771Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -114,20 +114,24 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-10",
           "baseValue": 1342,
+          "targetDate": "2026-10-12",
+          "actualValue": 1338.7,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-10"
+          "absoluteChange": -3.3,
+          "percentChange": -0.2459,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-10-09",
           "baseValue": 91.85,
+          "targetDate": "2026-10-11",
+          "actualValue": 90.74,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-09"
+          "absoluteChange": -1.11,
+          "percentChange": -1.2085,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -147,9 +151,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) -3.35% 하락세 지속 여부",
@@ -169,9 +177,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 환율 1,380원",
@@ -179,9 +191,13 @@
           "thresholds": [
             1380
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "변동성지수(VIX) 20선",
@@ -353,8 +369,8 @@
           "baseValue": 1342,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-10"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-12"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -363,8 +379,8 @@
           "baseValue": 91.85,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-09"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-11"
         }
       },
       "watchLevels": [
@@ -384,9 +400,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) -3.35% 하락세 지속 여부",
@@ -406,9 +426,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 환율 1,380원",
@@ -416,9 +440,13 @@
           "thresholds": [
             1380
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-10",
-          "baseValue": 1342
+          "baseValue": 1342,
+          "checkedThroughDate": "2026-10-12",
+          "min": 1338.7,
+          "max": 1338.7,
+          "touchedThresholds": []
         },
         {
           "text": "변동성지수(VIX) 20선",
