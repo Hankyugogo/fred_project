@@ -1,99 +1,101 @@
 {
-  "generatedAt": "2026-10-12T00:26:38.409Z",
-  "reportDate": "2026-10-12",
+  "generatedAt": "2026-10-13T02:31:39.849Z",
+  "reportDate": "2026-10-13",
   "mode": "fred-api+market-supplements",
   "source": {
     "name": "FRED",
     "apiDocsUrl": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
     "seriesBaseUrl": "https://fred.stlouisfed.org/series/"
   },
-  "headline": "동반 강세, 10년물 5.24% · VIX 14.84",
+  "headline": "다우 상대 강세, 지수 혼조, 10년물 5.24% · VIX 15.21",
   "subheadline": "FRED+시장시세 기반 브리핑 · 자료 상태 양호 · 정상 발행",
   "reportCalendar": {
-    "reportDate": "2026-10-12",
+    "reportDate": "2026-10-13",
     "reportTimeZone": "Asia/Seoul",
-    "generatedAt": "2026-10-12T00:26:38.409Z",
-    "usEquityReferenceDate": "2026-10-09",
-    "latestUsEquityDate": "2026-10-09",
+    "generatedAt": "2026-10-13T02:31:39.849Z",
+    "usEquityReferenceDate": "2026-10-12",
+    "latestUsEquityDate": "2026-10-12",
     "usEquityStatus": "prior-session",
     "hasSplitUsEquityDates": false,
-    "koreaMarketReferenceDate": "2026-10-12",
+    "koreaMarketReferenceDate": "2026-10-13",
     "rateReferenceDate": "2026-10-09",
-    "volatilityReferenceDate": "2026-10-09",
-    "fxReferenceDate": "2026-10-12",
-    "commodityReferenceDate": "2026-10-12",
+    "volatilityReferenceDate": "2026-10-12",
+    "fxReferenceDate": "2026-10-13",
+    "commodityReferenceDate": "2026-10-13",
     "observations": {
       "usEquities": {
-        "SP500": "2026-10-09",
-        "NASDAQCOM": "2026-10-09",
-        "DJIA": "2026-10-09"
+        "SP500": "2026-10-12",
+        "NASDAQCOM": "2026-10-12",
+        "DJIA": "2026-10-12"
       },
       "koreaMarkets": {
-        "KOSPI": "2026-10-12",
-        "KOSDAQ": "2026-10-12"
+        "KOSPI": "2026-10-13",
+        "KOSDAQ": "2026-10-13"
       },
       "rates": {
         "DGS2": "2026-10-09",
         "DGS10": "2026-10-09"
       },
       "volatility": {
-        "VIXCLS": "2026-10-09"
+        "VIXCLS": "2026-10-12"
       },
       "fx": {
-        "DEXKOUS": "2026-10-12",
+        "DEXKOUS": "2026-10-13",
         "DTWEXBGS": "2026-10-02",
-        "DEXJPUS": "2026-10-12"
+        "DEXJPUS": "2026-10-13"
       },
       "commodities": {
-        "DCOILWTICO": "2026-10-11",
-        "DCOILBRENTEU": "2026-10-12"
+        "DCOILWTICO": "2026-10-12",
+        "DCOILBRENTEU": "2026-10-13"
       }
     },
-    "note": "한국시간 2026-10-12 발행본의 미국 주식 기준일은 2026-10-09다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정된다."
+    "note": "한국시간 2026-10-13 발행본의 미국 주식 기준일은 2026-10-12다. 같은 달력일의 미국 정규장 종가는 한국시간 다음 새벽 이후에 확정된다."
   },
   "highlights": [
-    "오늘의 요약: 동반 강세. 금리 방향 혼재, 투자심리 개선 확인 조합이다.",
-    "핵심 근거: S&P 500 +0.59%, 나스닥종합지수 +0.64%, 다우지수 +0.83% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp) / VIX 14.84 (-3.70%, -0.57pt).",
-    "해석 유의: 주요 지표 기준일은 보고서 작성에 무리가 없는 상태다."
+    "오늘의 요약: 다우 상대 강세, 지수 혼조. 금리 방향 혼재, 변동성 중립 조합이다.",
+    "핵심 근거: S&P 500 -0.05%, 나스닥종합지수 -0.44%, 다우지수 +0.38% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp) / VIX 15.21 (+2.49%, +0.37pt).",
+    "해석 유의: 보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했다."
   ],
   "analysis": {
-    "title": "동반 강세, 10년물 5.24% · VIX 14.84",
+    "title": "다우 상대 강세, 지수 혼조, 10년물 5.24% · VIX 15.21",
     "deck": "FRED+시장시세 기반 브리핑 · 자료 상태 양호 · 정상 발행",
-    "lead": "동반 강세 흐름이다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 확인해야 한다. 주가 상승과 VIX 하락이 맞물리며 단기 투자심리가 안정됐다. 주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다.",
+    "lead": "다우 상대 강세, 지수 혼조 흐름이다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 확인해야 한다. 변동성 지표만으로는 주가 방향을 강하게 확인하기 어렵다. 주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다.",
     "facts": [
-      "지수: S&P 500 +0.59%, 나스닥종합지수 +0.64%, 다우지수 +0.83%",
+      "지수: S&P 500 -0.05%, 나스닥종합지수 -0.44%, 다우지수 +0.38%",
       "금리: 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp)",
-      "변동성: VIX 14.84 (-3.70%, -0.57pt)",
-      "달러: USD/KRW -0.39%, BBDI -0.33%",
-      "원자재: WTI 90.74달러 (-1.21%)"
+      "변동성: VIX 15.21 (+2.49%, +0.37pt)",
+      "달러: USD/KRW +0.22%, BBDI -0.33%",
+      "원자재: WTI 92.54달러 (-1.28%)"
     ],
     "highlights": [
-      "오늘의 요약: 동반 강세. 금리 방향 혼재, 투자심리 개선 확인 조합이다.",
-      "핵심 근거: S&P 500 +0.59%, 나스닥종합지수 +0.64%, 다우지수 +0.83% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp) / VIX 14.84 (-3.70%, -0.57pt).",
-      "해석 유의: 주요 지표 기준일은 보고서 작성에 무리가 없는 상태다."
+      "오늘의 요약: 다우 상대 강세, 지수 혼조. 금리 방향 혼재, 변동성 중립 조합이다.",
+      "핵심 근거: S&P 500 -0.05%, 나스닥종합지수 -0.44%, 다우지수 +0.38% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp) / VIX 15.21 (+2.49%, +0.37pt).",
+      "해석 유의: 보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했다."
     ],
     "dataQuality": {
-      "reportDate": "2026-10-12",
-      "score": 100,
+      "reportDate": "2026-10-13",
+      "score": 94,
       "confidence": "high",
       "confidenceLabel": "자료 상태 양호",
       "publicationStatus": "ready",
       "publicationLabel": "정상 발행",
-      "warnings": [],
+      "warnings": [
+        "보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했다."
+      ],
       "blockedNarrativeIds": [],
       "blockedNarrativeLabels": [],
       "coreFreshCount": 6,
       "coreDelayedCount": 0,
       "coreStaleCount": 0,
-      "contextDelayedCount": 0,
+      "contextDelayedCount": 1,
       "contextStaleCount": 0
     },
     "drivers": [
       {
         "title": "주식",
-        "verdict": "동반 강세",
-        "desc": "3대 지수가 모두 오르며 매수세가 시장 전반으로 확산됐다. 다우지수가 +0.83%로 가장 강했고, S&P 500는 +0.59%에 그쳤다.",
-        "evidence": "S&P 500 +0.59%, 나스닥종합지수 +0.64%, 다우지수 +0.83%"
+        "verdict": "다우 상대 강세, 지수 혼조",
+        "desc": "지수 간 방향이 엇갈려 업종과 종목별 차별화가 두드러졌다. 다우지수가 +0.38%로 가장 강했고, 나스닥종합지수는 -0.44%에 그쳤다.",
+        "evidence": "S&P 500 -0.05%, 나스닥종합지수 -0.44%, 다우지수 +0.38%"
       },
       {
         "title": "금리",
@@ -103,47 +105,58 @@
       },
       {
         "title": "변동성",
-        "verdict": "투자심리 개선 확인",
-        "desc": "주가 상승과 VIX 하락이 맞물리며 단기 투자심리가 안정됐다.",
-        "evidence": "VIX 14.84 (-3.70%, -0.57pt)"
+        "verdict": "변동성 중립",
+        "desc": "변동성 지표만으로는 주가 방향을 강하게 확인하기 어렵다.",
+        "evidence": "VIX 15.21 (+2.49%, +0.37pt)"
       },
       {
         "title": "달러",
-        "verdict": "달러 완화",
-        "desc": "달러 강세 압력이 누그러져 위험자산 부담이 완화됐다.",
-        "evidence": "USD/KRW -0.39%, BBDI -0.33%"
+        "verdict": "달러 신호 혼재",
+        "desc": "달러 방향성은 있으나 환율과 달러지수가 같은 강도로 확인되지는 않았다.",
+        "evidence": "USD/KRW +0.22%, BBDI -0.33%"
       }
     ],
-    "risks": [],
+    "risks": [
+      {
+        "title": "데이터 품질 경고",
+        "desc": "보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했다.",
+        "severity": "medium"
+      },
+      {
+        "title": "지수 확인 제한",
+        "desc": "상승 지수와 하락 지수가 함께 있어 장세 해석을 한 방향으로 단정하기 어렵다.",
+        "severity": "medium"
+      }
+    ],
     "sections": {
       "topStory": [
         {
           "title": "시장 판정",
-          "desc": "3대 지수가 모두 오르며 매수세가 시장 전반으로 확산됐다. 다우지수가 +0.83%로 가장 강했고, S&P 500는 +0.59%에 그쳤다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 확인해야 한다."
+          "desc": "지수 간 방향이 엇갈려 업종과 종목별 차별화가 두드러졌다. 다우지수가 +0.38%로 가장 강했고, 나스닥종합지수는 -0.44%에 그쳤다. 장단기 금리 방향이 엇갈려 밸류에이션과 경기 신호를 함께 확인해야 한다."
         },
         {
           "title": "자료 기준일",
-          "desc": "자료 상태 양호, 점수 100/100. 주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다."
+          "desc": "자료 상태 양호, 점수 94/100. 주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다."
         }
       ],
       "marketReaction": [
         {
           "title": "지수와 금리",
-          "desc": "S&P 500 +0.59%, 나스닥종합지수 +0.64%, 다우지수 +0.83% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp)"
+          "desc": "S&P 500 -0.05%, 나스닥종합지수 -0.44%, 다우지수 +0.38% / 10년물 5.24% (+2bp), 2년물 4.80% (+5bp), 10Y-2Y +0.44%p (-3bp)"
         },
         {
           "title": "보조 자산 확인",
-          "desc": "VIX 14.84 (-3.70%, -0.57pt) / USD/KRW -0.39%, BBDI -0.33% / WTI 90.74달러 (-1.21%)"
+          "desc": "VIX 15.21 (+2.49%, +0.37pt) / USD/KRW +0.22%, BBDI -0.33% / WTI 92.54달러 (-1.28%)"
         }
       ],
       "watchNow": [
         {
           "title": "가장 큰 제약",
-          "desc": "핵심 시계열 기준일은 허용 범위 안에 있다."
+          "desc": "보조 해석용 시계열 1건은 지연 상태라 방향 확인용으로만 사용했다."
         },
         {
           "title": "추가 확인 포인트",
-          "desc": "달러 강세 압력이 누그러져 위험자산 부담이 완화됐다."
+          "desc": "상승 지수와 하락 지수가 함께 있어 장세 해석을 한 방향으로 단정하기 어렵다."
         }
       ],
       "positioning": [
@@ -164,18 +177,37 @@
     "qualityLine": "주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다."
   },
   "freshnessSummary": {
-    "reportDate": "2026-10-12",
-    "status": "healthy",
-    "freshCount": 14,
-    "delayedCount": 0,
+    "reportDate": "2026-10-13",
+    "status": "watch",
+    "freshCount": 13,
+    "delayedCount": 1,
     "staleCount": 0,
-    "items": []
+    "items": [
+      {
+        "id": "DFF",
+        "label": "실효 연방기금금리",
+        "status": "delayed",
+        "observationDate": "2026-10-08",
+        "businessDaysOld": 3,
+        "freshnessLabel": "지연 3영업일",
+        "sourceUrl": "https://fred.stlouisfed.org/series/DFF"
+      }
+    ]
   },
   "marketSupplementMeta": {
-    "generatedAt": "2026-10-12T00:26:38.409Z",
+    "generatedAt": "2026-10-13T02:31:39.849Z",
     "available": 12,
-    "applied": 7,
+    "applied": 8,
     "replacements": [
+      {
+        "id": "NASDAQCOM",
+        "label": "나스닥종합지수",
+        "policy": "replace",
+        "fromDate": "2026-10-09",
+        "toDate": "2026-10-12",
+        "source": "Naver Finance world index API",
+        "sourceSymbol": ".IXIC"
+      },
       {
         "id": "DGS2",
         "label": "미 국채 2년물",
@@ -198,8 +230,8 @@
         "id": "VIXCLS",
         "label": "VIX",
         "policy": "replace",
-        "fromDate": "2026-10-08",
-        "toDate": "2026-10-09",
+        "fromDate": "2026-10-09",
+        "toDate": "2026-10-12",
         "source": "Naver Finance world index API",
         "sourceSymbol": ".VIX"
       },
@@ -208,7 +240,7 @@
         "label": "달러/원 환율",
         "policy": "replace",
         "fromDate": "2026-10-02",
-        "toDate": "2026-10-12",
+        "toDate": "2026-10-13",
         "source": "Naver Finance exchange API",
         "sourceSymbol": "FX_USDKRW"
       },
@@ -217,7 +249,7 @@
         "label": "달러/엔 환율",
         "policy": "replace",
         "fromDate": "2026-10-02",
-        "toDate": "2026-10-12",
+        "toDate": "2026-10-13",
         "source": "Naver Finance exchange API",
         "sourceSymbol": "FX_USDKRW/FX_JPYKRW"
       },
@@ -226,7 +258,7 @@
         "label": "WTI 유가",
         "policy": "proxy",
         "fromDate": "2026-10-06",
-        "toDate": "2026-10-11",
+        "toDate": "2026-10-12",
         "source": "Naver Finance market index API",
         "sourceSymbol": "CLcv1"
       },
@@ -235,7 +267,7 @@
         "label": "브렌트유",
         "policy": "proxy",
         "fromDate": "2026-10-06",
-        "toDate": "2026-10-12",
+        "toDate": "2026-10-13",
         "source": "Naver Finance market index API",
         "sourceSymbol": "LCOcv1"
       }
@@ -243,8 +275,8 @@
   },
   "notes": [
     "주요 지표의 기준일은 보고서 작성에 무리가 없는 수준이다.",
-    "현재 선택한 핵심 시리즈는 모두 허용한 최신 범위 안에 들어왔다.",
-    "FRED 기준일이 늦은 7개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했다.",
+    "지연 시계열 1건이 있어, 일부 값은 당일 실시간 해석보다 전일 컨텍스트에 가깝다.",
+    "FRED 기준일이 늦은 8개 지표는 Yahoo Finance 시장 종가/대용 시세로 최신성을 보강했다.",
     "핵심 시계열은 FRED API의 fred/series/observations 엔드포인트를 기준으로 가져온다.",
     "주식지수와 변동성 계열 일부는 FRED 안에서도 원 데이터 공급자의 별도 저작권/사용 조건이 붙을 수 있으니 공개 배포 전 각 시리즈 노트를 확인해야 한다.",
     "뉴스·실적·정책 이벤트를 붙이지 않은 규칙 기반 해석이므로, 원인 설명은 실시간 헤드라인과 함께 교차 확인해야 한다."
@@ -261,12 +293,12 @@
           "group": "equities",
           "format": "index",
           "decimals": 2,
-          "latestValue": 7811.54,
-          "previousValue": 7765.36,
-          "absoluteChange": 46.18,
-          "percentChange": 0.5947,
-          "observationDate": "2026-10-09",
-          "previousObservationDate": "2026-10-08",
+          "latestValue": 7807.24,
+          "previousValue": 7811.54,
+          "absoluteChange": -4.3,
+          "percentChange": -0.055,
+          "observationDate": "2026-10-12",
+          "previousObservationDate": "2026-10-09",
           "sourceUrl": "https://fred.stlouisfed.org/series/SP500",
           "mode": "fred-api",
           "freshWithinBusinessDays": 2,
@@ -274,7 +306,7 @@
             "status": "fresh",
             "businessDaysOld": 1,
             "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           }
         },
         {
@@ -283,20 +315,34 @@
           "group": "equities",
           "format": "index",
           "decimals": 2,
-          "latestValue": 27366.17,
-          "previousValue": 27193.34,
-          "absoluteChange": 172.83,
-          "percentChange": 0.6356,
-          "observationDate": "2026-10-09",
-          "previousObservationDate": "2026-10-08",
-          "sourceUrl": "https://fred.stlouisfed.org/series/NASDAQCOM",
-          "mode": "fred-api",
+          "latestValue": 27245.9,
+          "previousValue": 27366.17,
+          "absoluteChange": -120.27,
+          "percentChange": -0.44,
+          "observationDate": "2026-10-12",
+          "previousObservationDate": null,
+          "sourceUrl": "https://m.stock.naver.com/worldstock/index/.IXIC",
+          "mode": "market-supplement",
           "freshWithinBusinessDays": 2,
           "freshness": {
             "status": "fresh",
             "businessDaysOld": 1,
             "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
+          },
+          "marketSupplement": {
+            "source": "Naver Finance world index API",
+            "sourceSymbol": ".IXIC",
+            "replacementPolicy": "replace",
+            "note": null,
+            "fetchedAt": "2026-10-13T02:31:29.438Z"
+          },
+          "fredReference": {
+            "latestValue": 27366.17,
+            "previousValue": 27193.34,
+            "observationDate": "2026-10-09",
+            "previousObservationDate": "2026-10-08",
+            "sourceUrl": "https://fred.stlouisfed.org/series/NASDAQCOM"
           }
         },
         {
@@ -305,12 +351,12 @@
           "group": "equities",
           "format": "index",
           "decimals": 2,
-          "latestValue": 51654.95,
-          "previousValue": 51231.64,
-          "absoluteChange": 423.31,
-          "percentChange": 0.8263,
-          "observationDate": "2026-10-09",
-          "previousObservationDate": "2026-10-08",
+          "latestValue": 51850.55,
+          "previousValue": 51654.95,
+          "absoluteChange": 195.6,
+          "percentChange": 0.3787,
+          "observationDate": "2026-10-12",
+          "previousObservationDate": "2026-10-09",
           "sourceUrl": "https://fred.stlouisfed.org/series/DJIA",
           "mode": "fred-api",
           "freshWithinBusinessDays": 2,
@@ -318,7 +364,7 @@
             "status": "fresh",
             "businessDaysOld": 1,
             "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           }
         }
       ]
@@ -334,12 +380,12 @@
           "group": "korea",
           "format": "index",
           "decimals": 2,
-          "latestValue": 6566.47,
-          "previousValue": 6625.93,
-          "absoluteChange": -59.46,
-          "percentChange": -0.9,
-          "observationDate": "2026-10-12",
-          "previousObservationDate": "2026-10-08",
+          "latestValue": 5960.21,
+          "previousValue": 6384.24,
+          "absoluteChange": -424.03,
+          "percentChange": -6.64,
+          "observationDate": "2026-10-13",
+          "previousObservationDate": "2026-10-12",
           "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI",
           "mode": "yahoo-finance",
           "freshWithinBusinessDays": 2,
@@ -347,7 +393,7 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           }
         },
         {
@@ -356,12 +402,12 @@
           "group": "korea",
           "format": "index",
           "decimals": 2,
-          "latestValue": 884.32,
-          "previousValue": 892.27,
-          "absoluteChange": -7.95,
-          "percentChange": -0.89,
-          "observationDate": "2026-10-12",
-          "previousObservationDate": "2026-10-08",
+          "latestValue": 809.41,
+          "previousValue": 849.19,
+          "absoluteChange": -39.78,
+          "percentChange": -4.68,
+          "observationDate": "2026-10-13",
+          "previousObservationDate": "2026-10-12",
           "sourceUrl": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ",
           "mode": "yahoo-finance",
           "freshWithinBusinessDays": 2,
@@ -369,7 +415,7 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           }
         },
         {
@@ -378,11 +424,11 @@
           "group": "korea",
           "format": "krw",
           "decimals": 2,
-          "latestValue": 846.47,
-          "previousValue": 848.48,
-          "absoluteChange": -2.01,
-          "percentChange": -0.24,
-          "observationDate": "2026-10-12",
+          "latestValue": 845.96,
+          "previousValue": 842.32,
+          "absoluteChange": 3.64,
+          "percentChange": 0.43,
+          "observationDate": "2026-10-13",
           "previousObservationDate": null,
           "sourceUrl": null,
           "mode": "market-supplement",
@@ -396,7 +442,7 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           }
         }
       ]
@@ -423,16 +469,16 @@
           "freshWithinBusinessDays": 2,
           "freshness": {
             "status": "fresh",
-            "businessDaysOld": 1,
-            "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "businessDaysOld": 2,
+            "label": "허용 범위 2영업일",
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "U.S. Treasury Daily Treasury Rates XML",
             "sourceSymbol": "BC_2YEAR",
             "replacementPolicy": "replace",
             "note": null,
-            "fetchedAt": "2026-10-12T00:26:28.026Z"
+            "fetchedAt": "2026-10-13T02:31:30.870Z"
           },
           "fredReference": {
             "latestValue": 4.75,
@@ -459,16 +505,16 @@
           "freshWithinBusinessDays": 2,
           "freshness": {
             "status": "fresh",
-            "businessDaysOld": 1,
-            "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "businessDaysOld": 2,
+            "label": "허용 범위 2영업일",
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "U.S. Treasury Daily Treasury Rates XML",
             "sourceSymbol": "BC_10YEAR",
             "replacementPolicy": "replace",
             "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
-            "fetchedAt": "2026-10-12T00:26:28.026Z"
+            "fetchedAt": "2026-10-13T02:31:30.870Z"
           },
           "fredReference": {
             "latestValue": 5.22,
@@ -494,10 +540,10 @@
           "mode": "fred-api",
           "freshWithinBusinessDays": 2,
           "freshness": {
-            "status": "fresh",
-            "businessDaysOld": 2,
-            "label": "허용 범위 2영업일",
-            "referenceDate": "2026-10-12"
+            "status": "delayed",
+            "businessDaysOld": 3,
+            "label": "지연 3영업일",
+            "referenceDate": "2026-10-13"
           }
         },
         {
@@ -518,9 +564,9 @@
           "freshWithinBusinessDays": 2,
           "freshness": {
             "status": "fresh",
-            "businessDaysOld": 1,
-            "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "businessDaysOld": 2,
+            "label": "허용 범위 2영업일",
+            "referenceDate": "2026-10-13"
           }
         }
       ]
@@ -536,11 +582,11 @@
           "group": "volatility",
           "format": "index",
           "decimals": 2,
-          "latestValue": 14.84,
-          "previousValue": 15.41,
-          "absoluteChange": -0.57,
-          "percentChange": -3.7,
-          "observationDate": "2026-10-09",
+          "latestValue": 15.21,
+          "previousValue": 14.84,
+          "absoluteChange": 0.37,
+          "percentChange": 2.49,
+          "observationDate": "2026-10-12",
           "previousObservationDate": null,
           "sourceUrl": "https://m.stock.naver.com/worldstock/index/.VIX",
           "mode": "market-supplement",
@@ -549,20 +595,20 @@
             "status": "fresh",
             "businessDaysOld": 1,
             "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "Naver Finance world index API",
             "sourceSymbol": ".VIX",
             "replacementPolicy": "replace",
             "note": null,
-            "fetchedAt": "2026-10-12T00:26:27.076Z"
+            "fetchedAt": "2026-10-13T02:31:29.865Z"
           },
           "fredReference": {
-            "latestValue": 15.41,
-            "previousValue": 15.08,
-            "observationDate": "2026-10-08",
-            "previousObservationDate": "2026-10-07",
+            "latestValue": 14.84,
+            "previousValue": 15.41,
+            "observationDate": "2026-10-09",
+            "previousObservationDate": "2026-10-08",
             "sourceUrl": "https://fred.stlouisfed.org/series/VIXCLS"
           }
         }
@@ -579,11 +625,11 @@
           "group": "fx",
           "format": "krw",
           "decimals": 2,
-          "latestValue": 1338.7,
-          "previousValue": 1344,
-          "absoluteChange": -5.3,
-          "percentChange": -0.39,
-          "observationDate": "2026-10-12",
+          "latestValue": 1338.9,
+          "previousValue": 1336,
+          "absoluteChange": 2.9,
+          "percentChange": 0.22,
+          "observationDate": "2026-10-13",
           "previousObservationDate": null,
           "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW",
           "mode": "market-supplement",
@@ -592,14 +638,14 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "Naver Finance exchange API",
             "sourceSymbol": "FX_USDKRW",
             "replacementPolicy": "replace",
             "note": null,
-            "fetchedAt": "2026-10-12T00:26:28.303Z"
+            "fetchedAt": "2026-10-13T02:31:31.163Z"
           },
           "fredReference": {
             "latestValue": 1345.75,
@@ -626,9 +672,9 @@
           "freshWithinBusinessDays": 8,
           "freshness": {
             "status": "fresh",
-            "businessDaysOld": 6,
-            "label": "허용 범위 6영업일",
-            "referenceDate": "2026-10-12"
+            "businessDaysOld": 7,
+            "label": "허용 범위 7영업일",
+            "referenceDate": "2026-10-13"
           }
         },
         {
@@ -637,11 +683,11 @@
           "group": "fx",
           "format": "index",
           "decimals": 2,
-          "latestValue": 158.15,
-          "previousValue": 158.4,
-          "absoluteChange": -0.25,
-          "percentChange": -0.1578,
-          "observationDate": "2026-10-12",
+          "latestValue": 158.27,
+          "previousValue": 158.61,
+          "absoluteChange": -0.34,
+          "percentChange": -0.2118,
+          "observationDate": "2026-10-13",
           "previousObservationDate": null,
           "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW%2FFX_JPYKRW",
           "mode": "market-supplement",
@@ -650,14 +696,14 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "Naver Finance exchange API",
             "sourceSymbol": "FX_USDKRW/FX_JPYKRW",
             "replacementPolicy": "replace",
             "note": null,
-            "fetchedAt": "2026-10-12T00:26:29.033Z"
+            "fetchedAt": "2026-10-13T02:31:31.822Z"
           },
           "fredReference": {
             "latestValue": 157.81,
@@ -680,11 +726,11 @@
           "group": "commodities",
           "format": "usd",
           "decimals": 2,
-          "latestValue": 90.74,
-          "previousValue": 91.85,
-          "absoluteChange": -1.11,
-          "percentChange": -1.21,
-          "observationDate": "2026-10-11",
+          "latestValue": 92.54,
+          "previousValue": 93.74,
+          "absoluteChange": -1.2,
+          "percentChange": -1.28,
+          "observationDate": "2026-10-12",
           "previousObservationDate": null,
           "sourceUrl": "https://m.stock.naver.com/marketindex/energy/CLcv1",
           "mode": "market-supplement",
@@ -693,14 +739,14 @@
             "status": "fresh",
             "businessDaysOld": 1,
             "label": "허용 범위 1영업일",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "Naver Finance market index API",
             "sourceSymbol": "CLcv1",
             "replacementPolicy": "proxy",
             "note": "FRED WTI 현물 지연 시 NYMEX WTI 근월물 종가를 최신 시장 대용치로 쓴다.",
-            "fetchedAt": "2026-10-12T00:26:29.309Z"
+            "fetchedAt": "2026-10-13T02:31:32.118Z"
           },
           "fredReference": {
             "latestValue": 96.24,
@@ -716,11 +762,11 @@
           "group": "commodities",
           "format": "usd",
           "decimals": 2,
-          "latestValue": 103.48,
-          "previousValue": 104.72,
-          "absoluteChange": -1.24,
-          "percentChange": -1.18,
-          "observationDate": "2026-10-12",
+          "latestValue": 105.42,
+          "previousValue": 106.65,
+          "absoluteChange": -1.23,
+          "percentChange": -1.15,
+          "observationDate": "2026-10-13",
           "previousObservationDate": null,
           "sourceUrl": "https://m.stock.naver.com/marketindex/energy/LCOcv1",
           "mode": "market-supplement",
@@ -729,14 +775,14 @@
             "status": "fresh",
             "businessDaysOld": 0,
             "label": "당일 기준",
-            "referenceDate": "2026-10-12"
+            "referenceDate": "2026-10-13"
           },
           "marketSupplement": {
             "source": "Naver Finance market index API",
             "sourceSymbol": "LCOcv1",
             "replacementPolicy": "proxy",
             "note": "FRED Brent 현물 지연 시 ICE Brent 근월물 종가를 최신 시장 대용치로 쓴다.",
-            "fetchedAt": "2026-10-12T00:26:29.467Z"
+            "fetchedAt": "2026-10-13T02:31:32.249Z"
           },
           "fredReference": {
             "latestValue": 125.44,
@@ -750,8 +796,8 @@
     }
   ],
   "contextEnrichment": {
-    "generatedAt": "2026-10-12T00:26:42.498Z",
-    "today": "2026-10-12",
+    "generatedAt": "2026-10-13T02:31:40.939Z",
+    "today": "2026-10-13",
     "model": "gemini-2.5-flash",
     "sectorEtfs": {
       "items": [
@@ -760,316 +806,335 @@
           "percentChange": 0.92,
           "label": "미국 금융 ETF",
           "close": 54.73,
-          "observationDate": "2026-10-07"
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLK",
-          "percentChange": 0.21,
+          "percentChange": 0.51,
           "label": "미국 기술 ETF",
-          "close": 198.2,
+          "close": 198.78,
           "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLE",
-          "percentChange": 2.97,
+          "percentChange": 0.19,
           "label": "미국 에너지 ETF",
-          "close": 65.24,
-          "observationDate": "2026-10-07"
+          "close": 62.82,
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "SOXX",
           "percentChange": -0.69,
           "label": "미국 반도체 ETF",
           "close": 559.4,
-          "observationDate": "2026-10-09"
+          "observationDate": "2026-10-10"
         },
         {
           "ticker": "XLV",
-          "percentChange": 1.58,
+          "percentChange": 0.69,
           "label": "미국 헬스케어 ETF",
-          "close": 170.81,
-          "observationDate": "2026-10-09"
+          "close": 171.99,
+          "observationDate": "2026-10-12"
         },
         {
           "ticker": "XLP",
-          "percentChange": 2.11,
+          "percentChange": 0.67,
           "label": "미국 필수소비재 ETF",
-          "close": 83.42,
-          "observationDate": "2026-10-08"
+          "close": 83.99,
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLY",
-          "percentChange": 0.08,
+          "percentChange": 1.02,
           "label": "미국 임의소비재 ETF",
-          "close": 118.3,
-          "observationDate": "2026-08-24"
+          "close": 112.85,
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLI",
-          "percentChange": 0.78,
+          "percentChange": 0.5,
           "label": "미국 산업재 ETF",
-          "close": 169.95,
-          "observationDate": "2026-10-02"
+          "close": 169.25,
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLU",
-          "percentChange": 0.19,
+          "percentChange": 0.33,
           "label": "미국 유틸리티 ETF",
-          "close": 41.07,
-          "observationDate": "2026-10-08"
+          "close": 39.81,
+          "observationDate": "2026-10-09"
         },
         {
           "ticker": "XLRE",
-          "percentChange": 1.89,
+          "percentChange": -0.08,
           "label": "미국 부동산 ETF",
-          "close": 41.62,
-          "observationDate": "2026-10-09"
+          "close": 41.58,
+          "observationDate": "2026-10-12"
         }
       ],
       "groundingSources": [
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH3WflBXk0BK4WwdFyyT60xfQor9K5cviuvcrVba4xdK1E1VN92-lnXSpBfffEKOFZXdcCzSgbt1KYNQvrFIM2_De2Fe1xwl8ftOMMNXSXmk7hYG_PDAKa7_5SR3-LvnNqHUY5Cmz8TNw==",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFknZdRWvtPvEL-a1P_pdgii8WIi-JkwGWdmxbM2m9qXjI_MzchnpCCzZkfpQmJk9soUwXLE92Bf8D-0IkdUnqDuPHtKDntXS8dDVYxuqzBaAwJ7qyUuRbI8y2dhlreQaVpHtQhzuvRHQ==",
           "title": "barchart.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgqAaNU1CfcOoVcQj2z1_QQjy7blvU_Ehq2W8t2D-kfUeiw_Mk4l2LEcwRFvZApyvgENS6Rh9NcUHiJA8TLR6p8PveYuyGCPry_aMolzVXOuIscyw_SEl0dm0fxASfW28Ob9Fb-im6EzhC_B4DDHyFi5WQYzpZtg3JqNd7N6HfgY7UkcPDynGMpucuku67gA==",
-          "title": "fidelity.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJH_hOJUQvnMJiHWEUIXoiXd4Mc7i5h0E2l-onH--RWw_uyh8vJcsSOxsL-ut2mX2VmxcVQeDkrutUcVgXg0vWlWTK_xsByTSFkAh4bW6412-oXRbPEDfGkCirWviaG2qzVKJW",
-          "title": "stockanalysis.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH60B08SZO_N3RHermPWI8RCuDA-b9FnF88gZjGD7-iHSHWEtKT4P3Fd-o0RrF_dU4hnXw8gGOTAnBTZNR3cf7Yzu4gkgxXDNPilRhQXB6H1husFuhXERP7gO1704gwrBBOREHj",
-          "title": "stockanalysis.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLsgDuI7dqSkb2VZN85ygMHonViPn2DtVWAQGbHAz4y_Ft9UujrLFFuR3DIUsjzU4IMnaW00TRGi4PUvLdPBEvxf441Azj7uWEWt2Iqg5NhT8zOK2v4CRb7kU=",
-          "title": "tickeron.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNqbM055U_IITQz39qAnAAGOdByMe0ouLyhNpt2AIBpZ6kx0nHAuEqwMwmUtkX7jSW-qewbS4AHX1yb6iFIzbLmyw6-mE6GKcP0onUZHFvDBrirz0rTHsFu1d0FEjcmJi30J8u6w==",
-          "title": "stockanalysis.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxZJwntfdqiLNR4Nsw2rWX-hMU_hBRxoejiBqL5g0C8qwjppZG2yN2JirVBDdOFPCFq_-gZL1PntV7yA0wxTkkl93l77ZUyjkZ0q2r19DhQRhnhAFj0tYFCoqUAiTjix_I61IWOewq6pQHYAvmNTtdbueuzEsS-q9BrDXwM9eCLwyupQ==",
-          "title": "ishares.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG48Iwt0xCZS4tzs_bIZ61k_XYTPtkEQrhUuA3-rmro1SIBVJtEnepVRG9F1tf_88BpSXgo9Sk0f0cmnBHrkHEUdrcnirNBpszbcylKGe7PV28y4qoG_107cMT0_R-P2ZYVQtuEefblvqi0BYbrlxX_k5CXaA==",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEk4mOVa10YmVj5i-eidAoIv7_btUX4v4jkxqkf5D-NA8tiv0STY4H3XHUv9ub0rjj3eDobVRDJ9wqekUVtfEMYNOs3tlDHSM-zViKppqQCSbDR67NTTopiiq0ZL8DGKaQLvvXoS4dBpo_dZv_ib_-J3Ilx0Q==",
           "title": "barchart.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGONkBckxf3aBP5PSIerSUKdtNwc1p8Kt_upDA11kZdawv0lNRlRbJ5UAJ49d289BRvY4iYEwaGiiFivhWKcEYl4Y-JvaTwjDueLi6jJ34Q-cDun7me3Tiql_9LpZj_HJdFgZAtBBnJeg==",
+          "title": "barchart.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG2s2N5B7e8iwbPq-M1cqyuhKN7EBWj3F07J_moOu0V-E7NaXkblUQTR2Kz68YTHUL45Q-x2s7jAVDxZ-dQLpCWZaQDYgjFY1WVmk0SSd5Q3VrYWXSK9Ass4NDLaOtJNcWM9wDhPolN3YFoHF_e6obH",
+          "title": "barchart.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHYX7PnZ6yH_iAkVDMYmuXmfPULXjzKuLkP7uJOy7OFxviZ6VnAFOa2Un4hBdyBE8FPDw3TXgLqQiVF7DBlwWhNQI_pb2vuqBRhTeroNlyOtq-LOaqcJpcYo54fdNrQGqQUpfmI",
+          "title": "stockanalysis.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEd1anXU9XUslbFXZ0JcCoFfiw6q8wv25DUN3g9bQbrBSBMB3QVVFHGMM6828PdLn3k3jkzyHFr3H_ib9FirxvDhHrnCAwKQFOAItQW0Oi4Z_u0FId5-r5sS7rsYjNnoBW6K9nunmMACPl0esTaNvsBQuhbAUs=",
+          "title": "barchart.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpuJJ_s_xGeMtufHkLweMHMPq9vPYGQW_vK_t2o8fchzCd8zx5B_Q-Jdwuj0A8J1w3PfUxPO0K-ff-mBDuVljEWZelNHbqQyEwtnMXSME72nE0PcwcGfKp1eiCHhnIfkcXnn-dwiNJQGY8S6s78g==",
+          "title": "marketbeat.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG0q6OO0GEIfFg16ao1BJGUgSa6qxiQPXIPKTEiZ1sAIYyJeYfqEPiBm_lML3a19JRUUg1WAo3QRAttIa7VaeRdxdN4NPI-WQ7AsgtoFkEsVxnJAE6-4bHKYy_cKaacZZi2EJDbbPAJwMB",
+          "title": "tradingview.com"
         }
       ],
-      "fetchedAt": "2026-10-12T00:27:05.179Z"
+      "fetchedAt": "2026-10-13T02:32:03.211Z"
     },
     "crossAssetSignals": {
       "signals": {
         "dxy": {
-          "value": 102.23,
-          "percentChange": 0.1,
-          "observationDate": "2026-10-09",
-          "sourceName": "Google Finance, Barchart.com"
+          "value": 102.59,
+          "percentChange": 0.38,
+          "observationDate": "2026-10-12",
+          "sourceName": "Investing.com"
         },
         "gold": {
-          "value": 4186.5,
-          "percentChange": -0.9,
-          "observationDate": "2026-10-11",
-          "sourceName": "Kitco, Trading Economics"
+          "value": 4176.88,
+          "percentChange": -0.33,
+          "observationDate": "2026-10-12",
+          "sourceName": "Investing.com"
         },
         "copper": {
-          "value": 6.692,
-          "percentChange": 1.88,
-          "observationDate": "2026-10-09",
-          "sourceName": "TradingView, Investing.com"
+          "value": 6.76,
+          "percentChange": 0.19,
+          "observationDate": "2026-10-12",
+          "sourceName": "CME Group"
         },
         "moveIndex": {
           "value": 98.47,
-          "observationDate": "2026-10-09",
-          "sourceName": "Investing.com, FT.com"
+          "observationDate": "2026-10-12",
+          "sourceName": "Investing.com, FT.com, Macronomy"
         },
         "realYield10y": {
-          "value": 2.89,
+          "value": 2.9,
           "observationDate": "2026-10-09",
-          "sourceName": "StreetStats, Trading Economics"
+          "sourceName": "Investing.com"
         },
         "termPremium10y": {
-          "value": 0.885,
-          "observationDate": "2026-09-01",
-          "sourceName": "Federal Reserve Bank of New York (via CEIC)"
+          "value": 0.92,
+          "observationDate": "2026-10-08",
+          "sourceName": "Federal Reserve Bank of New York (via Macronomy)"
         }
       },
       "groundingSources": [
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEomeW5Chu_by_ioDba9RuTANMyws_c1bb8XB8mud_TEz9dtLAD1ODaG4lmtw6ls3D1Ne_ryt5yCDCWYQXHaqbKjqDbTzjDpvDpBWERZsAclgdQ7kJPGOIhgmhuTAyB67tnZw9OSJLBfC_hfB65RzgHEOj9",
-          "title": "google.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEOUJfT50feegcaP5NsKM6ZhVdny3or3T8TSjlvJWqNez4kR_dkKBrF5toSpKBLe0aUOaVTURiFnKvp9z__u6z7eaGXtEEzXw6IPk5oREaSxIvaC89R0tdYJmS0IaxiPkI_ThK9ozGH4ash02GPMxECLQyVC2TyURdRnA==",
-          "title": "barchart.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwixlr0k0w4SHXkl3fyhlqgAbBndGVISaajsHoObwqTWpSpWfz1EBoXnswQEbuizlxeKgNNplK9XkNkScVqrG5jV_tqrUmABaXE0fdVYpWSTd_6JNo90vdKN4mvQ==",
-          "title": "kitco.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQECCs3Z-iRGIyeOHlOsmCZyw1KL-Ki7X0Q2F1xcwJf-ln1s4i51-KrGNtS0PYXZSn3nzqyBj5XOqBC3thffQJ3GfhUo1YSLJLucp2k8UiIGHQBv_iwX9oNgsyVuZK_6Q0tiDw==",
-          "title": "tradingeconomics.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHCULh5Ofopw2Us7SLl0R1J2DfA8w6c5AahLF7lsOVMGpC-jLTAXXW0XLtuMNivXJO-62zbl-3ThXCKWVUa_k4jiQ7OY0QmusjmhUUahNKqW4leFGMwCh_QTh87eW-JnYG7WcYTqadaHXs",
-          "title": "tradingview.com"
-        },
-        {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiFutbTV4pkwJmuIRzfSMJ3QsiyE1uHi8XQFzVOHwVWxuZ0db8jHvNs4zpTV-4S3ueCEEGBCG9pmotl4FZw9fKjRyWZWjqNlOfl79cVzcpMsedSBNHQJeDjvy8f8Rrup8D9iqC-38XH60znUUrOt4mA9PokS9ZxA==",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKsmqpkgXFvjvf_qvmv5pl4q_MnnE8D5-dfn8UUaxPQ61ziC6xmcWfcWc6Hnzx1KEJazhWwR85p_nd7iLdGEZW2OfIjwYF-0nFzGSZZmcIAjMPRjtBQF4ocZIlfm-D9SrPphtzEQ==",
           "title": "investing.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1waRVamJbBzJqoet7fw2zO2IPOEV0LqzEqe86T-t4KhSjzXwrUlLM_E_7kCDPuEaD9_cBdouHMmMFTOjzs27zYp2W9aEP8ZHaqQGZEguBBqoFKHLL3s4rBVkxK6cdr9Xg_E4vBplPx0wgNQU=",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEzAitHbrwjH4En8gvCTbRueNq1X5LKSOmCmLL4Wmt9urOr0IycoXpw-WFltJ0dKL60UJYoFYCRhApkgS8Equ7po1S5_Ycag-EDdNYRd5hE-FnPR4W__PAJ7Yick-EGIF5sHUIx8cVOX1rIE6LS69QvRU9ses=",
           "title": "investing.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjtJ93J3eM2A9uZOf4MFv6BVRELW4qjGm9_nqobZPiOz4MOzfGI4el1sohnYY9syCagTLDttYCHG5JPYM4win2_YbrY3H_th4aLB4LREEQc0vJHLMN_CRLeX0qEUrT_JLBMESBkVo8CUphcUo5j3d-hyvr4w85sT_rfXQ=",
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH2hv72ef6taQ5tHxVlErkMpfSg9AZKNpSQlgLT8ZxoLXOZtqccLN7ioniaxf56e7gFAWU4VNxNer1v5mw8k062kllRwDLVZcXORa7IfFCbolmY8ki-Kw-pVBtuzk9i2_cEstEFkUm29b1fltyp0Rzj5fre4UtQuw==",
+          "title": "investing.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZysKTZlTS8WuvQR0XcX68feUux2ByB5fA8pdAY-7eSrz_7CsxjxxnsHaPNrUEV8V8oR1W5pAKUPooQ9I68MBEgvQXdZ2eXRw1daKpOapW4BFEenGHz2OQchs=",
+          "title": "cmegroup.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMPt81dv4HJWWGFWfpyPhvN97IyxOLWbwidSM5Kpwv3umZYCOGKHhNVuKw9UB4ADF3T2-S0brcGc9UeoJA-mj9gY8075AhzfBC_oSJKCZjB3ZvCpDutL58i5dwpghkzdM_oFMQ8imM7__7Kwk=",
+          "title": "investing.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHp0XgXJbCOh4vcDQLCfzIpThPuDTjdDu2wUYaOW2xzuPieDIYRIn0XMewk0CSwVIt5h9-Vz2xE-0zRA1JvslsfxqHd_g5jQrpD0d4dA1cywHjlhOA-jIIFk8G7yCrHlyZi7BMbR1A6KOi2DR9XXsRkxKpSl2sEfEzGbl8=",
           "title": "ft.com"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfb9CI5sJHm2mqvOKRvK7pDjyAS1EIUJaVba_lVGY-Ttg1JOICXnk2MI34uIckPQFx9B1IYI_q3KGg2oVMwXyd_9DH5xaBlQ_sRj5V-KsXZ2x3G-GEVeiY8oP7pA_tfLGZpAk=",
+          "title": "macronomy.io"
+        },
+        {
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWetsWqOZGDwslQAlta0FP1UM2vjTYTdSx7E6NKOV0h4ExyZ2JSVTlmsmLRhPHw1db7gh3iRMOSs_SuE_JPbhe03ogz1oLUWJfELuLTpufzucJQaXhwi-EjMibMib5F427Z3v2wUsPp5mM8stVBpTzq69-oQP347M=",
+          "title": "tradingeconomics.com"
         }
       ],
-      "fetchedAt": "2026-10-12T00:27:32.948Z"
+      "fetchedAt": "2026-10-13T02:32:23.317Z"
     },
     "eventCalendar": {
       "events": [
         {
-          "date": "2026-10-12",
-          "category": "korean-macro",
-          "name": "10월 1일~10일 수출입 동향 발표",
+          "date": "2026-10-13",
+          "category": "fomc",
+          "name": "Fed Waller 연설",
           "importance": "medium",
-          "whyItMatters": "한국 경제의 주요 성장 동력인 수출의 초기 흐름을 파악할 수 있다."
+          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 힌트를 제공할 수 있습니다."
         },
         {
           "date": "2026-10-13",
           "category": "fomc",
-          "name": "크리스토퍼 J. 월러 연준 이사 연설",
+          "name": "FOMC Member Barkin 연설",
           "importance": "medium",
-          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 단서를 제공하여 시장에 영향을 미칠 수 있다."
+          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 힌트를 제공할 수 있습니다."
         },
         {
           "date": "2026-10-13",
-          "category": "auction",
-          "name": "4주물 국채 발행",
-          "importance": "low",
-          "whyItMatters": "단기 국채 발행은 시장의 유동성과 단기 금리에 영향을 미칠 수 있다."
+          "category": "fomc",
+          "name": "Fed Collins 연설",
+          "importance": "medium",
+          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 힌트를 제공할 수 있습니다."
         },
         {
           "date": "2026-10-14",
           "category": "economic-data",
-          "name": "미국 소비자물가지수 (CPI)",
+          "name": "미국 소비자 물가 지수 (CPI)",
+          "consensus": "Headline YoY: 3.6% (vs. 3.4% prior), Core YoY: 2.5% (vs. 2.4% prior)",
           "importance": "high",
-          "whyItMatters": "인플레이션 압력을 측정하는 핵심 지표로, 연방준비제도(Fed)의 통화 정책 결정에 큰 영향을 미칩니다."
+          "whyItMatters": "연방준비제도(Fed)의 다음 금리 인상 결정에 영향을 미치는 가장 중요한 인플레이션 지표입니다."
         },
         {
           "date": "2026-10-14",
-          "category": "fomc",
-          "name": "미셸 W. 보우먼 연준 감독 부의장 연설",
+          "category": "auction",
+          "name": "4개월물 국채 입찰",
           "importance": "medium",
-          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 단서를 제공하여 시장에 영향을 미칠 수 있다."
+          "whyItMatters": "미국 정부의 자금 조달 비용과 채권 시장의 수요를 나타냅니다."
+        },
+        {
+          "date": "2026-10-15",
+          "category": "economic-data",
+          "name": "미국 생산자 물가 지수 (PPI)",
+          "consensus": "MoM: 0.5% (vs. 0.4% prior)",
+          "importance": "medium",
+          "whyItMatters": "기업이 생산에 드는 비용을 측정하여 향후 소비자 물가에 미칠 영향을 가늠할 수 있습니다."
         },
         {
           "date": "2026-10-15",
           "category": "economic-data",
           "name": "미국 소매 판매",
-          "importance": "medium",
-          "whyItMatters": "소비자 지출의 강도를 나타내며 경제 성장 동력을 평가하는 데 중요합니다."
+          "consensus": "MoM: 0.3% (vs. 1.1% prior)",
+          "importance": "high",
+          "whyItMatters": "미국 소비 지출의 강도를 나타내는 지표로, 경제 성장과 기업 수익에 대한 중요한 단서를 제공합니다."
         },
         {
           "date": "2026-10-15",
           "category": "economic-data",
-          "name": "미국 생산자물가지수 (PPI)",
+          "name": "미국 신규 실업수당 청구 건수",
+          "consensus": "195K-200K (vs. 197K prior)",
           "importance": "medium",
-          "whyItMatters": "생산자 단계의 인플레이션 압력을 보여주며 향후 소비자물가에 미칠 영향을 가늠할 수 있다."
-        },
-        {
-          "date": "2026-10-15",
-          "category": "fomc",
-          "name": "미셸 W. 보우먼 연준 감독 부의장 연설",
-          "importance": "medium",
-          "whyItMatters": "연준 고위 관계자의 발언은 통화 정책 방향에 대한 단서를 제공하여 시장에 영향을 미칠 수 있다."
+          "whyItMatters": "노동 시장의 건전성을 나타내는 주간 지표로, 해고 추세를 파악하는 데 중요합니다."
         },
         {
           "date": "2026-10-15",
           "category": "auction",
-          "name": "30년물 국채 발행",
+          "name": "3개월물 국채 입찰",
           "importance": "medium",
-          "whyItMatters": "장기 국채 발행은 장기 금리 및 시장의 자금 조달 비용에 영향을 미칩니다."
+          "whyItMatters": "미국 정부의 자금 조달 비용과 채권 시장의 수요를 나타냅니다."
         },
         {
-          "date": "2026-10-16",
-          "category": "economic-data",
-          "name": "미국 산업 생산",
+          "date": "2026-10-15",
+          "category": "auction",
+          "name": "6개월물 국채 입찰",
           "importance": "medium",
-          "whyItMatters": "제조업 부문의 활동 수준을 나타내며 경제 건전성을 평가하는 데 사용됩니다."
+          "whyItMatters": "미국 정부의 자금 조달 비용과 채권 시장의 수요를 나타냅니다."
         },
         {
-          "date": "2026-10-20",
+          "date": "2026-10-15",
+          "category": "auction",
+          "name": "6주물 국채 입찰",
+          "importance": "medium",
+          "whyItMatters": "미국 정부의 자금 조달 비용과 채권 시장의 수요를 나타냅니다."
+        },
+        {
+          "date": "2026-10-21",
           "category": "earnings",
-          "name": "넷플릭스 (Netflix) 실적 발표",
+          "name": "Tesla (테슬라) 실적 발표",
           "importance": "high",
-          "whyItMatters": "주요 기술 기업의 실적은 해당 산업뿐만 아니라 전체 증시의 투자 심리에 영향을 미칩니다."
+          "whyItMatters": "전기차 시장의 선두 주자로서 테슬라의 실적은 기술주 전반과 소비자 지출 동향에 대한 중요한 통찰력을 제공합니다."
         },
         {
-          "date": "2026-10-XX",
-          "category": "korean-macro",
-          "name": "한국은행 금융통화위원회 통화정책방향 결정 회의",
-          "importance": "high",
-          "whyItMatters": "한국은행의 기준금리 결정은 국내 경제 전반의 금리, 물가, 환율에 지대한 영향을 미칩니다."
+          "date": "2026-10-23",
+          "category": "economic-data",
+          "name": "미국 미시간대 소비자 심리 지수 (최종)",
+          "consensus": "46.3 (vs. 48.1 prior)",
+          "importance": "medium",
+          "whyItMatters": "소비자의 경제 상황 및 지출 계획에 대한 심리를 보여주며, 향후 소비 지출을 예측하는 데 도움이 됩니다."
         },
         {
-          "date": "2026-10-XX",
-          "category": "geopolitical",
-          "name": "이란/호르무즈 해협 동향",
+          "date": "2026-10-27",
+          "category": "fomc",
+          "name": "FOMC 회의",
           "importance": "high",
-          "whyItMatters": "호르무즈 해협에서 이란의 선박 공격이 격화되었으며, 이는 유가 변동성 및 글로벌 에너지 공급망에 지속적인 불확실성을 야기합니다."
+          "whyItMatters": "연방준비제도(Fed)가 기준 금리를 결정하고 통화 정책 성명을 발표하는 회의로, 시장에 가장 큰 영향을 미치는 이벤트입니다."
         },
         {
-          "date": "2026-10-XX",
-          "category": "geopolitical",
-          "name": "미국-중국 무역",
+          "date": "2026-10-28",
+          "category": "earnings",
+          "name": "Meta Platforms, Inc. (메타 플랫폼스) 실적 발표",
           "importance": "high",
-          "whyItMatters": "미국과 중국은 무역 휴전 연장 및 600억 달러 규모의 비민감 품목에 대한 관세 인하를 발표했다. 이는 양국 간의 무역 관계와 글로벌 공급망에 긍정적인 영향을 미칠 수 있다."
+          "whyItMatters": "소셜 미디어 및 광고 시장의 주요 기업으로서 메타의 실적은 디지털 광고 지출 및 전반적인 기술 부문 건전성을 나타냅니다."
+        },
+        {
+          "date": "2026-10-29",
+          "category": "earnings",
+          "name": "Amazon.com, Inc. (아마존) 실적 발표",
+          "importance": "high",
+          "whyItMatters": "전자상거래 및 클라우드 컴퓨팅 분야의 거대 기업으로서 아마존의 실적은 소비자 지출, 온라인 소매 동향 및 기업 기술 투자에 대한 중요한 지표입니다."
         }
       ],
       "groundingSources": [
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEc2DvgrzbveQMkJ4Tjvi5mBDKNisquhVorNvvEY23ubUI0ykxYw2Xwa6OGrn3qXfiHAOyfNmiR-O3U2tki1fzR60fJRntqCsL-hDg5hghI4mDq84laIa4be_54r-wWk65UvAnjn_Q0ubaCypw1UUxp5aOtQA==",
-          "title": "fedratecalc.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEehwboKsDft5SMOdyki3vx0oAkioGIdoypWbMmVfo4f9Y0QqTWYsWyyIEwyoqSKarMEDKL0Jx83115dSiL4UT9FUUjPKDxuF7TduQLWILUmniMv7Y-USKivai8bU72oFgv4GFTgnW1onHp2xpIkbpvb9x-jBlokaiCcd1_NGTiOFPXTxr7XG4=",
+          "title": "spindepth.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1zFR2DZaKGATOTVDxKWInrzHHIAOiPygEHMOCuGrKQyAYrWkhxRBmpdKXWcoDJ6J-b6A9Bw0f3IPTmxUcCASgjxYVHcDUiDgYwkiC_2YXfRCg2DgTm9ZQzdispXozYOo0Qnm3",
-          "title": "youtube.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFblv0RzbYPXRQYG8ikHVLny9vphyehVQkkLynnf1LnSmJYpn4gS3WW0Mi4z1UWBE_MzuGd4Z_npO2XcZqnbYcbfOD6QK-ihSvVYDTWwzHBYUL_PLUZBpQP8QIqRibXNLe2_5PBUAVQ8B64erEgkk-5__O_lmKeIt4k6Xm8lmWjwLLRUg==",
+          "title": "financialjuice.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMfkfeHTyXsZpzRxJfd5RkOdGbJaDMZP32SDAL6aBUdUB0FHHMTFi8T0iZjvm7icAIQzrlE4GKcf7NUe3LRiggXc40NQDNMUH4ipwxPPHM2WaFH9xr_6XuY8blUSPMkei8tw==",
-          "title": "instagram.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwMCGZYDlXW7LKuwW9BUrtmZTLI8QbrI8u15NKr3HN4IebOTDyBYJ-wNjYsAkabkDsIJDz6dqlE4sWVoLq0-Jn58KLgV3_1q8fD8tD7IBUUzmY4Y4xVvekfJvTrmx6a8sckm5gKS-2712n_QTBhtbXFE7AoCvJiCwGQLQDFFy_2DAWrYPhsoBL4Ry19XLtMBhV5ctGi0urWpugA3La000j",
+          "title": "morningstar.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcVJQbE7RX8W2TvvZCCCvRlH5cAI3vKIArRESeMppTJhXpbCGJmxU8FheuygB-1DAchaXXnX4j81lzMsTjYQQy6nLEzy44eNXbHge0x6v5_183u7dlo4Ltaj9DXZFccQlzZu02GbcrHvbkKJDt6TtkMHASmQ==",
-          "title": "federalreserve.gov"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGE0BeCYKh02tfiprey30qhXWNiGUkp6IK5nMZ-V25arAqunc2u_2Hem4bc8lEciWaTKbfoYbDyei3Dd-iHegSt9gVv3wmCLWJCWQyM8AuVhwgqWNVPbO30hXBRCkL_H7S9eLxC_sDe_Rl_orXqUYUB21nzK7139aKFBayNz1yT4vNmTM=",
+          "title": "traders4traders.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTL6o0e8JLBgmuwQ_mWm54ws9RGARl-idKiew0_HcV_wdUhZRCX_aery4nmtOyVWXQKplAXAzl7dm4PINq_FfekOmjWwYa7JeOaASwdHO2MqSAYhABQvMp6Qtumurf_pPUQg0wz8mTOpYN7kYkLP4=",
-          "title": "us500.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGJEZcA0_5iRZ_Z2UD-18TkZx5_GCf9dlLsg81y6wPZwx0Hd_ZYGazXmJqIxPLD2P8RfElMwo9n0xhHpLdP-EDTiGT6Bg4KZRl7GLXqzFq5-durjGAKr_Q2cfYBUJ9UkkHcpZ2K3XYAe2i622dxrj0EDILrkZdr5sEpyqYxE8XQMzvVk84omfob_hOKmtmtviqlbaVgiXtV",
+          "title": "investing.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYDZMmcGz-QssaM080ZTnQMOF1y02d-CVM_0KCq-Q1uYvGDQOpVQ5D11S0jFQ7vtAZXzj6VR_89fLRW0S9SXQNnmSe9kfa944ICAn6ywdbLDUYqgCfwlNPMoaEPdnTSAIITtQO",
-          "title": "koreaherald.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJpJSjfWJ_mNM6m45ou91Ko5KMCN5S4ObTsVgTnnTh6QOydkTFMPKoRFyMGm-VzAvd8IiIbn8SDXsiedjX6t9XMzFlkZJhwe8FCex_1NRkgw7JjaE8XbQ1tfySVNVg3_ykYEswLOH36h2iww4yeMhZ64g5TzxbcW7tCpqXr7GRU17hs4TX8CCW0v4Z3NxA67wBvwlW5yK9uJ55HyrLfYMrmO65FaRSqbc_rLKiq7qy5r3GvCoikZ-wXNmXsCGIsOtyJ1n7kgeN3WRRQUKQp3QQ0ZuhbontVtqBYHN3",
+          "title": "newsquawk.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUW_GoOrt1f8CiJfIzki3KY2-USc84mNl-pisbLhi-cqZ8rH82Bjq83g0VJmLoH5PLLB5sAvoLtl8sAULqpVVOOX7A7hIlsKO0Mf1qIO7O15J8RkjiK-daWJdRUSTRov3NYNVcwX0Q9RXRgUNVHtnE1y_tR7Cluujm9EQgJQ==",
-          "title": "biggo.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLojndRsK_XC5ieQqM5jLpsujw29bWZKIct7vs3jIO-Jhxh94wy6nIrRfza91b-TiGj9WZ8Ig0v9uwfYwvQAPJlcza64esdGRAVpEUsI6Ht4HHPRPa3G9_Nu3x3R3L7-aQ7Gio6yHsp0FmDZ103np0S40uiKaxt6-jIOBkHAbxDR816LeiIE2lTxV5MM5W0BFbxzg=",
+          "title": "admiralmarkets.com"
         },
         {
-          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJq3N3nhz4i_x-qtHuZDoprfsUUDQWVIFz4U4Oo6vY1_iCFSCGP2IiANAd8g0u2oBgx3XnCB-yEIe3d1bBd6NnLAUW_OHV088JkB3GrCWOSZdDOF9k5-gjBu1D_e7piiTgcH7fArXd-oTxtnQ0670uZbtaTmnroJeIyDfk4R3LC9sUwxMYl8aDGg_f7oxK8g==",
-          "title": "chosun.com"
+          "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWs0LPDhMcgMfphC6O41roXUedO6kyEZtexAfr_M_eIHft0lE816TjRctG__pxjb2EcBIYKF91mkqDxP8LPFZYWRd5bgwP7ag2JAM6vdGAhWe1eqXheGeUB4CmCKoRiYJMoai9_vg8Hhxd7JrWjUDHX2j8t08pyhqasQiFfFlma_ey5Wbwdxhmjh2HnYuSwlv6VFbVc-HLtr2U-2WdFVA=",
+          "title": "admiralmarkets.com"
         }
       ],
-      "fetchedAt": "2026-10-12T00:28:00.451Z"
+      "fetchedAt": "2026-10-13T02:33:08.340Z"
     }
   }
 }
