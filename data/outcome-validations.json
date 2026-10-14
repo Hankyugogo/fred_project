@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-13T02:33:51.682Z",
-  "validationRunId": "20261013T023351560Z",
+  "generatedAt": "2026-10-14T00:17:13.607Z",
+  "validationRunId": "20261014T001713485Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-13T02:33:14.656Z",
+    "macroHistoryGeneratedAt": "2026-10-14T00:16:35.890Z",
     "horizons": [
       1,
       5
@@ -3885,9 +3885,9 @@
       "reportDate": "2026-10-07",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세, 금리 하락 속 기술주 주도",
       "sourceRunId": "20261007T004525445Z",
-      "validatedAt": "2026-10-13T02:33:51.636Z",
+      "validatedAt": "2026-10-14T00:17:13.541Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 0,
         "classification": "miss"
       },
@@ -3903,12 +3903,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-10-07/latest/outcome-validation.json"
@@ -3917,7 +3917,7 @@
       "reportDate": "2026-10-08",
       "briefingTitle": "[데일리 마감] 미 증시 동반 하락… 장기금리 부담 지속",
       "sourceRunId": "20261008T005926706Z",
-      "validatedAt": "2026-10-13T02:33:51.643Z",
+      "validatedAt": "2026-10-14T00:17:13.562Z",
       "overall": {
         "status": "partial",
         "score": 66.7,
@@ -3949,7 +3949,7 @@
       "reportDate": "2026-10-09",
       "briefingTitle": "[데일리 마감] 나스닥 1.25% 하락… 장기금리 5.22% 부담 지속",
       "sourceRunId": "20261009T011213169Z",
-      "validatedAt": "2026-10-13T02:33:51.649Z",
+      "validatedAt": "2026-10-14T00:17:13.569Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -3981,19 +3981,19 @@
       "reportDate": "2026-10-10",
       "briefingTitle": "[데일리 마감] 미 증시 동반 상승, 금리 부담 속 실적 기대",
       "sourceRunId": "20261010T004433580Z",
-      "validatedAt": "2026-10-13T02:33:51.656Z",
+      "validatedAt": "2026-10-14T00:17:13.575Z",
       "overall": {
         "status": "partial",
-        "score": 0,
+        "score": 33.3,
         "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
           "status": "complete",
-          "score": 0,
+          "score": 33.3,
           "classification": "miss",
-          "hitCount": 0,
+          "hitCount": 1,
           "partialCount": 0,
           "missCount": 2
         },
@@ -4013,19 +4013,19 @@
       "reportDate": "2026-10-11",
       "briefingTitle": "[데일리 마감] 미 증시 동반 강세…장기금리 5.24% 부담 지속",
       "sourceRunId": "20261011T001348097Z",
-      "validatedAt": "2026-10-13T02:33:51.663Z",
+      "validatedAt": "2026-10-14T00:17:13.582Z",
       "overall": {
         "status": "partial",
-        "score": 0,
+        "score": 33.3,
         "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
           "status": "complete",
-          "score": 0,
+          "score": 33.3,
           "classification": "miss",
-          "hitCount": 0,
+          "hitCount": 1,
           "partialCount": 0,
           "missCount": 2
         },
@@ -4045,19 +4045,19 @@
       "reportDate": "2026-10-12",
       "briefingTitle": "미 증시 동반 강세, 장기금리 5.24% 부담 점검",
       "sourceRunId": "20261012T002907336Z",
-      "validatedAt": "2026-10-13T02:33:51.670Z",
+      "validatedAt": "2026-10-14T00:17:13.589Z",
       "overall": {
         "status": "partial",
-        "score": 0,
+        "score": 33.3,
         "classification": "miss"
       },
       "horizons": [
         {
           "horizonSessions": 1,
           "status": "complete",
-          "score": 0,
+          "score": 33.3,
           "classification": "miss",
-          "hitCount": 0,
+          "hitCount": 1,
           "partialCount": 0,
           "missCount": 2
         },
@@ -4077,7 +4077,39 @@
       "reportDate": "2026-10-13",
       "briefingTitle": "[데일리 마감] 미 증시 혼조 마감…10년물 5.24% 부담",
       "sourceRunId": "20261013T023351346Z",
-      "validatedAt": "2026-10-13T02:33:51.676Z",
+      "validatedAt": "2026-10-14T00:17:13.596Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-10-13/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-10-14",
+      "briefingTitle": "[데일리 마감] 美 증시 혼조세 마감… 연준 긴축 우려 지속",
+      "sourceRunId": "20261014T001713266Z",
+      "validatedAt": "2026-10-14T00:17:13.602Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -4103,7 +4135,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-10-13/latest/outcome-validation.json"
+      "archivePath": "archive/2026-10-14/latest/outcome-validation.json"
     }
   ]
 }
