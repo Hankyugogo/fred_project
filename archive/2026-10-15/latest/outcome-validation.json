@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 美 증시 하락, CPI發 금리 인상 우려에 기술주 약세",
   "sourceRunId": "20261014T235406387Z",
   "sourceGeneratedAt": "2026-10-14T23:52:02.011Z",
-  "validatedAt": "2026-10-15T23:41:14.351Z",
-  "validationRunId": "20261015T234114236Z",
+  "validatedAt": "2026-10-16T23:31:04.200Z",
+  "validationRunId": "20261016T233104095Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-15T23:40:36.148Z",
+    "macroHistoryGeneratedAt": "2026-10-16T23:30:22.886Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-15",
           "baseValue": 1339.5,
-          "targetDate": "2026-10-16",
-          "actualValue": 1340,
+          "targetDate": "2026-10-17",
+          "actualValue": 1336.8,
           "horizonSessions": 1,
-          "absoluteChange": 0.5,
-          "percentChange": 0.0373,
+          "absoluteChange": -2.7,
+          "percentChange": -0.2016,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-10-14",
           "baseValue": 94.82,
-          "targetDate": "2026-10-15",
-          "actualValue": 97.57,
+          "targetDate": "2026-10-16",
+          "actualValue": 101.41,
           "horizonSessions": 1,
-          "absoluteChange": 2.75,
-          "percentChange": 2.9002,
+          "absoluteChange": 6.59,
+          "percentChange": 6.95,
           "status": "complete"
         }
       },
@@ -167,15 +167,13 @@
           "thresholds": [
             1340
           ],
-          "status": "touched",
+          "status": "not_touched",
           "baseDate": "2026-10-15",
           "baseValue": 1339.5,
-          "checkedThroughDate": "2026-10-16",
-          "min": 1340,
-          "max": 1340,
-          "touchedThresholds": [
-            1340
-          ]
+          "checkedThroughDate": "2026-10-17",
+          "min": 1336.8,
+          "max": 1336.8,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 2% 이상 추가 하락 여부",
@@ -198,9 +196,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-15",
           "baseValue": 1339.5,
-          "checkedThroughDate": "2026-10-16",
-          "min": 1340,
-          "max": 1340,
+          "checkedThroughDate": "2026-10-17",
+          "min": 1336.8,
+          "max": 1336.8,
           "touchedThresholds": []
         },
         {
@@ -326,8 +324,8 @@
           "baseValue": 7718.94,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
@@ -336,8 +334,8 @@
           "baseValue": 26692.87,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "DJIA": {
           "id": "DJIA",
@@ -346,8 +344,8 @@
           "baseValue": 51621.48,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "DGS10": {
           "id": "DGS10",
@@ -356,8 +354,8 @@
           "baseValue": 5.19,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "DGS2": {
           "id": "DGS2",
@@ -366,8 +364,8 @@
           "baseValue": 4.82,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "VIXCLS": {
           "id": "VIXCLS",
@@ -376,8 +374,8 @@
           "baseValue": 16.87,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-10-16"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -387,7 +385,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-16"
+          "latestHistoryDate": "2026-10-17"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -397,7 +395,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-15"
+          "latestHistoryDate": "2026-10-16"
         }
       },
       "watchLevels": [
@@ -410,8 +408,8 @@
           "status": "not_touched",
           "baseDate": "2026-10-14",
           "baseValue": 5.19,
-          "checkedThroughDate": "2026-10-15",
-          "min": 5.1,
+          "checkedThroughDate": "2026-10-16",
+          "min": 5.09,
           "max": 5.1,
           "touchedThresholds": []
         },
@@ -421,15 +419,13 @@
           "thresholds": [
             1340
           ],
-          "status": "touched",
+          "status": "not_touched",
           "baseDate": "2026-10-15",
           "baseValue": 1339.5,
-          "checkedThroughDate": "2026-10-16",
-          "min": 1340,
-          "max": 1340,
-          "touchedThresholds": [
-            1340
-          ]
+          "checkedThroughDate": "2026-10-17",
+          "min": 1336.8,
+          "max": 1336.8,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 2% 이상 추가 하락 여부",
@@ -452,9 +448,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-15",
           "baseValue": 1339.5,
-          "checkedThroughDate": "2026-10-16",
-          "min": 1340,
-          "max": 1340,
+          "checkedThroughDate": "2026-10-17",
+          "min": 1336.8,
+          "max": 1336.8,
           "touchedThresholds": []
         },
         {
@@ -484,8 +480,8 @@
           "status": "not_touched",
           "baseDate": "2026-10-14",
           "baseValue": 5.19,
-          "checkedThroughDate": "2026-10-15",
-          "min": 5.1,
+          "checkedThroughDate": "2026-10-16",
+          "min": 5.09,
           "max": 5.1,
           "touchedThresholds": []
         },
@@ -522,8 +518,8 @@
           "status": "not_touched",
           "baseDate": "2026-10-14",
           "baseValue": 5.19,
-          "checkedThroughDate": "2026-10-15",
-          "min": 5.1,
+          "checkedThroughDate": "2026-10-16",
+          "min": 5.09,
           "max": 5.1,
           "touchedThresholds": []
         },
