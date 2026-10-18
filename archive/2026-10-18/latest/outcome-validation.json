@@ -4,10 +4,10 @@
   "briefingTitle": "뉴욕 증시 하락 마감…국채금리·유가 상승 부담",
   "sourceRunId": "20261017T230445326Z",
   "sourceGeneratedAt": "2026-10-17T23:02:40.781Z",
-  "validatedAt": "2026-10-17T23:04:45.621Z",
-  "validationRunId": "20261017T230445526Z",
+  "validatedAt": "2026-10-18T23:03:03.466Z",
+  "validationRunId": "20261018T230303356Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-17T23:04:06.760Z",
+    "macroHistoryGeneratedAt": "2026-10-18T23:02:23.347Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -114,20 +114,24 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-17",
           "baseValue": 1337.8,
+          "targetDate": "2026-10-19",
+          "actualValue": 1338,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-17"
+          "absoluteChange": 0.2,
+          "percentChange": 0.0149,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-10-16",
           "baseValue": 101.41,
+          "targetDate": "2026-10-18",
+          "actualValue": 101.01,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-16"
+          "absoluteChange": -0.4,
+          "percentChange": -0.3944,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -147,9 +151,13 @@
           "thresholds": [
             1340
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         },
         {
           "text": "SOXX -4.19% 흐름 유지 여부",
@@ -169,9 +177,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         },
         {
           "text": "광의 달러지수 122 상회 여부",
@@ -253,9 +265,13 @@
           "thresholds": [
             1320
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         }
       ]
     },
@@ -358,8 +374,8 @@
           "baseValue": 1337.8,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-17"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-19"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -368,8 +384,8 @@
           "baseValue": 101.41,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-16"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-18"
         }
       },
       "watchLevels": [
@@ -389,9 +405,13 @@
           "thresholds": [
             1340
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         },
         {
           "text": "SOXX -4.19% 흐름 유지 여부",
@@ -411,9 +431,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         },
         {
           "text": "광의 달러지수 122 상회 여부",
@@ -495,9 +519,13 @@
           "thresholds": [
             1320
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-17",
-          "baseValue": 1337.8
+          "baseValue": 1337.8,
+          "checkedThroughDate": "2026-10-19",
+          "min": 1338,
+          "max": 1338,
+          "touchedThresholds": []
         }
       ]
     }
