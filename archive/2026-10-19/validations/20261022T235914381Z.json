@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "reportDate": "2026-10-19",
+  "briefingTitle": "[데일리 마감] 美 기술주 2.15% 하락… 장기금리 5.09% 부담",
+  "sourceRunId": "20261018T230303123Z",
+  "sourceGeneratedAt": "2026-10-18T22:59:47.908Z",
+  "validatedAt": "2026-10-22T23:59:14.479Z",
+  "validationRunId": "20261022T235914381Z",
+  "basis": {
+    "macroHistoryGeneratedAt": "2026-10-22T23:58:37.574Z",
+    "macroHistoryRange": "~14mo",
+    "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
+  },
+  "overall": {
+    "status": "partial",
+    "score": 33.3,
+    "classification": "miss"
+  },
+  "horizons": [
+    {
+      "horizonSessions": 1,
+      "status": "complete",
+      "score": 33.3,
+      "classification": "miss",
+      "hitCount": 0,
+      "partialCount": 2,
+      "missCount": 1,
+      "checks": [
+        {
+          "id": "equity-follow-through",
+          "label": "주식 방향성",
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
+        },
+        {
+          "id": "rate-follow-through",
+          "label": "금리 방향성",
+          "expected": "mixed",
+          "actual": "up",
+          "result": "partial"
+        },
+        {
+          "id": "volatility-follow-through",
+          "label": "변동성 방향성",
+          "expected": "up",
+          "actual": "down",
+          "result": "miss"
+        }
+      ],
+      "observations": {
+        "SP500": {
+          "id": "SP500",
+          "label": "S&P 500",
+          "baseDate": "2026-10-16",
+          "baseValue": 7659.44,
+          "targetDate": "2026-10-19",
+          "actualValue": 7690.73,
+          "horizonSessions": 1,
+          "absoluteChange": 31.29,
+          "percentChange": 0.4085,
+          "status": "complete"
+        },
+        "NASDAQCOM": {
+          "id": "NASDAQCOM",
+          "label": "나스닥종합지수",
+          "baseDate": "2026-10-16",
+          "baseValue": 26140.03,
+          "targetDate": "2026-10-19",
+          "actualValue": 26430.89,
+          "horizonSessions": 1,
+          "absoluteChange": 290.86,
+          "percentChange": 1.1127,
+          "status": "complete"
+        },
+        "DJIA": {
+          "id": "DJIA",
+          "label": "다우지수",
+          "baseDate": "2026-10-16",
+          "baseValue": 52002.41,
+          "targetDate": "2026-10-19",
+          "actualValue": 51966.03,
+          "horizonSessions": 1,
+          "absoluteChange": -36.38,
+          "percentChange": -0.07,
+          "status": "complete"
+        },
+        "DGS10": {
+          "id": "DGS10",
+          "label": "미 국채 10년물",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "targetDate": "2026-10-19",
+          "actualValue": 5.15,
+          "horizonSessions": 1,
+          "absoluteChange": 0.06,
+          "percentChange": 1.1788,
+          "status": "complete"
+        },
+        "DGS2": {
+          "id": "DGS2",
+          "label": "미 국채 2년물",
+          "baseDate": "2026-10-16",
+          "baseValue": 4.74,
+          "targetDate": "2026-10-19",
+          "actualValue": 4.77,
+          "horizonSessions": 1,
+          "absoluteChange": 0.03,
+          "percentChange": 0.6329,
+          "status": "complete"
+        },
+        "VIXCLS": {
+          "id": "VIXCLS",
+          "label": "VIX",
+          "baseDate": "2026-10-16",
+          "baseValue": 19.99,
+          "targetDate": "2026-10-19",
+          "actualValue": 18.44,
+          "horizonSessions": 1,
+          "absoluteChange": -1.55,
+          "percentChange": -7.7539,
+          "status": "complete"
+        },
+        "DEXKOUS": {
+          "id": "DEXKOUS",
+          "label": "달러/원 환율",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "targetDate": "2026-10-23",
+          "actualValue": 1326,
+          "horizonSessions": 1,
+          "absoluteChange": -12,
+          "percentChange": -0.8969,
+          "status": "complete"
+        },
+        "DCOILWTICO": {
+          "id": "DCOILWTICO",
+          "label": "WTI 유가",
+          "baseDate": "2026-10-18",
+          "baseValue": 101.01,
+          "targetDate": "2026-10-19",
+          "actualValue": 110.01,
+          "horizonSessions": 1,
+          "absoluteChange": 9,
+          "percentChange": 8.91,
+          "status": "complete"
+        }
+      },
+      "watchLevels": [
+        {
+          "text": "미 국채 10년물 5.10% 상회 여부",
+          "id": "DGS10",
+          "thresholds": [
+            5.1
+          ],
+          "status": "touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-19",
+          "min": 5.15,
+          "max": 5.15,
+          "touchedThresholds": [
+            5.1
+          ]
+        },
+        {
+          "text": "달러/원 환율 1,340원 돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1340
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "checkedThroughDate": "2026-10-23",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
+        },
+        {
+          "text": "미국 기술 ETF(XLK) -3.02% 흐름 유지",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "10월 21일 메타 플랫폼스(Meta Platforms) Q3 2026 Earnings",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 환율 1,350원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1350
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "checkedThroughDate": "2026-10-23",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
+        },
+        {
+          "text": "광의 달러지수(DXY) 102",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "변동성지수(VIX) 20선",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "코스피 외국인 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.90% 이하 하향 안정화",
+          "id": "DGS10",
+          "thresholds": [
+            4.9
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-19",
+          "min": 5.15,
+          "max": 5.15,
+          "touchedThresholds": []
+        },
+        {
+          "text": "장단기 금리차 0bp",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주요 기업 분기 실적 가이던스",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.00~4.50% 범위 유지",
+          "id": "DGS10",
+          "thresholds": [
+            4,
+            4.5
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-19",
+          "min": 5.15,
+          "max": 5.15,
+          "touchedThresholds": []
+        },
+        {
+          "text": "광의 달러지수(DXY) 방향성",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "글로벌 AI 설비투자 전망치 변화",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 금리가 5.09% 수준을 유지하고 있다. 5.10%를 상회할 경우 추가적인 금리 상승 압력과 함께 주식 시장의 밸류에이션 부담이 더욱 커질 수 있다.",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        }
+      ]
+    },
+    {
+      "horizonSessions": 5,
+      "status": "pending",
+      "score": null,
+      "classification": "pending",
+      "hitCount": 0,
+      "partialCount": 0,
+      "missCount": 0,
+      "checks": [
+        {
+          "id": "equity-follow-through",
+          "label": "주식 방향성",
+          "expected": "mixed",
+          "actual": "pending",
+          "result": "pending"
+        },
+        {
+          "id": "rate-follow-through",
+          "label": "금리 방향성",
+          "expected": "mixed",
+          "actual": "pending",
+          "result": "pending"
+        },
+        {
+          "id": "volatility-follow-through",
+          "label": "변동성 방향성",
+          "expected": "up",
+          "actual": "pending",
+          "result": "pending"
+        }
+      ],
+      "observations": {
+        "SP500": {
+          "id": "SP500",
+          "label": "S&P 500",
+          "baseDate": "2026-10-16",
+          "baseValue": 7659.44,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "NASDAQCOM": {
+          "id": "NASDAQCOM",
+          "label": "나스닥종합지수",
+          "baseDate": "2026-10-16",
+          "baseValue": 26140.03,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "DJIA": {
+          "id": "DJIA",
+          "label": "다우지수",
+          "baseDate": "2026-10-16",
+          "baseValue": 52002.41,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "DGS10": {
+          "id": "DGS10",
+          "label": "미 국채 10년물",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "DGS2": {
+          "id": "DGS2",
+          "label": "미 국채 2년물",
+          "baseDate": "2026-10-16",
+          "baseValue": 4.74,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "VIXCLS": {
+          "id": "VIXCLS",
+          "label": "VIX",
+          "baseDate": "2026-10-16",
+          "baseValue": 19.99,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-22"
+        },
+        "DEXKOUS": {
+          "id": "DEXKOUS",
+          "label": "달러/원 환율",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-23"
+        },
+        "DCOILWTICO": {
+          "id": "DCOILWTICO",
+          "label": "WTI 유가",
+          "baseDate": "2026-10-18",
+          "baseValue": 101.01,
+          "horizonSessions": 5,
+          "status": "pending",
+          "availableFutureSessions": 3,
+          "latestHistoryDate": "2026-10-22"
+        }
+      },
+      "watchLevels": [
+        {
+          "text": "미 국채 10년물 5.10% 상회 여부",
+          "id": "DGS10",
+          "thresholds": [
+            5.1
+          ],
+          "status": "touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-22",
+          "min": 4.96,
+          "max": 5.15,
+          "touchedThresholds": [
+            5.1
+          ]
+        },
+        {
+          "text": "달러/원 환율 1,340원 돌파 여부",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1340
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "checkedThroughDate": "2026-10-23",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
+        },
+        {
+          "text": "미국 기술 ETF(XLK) -3.02% 흐름 유지",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "10월 21일 메타 플랫폼스(Meta Platforms) Q3 2026 Earnings",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "달러/원 환율 1,350원",
+          "id": "DEXKOUS",
+          "thresholds": [
+            1350
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-19",
+          "baseValue": 1338,
+          "checkedThroughDate": "2026-10-23",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
+        },
+        {
+          "text": "광의 달러지수(DXY) 102",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "변동성지수(VIX) 20선",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "코스피 외국인 순매수 전환",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.90% 이하 하향 안정화",
+          "id": "DGS10",
+          "thresholds": [
+            4.9
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-22",
+          "min": 4.96,
+          "max": 5.15,
+          "touchedThresholds": []
+        },
+        {
+          "text": "장단기 금리차 0bp",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미국 반도체 ETF(SOXX) 분기 상대강도",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "주요 기업 분기 실적 가이던스",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "연방준비제도(연준) 금리 인하 횟수",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 4.00~4.50% 범위 유지",
+          "id": "DGS10",
+          "thresholds": [
+            4,
+            4.5
+          ],
+          "status": "not_touched",
+          "baseDate": "2026-10-16",
+          "baseValue": 5.09,
+          "checkedThroughDate": "2026-10-22",
+          "min": 4.96,
+          "max": 5.15,
+          "touchedThresholds": []
+        },
+        {
+          "text": "광의 달러지수(DXY) 방향성",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "글로벌 AI 설비투자 전망치 변화",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        },
+        {
+          "text": "미 국채 10년물 금리가 5.09% 수준을 유지하고 있다. 5.10%를 상회할 경우 추가적인 금리 상승 압력과 함께 주식 시장의 밸류에이션 부담이 더욱 커질 수 있다.",
+          "id": null,
+          "thresholds": [],
+          "status": "unparsed"
+        }
+      ]
+    }
+  ]
+}
