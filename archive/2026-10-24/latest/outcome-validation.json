@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 미 증시 하락, 유가 급등에 10년물 5.00% 재돌파",
   "sourceRunId": "20261023T235155377Z",
   "sourceGeneratedAt": "2026-10-23T23:49:59.323Z",
-  "validatedAt": "2026-10-24T23:07:37.807Z",
-  "validationRunId": "20261024T230737707Z",
+  "validatedAt": "2026-10-25T23:12:01.857Z",
+  "validationRunId": "20261025T231201770Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-24T23:06:56.251Z",
+    "macroHistoryGeneratedAt": "2026-10-25T23:11:18.450Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -114,20 +114,24 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-24",
           "baseValue": 1326,
+          "targetDate": "2026-10-26",
+          "actualValue": 1326,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-24"
+          "absoluteChange": 0,
+          "percentChange": 0,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-10-23",
           "baseValue": 103.27,
+          "targetDate": "2026-10-25",
+          "actualValue": 102.13,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-23"
+          "absoluteChange": -1.14,
+          "percentChange": -1.1039,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -147,9 +151,13 @@
           "thresholds": [
             1330
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-24",
-          "baseValue": 1326
+          "baseValue": 1326,
+          "checkedThroughDate": "2026-10-26",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 추가 2% 하락",
@@ -169,9 +177,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-24",
-          "baseValue": 1326
+          "baseValue": 1326,
+          "checkedThroughDate": "2026-10-26",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
         },
         {
           "text": "달러지수(DXY) 102.5 상회",
@@ -349,8 +361,8 @@
           "baseValue": 1326,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-24"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-26"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -359,8 +371,8 @@
           "baseValue": 103.27,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-23"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-10-25"
         }
       },
       "watchLevels": [
@@ -380,9 +392,13 @@
           "thresholds": [
             1330
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-24",
-          "baseValue": 1326
+          "baseValue": 1326,
+          "checkedThroughDate": "2026-10-26",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 추가 2% 하락",
@@ -402,9 +418,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-24",
-          "baseValue": 1326
+          "baseValue": 1326,
+          "checkedThroughDate": "2026-10-26",
+          "min": 1326,
+          "max": 1326,
+          "touchedThresholds": []
         },
         {
           "text": "달러지수(DXY) 102.5 상회",
