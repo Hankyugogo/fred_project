@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-27T00:23:13.171Z",
-  "validationRunId": "20261027T002313042Z",
+  "generatedAt": "2026-10-28T00:26:47.252Z",
+  "validationRunId": "20261028T002647149Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-27T00:22:28.447Z",
+    "macroHistoryGeneratedAt": "2026-10-28T00:26:27.425Z",
     "horizons": [
       1,
       5
@@ -4333,10 +4333,10 @@
       "reportDate": "2026-10-21",
       "briefingTitle": "[데일리 마감] 다우 1.02% 강세, S&P500 소폭 상승",
       "sourceRunId": "20261020T234907409Z",
-      "validatedAt": "2026-10-27T00:23:13.120Z",
+      "validatedAt": "2026-10-28T00:26:47.193Z",
       "overall": {
-        "status": "partial",
-        "score": 50,
+        "status": "complete",
+        "score": 58.4,
         "classification": "mixed"
       },
       "horizons": [
@@ -4351,12 +4351,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 2,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 1
         }
       ],
       "archivePath": "archive/2026-10-21/latest/outcome-validation.json"
@@ -4365,7 +4365,7 @@
       "reportDate": "2026-10-22",
       "briefingTitle": "미 증시 일제히 상승…AI 낙관론에 나스닥 1.05% 강세",
       "sourceRunId": "20261022T000437845Z",
-      "validatedAt": "2026-10-27T00:23:13.127Z",
+      "validatedAt": "2026-10-28T00:26:47.210Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -4397,7 +4397,7 @@
       "reportDate": "2026-10-23",
       "briefingTitle": "[데일리 마감] 나스닥 2.60% 하락…기술주 조정 심화",
       "sourceRunId": "20261022T235914159Z",
-      "validatedAt": "2026-10-27T00:23:13.133Z",
+      "validatedAt": "2026-10-28T00:26:47.216Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -4429,7 +4429,7 @@
       "reportDate": "2026-10-24",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 유가 급등에 10년물 5.00% 재돌파",
       "sourceRunId": "20261023T235155377Z",
-      "validatedAt": "2026-10-27T00:23:13.139Z",
+      "validatedAt": "2026-10-28T00:26:47.221Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -4461,7 +4461,7 @@
       "reportDate": "2026-10-25",
       "briefingTitle": "[데일리 마감] 미 증시 하락 마감… 국채 10년물 5% 재돌파",
       "sourceRunId": "20261024T230737485Z",
-      "validatedAt": "2026-10-27T00:23:13.151Z",
+      "validatedAt": "2026-10-28T00:26:47.226Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -4493,7 +4493,7 @@
       "reportDate": "2026-10-26",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 장기금리 5% 재돌파",
       "sourceRunId": "20261025T231201509Z",
-      "validatedAt": "2026-10-27T00:23:13.157Z",
+      "validatedAt": "2026-10-28T00:26:47.235Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -4525,7 +4525,39 @@
       "reportDate": "2026-10-27",
       "briefingTitle": "[데일리 마감] 나스닥 0.83% 상승… AI 기대감 속 장기금리 5.00% 유지",
       "sourceRunId": "20261027T002312818Z",
-      "validatedAt": "2026-10-27T00:23:13.164Z",
+      "validatedAt": "2026-10-28T00:26:47.241Z",
+      "overall": {
+        "status": "partial",
+        "score": 100,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 100,
+          "classification": "confirmed",
+          "hitCount": 3,
+          "partialCount": 0,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-10-27/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-10-28",
+      "briefingTitle": "미 증시 동반 강세, 장기금리 4.99% 부담 점검",
+      "sourceRunId": "20261028T002646973Z",
+      "validatedAt": "2026-10-28T00:26:47.246Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -4551,7 +4583,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-10-27/latest/outcome-validation.json"
+      "archivePath": "archive/2026-10-28/latest/outcome-validation.json"
     }
   ]
 }
