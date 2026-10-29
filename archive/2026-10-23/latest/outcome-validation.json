@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 나스닥 2.60% 하락…기술주 조정 심화",
   "sourceRunId": "20261022T235914159Z",
   "sourceGeneratedAt": "2026-10-22T23:57:15.806Z",
-  "validatedAt": "2026-10-28T00:26:47.216Z",
-  "validationRunId": "20261028T002647149Z",
+  "validatedAt": "2026-10-29T00:48:41.167Z",
+  "validationRunId": "20261029T004841085Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-10-28T00:26:27.425Z",
+    "macroHistoryGeneratedAt": "2026-10-29T00:47:37.126Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-23",
           "baseValue": 1326,
-          "targetDate": "2026-10-28",
-          "actualValue": 1328.9,
+          "targetDate": "2026-10-29",
+          "actualValue": 1336.4,
           "horizonSessions": 1,
-          "absoluteChange": 2.9,
-          "percentChange": 0.2187,
+          "absoluteChange": 10.4,
+          "percentChange": 0.7843,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-10-22",
           "baseValue": 99.39,
-          "targetDate": "2026-10-27",
-          "actualValue": 100.24,
+          "targetDate": "2026-10-23",
+          "actualValue": 109.72,
           "horizonSessions": 1,
-          "absoluteChange": 0.85,
-          "percentChange": 0.8552,
+          "absoluteChange": 10.33,
+          "percentChange": 10.3934,
           "status": "complete"
         }
       },
@@ -173,13 +173,15 @@
           "thresholds": [
             1330
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-10-23",
           "baseValue": 1326,
-          "checkedThroughDate": "2026-10-28",
-          "min": 1328.9,
-          "max": 1328.9,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-10-29",
+          "min": 1336.4,
+          "max": 1336.4,
+          "touchedThresholds": [
+            1330
+          ]
         },
         {
           "text": "2026-10-28 Alphabet (알파벳) Q3 2026 실적 발표",
@@ -196,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-23",
           "baseValue": 1326,
-          "checkedThroughDate": "2026-10-28",
-          "min": 1328.9,
-          "max": 1328.9,
+          "checkedThroughDate": "2026-10-29",
+          "min": 1336.4,
+          "max": 1336.4,
           "touchedThresholds": []
         },
         {
@@ -325,8 +327,8 @@
           "baseValue": 7663.43,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
@@ -335,8 +337,8 @@
           "baseValue": 26008.86,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "DJIA": {
           "id": "DJIA",
@@ -345,8 +347,8 @@
           "baseValue": 52867.98,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "DGS10": {
           "id": "DGS10",
@@ -355,8 +357,8 @@
           "baseValue": 4.96,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "DGS2": {
           "id": "DGS2",
@@ -365,8 +367,8 @@
           "baseValue": 4.65,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "VIXCLS": {
           "id": "VIXCLS",
@@ -375,8 +377,8 @@
           "baseValue": 19.03,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -386,7 +388,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-28"
+          "latestHistoryDate": "2026-10-29"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -395,8 +397,8 @@
           "baseValue": 99.39,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-10-27"
+          "availableFutureSessions": 4,
+          "latestHistoryDate": "2026-10-28"
         }
       },
       "watchLevels": [
@@ -409,9 +411,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-22",
           "baseValue": 4.96,
-          "checkedThroughDate": "2026-10-27",
+          "checkedThroughDate": "2026-10-28",
           "min": 4.99,
-          "max": 5,
+          "max": 5.05,
           "touchedThresholds": []
         },
         {
@@ -426,13 +428,15 @@
           "thresholds": [
             1330
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-10-23",
           "baseValue": 1326,
-          "checkedThroughDate": "2026-10-28",
-          "min": 1328.9,
-          "max": 1328.9,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-10-29",
+          "min": 1336.4,
+          "max": 1336.4,
+          "touchedThresholds": [
+            1330
+          ]
         },
         {
           "text": "2026-10-28 Alphabet (알파벳) Q3 2026 실적 발표",
@@ -449,9 +453,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-23",
           "baseValue": 1326,
-          "checkedThroughDate": "2026-10-28",
-          "min": 1328.9,
-          "max": 1328.9,
+          "checkedThroughDate": "2026-10-29",
+          "min": 1336.4,
+          "max": 1336.4,
           "touchedThresholds": []
         },
         {
@@ -481,9 +485,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-22",
           "baseValue": 4.96,
-          "checkedThroughDate": "2026-10-27",
+          "checkedThroughDate": "2026-10-28",
           "min": 4.99,
-          "max": 5,
+          "max": 5.05,
           "touchedThresholds": []
         },
         {
@@ -520,9 +524,9 @@
           "status": "not_touched",
           "baseDate": "2026-10-22",
           "baseValue": 4.96,
-          "checkedThroughDate": "2026-10-27",
+          "checkedThroughDate": "2026-10-28",
           "min": 4.99,
-          "max": 5,
+          "max": 5.05,
           "touchedThresholds": []
         },
         {
