@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T05:37:27.283Z",
+  "generatedAt": "2026-10-31T00:40:47.686Z",
   "source": "Yahoo Finance v8 chart API",
   "purpose": "FRED 지연 시 최신 시장 종가/대용 시세로 보강",
   "items": [
@@ -9,18 +9,18 @@
       "group": "equities",
       "format": "index",
       "decimals": 2,
-      "latestValue": 7720.39,
-      "previousValue": 7743.98,
-      "absoluteChange": -23.59,
-      "percentChange": -0.3,
-      "observationDate": "2026-10-29",
+      "latestValue": 7580.07,
+      "previousValue": 7720.39,
+      "absoluteChange": -140.32,
+      "percentChange": -1.82,
+      "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance world index API",
       "sourceSymbol": ".INX",
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.INX",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:23.256Z"
+      "fetchedAt": "2026-10-31T00:40:43.402Z"
     },
     {
       "id": "NASDAQCOM",
@@ -28,18 +28,18 @@
       "group": "equities",
       "format": "index",
       "decimals": 2,
-      "latestValue": 26184.72,
-      "previousValue": 26549.85,
-      "absoluteChange": -365.13,
-      "percentChange": -1.38,
-      "observationDate": "2026-10-29",
+      "latestValue": 25437,
+      "previousValue": 26184.72,
+      "absoluteChange": -747.73,
+      "percentChange": -2.86,
+      "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance world index API",
       "sourceSymbol": ".IXIC",
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.IXIC",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:23.531Z"
+      "fetchedAt": "2026-10-31T00:40:43.677Z"
     },
     {
       "id": "DJIA",
@@ -47,18 +47,18 @@
       "group": "equities",
       "format": "index",
       "decimals": 2,
-      "latestValue": 52342.56,
-      "previousValue": 52475.1,
-      "absoluteChange": -132.54,
-      "percentChange": -0.25,
-      "observationDate": "2026-10-29",
+      "latestValue": 51770.31,
+      "previousValue": 52342.56,
+      "absoluteChange": -572.25,
+      "percentChange": -1.09,
+      "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance world index API",
       "sourceSymbol": ".DJI",
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.DJI",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:23.807Z"
+      "fetchedAt": "2026-10-31T00:40:43.952Z"
     },
     {
       "id": "VIXCLS",
@@ -66,18 +66,18 @@
       "group": "volatility",
       "format": "index",
       "decimals": 2,
-      "latestValue": 17.2,
-      "previousValue": 16.91,
-      "absoluteChange": 0.29,
-      "percentChange": 1.72,
-      "observationDate": "2026-10-29",
+      "latestValue": 19.42,
+      "previousValue": 17.2,
+      "absoluteChange": 2.22,
+      "percentChange": 12.91,
+      "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance world index API",
       "sourceSymbol": ".VIX",
       "sourceUrl": "https://m.stock.naver.com/worldstock/index/.VIX",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:23.947Z"
+      "fetchedAt": "2026-10-31T00:40:44.106Z"
     },
     {
       "id": "DGS2",
@@ -85,18 +85,18 @@
       "group": "rates",
       "format": "percent",
       "decimals": 2,
-      "latestValue": 4.61,
-      "previousValue": 4.67,
-      "absoluteChange": -0.06,
-      "percentChange": -1.2848,
-      "observationDate": "2026-10-29",
-      "previousObservationDate": "2026-10-28",
+      "latestValue": 4.56,
+      "previousValue": 4.61,
+      "absoluteChange": -0.05,
+      "percentChange": -1.0846,
+      "observationDate": "2026-10-30",
+      "previousObservationDate": "2026-10-29",
       "source": "U.S. Treasury Daily Treasury Rates XML",
       "sourceSymbol": "BC_2YEAR",
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:24.798Z"
+      "fetchedAt": "2026-10-31T00:40:44.914Z"
     },
     {
       "id": "DGS10",
@@ -104,18 +104,18 @@
       "group": "rates",
       "format": "percent",
       "decimals": 2,
-      "latestValue": 4.98,
-      "previousValue": 5.05,
-      "absoluteChange": -0.07,
-      "percentChange": -1.3861,
-      "observationDate": "2026-10-29",
-      "previousObservationDate": "2026-10-28",
+      "latestValue": 4.94,
+      "previousValue": 4.98,
+      "absoluteChange": -0.04,
+      "percentChange": -0.8032,
+      "observationDate": "2026-10-30",
+      "previousObservationDate": "2026-10-29",
       "source": "U.S. Treasury Daily Treasury Rates XML",
       "sourceSymbol": "BC_10YEAR",
       "sourceUrl": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
       "replacementPolicy": "replace",
       "note": "미 재무부 Daily Treasury Rates를 우선 사용하고 실패 시 ^TNX 대용 시세를 쓴다.",
-      "fetchedAt": "2026-10-30T05:37:24.798Z"
+      "fetchedAt": "2026-10-31T00:40:44.914Z"
     },
     {
       "id": "DEXKOUS",
@@ -123,18 +123,18 @@
       "group": "fx",
       "format": "krw",
       "decimals": 2,
-      "latestValue": 1335.7,
+      "latestValue": 1335.8,
       "previousValue": 1340.5,
-      "absoluteChange": -4.8,
-      "percentChange": -0.36,
-      "observationDate": "2026-10-30",
+      "absoluteChange": -4.7,
+      "percentChange": -0.35,
+      "observationDate": "2026-10-31",
       "previousObservationDate": null,
       "source": "Naver Finance exchange API",
       "sourceSymbol": "FX_USDKRW",
       "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:25.069Z"
+      "fetchedAt": "2026-10-31T00:40:45.187Z"
     },
     {
       "id": "DEXJPUS",
@@ -142,18 +142,18 @@
       "group": "fx",
       "format": "index",
       "decimals": 2,
-      "latestValue": 157.62,
+      "latestValue": 157.55,
       "previousValue": 157.72,
-      "absoluteChange": -0.1,
-      "percentChange": -0.0629,
-      "observationDate": "2026-10-30",
+      "absoluteChange": -0.17,
+      "percentChange": -0.1073,
+      "observationDate": "2026-10-31",
       "previousObservationDate": null,
       "source": "Naver Finance exchange API",
       "sourceSymbol": "FX_USDKRW/FX_JPYKRW",
       "sourceUrl": "https://m.stock.naver.com/marketindex/exchange/FX_USDKRW%2FFX_JPYKRW",
       "replacementPolicy": "replace",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:25.751Z"
+      "fetchedAt": "2026-10-31T00:40:45.951Z"
     },
     {
       "id": "DCOILWTICO",
@@ -161,10 +161,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 103.02,
+      "latestValue": 104.12,
       "previousValue": 102,
-      "absoluteChange": 1.02,
-      "percentChange": 1,
+      "absoluteChange": 2.12,
+      "percentChange": 2.08,
       "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance market index API",
@@ -172,7 +172,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/energy/CLcv1",
       "replacementPolicy": "proxy",
       "note": "FRED WTI 현물 지연 시 NYMEX WTI 근월물 종가를 최신 시장 대용치로 쓴다.",
-      "fetchedAt": "2026-10-30T05:37:26.024Z"
+      "fetchedAt": "2026-10-31T00:40:46.223Z"
     },
     {
       "id": "DCOILBRENTEU",
@@ -180,10 +180,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 116.03,
+      "latestValue": 117.64,
       "previousValue": 114.88,
-      "absoluteChange": 1.15,
-      "percentChange": 1,
+      "absoluteChange": 2.76,
+      "percentChange": 2.4,
       "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance market index API",
@@ -191,7 +191,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/energy/LCOcv1",
       "replacementPolicy": "proxy",
       "note": "FRED Brent 현물 지연 시 ICE Brent 근월물 종가를 최신 시장 대용치로 쓴다.",
-      "fetchedAt": "2026-10-30T05:37:26.163Z"
+      "fetchedAt": "2026-10-31T00:40:46.378Z"
     },
     {
       "id": "GOLD",
@@ -199,10 +199,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 4013.7,
+      "latestValue": 3898.9,
       "previousValue": 4031.4,
-      "absoluteChange": -17.7,
-      "percentChange": -0.44,
+      "absoluteChange": -132.5,
+      "percentChange": -3.29,
       "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance market index API",
@@ -210,7 +210,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/metals/GCcv1",
       "replacementPolicy": "proxy",
       "note": null,
-      "fetchedAt": "2026-10-30T05:37:26.434Z"
+      "fetchedAt": "2026-10-31T00:40:46.648Z"
     },
     {
       "id": "COPPER",
@@ -218,10 +218,10 @@
       "group": "commodities",
       "format": "usd",
       "decimals": 2,
-      "latestValue": 6.56,
+      "latestValue": 6.48,
       "previousValue": 6.6,
-      "absoluteChange": -0.05,
-      "percentChange": -0.72,
+      "absoluteChange": -0.12,
+      "percentChange": -1.83,
       "observationDate": "2026-10-30",
       "previousObservationDate": null,
       "source": "Naver Finance market index API",
@@ -229,7 +229,7 @@
       "sourceUrl": "https://m.stock.naver.com/marketindex/metals/HGcv1",
       "replacementPolicy": "proxy",
       "note": "Stooq HG.F는 센트 단위로 제공되어 0.01 스케일을 적용한다.",
-      "fetchedAt": "2026-10-30T05:37:26.710Z"
+      "fetchedAt": "2026-10-31T00:40:46.922Z"
     },
     {
       "id": "BTC",
@@ -240,7 +240,7 @@
       "sourceUrl": "https://finance.yahoo.com/quote/BTC-USD",
       "replacementPolicy": "replace",
       "error": "Stooq: HTTP 404; Yahoo: query1.finance.yahoo.com: HTTP 429; query1.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON; query2.finance.yahoo.com: HTTP 429; query2.finance.yahoo.com/curl: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
-      "fetchedAt": "2026-10-30T05:37:27.283Z"
+      "fetchedAt": "2026-10-31T00:40:47.686Z"
     }
   ]
 }
