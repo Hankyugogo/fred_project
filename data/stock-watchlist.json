@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T00:43:36.142Z",
+  "generatedAt": "2026-11-01T00:06:09.252Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, NVIDIA, SK하이닉스, 삼성전자로 구성한다.",
   "source": {
@@ -7,12 +7,12 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-10-31T00:40:53.568Z",
-    "latestBriefingDate": "2026-10-31",
-    "priceHistoryGeneratedAt": "2026-10-31T00:43:35.975Z"
+    "snapshotGeneratedAt": "2026-11-01T00:01:46.631Z",
+    "latestBriefingDate": "2026-11-01",
+    "priceHistoryGeneratedAt": "2026-11-01T00:06:09.020Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-10-31",
+    "reportDate": "2026-11-01",
     "title": "다우 상대 강세, 지수 혼조, 10년물 4.94% · VIX 19.42",
     "summary": "미국 증시는 완만한 조정을 받았다. S&P500지수는 -1.82%, 나스닥 종합지수는 -2.86%, 다우존스30 산업평균지수는 -1.09%를 기록했다. 다우지수가 -1.09%를 기록하며 전통 대형주가 상대적으로 강했다. 주가는 밀렸지만 변동성 급등은 동반되지 않아 구조적 흐름의 훼손보다 속도 조절 성격이 강한 것으로 평가된다. 미 국채 10년물 금리는 4.94%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +1.06%p 높아 장기 자금 조달 부담이 남아 있다. 이번 브리핑의 주요 시계열은 허용 범위 안의 기준일을 유지해 자료 기반 해석에 큰 제약이 없다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 한다.",
     "signals": [
@@ -133,7 +133,7 @@
         "asOf": "2026-10-30",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 27,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -1573,7 +1573,7 @@
         "asOf": "2026-10-30",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 91,
         "tone": "상방 우위",
         "toneClass": "positive",
@@ -2993,63 +2993,56 @@
         "수출 규제와 공급망 제약은 매출 가시성을 흔들 수 있다."
       ],
       "quote": {
-        "price": 213.66,
-        "changePercent": -0.8,
+        "price": 204.64,
+        "changePercent": -4.22,
         "currency": "USD",
         "source": "watchlist-prices"
       },
-      "price": 213.66,
-      "changePercent": -0.8,
-      "macroScore": 45,
-      "macroTone": "중립",
-      "macroToneClass": "neutral",
+      "price": 204.64,
+      "changePercent": -4.22,
+      "macroScore": 21,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "SOXX",
         "label": "미국 반도체 ETF",
-        "close": 511.06,
-        "percentChange": 3.9,
-        "observationDate": "2026-10-27"
+        "close": 471.51,
+        "percentChange": -8.24,
+        "observationDate": "2026-10-30"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-10-29",
+        "asOf": "2026-10-30",
         "source": "nasdaq-historical",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/nvda/historical",
         "historyLength": 250,
-        "score": 42,
-        "tone": "중립",
-        "toneClass": "neutral",
-        "summary": "중립 신호다. 20거래일 수익률 -7.45%, RSI 34.7, 60일 추세 -2.54% 기준으로 판단했다.",
+        "score": 20,
+        "tone": "하방 경계",
+        "toneClass": "negative",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -12.53%, RSI 31, 60일 추세 -6.55% 기준으로 판단했다.",
         "indicators": {
-          "close": 213.66,
-          "return1d": -0.8,
-          "return5d": 0.68,
-          "return20d": -7.45,
-          "return60d": -2.54,
-          "ma20": 222.925,
-          "ma60": 221.9083,
-          "ma120": 215.2588,
-          "rsi14": 34.7,
-          "macd": -2.8404,
-          "macdSignal": -1.8115,
-          "macdHistogram": -1.029,
-          "dailyVolatility20d": 1.84,
-          "annualVolatility20d": 29.21,
-          "slope60d": -2.54,
-          "drawdown120d": -10.69,
-          "support20d": 210.18,
+          "close": 204.64,
+          "return1d": -4.22,
+          "return5d": -3,
+          "return20d": -12.53,
+          "return60d": -6.55,
+          "ma20": 221.4595,
+          "ma60": 221.6692,
+          "ma120": 215.1355,
+          "rsi14": 31,
+          "macd": -3.6576,
+          "macdSignal": -2.1807,
+          "macdHistogram": -1.4769,
+          "dailyVolatility20d": 1.98,
+          "annualVolatility20d": 31.37,
+          "slope60d": -6.55,
+          "drawdown120d": -14.46,
+          "support20d": 200.9199,
           "resistance20d": 243.37,
-          "volumeRatio20d": 0.78
+          "volumeRatio20d": 1.67
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-02-12",
-              "close": 186.94,
-              "ma20": 185.5165,
-              "ma60": 183.841,
-              "volume": 189932500
-            },
             {
               "date": "2026-02-13",
               "close": 182.81,
@@ -4302,6 +4295,13 @@
               "ma20": 222.925,
               "ma60": 221.9083,
               "volume": 77568070
+            },
+            {
+              "date": "2026-10-30",
+              "close": 204.64,
+              "ma20": 221.4595,
+              "ma60": 221.6692,
+              "volume": 168386400
             }
           ]
         }
@@ -4331,25 +4331,25 @@
         ]
       },
       "forecast": {
-        "score": 43,
-        "toneClass": "neutral",
+        "score": 20,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과다. NVIDIA의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -2.28,
-            "upProbabilityPct": 46,
-            "rangeLowPct": -4.48,
-            "rangeHighPct": 4.48
+            "expectedReturnPct": -5.55,
+            "upProbabilityPct": 32,
+            "rangeLowPct": -6.18,
+            "rangeHighPct": 6.18
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -8.28,
-            "upProbabilityPct": 44,
-            "rangeLowPct": -11.45,
-            "rangeHighPct": 11.45
+            "expectedReturnPct": -17.36,
+            "upProbabilityPct": 26,
+            "rangeLowPct": -16.53,
+            "rangeHighPct": 16.53
           }
         ]
       },
@@ -4361,7 +4361,7 @@
       "scenario": {
         "base": "NVIDIA는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
         "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
+        "downside": "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
     },
@@ -4459,7 +4459,7 @@
         "asOf": "2026-10-30",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=000660",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 20,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -4474,9 +4474,9 @@
           "ma60": 1608750,
           "ma120": 1857558.3333,
           "rsi14": 40.3,
-          "macd": -81750.0842,
-          "macdSignal": -100530.0052,
-          "macdHistogram": 18779.921,
+          "macd": -81750.0847,
+          "macdSignal": -100530.0059,
+          "macdHistogram": 18779.9212,
           "dailyVolatility20d": 5.87,
           "annualVolatility20d": 93.26,
           "slope60d": -19.03,
@@ -5904,7 +5904,7 @@
         "asOf": "2026-10-30",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=005930",
-        "historyLength": 244,
+        "historyLength": 243,
         "score": 25,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -5920,7 +5920,7 @@
           "ma120": 273575,
           "rsi14": 40.2,
           "macd": -9470.9153,
-          "macdSignal": -10237.5817,
+          "macdSignal": -10237.5818,
           "macdHistogram": 766.6664,
           "dailyVolatility20d": 4.97,
           "annualVolatility20d": 78.94,
