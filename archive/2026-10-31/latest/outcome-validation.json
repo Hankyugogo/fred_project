@@ -4,10 +4,10 @@
   "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
   "sourceRunId": "20261031T004434134Z",
   "sourceGeneratedAt": "2026-10-31T00:40:53.568Z",
-  "validatedAt": "2026-11-01T00:06:54.361Z",
-  "validationRunId": "20261101T000654250Z",
+  "validatedAt": "2026-11-02T00:35:45.675Z",
+  "validationRunId": "20261102T003545562Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-01T00:06:12.913Z",
+    "macroHistoryGeneratedAt": "2026-11-02T00:35:04.634Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -114,20 +114,24 @@
           "label": "달러/원 환율",
           "baseDate": "2026-10-31",
           "baseValue": 1335.8,
+          "targetDate": "2026-11-02",
+          "actualValue": 1336,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-31"
+          "absoluteChange": 0.2,
+          "percentChange": 0.015,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-10-30",
           "baseValue": 104.12,
+          "targetDate": "2026-11-01",
+          "actualValue": 102.48,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-30"
+          "absoluteChange": -1.64,
+          "percentChange": -1.5751,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -167,9 +171,13 @@
           "thresholds": [
             1480
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-31",
-          "baseValue": 1335.8
+          "baseValue": 1335.8,
+          "checkedThroughDate": "2026-11-02",
+          "min": 1336,
+          "max": 1336,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,500원",
@@ -177,9 +185,13 @@
           "thresholds": [
             1500
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-31",
-          "baseValue": 1335.8
+          "baseValue": 1335.8,
+          "checkedThroughDate": "2026-11-02",
+          "min": 1336,
+          "max": 1336,
+          "touchedThresholds": []
         },
         {
           "text": "코스피 외국인 순매수 전환",
@@ -344,8 +356,8 @@
           "baseValue": 1335.8,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-31"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-02"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -354,8 +366,8 @@
           "baseValue": 104.12,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-10-30"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-01"
         }
       },
       "watchLevels": [
@@ -395,9 +407,13 @@
           "thresholds": [
             1480
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-31",
-          "baseValue": 1335.8
+          "baseValue": 1335.8,
+          "checkedThroughDate": "2026-11-02",
+          "min": 1336,
+          "max": 1336,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 기준일 지연 해소 후 1,500원",
@@ -405,9 +421,13 @@
           "thresholds": [
             1500
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-10-31",
-          "baseValue": 1335.8
+          "baseValue": 1335.8,
+          "checkedThroughDate": "2026-11-02",
+          "min": 1336,
+          "max": 1336,
+          "touchedThresholds": []
         },
         {
           "text": "코스피 외국인 순매수 전환",
