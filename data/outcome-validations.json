@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-05T01:27:10.703Z",
-  "validationRunId": "20261105T012710619Z",
+  "generatedAt": "2026-11-05T23:37:59.203Z",
+  "validationRunId": "20261105T233759095Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-05T01:26:33.849Z",
+    "macroHistoryGeneratedAt": "2026-11-05T23:36:58.530Z",
     "horizons": [
       1,
       5
@@ -4621,9 +4621,9 @@
       "reportDate": "2026-10-30",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 금리 안정 속 기술주 약세",
       "sourceRunId": "20261030T053950393Z",
-      "validatedAt": "2026-11-05T01:27:10.668Z",
+      "validatedAt": "2026-11-05T23:37:59.144Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 83.3,
         "classification": "confirmed"
       },
@@ -4639,11 +4639,11 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         }
       ],
@@ -4653,7 +4653,7 @@
       "reportDate": "2026-10-31",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20261031T004434134Z",
-      "validatedAt": "2026-11-05T01:27:10.672Z",
+      "validatedAt": "2026-11-05T23:37:59.161Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -4685,7 +4685,7 @@
       "reportDate": "2026-11-01",
       "briefingTitle": "[데일리 마감] 미 증시 일제히 하락… 고용 강세에 금리 인상 우려",
       "sourceRunId": "20261101T000654017Z",
-      "validatedAt": "2026-11-05T01:27:10.681Z",
+      "validatedAt": "2026-11-05T23:37:59.167Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -4717,7 +4717,7 @@
       "reportDate": "2026-11-02",
       "briefingTitle": "[데일리 마감] 미 증시 하락, 장기금리 안정 속 기술주 약세",
       "sourceRunId": "20261102T003545325Z",
-      "validatedAt": "2026-11-05T01:27:10.686Z",
+      "validatedAt": "2026-11-05T23:37:59.175Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -4749,7 +4749,7 @@
       "reportDate": "2026-11-03",
       "briefingTitle": "[데일리 마감] 나스닥 1.07% 하락… 다우 방어적 강세",
       "sourceRunId": "20261103T025349186Z",
-      "validatedAt": "2026-11-05T01:27:10.691Z",
+      "validatedAt": "2026-11-05T23:37:59.181Z",
       "overall": {
         "status": "partial",
         "score": 0,
@@ -4781,7 +4781,7 @@
       "reportDate": "2026-11-04",
       "briefingTitle": "[데일리 마감] 나스닥 0.83% 강세… 장기금리 4.95% 부담 지속",
       "sourceRunId": "20261104T011410406Z",
-      "validatedAt": "2026-11-05T01:27:10.696Z",
+      "validatedAt": "2026-11-05T23:37:59.187Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -4813,7 +4813,39 @@
       "reportDate": "2026-11-05",
       "briefingTitle": "[데일리 마감] 다우 3.03% 급등, 유가 하락…미 증시 전반 강세",
       "sourceRunId": "20261105T012710436Z",
-      "validatedAt": "2026-11-05T01:27:10.700Z",
+      "validatedAt": "2026-11-05T23:37:59.193Z",
+      "overall": {
+        "status": "partial",
+        "score": 33.3,
+        "classification": "miss"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 33.3,
+          "classification": "miss",
+          "hitCount": 1,
+          "partialCount": 0,
+          "missCount": 2
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-11-05/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-11-06",
+      "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
+      "sourceRunId": "20261105T233758884Z",
+      "validatedAt": "2026-11-05T23:37:59.198Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -4839,7 +4871,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-11-05/latest/outcome-validation.json"
+      "archivePath": "archive/2026-11-06/latest/outcome-validation.json"
     }
   ]
 }
