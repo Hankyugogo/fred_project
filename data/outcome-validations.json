@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T21:29:28.994Z",
-  "validationRunId": "20261108T212928925Z",
+  "generatedAt": "2026-11-09T21:13:22.466Z",
+  "validationRunId": "20261109T211322340Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-08T21:28:49.585Z",
+    "macroHistoryGeneratedAt": "2026-11-09T21:12:41.026Z",
     "horizons": [
       1,
       5
@@ -4781,7 +4781,7 @@
       "reportDate": "2026-11-04",
       "briefingTitle": "[데일리 마감] 나스닥 0.83% 강세… 장기금리 4.95% 부담 지속",
       "sourceRunId": "20261104T011410406Z",
-      "validatedAt": "2026-11-08T21:29:28.960Z",
+      "validatedAt": "2026-11-09T21:13:22.401Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -4813,7 +4813,7 @@
       "reportDate": "2026-11-05",
       "briefingTitle": "[데일리 마감] 다우 3.03% 급등, 유가 하락…미 증시 전반 강세",
       "sourceRunId": "20261105T012710436Z",
-      "validatedAt": "2026-11-08T21:29:28.972Z",
+      "validatedAt": "2026-11-09T21:13:22.421Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -4845,7 +4845,7 @@
       "reportDate": "2026-11-06",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20261105T233758884Z",
-      "validatedAt": "2026-11-08T21:29:28.979Z",
+      "validatedAt": "2026-11-09T21:13:22.427Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -4877,20 +4877,20 @@
       "reportDate": "2026-11-07",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.86% 부담 점검",
       "sourceRunId": "20261107T051659204Z",
-      "validatedAt": "2026-11-08T21:29:28.984Z",
+      "validatedAt": "2026-11-09T21:13:22.439Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -4909,20 +4909,20 @@
       "reportDate": "2026-11-08",
       "briefingTitle": "[데일리 마감] 나스닥 1.09% 상승… 고용 호조에 금리 인상 경계",
       "sourceRunId": "20261107T212619449Z",
-      "validatedAt": "2026-11-08T21:29:28.988Z",
+      "validatedAt": "2026-11-09T21:13:22.447Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -4941,7 +4941,39 @@
       "reportDate": "2026-11-09",
       "briefingTitle": "나스닥 1.09% 상승, 장기금리 4.86% 유지 속 기술주 강세",
       "sourceRunId": "20261108T212928693Z",
-      "validatedAt": "2026-11-08T21:29:28.992Z",
+      "validatedAt": "2026-11-09T21:13:22.454Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-11-09/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-11-10",
+      "briefingTitle": "[데일리 마감] 나스닥 2.74% 급등…물가 지표 앞두고 기술주 강세",
+      "sourceRunId": "20261109T211322102Z",
+      "validatedAt": "2026-11-09T21:13:22.462Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -4967,7 +4999,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-11-09/latest/outcome-validation.json"
+      "archivePath": "archive/2026-11-10/latest/outcome-validation.json"
     }
   ]
 }
