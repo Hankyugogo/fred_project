@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 미 증시 혼조, 장기금리 5.15% 재상승",
   "sourceRunId": "20261113T225232479Z",
   "sourceGeneratedAt": "2026-11-13T22:50:50.053Z",
-  "validatedAt": "2026-11-14T23:03:24.445Z",
-  "validationRunId": "20261114T230324357Z",
+  "validatedAt": "2026-11-16T00:57:29.805Z",
+  "validationRunId": "20261116T005729735Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-14T23:02:07.406Z",
+    "macroHistoryGeneratedAt": "2026-11-16T00:56:47.983Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -114,20 +114,24 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
+          "targetDate": "2026-11-16",
+          "actualValue": 1333.7,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-14"
+          "absoluteChange": -5.3,
+          "percentChange": -0.3958,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-11-13",
           "baseValue": 88.56,
+          "targetDate": "2026-11-15",
+          "actualValue": 88.37,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -0.19,
+          "percentChange": -0.2145,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -147,9 +151,13 @@
           "thresholds": [
             1340
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-14",
-          "baseValue": 1339
+          "baseValue": 1339,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) +3.51% 흐름 유지",
@@ -169,9 +177,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-14",
-          "baseValue": 1339
+          "baseValue": 1339,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "변동성지수(VIX) 20선 상회 여부",
@@ -348,8 +360,8 @@
           "baseValue": 1339,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-14"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -358,8 +370,8 @@
           "baseValue": 88.56,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-15"
         }
       },
       "watchLevels": [
@@ -379,9 +391,13 @@
           "thresholds": [
             1340
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-14",
-          "baseValue": 1339
+          "baseValue": 1339,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) +3.51% 흐름 유지",
@@ -401,9 +417,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-14",
-          "baseValue": 1339
+          "baseValue": 1339,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "변동성지수(VIX) 20선 상회 여부",

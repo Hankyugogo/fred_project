@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 장기금리 5.10% 재상승",
   "sourceRunId": "20261113T004426135Z",
   "sourceGeneratedAt": "2026-11-13T00:42:04.670Z",
-  "validatedAt": "2026-11-14T23:03:24.439Z",
-  "validationRunId": "20261114T230324357Z",
+  "validatedAt": "2026-11-16T00:57:29.800Z",
+  "validationRunId": "20261116T005729735Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-14T23:02:07.406Z",
+    "macroHistoryGeneratedAt": "2026-11-16T00:56:47.983Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-13",
           "baseValue": 1336.4,
-          "targetDate": "2026-11-14",
-          "actualValue": 1340,
+          "targetDate": "2026-11-16",
+          "actualValue": 1333.7,
           "horizonSessions": 1,
-          "absoluteChange": 3.6,
-          "percentChange": 0.2694,
+          "absoluteChange": -2.7,
+          "percentChange": -0.202,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-11-12",
           "baseValue": 88.37,
-          "targetDate": "2026-11-13",
-          "actualValue": 88.56,
+          "targetDate": "2026-11-15",
+          "actualValue": 88.37,
           "horizonSessions": 1,
-          "absoluteChange": 0.19,
-          "percentChange": 0.215,
+          "absoluteChange": 0,
+          "percentChange": 0,
           "status": "complete"
         }
       },
@@ -169,15 +169,13 @@
           "thresholds": [
             1340
           ],
-          "status": "touched",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 1336.4,
-          "checkedThroughDate": "2026-11-14",
-          "min": 1340,
-          "max": 1340,
-          "touchedThresholds": [
-            1340
-          ]
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 2.50% 이상 상승 흐름 유지",
@@ -200,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 1336.4,
-          "checkedThroughDate": "2026-11-14",
-          "min": 1340,
-          "max": 1340,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
           "touchedThresholds": []
         },
         {
@@ -390,7 +388,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-14"
+          "latestHistoryDate": "2026-11-16"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -400,7 +398,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-13"
+          "latestHistoryDate": "2026-11-15"
         }
       },
       "watchLevels": [
@@ -426,15 +424,13 @@
           "thresholds": [
             1340
           ],
-          "status": "touched",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 1336.4,
-          "checkedThroughDate": "2026-11-14",
-          "min": 1340,
-          "max": 1340,
-          "touchedThresholds": [
-            1340
-          ]
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
+          "touchedThresholds": []
         },
         {
           "text": "미국 반도체 ETF(SOXX) 2.50% 이상 상승 흐름 유지",
@@ -457,9 +453,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 1336.4,
-          "checkedThroughDate": "2026-11-14",
-          "min": 1340,
-          "max": 1340,
+          "checkedThroughDate": "2026-11-16",
+          "min": 1333.7,
+          "max": 1333.7,
           "touchedThresholds": []
         },
         {

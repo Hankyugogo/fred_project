@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T23:02:07.406Z",
+  "generatedAt": "2026-11-16T00:56:47.983Z",
   "source": "FRED API + Yahoo Finance v8 chart API",
   "range": "~14mo",
   "interval": "1d",
@@ -11,18 +11,10 @@
       "yahooSymbol": "^GSPC",
       "label": "S&P 500",
       "kind": "index",
-      "historyLength": 295,
+      "historyLength": 293,
       "latestDate": "2026-11-13",
       "latestClose": 7561.67,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 6615.28
-        },
-        {
-          "date": "2025-09-16",
-          "close": 6606.76
-        },
         {
           "date": "2025-09-17",
           "close": 6600.35
@@ -1205,18 +1197,10 @@
       "yahooSymbol": "^IXIC",
       "label": "나스닥종합",
       "kind": "index",
-      "historyLength": 295,
+      "historyLength": 293,
       "latestDate": "2026-11-13",
       "latestClose": 25136.27,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 22348.75
-        },
-        {
-          "date": "2025-09-16",
-          "close": 22333.96
-        },
         {
           "date": "2025-09-17",
           "close": 22261.33
@@ -2399,18 +2383,10 @@
       "yahooSymbol": "^DJI",
       "label": "다우지수",
       "kind": "index",
-      "historyLength": 295,
+      "historyLength": 293,
       "latestDate": "2026-11-13",
       "latestClose": 52347.55,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 45883.45
-        },
-        {
-          "date": "2025-09-16",
-          "close": 45757.9
-        },
         {
           "date": "2025-09-17",
           "close": 46018.32
@@ -8640,7 +8616,7 @@
       ],
       "error": "Yahoo: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
       "fallbackUsed": true,
-      "fetchedAt": "2026-11-14T23:02:05.752Z"
+      "fetchedAt": "2026-11-16T00:56:46.169Z"
     },
     {
       "id": "VIXCLS",
@@ -8648,18 +8624,10 @@
       "yahooSymbol": "^VIX",
       "label": "VIX",
       "kind": "index",
-      "historyLength": 302,
+      "historyLength": 300,
       "latestDate": "2026-11-13",
       "latestClose": 19.3,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 15.69
-        },
-        {
-          "date": "2025-09-16",
-          "close": 16.36
-        },
         {
           "date": "2025-09-17",
           "close": 15.72
@@ -9867,7 +9835,7 @@
         "source": "Naver Finance world index API",
         "sourceSymbol": ".VIX",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-11-14T23:00:22.102Z"
+        "fetchedAt": "2026-11-16T00:55:45.038Z"
       }
     },
     {
@@ -9876,18 +9844,10 @@
       "yahooSymbol": "^TNX",
       "label": "미 국채 10년물",
       "kind": "rate",
-      "historyLength": 292,
+      "historyLength": 290,
       "latestDate": "2026-11-13",
       "latestClose": 5.15,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 4.05
-        },
-        {
-          "date": "2025-09-16",
-          "close": 4.04
-        },
         {
           "date": "2025-09-17",
           "close": 4.06
@@ -11055,7 +11015,7 @@
         "source": "U.S. Treasury Daily Treasury Rates XML",
         "sourceSymbol": "BC_10YEAR",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-11-14T23:00:22.772Z"
+        "fetchedAt": "2026-11-16T00:55:45.416Z"
       }
     },
     {
@@ -11064,18 +11024,10 @@
       "yahooSymbol": "^IRX",
       "label": "미 국채 단기 (^IRX, 13W T-Bill)",
       "kind": "rate",
-      "historyLength": 292,
+      "historyLength": 290,
       "latestDate": "2026-11-13",
       "latestClose": 4.88,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 3.54
-        },
-        {
-          "date": "2025-09-16",
-          "close": 3.51
-        },
         {
           "date": "2025-09-17",
           "close": 3.52
@@ -12243,7 +12195,7 @@
         "source": "U.S. Treasury Daily Treasury Rates XML",
         "sourceSymbol": "BC_2YEAR",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-11-14T23:00:22.772Z"
+        "fetchedAt": "2026-11-16T00:55:45.416Z"
       }
     },
     {
@@ -12252,18 +12204,10 @@
       "yahooSymbol": "KRW=X",
       "label": "USD/KRW",
       "kind": "fx",
-      "historyLength": 289,
-      "latestDate": "2026-11-14",
-      "latestClose": 1340,
+      "historyLength": 287,
+      "latestDate": "2026-11-16",
+      "latestClose": 1333.7,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 1385.09
-        },
-        {
-          "date": "2025-09-16",
-          "close": 1381.49
-        },
         {
           "date": "2025-09-17",
           "close": 1375.5
@@ -13409,8 +13353,8 @@
           "close": 1361.89
         },
         {
-          "date": "2026-11-14",
-          "close": 1340
+          "date": "2026-11-16",
+          "close": 1333.7
         }
       ],
       "source": "FRED API + market supplement",
@@ -13419,7 +13363,7 @@
         "source": "Naver Finance exchange API",
         "sourceSymbol": "FX_USDKRW",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-11-14T23:00:23.053Z"
+        "fetchedAt": "2026-11-16T00:55:45.715Z"
       }
     },
     {
@@ -13428,18 +13372,10 @@
       "yahooSymbol": "DX-Y.NYB",
       "label": "달러지수 (DXY)",
       "kind": "fx",
-      "historyLength": 288,
+      "historyLength": 286,
       "latestDate": "2026-11-06",
       "latestClose": 121.8803,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 119.5644
-        },
-        {
-          "date": "2025-09-16",
-          "close": 119.1348
-        },
         {
           "date": "2025-09-17",
           "close": 119.1582
@@ -14594,18 +14530,10 @@
       "yahooSymbol": "JPY=X",
       "label": "USD/JPY",
       "kind": "fx",
-      "historyLength": 289,
-      "latestDate": "2026-11-14",
-      "latestClose": 159.69,
+      "historyLength": 287,
+      "latestDate": "2026-11-16",
+      "latestClose": 159.84,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 147.27
-        },
-        {
-          "date": "2025-09-16",
-          "close": 146.56
-        },
         {
           "date": "2025-09-17",
           "close": 146.36
@@ -15751,8 +15679,8 @@
           "close": 158.23
         },
         {
-          "date": "2026-11-14",
-          "close": 159.69
+          "date": "2026-11-16",
+          "close": 159.84
         }
       ],
       "source": "FRED API + market supplement",
@@ -15761,7 +15689,7 @@
         "source": "Naver Finance exchange API",
         "sourceSymbol": "FX_USDKRW/FX_JPYKRW",
         "replacementPolicy": "replace",
-        "fetchedAt": "2026-11-14T23:00:23.707Z"
+        "fetchedAt": "2026-11-16T00:55:46.438Z"
       }
     },
     {
@@ -15770,18 +15698,10 @@
       "yahooSymbol": "CL=F",
       "label": "WTI 유가",
       "kind": "commodity",
-      "historyLength": 292,
-      "latestDate": "2026-11-13",
-      "latestClose": 88.56,
+      "historyLength": 290,
+      "latestDate": "2026-11-15",
+      "latestClose": 88.37,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 63.66
-        },
-        {
-          "date": "2025-09-16",
-          "close": 64.89
-        },
         {
           "date": "2025-09-17",
           "close": 64.41
@@ -16939,8 +16859,8 @@
           "close": 89.62
         },
         {
-          "date": "2026-11-13",
-          "close": 88.56
+          "date": "2026-11-15",
+          "close": 88.37
         }
       ],
       "source": "FRED API + market supplement",
@@ -16949,7 +16869,7 @@
         "source": "Naver Finance market index API",
         "sourceSymbol": "CLcv1",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-11-14T23:00:23.992Z"
+        "fetchedAt": "2026-11-16T00:55:46.737Z"
       }
     },
     {
@@ -16958,18 +16878,10 @@
       "yahooSymbol": "BZ=F",
       "label": "브렌트유",
       "kind": "commodity",
-      "historyLength": 296,
-      "latestDate": "2026-11-13",
-      "latestClose": 95.84,
+      "historyLength": 294,
+      "latestDate": "2026-11-16",
+      "latestClose": 95.41,
       "history": [
-        {
-          "date": "2025-09-15",
-          "close": 67.88
-        },
-        {
-          "date": "2025-09-16",
-          "close": 69.69
-        },
         {
           "date": "2025-09-17",
           "close": 69.19
@@ -18143,8 +18055,8 @@
           "close": 92.14
         },
         {
-          "date": "2026-11-13",
-          "close": 95.84
+          "date": "2026-11-16",
+          "close": 95.41
         }
       ],
       "source": "FRED API + market supplement",
@@ -18153,7 +18065,7 @@
         "source": "Naver Finance market index API",
         "sourceSymbol": "LCOcv1",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-11-14T23:00:24.117Z"
+        "fetchedAt": "2026-11-16T00:55:46.942Z"
       }
     },
     {
@@ -18162,9 +18074,9 @@
       "yahooSymbol": "GC=F",
       "label": "금 (Gold Spot)",
       "kind": "commodity",
-      "historyLength": 326,
-      "latestDate": "2026-11-13",
-      "latestClose": 3886.3,
+      "historyLength": 327,
+      "latestDate": "2026-11-15",
+      "latestClose": 3888.1,
       "history": [
         {
           "date": "2025-08-13",
@@ -19469,18 +19381,22 @@
         {
           "date": "2026-11-13",
           "close": 3886.3
+        },
+        {
+          "date": "2026-11-15",
+          "close": 3888.1
         }
       ],
-      "source": "Yahoo Finance v8 chart API + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
+      "source": "Yahoo Finance v8 chart API + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
       "error": "Yahoo: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
       "marketSupplement": {
         "source": "Naver Finance market index API",
         "sourceSymbol": "GCcv1",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-11-13T22:50:43.404Z"
+        "fetchedAt": "2026-11-16T00:55:47.228Z"
       },
       "fallbackUsed": true,
-      "fetchedAt": "2026-11-14T23:02:07.264Z"
+      "fetchedAt": "2026-11-16T00:56:47.821Z"
     },
     {
       "id": "COPPER",
@@ -19488,9 +19404,9 @@
       "yahooSymbol": "HG=F",
       "label": "구리",
       "kind": "commodity",
-      "historyLength": 1393,
-      "latestDate": "2026-11-13",
-      "latestClose": 6.09,
+      "historyLength": 1394,
+      "latestDate": "2026-11-15",
+      "latestClose": 6.07,
       "history": [
         {
           "date": "2021-07-08",
@@ -25063,17 +24979,21 @@
         {
           "date": "2026-11-13",
           "close": 6.09
+        },
+        {
+          "date": "2026-11-15",
+          "close": 6.07
         }
       ],
       "error": "Yahoo: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
       "fallbackUsed": true,
-      "fetchedAt": "2026-11-14T23:02:07.337Z",
-      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
+      "fetchedAt": "2026-11-16T00:56:47.913Z",
+      "source": "cached history + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement + market supplement",
       "marketSupplement": {
         "source": "Naver Finance market index API",
         "sourceSymbol": "HGcv1",
         "replacementPolicy": "proxy",
-        "fetchedAt": "2026-11-13T22:50:43.694Z"
+        "fetchedAt": "2026-11-16T00:55:47.534Z"
       }
     },
     {
@@ -26554,7 +26474,7 @@
       "source": "Yahoo Finance v8 chart API",
       "error": "Yahoo: Unexpected token 'T', \"Too Many Requests\" is not valid JSON",
       "fallbackUsed": true,
-      "fetchedAt": "2026-11-14T23:02:07.406Z"
+      "fetchedAt": "2026-11-16T00:56:47.983Z"
     }
   ]
 }
