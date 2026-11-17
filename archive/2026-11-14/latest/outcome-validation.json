@@ -4,48 +4,48 @@
   "briefingTitle": "[데일리 마감] 미 증시 혼조, 장기금리 5.15% 재상승",
   "sourceRunId": "20261113T225232479Z",
   "sourceGeneratedAt": "2026-11-13T22:50:50.053Z",
-  "validatedAt": "2026-11-16T00:57:29.805Z",
-  "validationRunId": "20261116T005729735Z",
+  "validatedAt": "2026-11-17T00:36:44.511Z",
+  "validationRunId": "20261117T003644425Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-16T00:56:47.983Z",
+    "macroHistoryGeneratedAt": "2026-11-17T00:36:05.271Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
   "overall": {
-    "status": "pending",
-    "score": null,
-    "classification": "pending"
+    "status": "partial",
+    "score": 83.3,
+    "classification": "confirmed"
   },
   "horizons": [
     {
       "horizonSessions": 1,
-      "status": "pending",
-      "score": null,
-      "classification": "pending",
-      "hitCount": 0,
-      "partialCount": 0,
+      "status": "complete",
+      "score": 83.3,
+      "classification": "confirmed",
+      "hitCount": 2,
+      "partialCount": 1,
       "missCount": 0,
       "checks": [
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
           "expected": "down",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "down",
+          "result": "hit"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
           "expected": "mixed",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "down",
+          "result": "partial"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
           "expected": "up",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "up",
+          "result": "hit"
         }
       ],
       "observations": {
@@ -54,71 +54,83 @@
           "label": "S&P 500",
           "baseDate": "2026-11-13",
           "baseValue": 7561.67,
+          "targetDate": "2026-11-16",
+          "actualValue": 7416.59,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -145.08,
+          "percentChange": -1.9186,
+          "status": "complete"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
           "baseDate": "2026-11-13",
           "baseValue": 25136.27,
+          "targetDate": "2026-11-16",
+          "actualValue": 24509.76,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -626.51,
+          "percentChange": -2.4925,
+          "status": "complete"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
           "baseDate": "2026-11-13",
           "baseValue": 52347.55,
+          "targetDate": "2026-11-16",
+          "actualValue": 51608.17,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -739.38,
+          "percentChange": -1.4124,
+          "status": "complete"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
           "baseDate": "2026-11-13",
           "baseValue": 5.15,
+          "targetDate": "2026-11-16",
+          "actualValue": 5.12,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -0.03,
+          "percentChange": -0.5825,
+          "status": "complete"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
           "baseDate": "2026-11-13",
           "baseValue": 4.88,
+          "targetDate": "2026-11-16",
+          "actualValue": 4.83,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": -0.05,
+          "percentChange": -1.0246,
+          "status": "complete"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
           "baseDate": "2026-11-13",
           "baseValue": 19.3,
+          "targetDate": "2026-11-16",
+          "actualValue": 22.91,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "absoluteChange": 3.61,
+          "percentChange": 18.7047,
+          "status": "complete"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "targetDate": "2026-11-16",
-          "actualValue": 1333.7,
+          "targetDate": "2026-11-17",
+          "actualValue": 1337.7,
           "horizonSessions": 1,
-          "absoluteChange": -5.3,
-          "percentChange": -0.3958,
+          "absoluteChange": -1.3,
+          "percentChange": -0.0971,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -126,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-11-13",
           "baseValue": 88.56,
-          "targetDate": "2026-11-15",
-          "actualValue": 88.37,
+          "targetDate": "2026-11-16",
+          "actualValue": 85.32,
           "horizonSessions": 1,
-          "absoluteChange": -0.19,
-          "percentChange": -0.2145,
+          "absoluteChange": -3.24,
+          "percentChange": -3.6585,
           "status": "complete"
         }
       },
@@ -141,9 +153,13 @@
           "thresholds": [
             5.2
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 환율 1,340원 돌파 여부",
@@ -154,9 +170,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-16",
-          "min": 1333.7,
-          "max": 1333.7,
+          "checkedThroughDate": "2026-11-17",
+          "min": 1337.7,
+          "max": 1337.7,
           "touchedThresholds": []
         },
         {
@@ -180,9 +196,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-16",
-          "min": 1333.7,
-          "max": 1333.7,
+          "checkedThroughDate": "2026-11-17",
+          "min": 1337.7,
+          "max": 1337.7,
           "touchedThresholds": []
         },
         {
@@ -209,9 +225,13 @@
           "thresholds": [
             5
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "장단기 금리차 0bp 수렴 여부",
@@ -243,9 +263,13 @@
           "thresholds": [
             4.5
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "달러지수(DXY) 100선 하회 여부",
@@ -300,8 +324,8 @@
           "baseValue": 7561.67,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
@@ -310,8 +334,8 @@
           "baseValue": 25136.27,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "DJIA": {
           "id": "DJIA",
@@ -320,8 +344,8 @@
           "baseValue": 52347.55,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "DGS10": {
           "id": "DGS10",
@@ -330,8 +354,8 @@
           "baseValue": 5.15,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "DGS2": {
           "id": "DGS2",
@@ -340,8 +364,8 @@
           "baseValue": 4.88,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "VIXCLS": {
           "id": "VIXCLS",
@@ -350,8 +374,8 @@
           "baseValue": 19.3,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-13"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-16"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -361,7 +385,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-16"
+          "latestHistoryDate": "2026-11-17"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -371,7 +395,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-15"
+          "latestHistoryDate": "2026-11-16"
         }
       },
       "watchLevels": [
@@ -381,9 +405,13 @@
           "thresholds": [
             5.2
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "달러/원 환율 1,340원 돌파 여부",
@@ -394,9 +422,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-16",
-          "min": 1333.7,
-          "max": 1333.7,
+          "checkedThroughDate": "2026-11-17",
+          "min": 1337.7,
+          "max": 1337.7,
           "touchedThresholds": []
         },
         {
@@ -420,9 +448,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-16",
-          "min": 1333.7,
-          "max": 1333.7,
+          "checkedThroughDate": "2026-11-17",
+          "min": 1337.7,
+          "max": 1337.7,
           "touchedThresholds": []
         },
         {
@@ -449,9 +477,13 @@
           "thresholds": [
             5
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "장단기 금리차 0bp 수렴 여부",
@@ -483,9 +515,13 @@
           "thresholds": [
             4.5
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-13",
-          "baseValue": 5.15
+          "baseValue": 5.15,
+          "checkedThroughDate": "2026-11-16",
+          "min": 5.12,
+          "max": 5.12,
+          "touchedThresholds": []
         },
         {
           "text": "달러지수(DXY) 100선 하회 여부",

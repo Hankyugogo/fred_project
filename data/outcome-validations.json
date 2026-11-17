@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-16T00:57:29.817Z",
-  "validationRunId": "20261116T005729735Z",
+  "generatedAt": "2026-11-17T00:36:44.531Z",
+  "validationRunId": "20261117T003644425Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-16T00:56:47.983Z",
+    "macroHistoryGeneratedAt": "2026-11-17T00:36:05.271Z",
     "horizons": [
       1,
       5
@@ -4973,11 +4973,11 @@
       "reportDate": "2026-11-10",
       "briefingTitle": "[데일리 마감] 나스닥 2.74% 급등…물가 지표 앞두고 기술주 강세",
       "sourceRunId": "20261109T211322102Z",
-      "validatedAt": "2026-11-16T00:57:29.771Z",
+      "validatedAt": "2026-11-17T00:36:44.475Z",
       "overall": {
-        "status": "partial",
-        "score": 50,
-        "classification": "mixed"
+        "status": "complete",
+        "score": 25,
+        "classification": "miss"
       },
       "horizons": [
         {
@@ -4991,12 +4991,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
+          "status": "complete",
+          "score": 0,
+          "classification": "miss",
           "hitCount": 0,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 2
         }
       ],
       "archivePath": "archive/2026-11-10/latest/outcome-validation.json"
@@ -5005,7 +5005,7 @@
       "reportDate": "2026-11-11",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20261111T002351227Z",
-      "validatedAt": "2026-11-16T00:57:29.786Z",
+      "validatedAt": "2026-11-17T00:36:44.490Z",
       "overall": {
         "status": "partial",
         "score": 50,
@@ -5037,7 +5037,7 @@
       "reportDate": "2026-11-12",
       "briefingTitle": "[데일리 마감] 나스닥 1.60% 강세, 장기금리 4.98% 부담 지속",
       "sourceRunId": "20261112T002954646Z",
-      "validatedAt": "2026-11-16T00:57:29.795Z",
+      "validatedAt": "2026-11-17T00:36:44.499Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -5069,7 +5069,7 @@
       "reportDate": "2026-11-13",
       "briefingTitle": "[데일리 마감] 미 증시 동반 약세… 장기금리 5.10% 재상승",
       "sourceRunId": "20261113T004426135Z",
-      "validatedAt": "2026-11-16T00:57:29.800Z",
+      "validatedAt": "2026-11-17T00:36:44.505Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -5101,20 +5101,20 @@
       "reportDate": "2026-11-14",
       "briefingTitle": "[데일리 마감] 미 증시 혼조, 장기금리 5.15% 재상승",
       "sourceRunId": "20261113T225232479Z",
-      "validatedAt": "2026-11-16T00:57:29.805Z",
+      "validatedAt": "2026-11-17T00:36:44.511Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -5133,20 +5133,20 @@
       "reportDate": "2026-11-15",
       "briefingTitle": "[데일리 마감] 미 증시 혼조세, 장기금리 5.15% 재상승",
       "sourceRunId": "20261114T230324097Z",
-      "validatedAt": "2026-11-16T00:57:29.810Z",
+      "validatedAt": "2026-11-17T00:36:44.517Z",
       "overall": {
-        "status": "pending",
-        "score": null,
-        "classification": "pending"
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
       },
       "horizons": [
         {
           "horizonSessions": 1,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
-          "partialCount": 0,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
           "missCount": 0
         },
         {
@@ -5165,7 +5165,39 @@
       "reportDate": "2026-11-16",
       "briefingTitle": "[데일리 마감] 기술주 하락, 다우 방어… 장기금리 5.15% 재상승",
       "sourceRunId": "20261116T005729551Z",
-      "validatedAt": "2026-11-16T00:57:29.814Z",
+      "validatedAt": "2026-11-17T00:36:44.521Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-11-16/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-11-17",
+      "briefingTitle": "[데일리 마감] 미 증시 일제 하락, 나스닥 2.49% 급락… VIX 22.91",
+      "sourceRunId": "20261117T003644234Z",
+      "validatedAt": "2026-11-17T00:36:44.526Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -5191,7 +5223,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-11-16/latest/outcome-validation.json"
+      "archivePath": "archive/2026-11-17/latest/outcome-validation.json"
     }
   ]
 }
