@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 나스닥 선방 속 지수 혼조… FOMC 의사록 주목",
   "sourceRunId": "20261118T230435292Z",
   "sourceGeneratedAt": "2026-11-18T23:02:29.254Z",
-  "validatedAt": "2026-11-20T02:16:56.186Z",
-  "validationRunId": "20261120T021656069Z",
+  "validatedAt": "2026-11-20T22:56:25.973Z",
+  "validationRunId": "20261120T225625854Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-20T02:15:38.184Z",
+    "macroHistoryGeneratedAt": "2026-11-20T22:55:15.744Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-19",
           "baseValue": 1334,
-          "targetDate": "2026-11-20",
-          "actualValue": 1338.8,
+          "targetDate": "2026-11-21",
+          "actualValue": 1346.5,
           "horizonSessions": 1,
-          "absoluteChange": 4.8,
-          "percentChange": 0.3598,
+          "absoluteChange": 12.5,
+          "percentChange": 0.937,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-11-18",
           "baseValue": 83.26,
-          "targetDate": "2026-11-19",
-          "actualValue": 83.53,
+          "targetDate": "2026-11-20",
+          "actualValue": 83.98,
           "horizonSessions": 1,
-          "absoluteChange": 0.27,
-          "percentChange": 0.3243,
+          "absoluteChange": 0.72,
+          "percentChange": 0.8648,
           "status": "complete"
         }
       },
@@ -173,13 +173,15 @@
           "thresholds": [
             1340
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-19",
           "baseValue": 1334,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
+          "touchedThresholds": [
+            1340
+          ]
         },
         {
           "text": "2026년 11월 19일 Walmart Inc. (WMT) 실적 발표",
@@ -196,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-19",
           "baseValue": 1334,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
           "touchedThresholds": []
         },
         {
@@ -324,8 +326,8 @@
           "baseValue": 7323.63,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
@@ -334,8 +336,8 @@
           "baseValue": 24429.89,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "DJIA": {
           "id": "DJIA",
@@ -344,8 +346,8 @@
           "baseValue": 50198.17,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "DGS10": {
           "id": "DGS10",
@@ -354,8 +356,8 @@
           "baseValue": 5.07,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "DGS2": {
           "id": "DGS2",
@@ -364,8 +366,8 @@
           "baseValue": 4.8,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "VIXCLS": {
           "id": "VIXCLS",
@@ -374,8 +376,8 @@
           "baseValue": 24.56,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-20"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -385,7 +387,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-20"
+          "latestHistoryDate": "2026-11-21"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -395,7 +397,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-19"
+          "latestHistoryDate": "2026-11-20"
         }
       },
       "watchLevels": [
@@ -408,8 +410,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-18",
           "baseValue": 5.07,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.04,
           "touchedThresholds": []
         },
@@ -425,13 +427,15 @@
           "thresholds": [
             1340
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-19",
           "baseValue": 1334,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
+          "touchedThresholds": [
+            1340
+          ]
         },
         {
           "text": "2026년 11월 19일 Walmart Inc. (WMT) 실적 발표",
@@ -448,9 +452,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-19",
           "baseValue": 1334,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
           "touchedThresholds": []
         },
         {
@@ -477,13 +481,15 @@
           "thresholds": [
             5
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-18",
           "baseValue": 5.07,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.04,
-          "touchedThresholds": []
+          "touchedThresholds": [
+            5
+          ]
         },
         {
           "text": "장단기 금리차 0bp 도달 여부",
@@ -518,8 +524,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-18",
           "baseValue": 5.07,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.04,
           "touchedThresholds": []
         },

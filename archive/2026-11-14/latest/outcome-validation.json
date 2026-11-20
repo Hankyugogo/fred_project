@@ -4,15 +4,15 @@
   "briefingTitle": "[데일리 마감] 미 증시 혼조, 장기금리 5.15% 재상승",
   "sourceRunId": "20261113T225232479Z",
   "sourceGeneratedAt": "2026-11-13T22:50:50.053Z",
-  "validatedAt": "2026-11-20T02:16:56.148Z",
-  "validationRunId": "20261120T021656069Z",
+  "validatedAt": "2026-11-20T22:56:25.919Z",
+  "validationRunId": "20261120T225625854Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-20T02:15:38.184Z",
+    "macroHistoryGeneratedAt": "2026-11-20T22:55:15.744Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
   "overall": {
-    "status": "partial",
+    "status": "complete",
     "score": 83.3,
     "classification": "confirmed"
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "targetDate": "2026-11-20",
-          "actualValue": 1338.8,
+          "targetDate": "2026-11-21",
+          "actualValue": 1346.5,
           "horizonSessions": 1,
-          "absoluteChange": -0.2,
-          "percentChange": -0.0149,
+          "absoluteChange": 7.5,
+          "percentChange": 0.5601,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -167,13 +167,15 @@
           "thresholds": [
             1340
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
+          "touchedThresholds": [
+            1340
+          ]
         },
         {
           "text": "미국 반도체 ETF(SOXX) +3.51% 흐름 유지",
@@ -196,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
           "touchedThresholds": []
         },
         {
@@ -287,33 +289,33 @@
     },
     {
       "horizonSessions": 5,
-      "status": "pending",
-      "score": null,
-      "classification": "pending",
-      "hitCount": 0,
-      "partialCount": 0,
+      "status": "complete",
+      "score": 83.3,
+      "classification": "confirmed",
+      "hitCount": 2,
+      "partialCount": 1,
       "missCount": 0,
       "checks": [
         {
           "id": "equity-follow-through",
           "label": "주식 방향성",
           "expected": "down",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "down",
+          "result": "hit"
         },
         {
           "id": "rate-follow-through",
           "label": "금리 방향성",
           "expected": "mixed",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "down",
+          "result": "partial"
         },
         {
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
           "expected": "up",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "up",
+          "result": "hit"
         }
       ],
       "observations": {
@@ -322,60 +324,72 @@
           "label": "S&P 500",
           "baseDate": "2026-11-13",
           "baseValue": 7561.67,
+          "targetDate": "2026-11-20",
+          "actualValue": 6910.39,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": -651.28,
+          "percentChange": -8.6129,
+          "status": "complete"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
           "label": "나스닥종합지수",
           "baseDate": "2026-11-13",
           "baseValue": 25136.27,
+          "targetDate": "2026-11-20",
+          "actualValue": 22617.73,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": -2518.54,
+          "percentChange": -10.0195,
+          "status": "complete"
         },
         "DJIA": {
           "id": "DJIA",
           "label": "다우지수",
           "baseDate": "2026-11-13",
           "baseValue": 52347.55,
+          "targetDate": "2026-11-20",
+          "actualValue": 48147.33,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": -4200.22,
+          "percentChange": -8.0237,
+          "status": "complete"
         },
         "DGS10": {
           "id": "DGS10",
           "label": "미 국채 10년물",
           "baseDate": "2026-11-13",
           "baseValue": 5.15,
+          "targetDate": "2026-11-20",
+          "actualValue": 4.92,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": -0.23,
+          "percentChange": -4.466,
+          "status": "complete"
         },
         "DGS2": {
           "id": "DGS2",
           "label": "미 국채 2년물",
           "baseDate": "2026-11-13",
           "baseValue": 4.88,
+          "targetDate": "2026-11-20",
+          "actualValue": 4.63,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": -0.25,
+          "percentChange": -5.123,
+          "status": "complete"
         },
         "VIXCLS": {
           "id": "VIXCLS",
           "label": "VIX",
           "baseDate": "2026-11-13",
           "baseValue": 19.3,
+          "targetDate": "2026-11-20",
+          "actualValue": 35.89,
           "horizonSessions": 5,
-          "status": "pending",
-          "availableFutureSessions": 4,
-          "latestHistoryDate": "2026-11-19"
+          "absoluteChange": 16.59,
+          "percentChange": 85.9585,
+          "status": "complete"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -385,7 +399,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-20"
+          "latestHistoryDate": "2026-11-21"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -395,7 +409,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 3,
-          "latestHistoryDate": "2026-11-19"
+          "latestHistoryDate": "2026-11-20"
         }
       },
       "watchLevels": [
@@ -408,8 +422,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 5.15,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.12,
           "touchedThresholds": []
         },
@@ -419,13 +433,15 @@
           "thresholds": [
             1340
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
-          "touchedThresholds": []
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
+          "touchedThresholds": [
+            1340
+          ]
         },
         {
           "text": "미국 반도체 ETF(SOXX) +3.51% 흐름 유지",
@@ -448,9 +464,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-14",
           "baseValue": 1339,
-          "checkedThroughDate": "2026-11-20",
-          "min": 1338.8,
-          "max": 1338.8,
+          "checkedThroughDate": "2026-11-21",
+          "min": 1346.5,
+          "max": 1346.5,
           "touchedThresholds": []
         },
         {
@@ -477,13 +493,15 @@
           "thresholds": [
             5
           ],
-          "status": "not_touched",
+          "status": "touched",
           "baseDate": "2026-11-13",
           "baseValue": 5.15,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.12,
-          "touchedThresholds": []
+          "touchedThresholds": [
+            5
+          ]
         },
         {
           "text": "장단기 금리차 0bp 수렴 여부",
@@ -518,8 +536,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-13",
           "baseValue": 5.15,
-          "checkedThroughDate": "2026-11-19",
-          "min": 5.04,
+          "checkedThroughDate": "2026-11-20",
+          "min": 4.92,
           "max": 5.12,
           "touchedThresholds": []
         },
