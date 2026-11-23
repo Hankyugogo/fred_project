@@ -4,10 +4,10 @@
   "briefingTitle": "[데일리 마감] 미 증시 동반 약세, 10년물 5.10%… 변동성 확대",
   "sourceRunId": "20261117T225326332Z",
   "sourceGeneratedAt": "2026-11-17T22:50:49.760Z",
-  "validatedAt": "2026-11-21T22:58:19.149Z",
-  "validationRunId": "20261121T225819058Z",
+  "validatedAt": "2026-11-23T00:25:46.469Z",
+  "validationRunId": "20261123T002546402Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-21T22:57:38.993Z",
+    "macroHistoryGeneratedAt": "2026-11-23T00:25:09.755Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-18",
           "baseValue": 1335.5,
-          "targetDate": "2026-11-21",
-          "actualValue": 1346.5,
+          "targetDate": "2026-11-23",
+          "actualValue": 1339.4,
           "horizonSessions": 1,
-          "absoluteChange": 11,
-          "percentChange": 0.8237,
+          "absoluteChange": 3.9,
+          "percentChange": 0.292,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,7 +138,7 @@
           "label": "WTI 유가",
           "baseDate": "2026-11-17",
           "baseValue": 86.01,
-          "targetDate": "2026-11-20",
+          "targetDate": "2026-11-22",
           "actualValue": 83.98,
           "horizonSessions": 1,
           "absoluteChange": -2.03,
@@ -188,9 +188,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-18",
           "baseValue": 1335.5,
-          "checkedThroughDate": "2026-11-21",
-          "min": 1346.5,
-          "max": 1346.5,
+          "checkedThroughDate": "2026-11-23",
+          "min": 1339.4,
+          "max": 1339.4,
           "touchedThresholds": []
         },
         {
@@ -384,7 +384,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-21"
+          "latestHistoryDate": "2026-11-23"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -394,7 +394,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-20"
+          "latestHistoryDate": "2026-11-22"
         }
       },
       "watchLevels": [
@@ -439,9 +439,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-18",
           "baseValue": 1335.5,
-          "checkedThroughDate": "2026-11-21",
-          "min": 1346.5,
-          "max": 1346.5,
+          "checkedThroughDate": "2026-11-23",
+          "min": 1339.4,
+          "max": 1339.4,
           "touchedThresholds": []
         },
         {

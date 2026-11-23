@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T22:57:33.773Z",
+  "generatedAt": "2026-11-23T00:25:03.441Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, NVIDIA, SK하이닉스, 삼성전자로 구성한다.",
   "source": {
@@ -7,12 +7,12 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-11-21T22:56:27.044Z",
-    "latestBriefingDate": "2026-11-22",
-    "priceHistoryGeneratedAt": "2026-11-21T22:57:33.529Z"
+    "snapshotGeneratedAt": "2026-11-23T00:23:17.125Z",
+    "latestBriefingDate": "2026-11-23",
+    "priceHistoryGeneratedAt": "2026-11-23T00:25:03.253Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-11-22",
+    "reportDate": "2026-11-23",
     "title": "다우 상대 강세, 지수 혼조, 10년물 4.92% · VIX 35.89",
     "summary": "미국 증시는 약세를 나타내며 방어 심리가 강해졌다. S&P500지수는 -3.70%, 나스닥 종합지수는 -5.28%, 다우존스30 산업평균지수는 -1.93%를 기록했다. 다우지수가 -1.93%를 기록하며 전통 대형주가 상대적으로 강했다. 주가 약세에 변동성 확대가 더해지면서 방어적 자산 배분 흐름이 두드러졌다. 미 국채 10년물 금리는 4.92%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +1.04%p 높아 장기 자금 조달 부담이 남아 있다. 이번 브리핑의 주요 시계열은 허용 범위 안의 기준일을 유지해 자료 기반 해석에 큰 제약이 없다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 한다.",
     "signals": [
@@ -39,9 +39,9 @@
       },
       {
         "label": "달러/원",
-        "value": "1346.5원",
-        "change": "+0.82%",
-        "tone": "down",
+        "value": "1339.4원",
+        "change": "-0.42%",
+        "tone": "up",
         "note": "외국인 매매와 환율 민감 업종의 핵심 변수다."
       }
     ]
@@ -111,63 +111,56 @@
         "삼성전자·SK하이닉스 매매 흐름"
       ],
       "quote": {
-        "price": 4869.96,
-        "changePercent": -5.21,
+        "price": 4712.24,
+        "changePercent": -3.24,
         "currency": "pt",
         "source": "watchlist-prices"
       },
-      "price": 4869.96,
-      "changePercent": -5.21,
-      "macroScore": 14,
+      "price": 4712.24,
+      "changePercent": -3.24,
+      "macroScore": 24,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 4869.96,
-        "percentChange": -5.21,
-        "observationDate": "2026-11-20"
+        "close": 4712.24,
+        "percentChange": -3.24,
+        "observationDate": "2026-11-23"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-20",
+        "asOf": "2026-11-23",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
         "historyLength": 244,
-        "score": 21,
+        "score": 19,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -12.26%, RSI 26.6, 60일 추세 -27.28% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -13.84%, RSI 27.3, 60일 추세 -30.11% 기준으로 판단했다.",
         "indicators": {
-          "close": 4869.96,
-          "return1d": -5.21,
-          "return5d": -7.95,
-          "return20d": -12.26,
-          "return60d": -27.28,
-          "ma20": 5391.734,
-          "ma60": 6183.3222,
-          "ma120": 6817.5524,
-          "rsi14": 26.6,
-          "macd": -289.4467,
-          "macdSignal": -284.3127,
-          "macdHistogram": -5.134,
-          "dailyVolatility20d": 3.36,
-          "annualVolatility20d": 53.29,
-          "slope60d": -27.28,
-          "drawdown120d": -46.57,
-          "support20d": 4831.69,
+          "close": 4712.24,
+          "return1d": -3.24,
+          "return5d": -7.61,
+          "return20d": -13.84,
+          "return60d": -30.11,
+          "ma20": 5353.8725,
+          "ma60": 6149.4805,
+          "ma120": 6788.6103,
+          "rsi14": 27.3,
+          "macd": -306.5246,
+          "macdSignal": -288.7551,
+          "macdHistogram": -17.7695,
+          "dailyVolatility20d": 3.4,
+          "annualVolatility20d": 54,
+          "slope60d": -30.11,
+          "drawdown120d": -48.3,
+          "support20d": 4706.15,
           "resistance20d": 6100.11,
-          "volumeRatio20d": 0.88
+          "volumeRatio20d": 0.15
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-02-27",
-              "close": 6244.13,
-              "ma20": 5519.9125,
-              "ma60": 4758.5372,
-              "volume": 1166058
-            },
             {
               "date": "2026-03-03",
               "close": 5791.91,
@@ -1420,6 +1413,13 @@
               "ma20": 5391.734,
               "ma60": 6183.3222,
               "volume": 206729
+            },
+            {
+              "date": "2026-11-23",
+              "close": 4712.24,
+              "ma20": 5353.8725,
+              "ma60": 6149.4805,
+              "volume": 34570
             }
           ]
         }
@@ -1449,7 +1449,7 @@
         ]
       },
       "forecast": {
-        "score": 18,
+        "score": 21,
         "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -1457,17 +1457,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -6.06,
-            "upProbabilityPct": 31,
-            "rangeLowPct": -6.09,
-            "rangeHighPct": 6.09
+            "expectedReturnPct": -5.63,
+            "upProbabilityPct": 33,
+            "rangeLowPct": -6.61,
+            "rangeHighPct": 6.61
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -18.26,
-            "upProbabilityPct": 24,
-            "rangeLowPct": -16.26,
-            "rangeHighPct": 16.26
+            "expectedReturnPct": -18.17,
+            "upProbabilityPct": 27,
+            "rangeLowPct": -17.84,
+            "rangeHighPct": 17.84
           }
         ]
       },
@@ -1551,63 +1551,56 @@
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있다."
       ],
       "quote": {
-        "price": 132,
-        "changePercent": 10.92,
+        "price": 140,
+        "changePercent": 6.06,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 132,
-      "changePercent": 10.92,
-      "macroScore": 66,
-      "macroTone": "우호",
-      "macroToneClass": "positive",
+      "price": 140,
+      "changePercent": 6.06,
+      "macroScore": 57,
+      "macroTone": "중립",
+      "macroToneClass": "neutral",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 4869.96,
-        "percentChange": -5.21,
-        "observationDate": "2026-11-20"
+        "close": 4712.24,
+        "percentChange": -3.24,
+        "observationDate": "2026-11-23"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-20",
+        "asOf": "2026-11-23",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
         "historyLength": 244,
         "score": 100,
         "tone": "상방 우위",
         "toneClass": "positive",
-        "summary": "상방 우위 신호다. 20거래일 수익률 22.22%, RSI 70.1, 60일 추세 65% 기준으로 판단했다.",
+        "summary": "상방 우위 신호다. 20거래일 수익률 25%, RSI 70.4, 60일 추세 79.49% 기준으로 판단했다.",
         "indicators": {
-          "close": 132,
-          "return1d": 10.92,
-          "return5d": 17.86,
-          "return20d": 22.22,
-          "return60d": 65,
-          "ma20": 110.85,
-          "ma60": 91.1167,
-          "ma120": 89.0083,
-          "rsi14": 70.1,
-          "macd": 8.5053,
-          "macdSignal": 7.5703,
-          "macdHistogram": 0.935,
-          "dailyVolatility20d": 7.24,
-          "annualVolatility20d": 114.93,
-          "slope60d": 65,
-          "drawdown120d": -7.69,
+          "close": 140,
+          "return1d": 6.06,
+          "return5d": 14.75,
+          "return20d": 25,
+          "return60d": 79.49,
+          "ma20": 112.25,
+          "ma60": 92.15,
+          "ma120": 89.4167,
+          "rsi14": 70.4,
+          "macd": 9.6191,
+          "macdSignal": 7.9801,
+          "macdHistogram": 1.639,
+          "dailyVolatility20d": 7.3,
+          "annualVolatility20d": 115.84,
+          "slope60d": 79.49,
+          "drawdown120d": -2.1,
           "support20d": 85,
-          "resistance20d": 134,
+          "resistance20d": 141,
           "volumeRatio20d": 0.2
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-02-27",
-              "close": 238,
-              "ma20": 328.7,
-              "ma60": 502.4833,
-              "volume": 4554092077
-            },
             {
               "date": "2026-03-03",
               "close": 277,
@@ -2859,7 +2852,14 @@
               "close": 132,
               "ma20": 110.85,
               "ma60": 91.1167,
-              "volume": 2147483647
+              "volume": 7776397833
+            },
+            {
+              "date": "2026-11-23",
+              "close": 140,
+              "ma20": 112.25,
+              "ma60": 92.15,
+              "volume": 2032068097
             }
           ]
         }
@@ -2889,7 +2889,7 @@
         ]
       },
       "forecast": {
-        "score": 85,
+        "score": 81,
         "toneClass": "positive",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -2897,17 +2897,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 6.89,
-            "upProbabilityPct": 71,
-            "rangeLowPct": -9.41,
-            "rangeHighPct": 9.41
+            "expectedReturnPct": 6.83,
+            "upProbabilityPct": 69,
+            "rangeLowPct": -10.33,
+            "rangeHighPct": 10.33
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 24.89,
-            "upProbabilityPct": 78,
-            "rangeLowPct": -26.22,
-            "rangeHighPct": 26.22
+            "expectedReturnPct": 26.17,
+            "upProbabilityPct": 75,
+            "rangeLowPct": -29,
+            "rangeHighPct": 29
           }
         ]
       },
@@ -2918,7 +2918,7 @@
       ],
       "scenario": {
         "base": "KODEX 200선물인버스2X는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
-        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다.",
+        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
         "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
@@ -3014,7 +3014,7 @@
         "asOf": "2026-11-20",
         "source": "nasdaq-historical",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/nvda/historical",
-        "historyLength": 251,
+        "historyLength": 250,
         "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -4437,63 +4437,56 @@
         "HBM 경쟁 심화와 CAPEX 확대는 밸류에이션 부담으로 이어질 수 있다."
       ],
       "quote": {
-        "price": 1100000,
-        "changePercent": -7.56,
+        "price": 1081000,
+        "changePercent": -1.73,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 1100000,
-      "changePercent": -7.56,
-      "macroScore": 14,
+      "price": 1081000,
+      "changePercent": -1.73,
+      "macroScore": 24,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 4869.96,
-        "percentChange": -5.21,
-        "observationDate": "2026-11-20"
+        "close": 4712.24,
+        "percentChange": -3.24,
+        "observationDate": "2026-11-23"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-20",
+        "asOf": "2026-11-23",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=000660",
         "historyLength": 244,
-        "score": 18,
+        "score": 6,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -12.91%, RSI 29.4, 60일 추세 -34.17% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -16.2%, RSI 31, 60일 추세 -35.58% 기준으로 판단했다.",
         "indicators": {
-          "close": 1100000,
-          "return1d": -7.56,
-          "return5d": -10.79,
-          "return20d": -12.91,
-          "return60d": -34.17,
-          "ma20": 1279050,
-          "ma60": 1524283.3333,
-          "ma120": 1779016.6667,
-          "rsi14": 29.4,
-          "macd": -95205.6326,
-          "macdSignal": -92579.956,
-          "macdHistogram": -2625.6765,
-          "dailyVolatility20d": 6.25,
-          "annualVolatility20d": 99.16,
-          "slope60d": -34.17,
-          "drawdown120d": -62.32,
-          "support20d": 1089000,
+          "close": 1081000,
+          "return1d": -1.73,
+          "return5d": -3.31,
+          "return20d": -16.2,
+          "return60d": -35.58,
+          "ma20": 1268600,
+          "ma60": 1514333.3333,
+          "ma120": 1768950,
+          "rsi14": 31,
+          "macd": -97608.6611,
+          "macdSignal": -93585.697,
+          "macdHistogram": -4022.964,
+          "dailyVolatility20d": 6.22,
+          "annualVolatility20d": 98.77,
+          "slope60d": -35.58,
+          "drawdown120d": -62.97,
+          "support20d": 1076000,
           "resistance20d": 1587000,
-          "volumeRatio20d": 0.86
+          "volumeRatio20d": 0.16
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-02-27",
-              "close": 1061000,
-              "ma20": 914850,
-              "ma60": 736383.3333,
-              "volume": 6453062
-            },
             {
               "date": "2026-03-03",
               "close": 939000,
@@ -5745,7 +5738,14 @@
               "close": 1100000,
               "ma20": 1279050,
               "ma60": 1524283.3333,
-              "volume": 3265459
+              "volume": 3310840
+            },
+            {
+              "date": "2026-11-23",
+              "close": 1081000,
+              "ma20": 1268600,
+              "ma60": 1514333.3333,
+              "volume": 595653
             }
           ]
         }
@@ -5775,7 +5775,7 @@
         ]
       },
       "forecast": {
-        "score": 16,
+        "score": 14,
         "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -5783,17 +5783,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -6.23,
-            "upProbabilityPct": 30,
-            "rangeLowPct": -6.3,
-            "rangeHighPct": 6.3
+            "expectedReturnPct": -6.22,
+            "upProbabilityPct": 28,
+            "rangeLowPct": -7.4,
+            "rangeHighPct": 7.4
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -18.91,
-            "upProbabilityPct": 23,
-            "rangeLowPct": -16.91,
-            "rangeHighPct": 16.91
+            "expectedReturnPct": -20.53,
+            "upProbabilityPct": 21,
+            "rangeLowPct": -20.2,
+            "rangeHighPct": 20.2
           }
         ]
       },
@@ -5882,63 +5882,56 @@
         "파운드리 적자와 대규모 CAPEX는 이익률 회복 속도를 늦출 수 있다."
       ],
       "quote": {
-        "price": 180900,
-        "changePercent": -8.36,
+        "price": 176400,
+        "changePercent": -2.49,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 180900,
-      "changePercent": -8.36,
-      "macroScore": 14,
+      "price": 176400,
+      "changePercent": -2.49,
+      "macroScore": 24,
       "macroTone": "부담",
       "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 4869.96,
-        "percentChange": -5.21,
-        "observationDate": "2026-11-20"
+        "close": 4712.24,
+        "percentChange": -3.24,
+        "observationDate": "2026-11-23"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-20",
+        "asOf": "2026-11-23",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=005930",
         "historyLength": 244,
-        "score": 18,
+        "score": 15,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -15.27%, RSI 27.9, 60일 추세 -29.61% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -17.38%, RSI 28.8, 60일 추세 -31.36% 기준으로 판단했다.",
         "indicators": {
-          "close": 180900,
-          "return1d": -8.36,
-          "return5d": -13.44,
-          "return20d": -15.27,
-          "return60d": -29.61,
-          "ma20": 208515,
-          "ma60": 238863.3333,
-          "ma120": 263444.1667,
-          "rsi14": 27.9,
-          "macd": -12233.0036,
-          "macdSignal": -11634.9108,
-          "macdHistogram": -598.0928,
-          "dailyVolatility20d": 4.94,
-          "annualVolatility20d": 78.35,
-          "slope60d": -29.61,
-          "drawdown120d": -50.1,
-          "support20d": 179200,
+          "close": 176400,
+          "return1d": -2.49,
+          "return5d": -9.54,
+          "return20d": -17.38,
+          "return60d": -31.36,
+          "ma20": 206660,
+          "ma60": 237520,
+          "ma120": 262418.3333,
+          "rsi14": 28.8,
+          "macd": -13144.0075,
+          "macdSignal": -11936.7302,
+          "macdHistogram": -1207.2774,
+          "dailyVolatility20d": 4.95,
+          "annualVolatility20d": 78.54,
+          "slope60d": -31.36,
+          "drawdown120d": -51.34,
+          "support20d": 176200,
           "resistance20d": 249000,
-          "volumeRatio20d": 0.97
+          "volumeRatio20d": 0.19
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-02-27",
-              "close": 216500,
-              "ma20": 177970,
-              "ma60": 142281.6667,
-              "volume": 51774768
-            },
             {
               "date": "2026-03-03",
               "close": 195100,
@@ -7190,7 +7183,14 @@
               "close": 180900,
               "ma20": 208515,
               "ma60": 238863.3333,
-              "volume": 17706899
+              "volume": 17713847
+            },
+            {
+              "date": "2026-11-23",
+              "close": 176400,
+              "ma20": 206660,
+              "ma60": 237520,
+              "volume": 3410876
             }
           ]
         }
@@ -7220,7 +7220,7 @@
         ]
       },
       "forecast": {
-        "score": 16,
+        "score": 19,
         "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -7228,17 +7228,17 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -6.82,
-            "upProbabilityPct": 30,
-            "rangeLowPct": -7.09,
-            "rangeHighPct": 7.09
+            "expectedReturnPct": -6.51,
+            "upProbabilityPct": 31,
+            "rangeLowPct": -7.79,
+            "rangeHighPct": 7.79
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -21.27,
-            "upProbabilityPct": 23,
-            "rangeLowPct": -19.27,
-            "rangeHighPct": 19.27
+            "expectedReturnPct": -21.71,
+            "upProbabilityPct": 25,
+            "rangeLowPct": -21.38,
+            "rangeHighPct": 21.38
           }
         ]
       },
