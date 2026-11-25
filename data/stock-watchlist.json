@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T03:19:02.950Z",
+  "generatedAt": "2026-11-25T00:21:24.685Z",
   "title": "관심 종목 매크로·마이크로 분석",
   "description": "관심 목록은 코스피지수, 코스피 인버스 레버리지 ETF, NVIDIA, SK하이닉스, 삼성전자로 구성한다.",
   "source": {
@@ -7,40 +7,40 @@
     "briefingsPath": "data/briefings.json",
     "priceHistoryPath": "data/watchlist-prices.json",
     "configPath": "config/watchlist-stocks.json",
-    "snapshotGeneratedAt": "2026-11-24T03:17:27.416Z",
-    "latestBriefingDate": "2026-11-24",
-    "priceHistoryGeneratedAt": "2026-11-24T03:19:02.715Z"
+    "snapshotGeneratedAt": "2026-11-25T00:19:52.336Z",
+    "latestBriefingDate": "2026-11-25",
+    "priceHistoryGeneratedAt": "2026-11-25T00:21:24.516Z"
   },
   "macroBackdrop": {
-    "reportDate": "2026-11-24",
-    "title": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62",
-    "summary": "주가지수는 올랐지만 경계감도 함께 남았다. S&P500지수는 +4.73%, 나스닥 종합지수는 +6.51%, 다우존스30 산업평균지수는 +3.01%를 기록했다. 나스닥이 +6.51%를 기록하며 대형 성장주가 상대적으로 강했다. 주가가 상승했음에도 변동성이 높아 기술적 반등의 지속성을 추가로 확인해야 하는 국면이다. 미 국채 10년물 금리는 4.92%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +1.04%p 높아 장기 자금 조달 부담이 남아 있다. 이번 브리핑의 주요 시계열은 허용 범위 안의 기준일을 유지해 자료 기반 해석에 큰 제약이 없다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 한다.",
+    "reportDate": "2026-11-25",
+    "title": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36",
+    "summary": "미국 증시는 약세를 나타내며 방어 심리가 강해졌다. S&P500지수는 -0.50%, 나스닥 종합지수는 -1.48%, 다우존스30 산업평균지수는 +0.85%를 기록했다. 다우지수가 +0.85%를 기록하며 전통 대형주가 상대적으로 강했다. 주가 약세에 변동성 확대가 더해지면서 방어적 자산 배분 흐름이 두드러졌다. 미 국채 10년물 금리는 4.91%로 주가 밸류에이션 부담이 큰 구간이다. 금리가 더 오를 경우 성장주의 금리 부담이 한층 커질 가능성이 있다. 미 국채 10년물 금리는 유효 연방기금금리(EFFR)보다 +1.03%p 높아 장기 자금 조달 부담이 남아 있다. 이번 브리핑의 주요 시계열은 허용 범위 안의 기준일을 유지해 자료 기반 해석에 큰 제약이 없다. 오늘 뉴스 흐름은 정책/연준, 매크로 지표, 시장 반응 축을 우선 확인해야 한다.",
     "signals": [
       {
         "label": "S&P 500",
-        "value": "7237.17",
-        "change": "+4.73%",
-        "tone": "up",
+        "value": "7201.09",
+        "change": "-0.5%",
+        "tone": "down",
         "note": "미국 위험자산 선호의 기준 지표다."
       },
       {
         "label": "미 국채 10년물",
-        "value": "4.92%",
-        "change": "0bp",
-        "tone": "flat",
+        "value": "4.91%",
+        "change": "-1bp",
+        "tone": "up",
         "note": "성장주와 한국 증시 할인율을 좌우한다."
       },
       {
         "label": "VIX",
-        "value": "26.62",
-        "change": "-25.83%",
+        "value": "26.36",
+        "change": "-0.98%",
         "tone": "up",
         "note": "변동성 확대 여부를 보여준다."
       },
       {
         "label": "달러/원",
-        "value": "1343.7원",
-        "change": "+0.09%",
+        "value": "1345.9원",
+        "change": "+0.25%",
         "tone": "down",
         "note": "외국인 매매와 환율 민감 업종의 핵심 변수다."
       }
@@ -111,63 +111,56 @@
         "삼성전자·SK하이닉스 매매 흐름"
       ],
       "quote": {
-        "price": 5011.13,
-        "changePercent": 6.43,
+        "price": 4762.56,
+        "changePercent": -4.86,
         "currency": "pt",
         "source": "watchlist-prices"
       },
-      "price": 5011.13,
-      "changePercent": 6.43,
-      "macroScore": 100,
-      "macroTone": "우호",
-      "macroToneClass": "positive",
+      "price": 4762.56,
+      "changePercent": -4.86,
+      "macroScore": 39,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 5011.13,
-        "percentChange": 6.43,
-        "observationDate": "2026-11-24"
+        "close": 4762.56,
+        "percentChange": -4.86,
+        "observationDate": "2026-11-25"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=KOSPI",
         "historyLength": 245,
-        "score": 15,
+        "score": 4,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -11.12%, RSI 35.6, 60일 추세 -26.4% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -20.79%, RSI 36.3, 60일 추세 -31.1% 기준으로 판단했다.",
         "indicators": {
-          "close": 5011.13,
-          "return1d": 6.43,
-          "return5d": 0.86,
-          "return20d": -11.12,
-          "return60d": -26.4,
-          "ma20": 5322.327,
-          "ma60": 6119.4675,
-          "ma120": 6759.7043,
-          "rsi14": 35.6,
-          "macd": -292.7963,
-          "macdSignal": -289.6105,
-          "macdHistogram": -3.1858,
-          "dailyVolatility20d": 3.66,
-          "annualVolatility20d": 58.07,
-          "slope60d": -26.4,
-          "drawdown120d": -45.02,
+          "close": 4762.56,
+          "return1d": -4.86,
+          "return5d": -6.02,
+          "return20d": -20.79,
+          "return60d": -31.1,
+          "ma20": 5259.578,
+          "ma60": 6083.5523,
+          "ma120": 6726.1133,
+          "rsi14": 36.3,
+          "macd": -298.6157,
+          "macdSignal": -291.4767,
+          "macdHistogram": -7.139,
+          "dailyVolatility20d": 3.37,
+          "annualVolatility20d": 53.49,
+          "slope60d": -31.1,
+          "drawdown120d": -47.75,
           "support20d": 4586.8,
           "resistance20d": 6100.11,
-          "volumeRatio20d": 0.45
+          "volumeRatio20d": 0.13
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-03-04",
-              "close": 5093.54,
-              "ma20": 5544.582,
-              "ma60": 4809.1787,
-              "volume": 1637606
-            },
             {
               "date": "2026-03-05",
               "close": 5583.9,
@@ -1416,10 +1409,17 @@
             },
             {
               "date": "2026-11-24",
-              "close": 5011.13,
-              "ma20": 5322.327,
-              "ma60": 6119.4675,
-              "volume": 104049
+              "close": 5006.03,
+              "ma20": 5322.072,
+              "ma60": 6119.3825,
+              "volume": 194134
+            },
+            {
+              "date": "2026-11-25",
+              "close": 4762.56,
+              "ma20": 5259.578,
+              "ma60": 6083.5523,
+              "volume": 29201
             }
           ]
         }
@@ -1449,36 +1449,36 @@
         ]
       },
       "forecast": {
-        "score": 53,
-        "toneClass": "neutral",
+        "score": 20,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과다. 코스피지수의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 1.39,
-            "upProbabilityPct": 52,
-            "rangeLowPct": -5.71,
-            "rangeHighPct": 5.71
+            "expectedReturnPct": -6.11,
+            "upProbabilityPct": 32,
+            "rangeLowPct": -8.93,
+            "rangeHighPct": 8.93
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -2.79,
-            "upProbabilityPct": 52,
-            "rangeLowPct": -15.12,
-            "rangeHighPct": 15.12
+            "expectedReturnPct": -22.62,
+            "upProbabilityPct": 26,
+            "rangeLowPct": -24.79,
+            "rangeHighPct": 24.79
           }
         ]
       },
-      "macroSummary": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해진다.",
+      "macroSummary": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36. 핵심 변수는 미국 증시 방향, 달러/원 환율, 반도체 대형주 매매 흐름, 국내 정책·실적 기대다. 미국 위험자산 선호가 유지되고 원화 약세가 진정될수록 지수 반응이 강해진다.",
       "riskFlags": [
         "120거래일 고점 대비 낙폭이 커 변동성 관리가 필요하다."
       ],
       "scenario": {
         "base": "코스피지수는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
-        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
+        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
+        "downside": "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
     },
@@ -1551,63 +1551,56 @@
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있다."
       ],
       "quote": {
-        "price": 121,
-        "changePercent": -13.57,
+        "price": 134,
+        "changePercent": 10.74,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 121,
-      "changePercent": -13.57,
-      "macroScore": 38,
-      "macroTone": "부담",
-      "macroToneClass": "negative",
+      "price": 134,
+      "changePercent": 10.74,
+      "macroScore": 88,
+      "macroTone": "우호",
+      "macroToneClass": "positive",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 5011.13,
-        "percentChange": 6.43,
-        "observationDate": "2026-11-24"
+        "close": 4762.56,
+        "percentChange": -4.86,
+        "observationDate": "2026-11-25"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=252670",
         "historyLength": 245,
         "score": 100,
         "tone": "상방 우위",
         "toneClass": "positive",
-        "summary": "상방 우위 신호다. 20거래일 수익률 16.35%, RSI 59, 60일 추세 57.14% 기준으로 판단했다.",
+        "summary": "상방 우위 신호다. 20거래일 수익률 50.56%, RSI 59.7, 60일 추세 78.67% 기준으로 판단했다.",
         "indicators": {
-          "close": 121,
-          "return1d": -13.57,
-          "return5d": -5.47,
-          "return20d": 16.35,
-          "return60d": 57.14,
-          "ma20": 113.1,
-          "ma60": 92.8833,
-          "ma120": 89.725,
-          "rsi14": 59,
-          "macd": 8.8665,
-          "macdSignal": 8.1574,
-          "macdHistogram": 0.7091,
-          "dailyVolatility20d": 7.79,
-          "annualVolatility20d": 123.68,
-          "slope60d": 57.14,
-          "drawdown120d": -15.38,
+          "close": 134,
+          "return1d": 10.74,
+          "return5d": 9.84,
+          "return20d": 50.56,
+          "return60d": 78.67,
+          "ma20": 115.35,
+          "ma60": 93.8667,
+          "ma120": 90.2083,
+          "rsi14": 59.7,
+          "macd": 9.2128,
+          "macdSignal": 8.3685,
+          "macdHistogram": 0.8443,
+          "dailyVolatility20d": 7.2,
+          "annualVolatility20d": 114.25,
+          "slope60d": 78.67,
+          "drawdown120d": -6.29,
           "support20d": 85,
           "resistance20d": 148,
-          "volumeRatio20d": 0.21
+          "volumeRatio20d": 0.18
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-03-04",
-              "close": 346,
-              "ma20": 321.55,
-              "ma60": 488,
-              "volume": 10096103226
-            },
             {
               "date": "2026-03-05",
               "close": 279,
@@ -2859,7 +2852,14 @@
               "close": 121,
               "ma20": 113.1,
               "ma60": 92.8833,
-              "volume": 2147483647
+              "volume": 10291538740
+            },
+            {
+              "date": "2026-11-25",
+              "close": 134,
+              "ma20": 115.35,
+              "ma60": 93.8667,
+              "volume": 1897021278
             }
           ]
         }
@@ -2889,7 +2889,7 @@
         ]
       },
       "forecast": {
-        "score": 72,
+        "score": 95,
         "toneClass": "positive",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
@@ -2897,29 +2897,29 @@
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 3.09,
-            "upProbabilityPct": 63,
-            "rangeLowPct": -7.45,
-            "rangeHighPct": 7.45
+            "expectedReturnPct": 15.81,
+            "upProbabilityPct": 77,
+            "rangeLowPct": -18.85,
+            "rangeHighPct": 18.85
           },
           {
             "label": "1개월",
-            "expectedReturnPct": 14.35,
-            "upProbabilityPct": 68,
-            "rangeLowPct": -20.35,
-            "rangeHighPct": 20.35
+            "expectedReturnPct": 56.89,
+            "upProbabilityPct": 86,
+            "rangeLowPct": -54.56,
+            "rangeHighPct": 54.56
           }
         ]
       },
-      "macroSummary": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62. 핵심 변수는 코스피 하락 압력과 장중 변동성이다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔든다.",
+      "macroSummary": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36. 핵심 변수는 코스피 하락 압력과 장중 변동성이다. 일간 -2배 구조라 방향성이 맞아도 기간이 길어지면 복리 효과와 변동성 경로가 성과를 흔든다.",
       "riskFlags": [
         "레버리지 인버스 ETF는 하루 수익률 추종 상품이라 장기 보유 성과가 기초지수의 단순 -2배와 달라질 수 있다.",
         "레버리지·인버스 상품은 장기 보유 시 경로 의존성과 복리 효과를 반드시 확인해야 한다."
       ],
       "scenario": {
         "base": "KODEX 200선물인버스2X는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
-        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
-        "downside": "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
+        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다.",
+        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
     },
@@ -2999,16 +2999,22 @@
       },
       "price": 165.05,
       "changePercent": 31.48,
-      "macroScore": 90,
+      "macroScore": 77,
       "macroTone": "우호",
       "macroToneClass": "positive",
-      "sectorSignal": null,
+      "sectorSignal": {
+        "ticker": "SOXX",
+        "label": "미국 반도체 ETF",
+        "close": 139.91,
+        "percentChange": 13.38,
+        "observationDate": "2026-11-24"
+      },
       "technical": {
         "status": "ready",
         "asOf": "2026-11-23",
         "source": "nasdaq-historical",
         "sourceUrl": "https://www.nasdaq.com/market-activity/stocks/nvda/historical",
-        "historyLength": 251,
+        "historyLength": 250,
         "score": 4,
         "tone": "하방 경계",
         "toneClass": "negative",
@@ -4324,29 +4330,29 @@
         ]
       },
       "forecast": {
-        "score": 43,
-        "toneClass": "neutral",
+        "score": 37,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과다. NVIDIA의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": -2.56,
-            "upProbabilityPct": 46,
+            "expectedReturnPct": -3.65,
+            "upProbabilityPct": 42,
             "rangeLowPct": -9.86,
             "rangeHighPct": 9.86
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -16.92,
-            "upProbabilityPct": 44,
+            "expectedReturnPct": -19.09,
+            "upProbabilityPct": 40,
             "rangeLowPct": -27.59,
             "rangeHighPct": 27.59
           }
         ]
       },
-      "macroSummary": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62. 핵심 변수는 데이터센터 매출 성장, GPU 공급 여력, 클라우드 고객 투자 속도, 미국 금리와 기술주 위험선호다. AI 인프라 투자가 유지되면 프리미엄 밸류에이션을 방어하지만, 기대치가 높아 실적 가이던스와 마진 변화에 민감하다.",
+      "macroSummary": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36. 핵심 변수는 데이터센터 매출 성장, GPU 공급 여력, 클라우드 고객 투자 속도, 미국 금리와 기술주 위험선호다. AI 인프라 투자가 유지되면 프리미엄 밸류에이션을 방어하지만, 기대치가 높아 실적 가이던스와 마진 변화에 민감하다.",
       "riskFlags": [
         "AI 관련 기대가 높아 실적 발표 전후 변동성이 커질 수 있다.",
         "수출 규제와 공급망 제약은 매출 가시성을 흔들 수 있다.",
@@ -4431,63 +4437,56 @@
         "HBM 경쟁 심화와 CAPEX 확대는 밸류에이션 부담으로 이어질 수 있다."
       ],
       "quote": {
-        "price": 1169500,
-        "changePercent": 6.22,
+        "price": 1080000,
+        "changePercent": -2.96,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 1169500,
-      "changePercent": 6.22,
-      "macroScore": 100,
-      "macroTone": "우호",
-      "macroToneClass": "positive",
+      "price": 1080000,
+      "changePercent": -2.96,
+      "macroScore": 39,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 5011.13,
-        "percentChange": 6.43,
-        "observationDate": "2026-11-24"
+        "close": 4762.56,
+        "percentChange": -4.86,
+        "observationDate": "2026-11-25"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=000660",
         "historyLength": 245,
-        "score": 22,
+        "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -14.88%, RSI 36.4, 60일 추세 -30.72% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -28.38%, RSI 37.7, 60일 추세 -37.57% 기준으로 판단했다.",
         "indicators": {
-          "close": 1169500,
-          "return1d": 6.22,
-          "return5d": 6.32,
-          "return20d": -14.88,
-          "return60d": -30.72,
-          "ma20": 1259375,
-          "ma60": 1506025,
-          "ma120": 1759420.8333,
-          "rsi14": 36.4,
-          "macd": -90087.3891,
-          "macdSignal": -92630.7648,
-          "macdHistogram": 2543.3757,
-          "dailyVolatility20d": 6.2,
-          "annualVolatility20d": 98.47,
-          "slope60d": -30.72,
-          "drawdown120d": -59.93,
+          "close": 1080000,
+          "return1d": -2.96,
+          "return5d": -7.22,
+          "return20d": -28.38,
+          "return60d": -37.57,
+          "ma20": 1235150,
+          "ma60": 1494250,
+          "ma120": 1748258.3333,
+          "rsi14": 37.7,
+          "macd": -95037.4668,
+          "macdSignal": -93833.2448,
+          "macdHistogram": -1204.222,
+          "dailyVolatility20d": 5.51,
+          "annualVolatility20d": 87.53,
+          "slope60d": -37.57,
+          "drawdown120d": -63,
           "support20d": 1044000,
           "resistance20d": 1587000,
-          "volumeRatio20d": 0.55
+          "volumeRatio20d": 0.09
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-03-04",
-              "close": 849000,
-              "ma20": 919150,
-              "ma60": 748383.3333,
-              "volume": 9253420
-            },
             {
               "date": "2026-03-05",
               "close": 941000,
@@ -5736,10 +5735,17 @@
             },
             {
               "date": "2026-11-24",
-              "close": 1169500,
-              "ma20": 1259375,
-              "ma60": 1506025,
-              "volume": 2110824
+              "close": 1113000,
+              "ma20": 1256550,
+              "ma60": 1505083.3333,
+              "volume": 3611127
+            },
+            {
+              "date": "2026-11-25",
+              "close": 1080000,
+              "ma20": 1235150,
+              "ma60": 1494250,
+              "volume": 351163
             }
           ]
         }
@@ -5769,29 +5775,29 @@
         ]
       },
       "forecast": {
-        "score": 57,
-        "toneClass": "neutral",
+        "score": 18,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과다. SK하이닉스의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 0.45,
-            "upProbabilityPct": 54,
-            "rangeLowPct": -6.96,
-            "rangeHighPct": 6.96
+            "expectedReturnPct": -8.01,
+            "upProbabilityPct": 31,
+            "rangeLowPct": -11.46,
+            "rangeHighPct": 11.46
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -6.55,
-            "upProbabilityPct": 56,
-            "rangeLowPct": -18.88,
-            "rangeHighPct": 18.88
+            "expectedReturnPct": -30.21,
+            "upProbabilityPct": 24,
+            "rangeLowPct": -32.38,
+            "rangeHighPct": 32.38
           }
         ]
       },
-      "macroSummary": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62. 핵심 변수는 HBM 출하와 단가, DRAM·NAND 가격 사이클, 원/달러 환율, NVIDIA와 글로벌 AI 반도체 투자 흐름이다. AI 서버 수요가 유지되면 이익 레버리지가 크지만, 메모리 가격 둔화와 CAPEX 부담에는 민감하다.",
+      "macroSummary": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36. 핵심 변수는 HBM 출하와 단가, DRAM·NAND 가격 사이클, 원/달러 환율, NVIDIA와 글로벌 AI 반도체 투자 흐름이다. AI 서버 수요가 유지되면 이익 레버리지가 크지만, 메모리 가격 둔화와 CAPEX 부담에는 민감하다.",
       "riskFlags": [
         "메모리 업황은 가격 사이클에 따라 이익 변동성이 크다.",
         "HBM 경쟁 심화와 CAPEX 확대는 밸류에이션 부담으로 이어질 수 있다.",
@@ -5799,8 +5805,8 @@
       ],
       "scenario": {
         "base": "SK하이닉스는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
-        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
+        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
+        "downside": "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
     },
@@ -5876,63 +5882,56 @@
         "파운드리 적자와 대규모 CAPEX는 이익률 회복 속도를 늦출 수 있다."
       ],
       "quote": {
-        "price": 191200,
-        "changePercent": 5.87,
+        "price": 175600,
+        "changePercent": -3.99,
         "currency": "KRW",
         "source": "watchlist-prices"
       },
-      "price": 191200,
-      "changePercent": 5.87,
-      "macroScore": 100,
-      "macroTone": "우호",
-      "macroToneClass": "positive",
+      "price": 175600,
+      "changePercent": -3.99,
+      "macroScore": 39,
+      "macroTone": "부담",
+      "macroToneClass": "negative",
       "sectorSignal": {
         "ticker": "KOSPI",
         "label": "KOSPI",
-        "close": 5011.13,
-        "percentChange": 6.43,
-        "observationDate": "2026-11-24"
+        "close": 4762.56,
+        "percentChange": -4.86,
+        "observationDate": "2026-11-25"
       },
       "technical": {
         "status": "ready",
-        "asOf": "2026-11-24",
+        "asOf": "2026-11-25",
         "source": "Naver Finance siseJson",
         "sourceUrl": "https://finance.naver.com/item/main.naver?code=005930",
         "historyLength": 245,
-        "score": 11,
+        "score": 0,
         "tone": "하방 경계",
         "toneClass": "negative",
-        "summary": "하방 경계 신호다. 20거래일 수익률 -15.02%, RSI 36.7, 60일 추세 -26.88% 기준으로 판단했다.",
+        "summary": "하방 경계 신호다. 20거래일 수익률 -28.33%, RSI 36, 60일 추세 -33.98% 기준으로 판단했다.",
         "indicators": {
-          "close": 191200,
-          "return1d": 5.87,
-          "return5d": 0.74,
-          "return20d": -15.02,
-          "return60d": -26.88,
-          "ma20": 205180,
-          "ma60": 236418.3333,
-          "ma120": 261405,
-          "rsi14": 36.7,
-          "macd": -12268.6613,
-          "macdSignal": -11949.5096,
-          "macdHistogram": -319.1517,
-          "dailyVolatility20d": 4.97,
-          "annualVolatility20d": 78.83,
-          "slope60d": -26.88,
-          "drawdown120d": -47.26,
+          "close": 175600,
+          "return1d": -3.99,
+          "return5d": -10.59,
+          "return20d": -28.33,
+          "return60d": -33.98,
+          "ma20": 201295,
+          "ma60": 234773.3333,
+          "ma120": 259890.8333,
+          "rsi14": 36,
+          "macd": -13461.1776,
+          "macdSignal": -12357.7805,
+          "macdHistogram": -1103.3971,
+          "dailyVolatility20d": 4.23,
+          "annualVolatility20d": 67.16,
+          "slope60d": -33.98,
+          "drawdown120d": -51.56,
           "support20d": 171500,
           "resistance20d": 249000,
-          "volumeRatio20d": 0.56
+          "volumeRatio20d": 0.19
         },
         "chart": {
           "points": [
-            {
-              "date": "2026-03-04",
-              "close": 172200,
-              "ma20": 180180,
-              "ma60": 145048.3333,
-              "volume": 89427954
-            },
             {
               "date": "2026-03-05",
               "close": 191600,
@@ -7181,10 +7180,17 @@
             },
             {
               "date": "2026-11-24",
-              "close": 191200,
-              "ma20": 205180,
-              "ma60": 236418.3333,
-              "volume": 10252328
+              "close": 182900,
+              "ma20": 204765,
+              "ma60": 236280,
+              "volume": 17079045
+            },
+            {
+              "date": "2026-11-25",
+              "close": 175600,
+              "ma20": 201295,
+              "ma60": 234773.3333,
+              "volume": 3362989
             }
           ]
         }
@@ -7214,29 +7220,29 @@
         ]
       },
       "forecast": {
-        "score": 51,
-        "toneClass": "neutral",
+        "score": 18,
+        "toneClass": "negative",
         "confidence": "보통",
         "confidenceNote": "가격 이력과 일일 매크로 스냅샷만 반영한다.",
         "summary": "기술 점수와 매크로 점수를 결합한 정량 점검 결과다. 삼성전자의 단기 방향성은 가격 추세와 시장 배경을 함께 확인해야 한다.",
         "horizons": [
           {
             "label": "1주",
-            "expectedReturnPct": 0.41,
-            "upProbabilityPct": 51,
-            "rangeLowPct": -7.01,
-            "rangeHighPct": 7.01
+            "expectedReturnPct": -8,
+            "upProbabilityPct": 31,
+            "rangeLowPct": -11.44,
+            "rangeHighPct": 11.44
           },
           {
             "label": "1개월",
-            "expectedReturnPct": -6.69,
-            "upProbabilityPct": 51,
-            "rangeLowPct": -19.02,
-            "rangeHighPct": 19.02
+            "expectedReturnPct": -30.16,
+            "upProbabilityPct": 24,
+            "rangeLowPct": -32.33,
+            "rangeHighPct": 32.33
           }
         ]
       },
-      "macroSummary": "나스닥 주도 강세, 10년물 4.92% · VIX 26.62. 핵심 변수는 메모리 가격 회복, HBM 경쟁력 개선, 파운드리 적자 축소, 스마트폰·서버 수요, 외국인 매매 흐름이다. 코스피 대표주라 미국 기술주와 환율, 국내 매매 흐름이 함께 작용한다.",
+      "macroSummary": "다우 방어에도 하락 우위, 10년물 4.91% · VIX 26.36. 핵심 변수는 메모리 가격 회복, HBM 경쟁력 개선, 파운드리 적자 축소, 스마트폰·서버 수요, 외국인 매매 흐름이다. 코스피 대표주라 미국 기술주와 환율, 국내 매매 흐름이 함께 작용한다.",
       "riskFlags": [
         "HBM 경쟁력 회복이 지연되면 상대 성과가 둔화될 수 있다.",
         "파운드리 적자와 대규모 CAPEX는 이익률 회복 속도를 늦출 수 있다.",
@@ -7244,8 +7250,8 @@
       ],
       "scenario": {
         "base": "삼성전자는 현재 매크로 배경과 가격 추세를 함께 확인하는 구간이다.",
-        "upside": "우호적인 매크로 신호가 이어지고 가격이 단기 저항선을 넘으면 탄력이 강화된다.",
-        "downside": "거래량 둔화와 매크로 지표 악화가 겹치면 방어적 해석이 필요하다."
+        "upside": "금리·환율·변동성 부담이 완화되면 반등 여지가 생긴다.",
+        "downside": "부담 요인이 이어지면 단기 지지선 이탈과 변동성 확대를 경계해야 한다."
       },
       "disclaimer": "본 페이지는 자동 수집 데이터와 사용자가 정의한 종목 메모를 결합한 정보 제공 자료이며 투자자문이 아니다."
     }
