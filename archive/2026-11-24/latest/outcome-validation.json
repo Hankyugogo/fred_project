@@ -4,10 +4,10 @@
   "briefingTitle": "미 증시 동반 강세, 장기금리 4.92% 부담 점검",
   "sourceRunId": "20261124T031937067Z",
   "sourceGeneratedAt": "2026-11-24T03:17:27.416Z",
-  "validatedAt": "2026-11-25T00:22:09.996Z",
-  "validationRunId": "20261125T002209918Z",
+  "validatedAt": "2026-11-26T00:36:07.432Z",
+  "validationRunId": "20261126T003607340Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-25T00:21:29.292Z",
+    "macroHistoryGeneratedAt": "2026-11-26T00:35:26.947Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-24",
           "baseValue": 1343.7,
-          "targetDate": "2026-11-25",
-          "actualValue": 1345.9,
+          "targetDate": "2026-11-26",
+          "actualValue": 1343.2,
           "horizonSessions": 1,
-          "absoluteChange": 2.2,
-          "percentChange": 0.1637,
+          "absoluteChange": -0.5,
+          "percentChange": -0.0372,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -139,10 +139,10 @@
           "baseDate": "2026-11-23",
           "baseValue": 80.25,
           "targetDate": "2026-11-24",
-          "actualValue": 81.65,
+          "actualValue": 82.24,
           "horizonSessions": 1,
-          "absoluteChange": 1.4,
-          "percentChange": 1.7445,
+          "absoluteChange": 1.99,
+          "percentChange": 2.4798,
           "status": "complete"
         }
       },
@@ -198,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-24",
           "baseValue": 1343.7,
-          "checkedThroughDate": "2026-11-25",
-          "min": 1345.9,
-          "max": 1345.9,
+          "checkedThroughDate": "2026-11-26",
+          "min": 1343.2,
+          "max": 1343.2,
           "touchedThresholds": []
         },
         {
@@ -212,9 +212,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-24",
           "baseValue": 1343.7,
-          "checkedThroughDate": "2026-11-25",
-          "min": 1345.9,
-          "max": 1345.9,
+          "checkedThroughDate": "2026-11-26",
+          "min": 1343.2,
+          "max": 1343.2,
           "touchedThresholds": []
         },
         {
@@ -332,8 +332,8 @@
           "baseValue": 7237.17,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "NASDAQCOM": {
           "id": "NASDAQCOM",
@@ -342,8 +342,8 @@
           "baseValue": 24089.56,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "DJIA": {
           "id": "DJIA",
@@ -352,8 +352,8 @@
           "baseValue": 49595.31,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "DGS10": {
           "id": "DGS10",
@@ -362,8 +362,8 @@
           "baseValue": 4.92,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "DGS2": {
           "id": "DGS2",
@@ -372,8 +372,8 @@
           "baseValue": 4.63,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "VIXCLS": {
           "id": "VIXCLS",
@@ -382,8 +382,8 @@
           "baseValue": 26.62,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -393,7 +393,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-25"
+          "latestHistoryDate": "2026-11-26"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -402,8 +402,8 @@
           "baseValue": 80.25,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-24"
+          "availableFutureSessions": 2,
+          "latestHistoryDate": "2026-11-25"
         }
       },
       "watchLevels": [
@@ -416,8 +416,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 4.92,
-          "checkedThroughDate": "2026-11-24",
-          "min": 4.91,
+          "checkedThroughDate": "2026-11-25",
+          "min": 4.85,
           "max": 4.91,
           "touchedThresholds": []
         },
@@ -430,9 +430,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 26.62,
-          "checkedThroughDate": "2026-11-24",
+          "checkedThroughDate": "2026-11-25",
           "min": 26.36,
-          "max": 26.36,
+          "max": 28.29,
           "touchedThresholds": []
         },
         {
@@ -444,8 +444,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 24089.56,
-          "checkedThroughDate": "2026-11-24",
-          "min": 23733.54,
+          "checkedThroughDate": "2026-11-25",
+          "min": 23585.8,
           "max": 23733.54,
           "touchedThresholds": []
         },
@@ -458,9 +458,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-24",
           "baseValue": 1343.7,
-          "checkedThroughDate": "2026-11-25",
-          "min": 1345.9,
-          "max": 1345.9,
+          "checkedThroughDate": "2026-11-26",
+          "min": 1343.2,
+          "max": 1343.2,
           "touchedThresholds": []
         },
         {
@@ -472,9 +472,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-24",
           "baseValue": 1343.7,
-          "checkedThroughDate": "2026-11-25",
-          "min": 1345.9,
-          "max": 1345.9,
+          "checkedThroughDate": "2026-11-26",
+          "min": 1343.2,
+          "max": 1343.2,
           "touchedThresholds": []
         },
         {
@@ -493,8 +493,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 4.92,
-          "checkedThroughDate": "2026-11-24",
-          "min": 4.91,
+          "checkedThroughDate": "2026-11-25",
+          "min": 4.85,
           "max": 4.91,
           "touchedThresholds": []
         },
@@ -520,8 +520,8 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 4.92,
-          "checkedThroughDate": "2026-11-24",
-          "min": 4.91,
+          "checkedThroughDate": "2026-11-25",
+          "min": 4.85,
           "max": 4.91,
           "touchedThresholds": []
         },
@@ -546,9 +546,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-23",
           "baseValue": 26.62,
-          "checkedThroughDate": "2026-11-24",
+          "checkedThroughDate": "2026-11-25",
           "min": 26.36,
-          "max": 26.36,
+          "max": 28.29,
           "touchedThresholds": []
         }
       ]

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-25T00:22:10.006Z",
-  "validationRunId": "20261125T002209918Z",
+  "generatedAt": "2026-11-26T00:36:07.447Z",
+  "validationRunId": "20261126T003607340Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-25T00:21:29.292Z",
+    "macroHistoryGeneratedAt": "2026-11-26T00:35:26.947Z",
     "horizons": [
       1,
       5
@@ -5261,9 +5261,9 @@
       "reportDate": "2026-11-19",
       "briefingTitle": "[데일리 마감] 나스닥 선방 속 지수 혼조… FOMC 의사록 주목",
       "sourceRunId": "20261118T230435292Z",
-      "validatedAt": "2026-11-25T00:22:09.968Z",
+      "validatedAt": "2026-11-26T00:36:07.390Z",
       "overall": {
-        "status": "partial",
+        "status": "complete",
         "score": 66.7,
         "classification": "mixed"
       },
@@ -5279,12 +5279,12 @@
         },
         {
           "horizonSessions": 5,
-          "status": "pending",
-          "score": null,
-          "classification": "pending",
-          "hitCount": 0,
+          "status": "complete",
+          "score": 66.7,
+          "classification": "mixed",
+          "hitCount": 2,
           "partialCount": 0,
-          "missCount": 0
+          "missCount": 1
         }
       ],
       "archivePath": "archive/2026-11-19/latest/outcome-validation.json"
@@ -5293,7 +5293,7 @@
       "reportDate": "2026-11-20",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20261120T021655762Z",
-      "validatedAt": "2026-11-25T00:22:09.977Z",
+      "validatedAt": "2026-11-26T00:36:07.405Z",
       "overall": {
         "status": "partial",
         "score": 100,
@@ -5325,7 +5325,7 @@
       "reportDate": "2026-11-21",
       "briefingTitle": "미 증시 동반 약세, 금리와 변동성 부담 점검",
       "sourceRunId": "20261120T225625615Z",
-      "validatedAt": "2026-11-25T00:22:09.982Z",
+      "validatedAt": "2026-11-26T00:36:07.415Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -5357,7 +5357,7 @@
       "reportDate": "2026-11-22",
       "briefingTitle": "[데일리 마감] 미 증시 급락, VIX 35.89 기록",
       "sourceRunId": "20261121T225818812Z",
-      "validatedAt": "2026-11-25T00:22:09.987Z",
+      "validatedAt": "2026-11-26T00:36:07.421Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -5389,7 +5389,7 @@
       "reportDate": "2026-11-23",
       "briefingTitle": "[데일리 마감] 미 증시 일제히 급락, 기술주 낙폭 확대",
       "sourceRunId": "20261123T002546150Z",
-      "validatedAt": "2026-11-25T00:22:09.992Z",
+      "validatedAt": "2026-11-26T00:36:07.426Z",
       "overall": {
         "status": "partial",
         "score": 16.7,
@@ -5421,7 +5421,7 @@
       "reportDate": "2026-11-24",
       "briefingTitle": "미 증시 동반 강세, 장기금리 4.92% 부담 점검",
       "sourceRunId": "20261124T031937067Z",
-      "validatedAt": "2026-11-25T00:22:09.996Z",
+      "validatedAt": "2026-11-26T00:36:07.432Z",
       "overall": {
         "status": "partial",
         "score": 33.3,
@@ -5453,7 +5453,39 @@
       "reportDate": "2026-11-25",
       "briefingTitle": "[데일리 마감] 다우 방어 속 나스닥 하락, 연준 회의록 주목",
       "sourceRunId": "20261125T002209743Z",
-      "validatedAt": "2026-11-25T00:22:10.001Z",
+      "validatedAt": "2026-11-26T00:36:07.436Z",
+      "overall": {
+        "status": "partial",
+        "score": 83.3,
+        "classification": "confirmed"
+      },
+      "horizons": [
+        {
+          "horizonSessions": 1,
+          "status": "complete",
+          "score": 83.3,
+          "classification": "confirmed",
+          "hitCount": 2,
+          "partialCount": 1,
+          "missCount": 0
+        },
+        {
+          "horizonSessions": 5,
+          "status": "pending",
+          "score": null,
+          "classification": "pending",
+          "hitCount": 0,
+          "partialCount": 0,
+          "missCount": 0
+        }
+      ],
+      "archivePath": "archive/2026-11-25/latest/outcome-validation.json"
+    },
+    {
+      "reportDate": "2026-11-26",
+      "briefingTitle": "[데일리 마감] 다우 강세 속 혼조 마감… 국채 금리 하락",
+      "sourceRunId": "20261126T003607071Z",
+      "validatedAt": "2026-11-26T00:36:07.442Z",
       "overall": {
         "status": "pending",
         "score": null,
@@ -5479,7 +5511,7 @@
           "missCount": 0
         }
       ],
-      "archivePath": "archive/2026-11-25/latest/outcome-validation.json"
+      "archivePath": "archive/2026-11-26/latest/outcome-validation.json"
     }
   ]
 }
