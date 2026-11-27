@@ -4,27 +4,27 @@
   "briefingTitle": "[데일리 마감] 다우 강세 속 혼조 마감… 국채 금리 하락",
   "sourceRunId": "20261126T003607071Z",
   "sourceGeneratedAt": "2026-11-26T00:33:58.311Z",
-  "validatedAt": "2026-11-26T00:36:07.442Z",
-  "validationRunId": "20261126T003607340Z",
+  "validatedAt": "2026-11-27T00:31:03.775Z",
+  "validationRunId": "20261127T003103643Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-26T00:35:26.947Z",
+    "macroHistoryGeneratedAt": "2026-11-27T00:30:18.743Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
   "overall": {
-    "status": "pending",
-    "score": null,
-    "classification": "pending"
+    "status": "partial",
+    "score": 0,
+    "classification": "miss"
   },
   "horizons": [
     {
       "horizonSessions": 1,
-      "status": "pending",
-      "score": null,
-      "classification": "pending",
+      "status": "complete",
+      "score": 0,
+      "classification": "miss",
       "hitCount": 0,
       "partialCount": 0,
-      "missCount": 0,
+      "missCount": 1,
       "checks": [
         {
           "id": "equity-follow-through",
@@ -44,8 +44,8 @@
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
           "expected": "up",
-          "actual": "pending",
-          "result": "pending"
+          "actual": "down",
+          "result": "miss"
         }
       ],
       "observations": {
@@ -104,30 +104,36 @@
           "label": "VIX",
           "baseDate": "2026-11-25",
           "baseValue": 28.29,
+          "targetDate": "2026-11-26",
+          "actualValue": 26.8,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-25"
+          "absoluteChange": -1.49,
+          "percentChange": -5.2669,
+          "status": "complete"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
           "label": "달러/원 환율",
           "baseDate": "2026-11-26",
           "baseValue": 1343.2,
+          "targetDate": "2026-11-27",
+          "actualValue": 1344.2,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-26"
+          "absoluteChange": 1,
+          "percentChange": 0.0744,
+          "status": "complete"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
           "label": "WTI 유가",
           "baseDate": "2026-11-25",
           "baseValue": 84.03,
+          "targetDate": "2026-11-26",
+          "actualValue": 85.11,
           "horizonSessions": 1,
-          "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-25"
+          "absoluteChange": 1.08,
+          "percentChange": 1.2853,
+          "status": "complete"
         }
       },
       "watchLevels": [
@@ -147,9 +153,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-26",
-          "baseValue": 1343.2
+          "baseValue": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
+          "touchedThresholds": []
         },
         {
           "text": "SOXX(미 반도체 ETF) 135달러 지지 여부",
@@ -169,9 +179,13 @@
           "thresholds": [
             1360
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-26",
-          "baseValue": 1343.2
+          "baseValue": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
+          "touchedThresholds": []
         },
         {
           "text": "광의 달러지수(DXY) 104 상회 여부",
@@ -338,8 +352,8 @@
           "baseValue": 28.29,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-25"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-26"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -348,8 +362,8 @@
           "baseValue": 1343.2,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-26"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-27"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -358,8 +372,8 @@
           "baseValue": 84.03,
           "horizonSessions": 5,
           "status": "pending",
-          "availableFutureSessions": 0,
-          "latestHistoryDate": "2026-11-25"
+          "availableFutureSessions": 1,
+          "latestHistoryDate": "2026-11-26"
         }
       },
       "watchLevels": [
@@ -379,9 +393,13 @@
           "thresholds": [
             1350
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-26",
-          "baseValue": 1343.2
+          "baseValue": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
+          "touchedThresholds": []
         },
         {
           "text": "SOXX(미 반도체 ETF) 135달러 지지 여부",
@@ -401,9 +419,13 @@
           "thresholds": [
             1360
           ],
-          "status": "pending",
+          "status": "not_touched",
           "baseDate": "2026-11-26",
-          "baseValue": 1343.2
+          "baseValue": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
+          "touchedThresholds": []
         },
         {
           "text": "광의 달러지수(DXY) 104 상회 여부",

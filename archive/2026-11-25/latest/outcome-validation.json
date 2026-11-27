@@ -4,26 +4,26 @@
   "briefingTitle": "[데일리 마감] 다우 방어 속 나스닥 하락, 연준 회의록 주목",
   "sourceRunId": "20261125T002209743Z",
   "sourceGeneratedAt": "2026-11-25T00:19:52.336Z",
-  "validatedAt": "2026-11-26T00:36:07.436Z",
-  "validationRunId": "20261126T003607340Z",
+  "validatedAt": "2026-11-27T00:31:03.768Z",
+  "validationRunId": "20261127T003103643Z",
   "basis": {
-    "macroHistoryGeneratedAt": "2026-11-26T00:35:26.947Z",
+    "macroHistoryGeneratedAt": "2026-11-27T00:30:18.743Z",
     "macroHistoryRange": "~14mo",
     "note": "Directional follow-through check. This evaluates whether later market data aligned with the report's stated risk framing; it is not a trading P/L backtest."
   },
   "overall": {
     "status": "partial",
-    "score": 83.3,
+    "score": 100,
     "classification": "confirmed"
   },
   "horizons": [
     {
       "horizonSessions": 1,
       "status": "complete",
-      "score": 83.3,
+      "score": 100,
       "classification": "confirmed",
-      "hitCount": 2,
-      "partialCount": 1,
+      "hitCount": 3,
+      "partialCount": 0,
       "missCount": 0,
       "checks": [
         {
@@ -44,8 +44,8 @@
           "id": "volatility-follow-through",
           "label": "변동성 방향성",
           "expected": "mixed",
-          "actual": "up",
-          "result": "partial"
+          "actual": "mixed",
+          "result": "hit"
         }
       ],
       "observations": {
@@ -114,11 +114,11 @@
           "label": "VIX",
           "baseDate": "2026-11-24",
           "baseValue": 26.36,
-          "targetDate": "2026-11-25",
-          "actualValue": 28.29,
+          "targetDate": "2026-11-26",
+          "actualValue": 26.8,
           "horizonSessions": 1,
-          "absoluteChange": 1.93,
-          "percentChange": 7.3217,
+          "absoluteChange": 0.44,
+          "percentChange": 1.6692,
           "status": "complete"
         },
         "DEXKOUS": {
@@ -126,11 +126,11 @@
           "label": "달러/원 환율",
           "baseDate": "2026-11-25",
           "baseValue": 1345.9,
-          "targetDate": "2026-11-26",
-          "actualValue": 1343.2,
+          "targetDate": "2026-11-27",
+          "actualValue": 1344.2,
           "horizonSessions": 1,
-          "absoluteChange": -2.7,
-          "percentChange": -0.2006,
+          "absoluteChange": -1.7,
+          "percentChange": -0.1263,
           "status": "complete"
         },
         "DCOILWTICO": {
@@ -138,11 +138,11 @@
           "label": "WTI 유가",
           "baseDate": "2026-11-24",
           "baseValue": 81.65,
-          "targetDate": "2026-11-25",
-          "actualValue": 84.03,
+          "targetDate": "2026-11-26",
+          "actualValue": 85.11,
           "horizonSessions": 1,
-          "absoluteChange": 2.38,
-          "percentChange": 2.9149,
+          "absoluteChange": 3.46,
+          "percentChange": 4.2376,
           "status": "complete"
         }
       },
@@ -172,9 +172,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-25",
           "baseValue": 1345.9,
-          "checkedThroughDate": "2026-11-26",
-          "min": 1343.2,
-          "max": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
           "touchedThresholds": []
         },
         {
@@ -198,9 +198,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-25",
           "baseValue": 1345.9,
-          "checkedThroughDate": "2026-11-26",
-          "min": 1343.2,
-          "max": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
           "touchedThresholds": []
         },
         {
@@ -378,7 +378,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-25"
+          "latestHistoryDate": "2026-11-26"
         },
         "DEXKOUS": {
           "id": "DEXKOUS",
@@ -388,7 +388,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-26"
+          "latestHistoryDate": "2026-11-27"
         },
         "DCOILWTICO": {
           "id": "DCOILWTICO",
@@ -398,7 +398,7 @@
           "horizonSessions": 5,
           "status": "pending",
           "availableFutureSessions": 1,
-          "latestHistoryDate": "2026-11-25"
+          "latestHistoryDate": "2026-11-26"
         }
       },
       "watchLevels": [
@@ -427,9 +427,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-25",
           "baseValue": 1345.9,
-          "checkedThroughDate": "2026-11-26",
-          "min": 1343.2,
-          "max": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
           "touchedThresholds": []
         },
         {
@@ -453,9 +453,9 @@
           "status": "not_touched",
           "baseDate": "2026-11-25",
           "baseValue": 1345.9,
-          "checkedThroughDate": "2026-11-26",
-          "min": 1343.2,
-          "max": 1343.2,
+          "checkedThroughDate": "2026-11-27",
+          "min": 1344.2,
+          "max": 1344.2,
           "touchedThresholds": []
         },
         {
